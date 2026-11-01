@@ -65,6 +65,42 @@
   };
   const unitText = (p) => (p.unit ? num(p.unit) + ' Ft/kg' : '');
   const metaText = (p) => [p.pack, unitText(p)].filter(Boolean).join(' · ');
+  const firstWord = (p) => norm(p.name).split(/[\s(,]/)[0];
+
+  /* ================= upsell, keresztajánlás ================= */
+  // Ami illik egy termékhez: termékszintű lista, különben kategóriaszintű, végül a kiemeltek.
+  function complements(p, exclude) {
+    const ex = new Set((exclude || []).concat([p.id, p.variant].filter(Boolean)));
+    const ids = (BG.pairByProduct[p.id] || []).concat(BG.pairByCat[p.cat] || [], BG.featured);
+    const out = [];
+    ids.forEach((id) => { if (P[id] && !ex.has(id) && !out.includes(id)) out.push(id); });
+    return out.map((id) => P[id]);
+  }
+  // Ugyanaz a termék nagyobb kiszerelésben, kedvezőbb kilóárral (pl. zsír 1 kg → 5 kg).
+  function biggerPack(p) {
+    const g = grams(p) || 0;
+    return BG.products.filter((x) => x.id !== p.id && x.cat === p.cat && firstWord(x) === firstWord(p) && x.unit && p.unit && x.unit < p.unit && (grams(x) || 0) > g)
+      .sort((a, b) => a.unit - b.unit)[0] || null;
+  }
+  const savePct = (p, b) => Math.round((1 - b.unit / p.unit) * 100);
+  function cartComplements(limit) {
+    const c = getCart();
+    const inCart = c.map((i) => i.id);
+    const out = [];
+    c.forEach((i) => complements(P[i.id], inCart).forEach((x) => { if (!out.includes(x)) out.push(x); }));
+    return out.slice(0, limit || 4);
+  }
+  function recRow(p) {
+    return '<div class="rec-row"><img src="' + img(p.img) + '" alt=""><div class="n"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><br><span class="muted">' + esc(p.pack) + ' · ' + ft(p.price) + '</span></div>' +
+      '<button type="button" class="plus" data-add="' + p.id + '" aria-label="Kosárba: ' + esc(p.name) + '">+</button></div>';
+  }
+  function upsellBox(p) {
+    const big = biggerPack(p);
+    if (!big) return '';
+    return '<div class="upsell-box"><img src="' + img(big.img) + '" alt=""><div class="txt"><strong>Nagyobb kiszerelés, jobb kilóár</strong> <span class="save">−' + savePct(p, big) + '% / kg</span><br>' +
+      esc(big.name) + ' · ' + esc(big.pack) + ' · ' + ft(big.price) + ' (' + num(big.unit) + '\u00a0Ft/kg ' + num(p.unit) + '\u00a0Ft/kg helyett)</div>' +
+      '<button type="button" class="btn btn-dark btn-sm" data-add="' + big.id + '" data-open-after>Ezt kérem</button></div>';
+  }
 
   /* ================= település, járat ================= */
   function findTowns(q) {
@@ -282,12 +318,15 @@
       $('#drawer-foot').innerHTML = '';
       return;
     }
-    body.innerHTML = minbarHTML() + c.map((i) => {
+    const note = renderDrawer.added ? '<div class="added-note" role="status">✓ Kosárba tettük: ' + esc(renderDrawer.added) + '</div>' : '';
+    renderDrawer.added = null;
+    const recs = cartComplements(3);
+    body.innerHTML = note + minbarHTML() + c.map((i) => {
       const p = P[i.id];
       return '<div class="mini-item"><img src="' + img(p.img) + '" alt=""><div class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + '</span></div>' +
         '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span class="price" style="font-size:17px">' + ft(p.price * i.qty) + '</span>' +
         qtyHTML(i.id, i.qty, true) + '</div></div>';
-    }).join('');
+    }).join('') + (recs.length ? '<div class="recs"><p class="h">Illik hozzá</p>' + recs.map(recRow).join('') + '</div>' : '');
     const s = minState();
     const can = s.info && s.missing === 0;
     $('#drawer-foot').innerHTML = '<div class="row" style="justify-content:space-between"><span>Részösszeg</span><strong>' + ft(s.total) + '</strong></div>' +
@@ -296,7 +335,8 @@
       '<a class="btn btn-outline btn-block btn-sm" href="' + url('kosar.html') + '">Kosár részletei</a>';
     bindTownChecks(body);
   }
-  function openDrawer() {
+  function openDrawer(addedName) {
+    renderDrawer.added = typeof addedName === 'string' ? addedName : null;
     renderDrawer();
     $('#drawer').classList.add('is-open');
     $('#drawer').setAttribute('aria-hidden', 'false');
@@ -410,9 +450,19 @@
       addToCart(id, q);
       const old = add.innerHTML;
       add.classList.add('is-added');
-      if (!add.classList.contains('add-btn')) add.textContent = '✓ Kosárban';
+      if (add.classList.contains('plus')) add.textContent = '✓';
+      else if (!add.classList.contains('add-btn')) add.textContent = '✓ Kosárban';
       setTimeout(() => { add.classList.remove('is-added'); add.innerHTML = old; }, 1400);
-      toast('Kosárba tettük: ' + P[id].name + (q > 1 ? ' × ' + q : ''));
+      if (add.hasAttribute('data-open-after')) openDrawer(P[id].name + (q > 1 ? ' × ' + q : ''));
+      else toast('Kosárba tettük: ' + P[id].name + (q > 1 ? ' × ' + q : ''));
+      return;
+    }
+    const sw = e.target.closest('[data-swap]');
+    if (sw) {
+      const [from, to] = sw.getAttribute('data-swap').split('>');
+      setQty(from, 0);
+      addToCart(to, 1);
+      toast('Lecseréltük: ' + P[to].name);
       return;
     }
     const addMany = e.target.closest('[data-add-many]');
@@ -612,7 +662,10 @@
     const v = p.variant ? P[p.variant] : null;
     const occNames = p.occ.map((o) => OCC[o] && OCC[o].name).filter(Boolean);
     const recipe = BG.recipes.find((r) => r.shop.some(([id]) => id === p.id));
-    const related = BG.products.filter((x) => x.cat === p.cat && x.id !== p.id && x.id !== p.variant).slice(0, 4);
+    const comps = complements(p);
+    const fbt = [p].concat(comps.slice(0, 2));
+    const related = comps.slice(2).concat(BG.products.filter((x) => x.cat === p.cat && x.id !== p.id && x.id !== p.variant))
+      .filter((x, i, a) => a.indexOf(x) === i && !fbt.includes(x)).slice(0, 4);
     const variantHTML = v ? '<fieldset style="margin:0;padding:0;border:0"><legend style="padding:0;margin-bottom:8px;font-weight:700;font-size:15px">Kivitel</legend><div class="variants">' +
       [p, v].sort((a, b) => a.name.localeCompare(b.name, 'hu')).map((x) => '<a class="variant' + (x.id === p.id ? ' is-active' : '') + '" href="' + url('termek.html?id=' + x.id) + '"' + (x.id === p.id ? ' aria-current="true"' : '') + '><strong>' + (/csont nélkül/i.test(x.name) ? 'Csont nélkül' : 'Csontos') + '</strong><span>' + esc(x.pack) + ' · ' + ft(x.price) + '</span></a>').join('') + '</div></fieldset>' : '';
     root.innerHTML =
@@ -624,7 +677,8 @@
       (p.desc ? '<p class="lead" style="font-size:17px">' + esc(p.desc) + '</p>' : '') +
       variantHTML +
       '<div class="row"><div class="qty" data-local-qty><button type="button" data-qty-dec="x" aria-label="Kevesebb">−</button><label class="sr-only" for="pq">Mennyiség</label><input id="pq" inputmode="numeric" value="1"><button type="button" data-qty-inc="x" aria-label="Több">+</button></div>' +
-      '<button type="button" class="btn btn-gold" style="flex:1 1 220px;min-height:56px" data-add="' + p.id + '" data-qty-from="#pq" id="pdp-add">Kosárba · ' + ft(p.price) + '</button></div>' +
+      '<button type="button" class="btn btn-gold" style="flex:1 1 220px;min-height:56px" data-add="' + p.id + '" data-qty-from="#pq" data-open-after id="pdp-add">Kosárba · ' + ft(p.price) + '</button></div>' +
+      upsellBox(p) +
       '<div id="pdp-delivery"></div>' +
       '<ul class="bullets"><li>Saját tenyészet</li><li>MOE eredetigazolás</li><li>GMO-mentes takarmány</li><li>SZÉP-kártyával is fizethető</li></ul></div></div>';
 
@@ -662,6 +716,30 @@
       $$('#pdp-details [role=tabpanel]').forEach((pn) => { pn.hidden = pn.id !== t.getAttribute('aria-controls'); });
     });
     $('#pdp-related').innerHTML = related.map(productCard).join('');
+    // Gyakran együtt vásárolják
+    const fbtEl = $('#pdp-fbt');
+    if (fbtEl) {
+      fbtEl.innerHTML = '<h2 style="margin-bottom:20px">Gyakran együtt vásárolják</h2><div class="fbt"><div class="fbt-items">' +
+        fbt.map((x, ix) => (ix ? '<span class="fbt-plus" aria-hidden="true">+</span>' : '') +
+          '<label class="fbt-item"><input type="checkbox" checked value="' + x.id + '" aria-label="' + esc(x.name) + '"><img src="' + img(x.img) + '" alt="">' +
+          '<span class="n">' + (ix === 0 ? 'Ez a termék: ' : '') + esc(x.name) + '</span><span class="m">' + esc(x.pack) + ' · <strong style="color:var(--ink)">' + ft(x.price) + '</strong></span></label>').join('') +
+        '</div><div class="fbt-sum"><p class="muted">Együtt</p><p class="price" style="font-size:40px" id="fbt-total"></p><button type="button" class="btn btn-gold" id="fbt-add">A kijelöltek kosárba</button>' +
+        '<p class="muted" style="font-size:13px">Egy rendelésben, ugyanazzal a járattal érkeznek.</p></div></div>';
+      const sel = () => $$('#pdp-fbt input:checked').map((i) => i.value);
+      const upd = () => {
+        const ids = sel();
+        $('#fbt-total').textContent = ft(ids.reduce((t, id) => t + P[id].price, 0));
+        $('#fbt-add').disabled = !ids.length;
+        $('#fbt-add').textContent = ids.length === fbt.length ? 'Mind a ' + ids.length + ' kosárba' : ids.length ? 'A kijelölt ' + ids.length + ' kosárba' : 'Jelölj ki egy terméket';
+      };
+      fbtEl.addEventListener('change', upd);
+      $('#fbt-add').addEventListener('click', () => {
+        const ids = sel();
+        ids.forEach((id) => addToCart(id, 1));
+        openDrawer(ids.length + ' termék');
+      });
+      upd();
+    }
   };
 
   /* ---------- kosár ---------- */
@@ -678,16 +756,19 @@
       const pay = s.total - disc;
       const inCart = c.map((i) => i.id);
       const need = s.missing || 0;
-      const up = BG.products.filter((p) => !inCart.includes(p.id) && !p.giftcard && p.price >= need && p.price <= Math.max(need + 3000, 3000)).sort((a, b) => a.price - b.price).slice(0, 3);
+      const up = need > 0 ? BG.products.filter((p) => !inCart.includes(p.id) && !p.giftcard && p.price >= need && p.price <= need + 3000).sort((a, b) => a.price - b.price).slice(0, 3) : [];
+      const cross = cartComplements(6).filter((x) => !up.includes(x)).slice(0, 3);
       const ok = s.info && s.missing === 0;
       const cp = coupon();
       root.innerHTML = '<div class="cart-layout"><div class="main">' + minbarHTML() +
         '<div class="cart-list">' + c.map((i) => {
           const p = P[i.id];
           return '<div class="cart-item"><img src="' + img(p.img) + '" alt=""><div class="name"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><p class="muted" style="font-size:14px;margin-top:2px">' + esc(metaText(p)) + '</p></div>' +
-            qtyHTML(p.id, i.qty) + '<span class="line-total">' + ft(p.price * i.qty) + '</span><button type="button" class="icon-btn" data-remove="' + p.id + '" aria-label="Törlés: ' + esc(p.name) + '" style="color:var(--muted)">' + ICON.trash + '</button></div>';
+            qtyHTML(p.id, i.qty) + '<span class="line-total">' + ft(p.price * i.qty) + '</span><button type="button" class="icon-btn" data-remove="' + p.id + '" aria-label="Törlés: ' + esc(p.name) + '" style="color:var(--muted)">' + ICON.trash + '</button>' +
+            ((() => { const big = biggerPack(p); return big && !inCart.includes(big.id) ? '<div class="line-upsell"><span><strong>Tipp:</strong> ' + esc(big.name) + ' (' + esc(big.pack) + ', ' + ft(big.price) + ') – ' + num(big.unit) + '\u00a0Ft/kg <span class="save">−' + savePct(p, big) + '% / kg</span></span><button type="button" data-swap="' + p.id + '>' + big.id + '">Erre cserélem</button></div>' : ''; })()) + '</div>';
         }).join('') + '</div>' +
-        (up.length ? '<div><h2 style="font-size:28px;margin-bottom:14px">' + (need > 0 ? 'Ezekkel meglesz a minimum' : 'Gyakran mellé teszik') + '</h2><div class="grid products" style="--min:200px">' + up.map(productCard).join('') + '</div></div>' : '') +
+        (up.length ? '<div><h2 style="font-size:28px;margin-bottom:6px">Ezekkel meglesz a minimum</h2><p class="muted" style="margin-bottom:14px">Még ' + ft(need) + ' hiányzik – bármelyik elég hozzá.</p><div class="grid products" style="--min:200px">' + up.map(productCard).join('') + '</div></div>' : '') +
+        (cross.length ? '<div><h2 style="font-size:28px;margin-bottom:14px">Illik a kosaradhoz</h2><div class="grid products" style="--min:200px">' + cross.map(productCard).join('') + '</div></div>' : '') +
         '</div><aside class="summary" aria-label="Összesítés"><h2 style="font-size:26px">Összesítés</h2>' +
         '<div class="line"><span>Részösszeg (' + cartCount(c) + ' db)</span><span>' + ft(s.total) + '</span></div>' +
         (disc ? '<div class="line" style="color:var(--ok)"><span>Kedvezmény (' + esc(cp.code) + ')</span><span>−' + ft(disc) + '</span></div>' : '') +

@@ -132,6 +132,35 @@ BG.occasions = [
   BG.products = L;
 })();
 
+/* Keresztajánlás: mi illik egy termékhez (termékoldal, kosár, mini-kosár). Termékszintű lista felülírja a kategóriaszintűt. */
+BG.pairByCat = {
+  tokehusok: ['zsir-1kg', 'grillkolbasz-magyaros', 'kolozsvari-szalonna', 'fustolt-csemege-kolbasz'],
+  kolbaszok: ['kolozsvari-szalonna', 'tepertokrem', 'paprikas-szalami', 'fustolt-sonka'],
+  szalonnak: ['fustolt-csemege-kolbasz', 'tepertokrem', 'parasztmajas', 'teliszalami'],
+  felvagottak: ['fustolt-sonka', 'teliszalami', 'tepertokrem', 'kolozsvari-szalonna'],
+  hagyomanyos: ['sutokolbasz', 'hurka', 'zsir-1kg', 'abalt-szalonna'],
+  ajandek: ['ajandekkartya-5000', 'bosegtal', 'fustolt-csemege-kolbasz', 'teliszalami']
+};
+BG.pairByProduct = {
+  'csontos-tarja': ['bbq-oldalas', 'grillkolbasz-magyaros', 'zsir-1kg', 'kolozsvari-szalonna'],
+  'tarja-csont-nelkul': ['grillkolbasz-magyaros', 'bbq-oldalas', 'zsir-1kg', 'kolozsvari-szalonna'],
+  'bbq-oldalas': ['grillkolbasz-bajor', 'tomahawk', 'hamburgerhus', 'csontos-tarja'],
+  'tomahawk': ['t-bone', 'bbq-oldalas', 'grillkolbasz-magyaros', 'hamburgerhus'],
+  't-bone': ['tomahawk', 'bbq-oldalas', 'grillkolbasz-magyaros', 'hamburgerhus'],
+  'grillkolbasz-magyaros': ['grillkolbasz-bajor', 'tomahawk', 'bbq-oldalas', 'hamburgerhus'],
+  'grillkolbasz-bajor': ['grillkolbasz-magyaros', 'bbq-oldalas', 'hamburgerhus', 'tomahawk'],
+  'hamburgerhus': ['grillkolbasz-magyaros', 'kolozsvari-szalonna', 'bbq-oldalas', 'tomahawk'],
+  'hurka': ['sutokolbasz', 'zsir-1kg', 'teperto', 'abalt-szalonna'],
+  'sutokolbasz': ['hurka', 'zsir-1kg', 'teperto', 'abalt-szalonna'],
+  'zsirnakvalo': ['zsir-1kg', 'teperto', 'hurka', 'sutokolbasz'],
+  'kocsonya-csomag': ['korom', 'husos-csont', 'csulok', 'hurka'],
+  'parizsi': ['uzsonnasonka', 'virsli', 'tepertokrem', 'parasztmajas'],
+  'virsli': ['fustolt-virsli', 'parizsi', 'uzsonnasonka', 'debreceni-paros'],
+  'tepertokrem': ['teperto', 'kolozsvari-szalonna', 'parasztmajas', 'fokhagymas-rilette'],
+  'ajandekdoboz-10': ['ajandekkartya-5000', 'bosegtal', 'ajandekkosar-12', 'fustolt-csemege-kolbasz'],
+  'ajandekkosar-12': ['ajandekkartya-10000', 'bosegtal', 'ajandekdoboz-10', 'teliszalami']
+};
+
 BG.featured = ['fustolt-csemege-kolbasz', 'kolozsvari-szalonna', 'csontos-tarja', 'grillkolbasz-magyaros', 'paprikas-szalami', 'tepertokrem', 'szuz', 'tomahawk'];
 
 /* Szállítás. days: 0 = vasárnap … 6 = szombat. DEMO: a járatnapok mintaértékek. */
