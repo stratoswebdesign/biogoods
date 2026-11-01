@@ -225,7 +225,7 @@
       '<nav aria-label="Bio-Goods"><p class="h">Bio-Goods</p><a href="' + url('a-gazdasag.html') + '">A gazdaság</a><a href="' + url('dijaink.html') + '">Díjaink</a><a href="' + url('receptek.html') + '">Receptek</a><a href="' + url('kapcsolat.html') + '">Kapcsolat</a></nav>' +
       '<div><p class="h">Kapcsolat</p><span>3715 Gesztely, Aradi u. 22.</span><a href="tel:+36709470077">06 70 947 0077</a><a href="mailto:mangalica@bio-goods.hu">mangalica@bio-goods.hu</a>' +
       '<div class="social"><a href="https://www.facebook.com/" aria-label="Facebook">' + ICON.fb + '</a><a href="https://www.instagram.com/mangalicatermekek/" aria-label="Instagram">' + ICON.ig + '</a></div></div>' +
-      '</div><div class="wrap bottom"><span>Bankkártya · OTP SZÉP · K&amp;H SZÉP · SimplePay · készpénz</span>' +
+      '</div><div class="wrap bottom"><span>Bankkártya · OTP SZÉP · K&amp;H SZÉP · MKB SZÉP · SimplePay · készpénz</span>' +
       '<span><span class="demo-badge">DEMO</span> A járatnapok és egyes adatok mintaértékek · <a href="' + url('admin/index.html') + '">Admin (demó)</a> · © 2026 Bio-Goods Kft. · Készítette: Stratos Webdesign</span></div>';
     document.body.appendChild(foot);
 
@@ -705,7 +705,7 @@
       '<dt>Allergének</dt><dd>' + esc(p.allergen || '[megerősítendő]') + '</dd>' +
       '<dt>Származás</dt><dd>Saját tenyészet, gesztelyi feldolgozás, MOE eredetigazolás</dd></dl></div>' +
       '<div role="tabpanel" id="tp2" aria-labelledby="tb2" hidden><dl class="spec"><dt>Tárolás</dt><dd>[hőmérséklet – az ügyféltől]</dd><dt>Eltarthatóság</dt><dd>[nap, hűtőben / fagyasztva – az ügyféltől]</dd><dt>Csomagolás</dt><dd>[pl. vákuumozva – az ügyféltől]</dd></dl></div>' +
-      '<div role="tabpanel" id="tp3" aria-labelledby="tb3" hidden><dl class="spec"><dt>Szállítás</dt><dd>Saját járattal, a településed járatnapján. Rendelés a járat előtti napon 12:00-ig. <a href="' + url('szallitas.html') + '">Szállítási területek</a></dd><dt>Fizetés</dt><dd>Bankkártya (SimplePay), OTP és K&amp;H SZÉP-kártya, készpénz a sofőrnél. <a href="' + url('fizetes.html') + '">Részletek</a></dd></dl></div></div>' +
+      '<div role="tabpanel" id="tp3" aria-labelledby="tb3" hidden><dl class="spec"><dt>Szállítás</dt><dd>Saját járattal, a településed járatnapján. Rendelés a járat előtti napon 12:00-ig. <a href="' + url('szallitas.html') + '">Szállítási területek</a></dd><dt>Fizetés</dt><dd>Bankkártya (SimplePay), OTP, K&amp;H és MKB SZÉP-kártya, készpénz a sofőrnél. <a href="' + url('fizetes.html') + '">Részletek</a></dd></dl></div></div>' +
       (recipe ? '<a class="card-dark" href="' + url('recept.html?id=' + recipe.id) + '" style="padding:0;overflow:hidden;text-decoration:none;color:var(--cream)"><img src="' + img(recipe.img) + '" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover"><div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px"><span class="kicker light" style="margin:0">Recept ehhez a termékhez</span><span class="display" style="font-size:26px;font-weight:500">' + esc(recipe.title) + '</span><span style="color:var(--on-dark)">Elolvasom →</span></div></a>' : '<div></div>') +
       '</div>';
     $('#pdp-details').addEventListener('click', (e) => {
@@ -777,7 +777,7 @@
         '<div class="line total"><strong>Fizetendő</strong><span class="price">' + ft(pay) + '</span></div>' +
         (ok ? '<a class="btn btn-gold btn-block" href="' + url('penztar.html') + '">Tovább a pénztárhoz</a>'
           : '<button class="btn btn-block" disabled>' + (s.info ? 'Még ' + ft(s.missing) + ' a minimumig' : 'Előbb válassz települést') + '</button>') +
-        '<p class="muted" style="font-size:13px">Fizetés: bankkártya, OTP és K&amp;H SZÉP-kártya, készpénz a sofőrnél.</p></aside></div>';
+        '<p class="muted" style="font-size:13px">Fizetés: bankkártya, OTP, K&amp;H és MKB SZÉP-kártya, készpénz a sofőrnél.</p></aside></div>';
       bindTownChecks(root);
       $('#coupon-form').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -815,7 +815,7 @@
       '<label class="field">Megjegyzés a sofőrnek (nem kötelező)<textarea name="note" rows="2" placeholder="Kapukód, emelet, mikor vagy otthon…"></textarea></label></fieldset>' +
       '<fieldset class="panel"><legend>3 · Járatnap</legend><p class="muted" style="font-size:14px" id="days-intro"></p><div class="radio-cards" id="days"></div></fieldset>' +
       '<fieldset class="panel"><legend>4 · Fizetés</legend><div class="radio-list">' +
-      [['card', 'Bankkártya online', 'SimplePay – Visa, Mastercard, Maestro'], ['otpszep', 'OTP SZÉP-kártya', 'Az OTP SZÉP-kártya felületén'], ['khszep', 'K&H SZÉP-kártya', 'A K&H SZÉP-kártya felületén'], ['cash', 'Készpénz a sofőrnél', 'Pontos összeggel, átvételkor']]
+      [['card', 'Bankkártya online', 'SimplePay – Visa, Mastercard, Maestro'], ['otpszep', 'OTP SZÉP-kártya', 'Az OTP SZÉP-kártya felületén'], ['khszep', 'K&H SZÉP-kártya', 'A K&H SZÉP-kártya felületén'], ['mkbszep', 'MKB SZÉP-kártya', 'Az MKB SZÉP-kártya felületén'], ['cash', 'Készpénz a sofőrnél', 'Pontos összeggel, átvételkor']]
         .map(([v, n, d], ix) => '<label class="radio-card"><input type="radio" name="pay" value="' + v + '"' + (ix === 0 ? ' checked' : '') + '><span><strong>' + esc(n) + '</strong><small style="display:block">' + esc(d) + '</small></span></label>').join('') +
       '</div></fieldset>' +
       '<fieldset class="panel"><legend>5 · Számlázás és jóváhagyás</legend>' +
@@ -912,7 +912,7 @@
     });
   };
 
-  const PAYNAME = { card: 'Bankkártya (SimplePay)', otpszep: 'OTP SZÉP-kártya', khszep: 'K&H SZÉP-kártya', cash: 'Készpénz a sofőrnél' };
+  const PAYNAME = { card: 'Bankkártya (SimplePay)', otpszep: 'OTP SZÉP-kártya', khszep: 'K&H SZÉP-kártya', mkbszep: 'MKB SZÉP-kártya', cash: 'Készpénz a sofőrnél' };
   const parseDay = (s) => { if (!s) return null; const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
 
   pages.thanks = function () {
@@ -1011,7 +1011,7 @@
     $('#city-faq').innerHTML = [
       ['Melyik napon jön a járat ide: ' + t.name + '?', i.zone.days.map((d) => DAYS[d]).join(', ') + ' – a rendelést az előtte lévő napon 12:00-ig kell leadni.'],
       ['Mekkora a minimum rendelés?', t.name + ': ' + ft(t.min) + ', felette a házhozszállítás ingyenes.'],
-      ['Átvehetem személyesen?', 'Igen, Gesztelyen, az Aradi utca 22.-ben – [átvételi idő megerősítendő].']
+      ['Átvehetem személyesen?', '[Van-e személyes átvétel – megerősítendő. A mostani webshopban nincs ilyen opció.]']
     ].map(([q, a]) => '<details><summary>' + esc(q) + '</summary><p>' + esc(a) + '</p></details>').join('');
     $('#city-near').innerHTML = BG.towns.filter((x) => x.zone === t.zone && x !== t).map((x) => '<a class="chip" href="' + url('varos.html?v=' + encodeURIComponent(norm(x.name))) + '">' + esc(x.name) + '</a>').join('');
   };
