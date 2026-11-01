@@ -49,14 +49,14 @@ BG.occasions = [
   p('lapocka', 'Lapocka', 'tokehusok', [], '500 g', 2750, 5500, { ingr: 'Mangalica lapocka' });
   p('oldalas', 'Oldalas', 'tokehusok', [], '500 g', 2050, 4100, { ingr: 'Mangalica oldalas' });
   p('bbq-oldalas', 'BBQ oldalas', 'tokehusok', ['kerti-parti'], '1 kg', 5500, 5500, { ingr: 'Mangalica oldalas', tag: 'Grillre' });
-  p('dagado', 'Dagadó', 'tokehusok', ['disznotoros'], '1,3 kg', 5590, 4300, { ingr: 'Mangalica dagadó' });
+  p('dagado', 'Dagadó', 'tokehusok', ['disznotoros'], 'kb. 1,3 kg', 5590, 4300, { ingr: 'Mangalica dagadó' });
   p('csulok', 'Csülök', 'tokehusok', ['disznotoros'], '1,5 kg', 5550, 3700, { ingr: 'Mangalica csülök, csontos' });
   p('csulok-csont-nelkul', 'Csülök csont nélkül', 'tokehusok', [], '500 g', 2400, 4800, { ingr: 'Mangalica csülök' });
   p('daralthus', 'Darálthús (70% hús)', 'tokehusok', [], '500 g', 2400, 4800, { ingr: 'Mangalica hús 70%, mangalica szalonna' });
   p('csaszarhus', 'Császárhús', 'tokehusok', [], '500 g', 2300, 4600, { ingr: 'Mangalica császárhús' });
-  p('tomahawk', 'Tomahawk szelet', 'tokehusok', ['kerti-parti'], 'kb. 250 g', 2175, 8700, { ingr: 'Mangalica karaj, bordával', tag: 'Grillre' });
-  p('t-bone', 'T-bone szelet', 'tokehusok', ['kerti-parti'], 'kb. 250 g', 2175, 8700, { ingr: 'Mangalica karaj és szűz, csonttal', tag: 'Grillre' });
-  p('hamburgerhus', 'Hamburgerhús (4 × 15 dkg)', 'tokehusok', ['kerti-parti'], '600 g', 3480, 5800, { ingr: 'Mangalica hús 80%, mangalica füstölt szalonna 10%, mangalica szalonna 10%' });
+  p('tomahawk', 'Tomahawk szelet', 'tokehusok', ['kerti-parti'], '250 g', 2175, 8700, { ingr: 'Mangalica karaj, bordával', tag: 'Grillre' });
+  p('t-bone', 'T-bone szelet', 'tokehusok', ['kerti-parti'], '250 g', 2175, 8700, { ingr: 'Mangalica karaj és szűz, csonttal', tag: 'Grillre' });
+  p('hamburgerhus', 'Hamburgerhús (4 × 15 dkg)', 'tokehusok', ['kerti-parti'], '600 g (4 db)', 3480, 5800, { ingr: 'Mangalica hús 80%, mangalica füstölt szalonna 10%, mangalica szalonna 10%' });
   p('fredi-szelet', 'Frédi szelet', 'tokehusok', ['kerti-parti'], '1,6 kg', 11520, 7200, { ingr: 'Mangalica comb, étkezési só, sous-vide fűszerkeverék' });
   p('mangalica-maj', 'Mangalica máj', 'tokehusok', [], '500 g', 1450, 2900, { ingr: 'Mangalica máj' });
   p('husos-csont', 'Húsos csont', 'tokehusok', ['disznotoros'], '1 kg', 1650, 1650, { ingr: 'Mangalica húsos csont' });
@@ -69,23 +69,23 @@ BG.occasions = [
   p('korom-akcio', 'Köröm csomag AKCIÓ (5 kg)', 'tokehusok', ['akciok', 'disznotoros'], '5 kg', 3500, 700, { img: 'korom', old: 6500, ingr: 'Konyhakész mangalica köröm', tag: 'Akció' });
 
   /* Kolbászok, szalámik */
-  p('fustolt-csemege-kolbasz', 'Füstölt csemege kolbász', 'kolbaszok', ['disznotoros'], '1 pár', 4410, null, { ingr: 'Mangalica hús, mangalica szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, kömény; bükkfán füstölve' });
-  p('fustolt-csipos-kolbasz', 'Füstölt csípős kolbász', 'kolbaszok', [], '1 pár', 2940, null, { ingr: 'Mangalica hús, mangalica szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, chili; bükkfán füstölve', tag: 'Csípős' });
-  p('miskolci-kolbasz', 'Füstölt miskolci kolbász (paprikamentes)', 'kolbaszok', [], '1 pár', 4410, null, { ingr: 'Mangalica hús, mangalica szalonna, étkezési só, fokhagyma, őrölt bors, őrölt kömény; bükkfán füstölve' });
-  p('csipos-snack-kolbasz', 'Füstölt csípős snack kolbász', 'kolbaszok', [], '1 csomag', 1635, null, { ingr: 'Mangalica hús, mangalica szalonna, nitrites só, téliszalámi-fűszer, fűszerpaprika, chili', allergen: 'nitrit', tag: 'Csípős' });
+  p('fustolt-csemege-kolbasz', 'Füstölt csemege kolbász', 'kolbaszok', ['disznotoros'], '1 pár (450 g)', 4410, 9800, { ingr: 'Mangalica hús, mangalica szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, őrölt kömény; bükkfán füstölve' });
+  p('fustolt-csipos-kolbasz', 'Füstölt csípős kolbász', 'kolbaszok', [], '1 pár (300 g)', 2940, 9800, { ingr: 'Mangalica hús, mangalica szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, őrölt kömény, chiliszósz; bükkfán füstölve', tag: 'Csípős' });
+  p('miskolci-kolbasz', 'Füstölt miskolci kolbász (paprikamentes)', 'kolbaszok', [], '1 pár (450 g)', 4410, 9800, { ingr: 'Mangalica hús, mangalica szalonna, étkezési só, fokhagyma, őrölt bors, őrölt kömény; bükkfán füstölve' });
+  p('csipos-snack-kolbasz', 'Füstölt csípős snack kolbász', 'kolbaszok', [], '150 g', 1635, 10900, { ingr: 'Mangalica hús, mangalica szalonna, nitrites só, téliszalámi-fűszer, fűszerpaprika, chiliszósz; bükkfán füstölve', allergen: 'nitrit', tag: 'Csípős' });
   p('paprikas-szalami', 'Paprikás szalámi', 'kolbaszok', [], '200 g', 2380, 11900, { ingr: '80% darálthús, fűszerpaprika, nitrites só, fokhagyma, fűszerkömény, őrölt bors', allergen: 'nitrit' });
   p('csipos-paprikas-szalami', 'Csípős paprikás szalámi', 'kolbaszok', [], '200 g', 2380, 11900, { ingr: '80% darálthús, fűszerpaprika, nitrites só, fokhagyma, fűszerkömény, őrölt bors, chiliszósz', allergen: 'nitrit', tag: 'Csípős' });
   p('teliszalami', 'Téliszalámi', 'kolbaszok', [], '200 g', 2380, 11900, { ingr: '80% darálthús, nitrites só, szalámi-fűszerkeverék', allergen: 'nitrit' });
-  p('mangalica-turista', 'Mangalica turista', 'kolbaszok', [], '100 g', 680, 6800, { ingr: '70% mangalica hús, mangalica szalonna, nitrites só, őrölt bors, fűszerpaprika', allergen: 'nitrit' });
-  p('grillkolbasz-magyaros', 'Grillkolbász (magyaros)', 'kolbaszok', ['kerti-parti'], '500 g', 3050, 6100, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, bors, fűszerpaprika, fokhagyma', allergen: 'nitrit', tag: 'Grillre' });
-  p('grillkolbasz-bajor', 'Grillkolbász (bajor jellegű)', 'kolbaszok', ['kerti-parti'], '500 g', 3050, 6100, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, fokhagyma, őrölt bors, őrölt kömény', allergen: 'nitrit', tag: 'Grillre' });
+  p('mangalica-turista', 'Mangalica turista', 'kolbaszok', [], '100 g', 680, 6800, { ingr: '70% mangalica hús, mangalica szalonna, nitrites só, szoluprát, őrölt bors, fűszerpaprika, fokhagyma-granulátum, szegfűbors', allergen: 'nitrit' });
+  p('grillkolbasz-magyaros', 'Grillkolbász (magyaros)', 'kolbaszok', ['kerti-parti'], '500 g', 3050, 6100, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, bors, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, majoránna', allergen: 'nitrit', tag: 'Grillre' });
+  p('grillkolbasz-bajor', 'Grillkolbász (bajor jellegű)', 'kolbaszok', ['kerti-parti'], '500 g', 3050, 6100, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, fokhagyma, őrölt bors, őrölt kömény, majoránna', allergen: 'nitrit', tag: 'Grillre' });
   p('debreceni-paros', 'Debreceni páros', 'kolbaszok', ['reggelire'], '500 g', 2900, 5800, { ingr: 'Mangalica hús, nitrites pácsó, debreceni fűszerkeverék', allergen: 'nitrit' });
-  p('gesztelyi-paros', 'Gesztelyi páros', 'kolbaszok', ['reggelire'], '500 g', 2900, 5800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, fokhagyma, őrölt bors, őrölt kömény', allergen: 'nitrit' });
+  p('gesztelyi-paros', 'Gesztelyi páros', 'kolbaszok', ['reggelire'], '500 g', 2900, 5800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, fokhagyma, őrölt bors, őrölt kömény, majoránna', allergen: 'nitrit' });
 
   /* Szalonnák, füstöltek */
   p('kolozsvari-szalonna', 'Kolozsvári szalonna', 'szalonnak', [], '200 g', 1220, 6100, { ingr: 'Mangalica szalonna, étkezési só; bükkfán füstölve' });
   p('fustolt-csemege-szalonna', 'Füstölt csemege szalonna', 'szalonnak', [], '200 g', 1020, 5100, { ingr: 'Mangalica szalonna, étkezési só; bükkfán füstölve' });
-  p('abalt-szalonna', 'Abált szalonna', 'szalonnak', ['disznotoros'], '300 g', 1700, 5667, { ingr: 'Mangalica császárszalonna, étkezési só, őrölt bors, fokhagyma, fűszerpaprika' });
+  p('abalt-szalonna', 'Abált szalonna', 'szalonnak', ['disznotoros'], '300 g', 1700, 5700, { ingr: 'Mangalica császárszalonna, étkezési só, őrölt bors, fokhagyma, fűszerpaprika' });
   p('formazott-nyers-szalonna', 'Formázott nyers szalonna', 'szalonnak', [], '500 g', 1850, 3700, { ingr: 'Mangalica szalonna' });
   p('sos-szalonna', 'Sós szalonna', 'szalonnak', [], '500 g', 2300, 4600, { ingr: 'Mangalica szalonna, étkezési só' });
   p('fustolt-sonka', 'Füstölt sonka', 'szalonnak', ['reggelire'], '200 g', 1940, 9700, { ingr: 'Mangalica hús, étkezési só; bükkfán füstölve' });
@@ -93,41 +93,41 @@ BG.occasions = [
   p('angol-szalonna', 'Angol szalonna, szeletelve', 'szalonnak', ['reggelire'], '100 g', 780, 7800, { ingr: 'Mangalica hátszalonna, karaj, étkezési só' });
 
   /* Felvágottak, kenhetők */
-  p('dobozos-kenomajas', 'Dobozos kenőmájas', 'felvagottak', ['reggelire'], '[kiszerelés]', 1600, null, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, nitrites pácsó, őrölt bors', allergen: 'nitrit' });
-  p('tomlos-kenomajas', 'Tömlős kenőmájas (kenhető)', 'felvagottak', ['reggelire'], '[kiszerelés]', 1340, null, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, nitrites pácsó, őrölt bors', allergen: 'nitrit' });
-  p('parasztmajas', 'Parasztmájas (darabos)', 'felvagottak', ['reggelire'], '100 g', 610, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, étkezési só, őrölt bors' });
+  p('dobozos-kenomajas', 'Dobozos kenőmájas', 'felvagottak', ['reggelire'], '250 g', 1600, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, nitrites pácsó, őrölt bors, majoránna', allergen: 'nitrit' });
+  p('tomlos-kenomajas', 'Tömlős kenőmájas (kenhető)', 'felvagottak', ['reggelire'], '230 g', 1340, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, nitrites pácsó, őrölt bors, majoránna', allergen: 'nitrit' });
+  p('parasztmajas', 'Parasztmájas (darabos)', 'felvagottak', ['reggelire'], '100 g', 610, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, étkezési só, őrölt bors, majoránna, fűszerpaprika' });
   p('parizsi', 'Párizsi', 'felvagottak', ['reggelire', 'uzsonnacsomag'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, párizsi fűszerkeverék', allergen: 'nitrit' });
   p('chilis-parizsi', 'Chilis párizsi', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, chilipehely, párizsi fűszerkeverék', allergen: 'nitrit', tag: 'Csípős' });
   p('fustolt-parizsi', 'Füstölt párizsi', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, párizsi fűszerkeverék; bükkfán füstölve', allergen: 'nitrit' });
   p('nyelves-felvagott', 'Nyelves felvágott', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica nyelv, párizsi fűszerkeverék, nitrites pácsó, őrölt fehérbors', allergen: 'nitrit' });
   p('uzsonnasonka', 'Uzsonnasonka', 'felvagottak', ['reggelire', 'uzsonnacsomag'], '100 g', 680, 6800, { ingr: 'Mangalica comb, nitrites pácsó, sonka-fűszerkeverék', allergen: 'nitrit' });
-  p('virsli', 'Virsli, 5 pár (ehető kollagénben)', 'felvagottak', ['reggelire'], '500 g', 3400, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, virsli-fűszerkeverék', allergen: 'nitrit' });
-  p('fustolt-virsli', 'Füstölt virsli, 5 pár', 'felvagottak', ['reggelire'], '500 g', 3400, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, virsli-fűszerkeverék; bükkfán füstölve', allergen: 'nitrit' });
-  p('tepertokrem', 'Tepertőkrém', 'felvagottak', ['reggelire'], '[kiszerelés]', 1650, null, { ingr: 'Mangalica tepertő, mustár, étkezési só, bors, vöröshagyma', allergen: 'mustár' });
+  p('virsli', 'Virsli, 5 pár (ehető kollagénben)', 'felvagottak', ['reggelire'], '500 g', 3400, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, virsli-fűszerkeverék. Nem tartalmaz szóját!', allergen: 'nitrit' });
+  p('fustolt-virsli', 'Füstölt virsli, 5 pár', 'felvagottak', ['reggelire'], '500 g', 3400, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, virsli-fűszerkeverék; bükkfán füstölve. Nem tartalmaz szóját!', allergen: 'nitrit' });
+  p('tepertokrem', 'Tepertőkrém', 'felvagottak', ['reggelire'], '250 g', 1650, 6500, { ingr: 'Mangalica tepertő, mustár, étkezési só, bors, vöröshagyma', allergen: 'mustár' });
   p('fokhagymas-rilette', 'Fokhagymás rilette', 'felvagottak', ['reggelire'], '500 g', 3350, 6700, { ingr: 'Mangalica zsír, mangalica lapocka, fokhagyma, étkezési só' });
-  p('chilis-rilette', 'Chilis rilette', 'felvagottak', ['reggelire'], '[kiszerelés]', 1750, null, { ingr: 'Mangalica zsír, mangalica lapocka, füstölt szalonna bőr nélkül, akácméz, étkezési só, chili', tag: 'Csípős' });
-  p('kalandor-csomag', 'Kalandor uzsonnacsomag', 'felvagottak', ['uzsonnacsomag'], '1 csomag', 4490, null, { ingr: '80 g téliszalámi, 80 g uzsonnasonka, 80 g natúr párizsi, 130 g csemege snack kolbász […]', allergen: 'nitrit' });
-  p('csibesz-csomag', 'Csibész uzsonnacsomag', 'felvagottak', ['uzsonnacsomag'], '1 csomag', 4490, null, { ingr: '80 g téliszalámi, 80 g uzsonnasonka, 80 g chilis párizsi, 130 g csípős snack kolbász […]', allergen: 'nitrit', tag: 'Csípős' });
+  p('chilis-rilette', 'Chilis rilette', 'felvagottak', ['reggelire'], '250 g', 1750, 6700, { ingr: 'Mangalica zsír, mangalica lapocka, füstölt szalonna bőr nélkül, akácméz, étkezési só, fűszerpaprika, chiliaroma, őrölt kömény', tag: 'Csípős' });
+  p('kalandor-csomag', 'Kalandor uzsonnacsomag', 'felvagottak', ['uzsonnacsomag'], '1 csomag', 4490, null, { ingr: '80 g téliszalámi, 80 g uzsonnasonka, 80 g natúr párizsi, 130 g csemege snack kolbász, 110 g kenőmájas', allergen: 'nitrit' });
+  p('csibesz-csomag', 'Csibész uzsonnacsomag', 'felvagottak', ['uzsonnacsomag'], '1 csomag', 4490, null, { ingr: '80 g téliszalámi, 80 g uzsonnasonka, 80 g chilis párizsi, 130 g csípős snack kolbász, 110 g kenőmájas', allergen: 'nitrit', tag: 'Csípős' });
 
   /* Hagyományos */
-  p('hurka', 'Hurka', 'hagyomanyos', ['disznotoros'], '1 kg', 3990, 3990, { ingr: 'Főtt máj, fej, belsőség, rizs, vöröshagyma, étkezési só, majoranna, őrölt bors, fűszerpaprika' });
+  p('hurka', 'Hurka', 'hagyomanyos', ['disznotoros'], '1 kg', 3990, 3990, { ingr: 'Főtt máj, fej, belsőség, rizs, vöröshagyma, étkezési só, majoránna, őrölt bors, fűszerpaprika, kömény' });
   p('sutokolbasz', 'Sütőkolbász', 'hagyomanyos', ['disznotoros'], '1 kg', 4800, 4800, { ingr: 'Mangalica hús, mangalica szalonna, fűszerpaprika, nitrites só, fokhagyma, bors, kömény', allergen: 'nitrit' });
   p('teperto', 'Tepertő', 'hagyomanyos', ['disznotoros'], '100 g', 870, 8700, { ingr: 'Mangalica szalonna, étkezési só' });
   p('zsir-1kg', 'Mangalicazsír', 'hagyomanyos', ['disznotoros'], '1 kg', 2500, 2500, { ingr: 'Mangalica zsírszalonna, étkezési só' });
   p('zsir-5kg', 'Mangalicazsír, 5 kg', 'hagyomanyos', ['disznotoros'], '5 kg', 10000, 2000, { ingr: 'Mangalica zsírszalonna, étkezési só' });
   p('rakott-fej', 'Rakott fej', 'hagyomanyos', ['disznotoros'], '100 g', 520, 5200, { ingr: 'Mangalica fejhús, abált lé, fokhagyma, fűszerpaprika, étkezési só, őrölt bors, őrölt kömény' });
   p('csuloksajt', 'Csülöksajt', 'hagyomanyos', ['disznotoros'], '100 g', 520, 5200, { ingr: 'Mangalica főtt első csülök, abált lé, fokhagyma, étkezési só, őrölt bors, őrölt kömény' });
-  p('tepett-hus', 'Tépett hús', 'hagyomanyos', ['kerti-parti'], '500 g', 3350, 6700, { ingr: 'Mangalica hús, mangalica zsír, étkezési só, worcestershire-szósz, szójaszósz, fűszerpaprika', allergen: 'szója' });
+  p('tepett-hus', 'Tépett hús', 'hagyomanyos', ['kerti-parti'], '500 g', 3350, 6700, { ingr: 'Mangalica hús, mangalica zsír, étkezési só, worcestershire-szósz, szójaszósz, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, koriander, római kömény, ketchup, oregánó, majoránna, vöröshagyma, cukor, mustár', allergen: 'mustár, szója' });
 
   /* Ajándékok */
-  p('ajandekdoboz-10', 'Ajándékdoboz (10 féle termékkel)', 'ajandek', [], '1 doboz', 15000, null, { ingr: 'Csemege és csípős snack kolbász, zsír, májas, szalonna és további mangalicatermékek […]' });
-  p('ajandekkosar-12', 'Ajándékkosár (12 féle termékkel)', 'ajandek', [], '1 kosár', 22000, null, { ingr: '0,5 kg zsír, tömlős májas, 20 dkg angol szalonna, csemege snack kolbász és további mangalicatermékek […]' });
+  p('ajandekdoboz-10', 'Ajándékdoboz (10 féle termékkel)', 'ajandek', [], '1 doboz', 15000, null, { ingr: '1 csomag csemege snack kolbász, 1 csomag csípős snack kolbász, 0,5 kg zsír, 25 dkg rilette, 25 dkg kenőmájas, 20 dkg kolozsvári szalonna, 20 dkg parasztmájas, 2 pár virsli, 10 dkg füstölt sonka, 1 doboz tepertőkrém' });
+  p('ajandekkosar-12', 'Ajándékkosár (12 féle termékkel)', 'ajandek', [], '1 kosár', 22000, null, { ingr: '0,5 kg zsír, 1 db tömlős májas, 20 dkg angol szalonna, 1 csomag csemege snack, 20 dkg füstölt sonka, 25 dkg kolozsvári, 25 dkg fokhagymás rilette, 25 dkg chilis rilette, 10 dkg tepertő, 30 dkg abált szalonna, 1 db tömlős szilvás májas, 20 dkg parasztmájas' });
   p('ajandekdoboz-kicsi', 'Ajándékdoboz KICSI', 'ajandek', [], '10 féle termék', 32000, null, { ingr: '10 féle vákuumcsomagolt mangalicatermék' });
   p('ajandekdoboz-nagy', 'Ajándékdoboz NAGY', 'ajandek', [], '14 féle termék', 49000, null, { ingr: '14 féle vákuumcsomagolt mangalicatermék' });
-  p('bosegtal', 'Bőségtál', 'ajandek', [], '1 tál', 25990, null, { ingr: 'Kenőmájas, tepertőkrém, miskolci kolbász, füstölt csemege kolbász, tepertő, füstölt sonka' });
-  p('ajandekkartya-5000', 'Ajándékkártya 5 000 Ft', 'ajandek', [], 'kártya', 5000, null, { ingr: '5 000 Ft értékben levásárolható', giftcard: true });
-  p('ajandekkartya-10000', 'Ajándékkártya 10 000 Ft', 'ajandek', [], 'kártya', 10000, null, { ingr: '10 000 Ft értékben levásárolható', giftcard: true });
-  p('ajandekkartya-20000', 'Ajándékkártya 20 000 Ft', 'ajandek', [], 'kártya', 20000, null, { ingr: '20 000 Ft értékben levásárolható', giftcard: true });
+  p('bosegtal', 'Bőségtál', 'ajandek', [], '2,2 kg', 25990, null, { ingr: 'Kenőmájas, tepertőkrém, miskolci kolbász, füstölt csemege kolbász, tepertő, füstölt sonka' });
+  p('ajandekkartya-5000', 'Ajándékkártya 5 000 Ft', 'ajandek', [], '1 db', 5000, null, { ingr: '5 000 Ft értékben levásárolható', giftcard: true });
+  p('ajandekkartya-10000', 'Ajándékkártya 10 000 Ft', 'ajandek', [], '1 db', 10000, null, { ingr: '10 000 Ft értékben levásárolható', giftcard: true });
+  p('ajandekkartya-20000', 'Ajándékkártya 20 000 Ft', 'ajandek', [], '1 db', 20000, null, { ingr: '20 000 Ft értékben levásárolható', giftcard: true });
 
   BG.products = L;
 })();
@@ -160,6 +160,9 @@ BG.pairByProduct = {
   'ajandekdoboz-10': ['ajandekkartya-5000', 'bosegtal', 'ajandekkosar-12', 'fustolt-csemege-kolbasz'],
   'ajandekkosar-12': ['ajandekkartya-10000', 'bosegtal', 'ajandekdoboz-10', 'teliszalami']
 };
+
+/* Ugyanaz a termék nagyobb kiszerelésben, jobb kilóárral – csak valódi párok */
+BG.biggerPack = { 'zsir-1kg': 'zsir-5kg', 'zsirnakvalo': 'zsirnakvalo-akcio', 'korom': 'korom-akcio' };
 
 BG.featured = ['fustolt-csemege-kolbasz', 'kolozsvari-szalonna', 'csontos-tarja', 'grillkolbasz-magyaros', 'paprikas-szalami', 'tepertokrem', 'szuz', 'tomahawk'];
 

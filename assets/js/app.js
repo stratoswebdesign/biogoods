@@ -65,7 +65,6 @@
   };
   const unitText = (p) => (p.unit ? num(p.unit) + ' Ft/kg' : '');
   const metaText = (p) => [p.pack, unitText(p)].filter(Boolean).join(' · ');
-  const firstWord = (p) => norm(p.name).split(/[\s(,]/)[0];
 
   /* ================= upsell, keresztajánlás ================= */
   // Ami illik egy termékhez: termékszintű lista, különben kategóriaszintű, végül a kiemeltek.
@@ -77,10 +76,10 @@
     return out.map((id) => P[id]);
   }
   // Ugyanaz a termék nagyobb kiszerelésben, kedvezőbb kilóárral (pl. zsír 1 kg → 5 kg).
+  // Csak explicit párokból (BG.biggerPack), hogy ne ajánljunk más terméket „nagyobb kiszerelésként”.
   function biggerPack(p) {
-    const g = grams(p) || 0;
-    return BG.products.filter((x) => x.id !== p.id && x.cat === p.cat && firstWord(x) === firstWord(p) && x.unit && p.unit && x.unit < p.unit && (grams(x) || 0) > g)
-      .sort((a, b) => a.unit - b.unit)[0] || null;
+    const x = P[(BG.biggerPack || {})[p.id]];
+    return x && x.unit && p.unit && x.unit < p.unit && (grams(x) || 0) > (grams(p) || 0) ? x : null;
   }
   const savePct = (p, b) => Math.round((1 - b.unit / p.unit) * 100);
   function cartComplements(limit) {

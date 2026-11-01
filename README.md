@@ -47,7 +47,9 @@ assets/css/styles.css arculat (fekete #161615 · arany #CE8900 · krém #F5F0E6;
 
 - Járatnapok zónánként (`BG.zones` a `data.js`-ben). Ezek most mintaértékek.
 - A teljes, kb. 70 települést tartalmazó lista irányítószámokkal. A minimumok a OneMin-pénztárból valók.
-- Allergének, tárolás, eltarthatóság, csomagolás; hiányzó kiszerelések (`[kiszerelés]`).
+- Tárolás, eltarthatóság, csomagolás. A kiszerelések, árak, összetevők és allergének a bgmangalica.hu OneMin-katalógusából valók (2026-11-02).
+- A kilóár öt terméknél nem egyezik az ár és a kiszerelés hányadosával. Ezeket az ügyféllel javítani kell: dobozos kenőmájas (kiírt 6100, valós 6400 Ft/kg), tömlős kenőmájas (6100 vs. 5826), tepertőkrém (6500 vs. 6600), chilis rilette (6700 vs. 7000), abált szalonna (5700 vs. 5667). A demó most a kiírt értéket mutatja.
+- A kocsonyacsomag összetevői a forrásban sem szerepelnek.
 - SZÉP-kártya alszámla, számlázás, súlyeltérés elszámolása, személyes átvétel ideje.
 - Díjak, cégadatok, jogi szövegek (ügyvéd véglegesíti).
 
