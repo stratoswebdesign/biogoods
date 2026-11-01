@@ -239,14 +239,14 @@
     const foot = document.createElement('footer');
     foot.className = 'site-footer';
     foot.innerHTML = '<div class="wrap cols">' +
-      '<div class="about"><img src="' + url('assets/img/site/logo.png') + '" alt="Bio-Goods Mangalica" style="width:110px;height:auto"><p>Mangalica-tenyésztés és -feldolgozás Gesztelyről, saját járattal.</p></div>' +
+      '<div class="about"><img src="' + url('assets/img/site/logo.png') + '" alt="Bio-Goods Mangalica" style="width:110px;height:auto"><p>Mangalica-tenyésztés és -feldolgozás Gesztelyről, saját hűtött autókkal házhoz.</p></div>' +
       '<nav aria-label="Termékek"><p class="h">Termékek</p>' + BG.categories.map((c) => '<a href="' + url('termekek.html?kategoria=' + c.id) + '">' + esc(c.name) + '</a>').join('') + '</nav>' +
       '<nav aria-label="Vásárlás"><p class="h">Vásárlás</p><a href="' + url('szallitas.html') + '">Szállítási területek</a><a href="' + url('fizetes.html') + '">Fizetési módok</a><a href="' + url('gyik.html') + '">Gyakori kérdések</a><a href="' + url('ceges-ajandek.html') + '">Céges ajándék</a><a href="' + url('aszf.html') + '">ÁSZF</a><a href="' + url('aszf.html#adatkezeles') + '">Adatkezelés</a></nav>' +
       '<nav aria-label="Bio-Goods"><p class="h">Bio-Goods</p><a href="' + url('a-gazdasag.html') + '">A gazdaság</a><a href="' + url('dijaink.html') + '">Díjaink</a><a href="' + url('receptek.html') + '">Receptek</a><a href="' + url('kapcsolat.html') + '">Kapcsolat</a></nav>' +
       '<div><p class="h">Kapcsolat</p><span>3715 Gesztely, Aradi u. 22.</span><a href="tel:+36709470077">06 70 947 0077</a><a href="mailto:mangalica@bio-goods.hu">mangalica@bio-goods.hu</a>' +
-      '<div class="social"><a href="https://www.facebook.com/" aria-label="Facebook">' + ICON.fb + '</a><a href="https://www.instagram.com/mangalicatermekek/" aria-label="Instagram">' + ICON.ig + '</a></div></div>' +
+      '<div class="social"><a href="https://www.facebook.com/biogoodsmangalica/" aria-label="Facebook" rel="noopener" target="_blank">' + ICON.fb + '</a><a href="https://www.instagram.com/mangalicatermekek/" aria-label="Instagram" rel="noopener" target="_blank">' + ICON.ig + '</a></div></div>' +
       '</div><div class="wrap bottom"><span>Bankkártya · OTP SZÉP · K&amp;H SZÉP · MKB SZÉP · SimplePay · készpénz</span>' +
-      '<span><span class="demo-badge">DEMO</span> A járatnapok és egyes adatok mintaértékek · <a href="' + url('admin/index.html') + '">Admin (demó)</a> · © 2026 Bio-Goods Kft. · Készítette: Stratos Webdesign</span></div>';
+      '<span><span class="demo-badge">DEMO</span> Egyes adatok mintaértékek · <a href="' + url('admin/index.html') + '">Admin (demó)</a> · © 2026 Bio-Goods Kft. · Készítette: Stratos Webdesign</span></div>';
     document.body.appendChild(foot);
 
     // mini-kosár fiók
@@ -798,7 +798,7 @@
         (disc ? '<div class="line" style="color:var(--ok)"><span>Kedvezmény (' + esc(cp.code) + ')</span><span>−' + ft(disc) + '</span></div>' : '') +
         '<div class="line"><span>Házhozszállítás</span><strong>' + (ok ? 'Ingyenes' : s.info ? 'a minimumtól ingyenes' : '–') + '</strong></div>' +
         (s.info && s.info.next ? '<div class="line muted" style="font-size:15px"><span>Járatnap</span><span>' + esc(fmtDate(s.info.next.date)) + ' · ' + esc(s.info.town.name) + '</span></div>' : '') +
-        '<form class="field" id="coupon-form">Kupon vagy ajándékkártya<span class="row" style="flex-wrap:nowrap"><input name="code" class="input" style="flex:1;min-width:0;height:46px" placeholder="pl. APP10"' + (cp ? ' value="' + esc(cp.code) + '"' : '') + '><button class="btn btn-outline btn-sm" type="submit">' + (cp ? 'Törlés' : 'Beváltom') + '</button></span></form>' +
+        '<form class="field" id="coupon-form">Kupon vagy ajándékkártya<span class="row" style="flex-wrap:nowrap"><input name="code" class="input" style="flex:1;min-width:0;height:46px" placeholder="pl. APP5"' + (cp ? ' value="' + esc(cp.code) + '"' : '') + '><button class="btn btn-outline btn-sm" type="submit">' + (cp ? 'Törlés' : 'Beváltom') + '</button></span></form>' +
         '<div class="line total"><strong>Fizetendő</strong><span class="price">' + ft(pay) + '</span></div>' +
         (ok ? '<a class="btn btn-gold btn-block" href="' + url('penztar.html') + '">Tovább a pénztárhoz</a>'
           : '<button class="btn btn-block" disabled>' + (s.info ? 'Még ' + ft(s.missing) + ' a minimumig' : 'Előbb válassz települést') + '</button>') +
@@ -808,7 +808,7 @@
         e.preventDefault();
         if (coupon()) { store.del('bg_coupon'); toast('A kupont eltávolítottuk'); draw(); return; }
         const code = norm(e.target.code.value).toUpperCase();
-        if (code === 'APP10') { store.set('bg_coupon', { code: 'APP10', pct: 10 }); toast('Átállási kedvezmény: −10%'); draw(); } else toast('Ez a kód nem érvényes (demóban: APP10)');
+        if (code === 'APP5') { store.set('bg_coupon', { code: 'APP5', pct: 5 }); toast('Átállási kedvezmény: −5%'); draw(); } else toast('Ez a kód nem érvényes (demóban: APP5)');
       });
     };
     pageRerender = draw;
@@ -988,7 +988,7 @@
         '<div style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:24px"><h1 style="font-size:48px">Szia' + (name ? ', ' + esc(name.trim().split(/\s+/).pop()) : '') + '!</h1>' +
         '<div class="row" style="align-items:stretch;gap:20px">' +
         (upcoming ? '<div class="card-dark" style="flex:1 1 340px;display:flex;flex-direction:column;gap:8px"><p class="kicker light" style="margin:0">Úton hozzád</p><p class="display" style="font-size:30px;color:var(--cream)">' + (upcoming.day ? esc(fmtDate(parseDay(upcoming.day))) : '–') + '</p><p>#' + esc(upcoming.id) + ' · ' + upcoming.items.length + ' termék · ' + ft(upcoming.total) + '</p></div>' : '') +
-        '<div class="card" style="flex:1 1 300px;border:2px dashed var(--gold);display:flex;flex-direction:column;gap:8px"><p class="kicker" style="margin:0">Átállási kedvezmény</p><p class="display" style="font-size:30px;font-weight:500">10% a következő rendelésre</p><p class="muted">Köszönjük, hogy az appból velünk jöttél. Kód: <strong style="color:var(--ink)">APP10</strong> <span class="demo-badge">DEMO</span></p></div></div>' +
+        '<div class="card" style="flex:1 1 300px;border:2px dashed var(--gold);display:flex;flex-direction:column;gap:8px"><p class="kicker" style="margin:0">Átállási kedvezmény</p><p class="display" style="font-size:30px;font-weight:500">5% a következő rendelésre</p><p class="muted">Köszönjük, hogy az appból velünk jöttél. Kód: <strong style="color:var(--ink)">APP5</strong> <span class="demo-badge">DEMO</span></p></div></div>' +
         '<div id="rendelesek"><h2 style="font-size:28px;margin-bottom:12px">Rendeléseim</h2>' +
         (orders.length ? '<div class="table-box"><table class="data" style="min-width:640px"><thead><tr><th scope="col">Rendelés</th><th scope="col">Járatnap</th><th scope="col">Tartalom</th><th scope="col">Összeg</th><th scope="col">Állapot</th><th scope="col"><span class="sr-only">Művelet</span></th></tr></thead><tbody>' +
           orders.map((o) => '<tr><td><strong>#' + esc(o.id) + '</strong></td><td>' + (o.day ? esc(fmtDate(parseDay(o.day))) : '–') + '</td><td class="muted">' + esc(o.items.map((i) => P[i.id] ? P[i.id].name : i.id).slice(0, 2).join(', ')) + (o.items.length > 2 ? ', +' + (o.items.length - 2) : '') + '</td><td>' + ft(o.total) + '</td>' +
@@ -1043,7 +1043,7 @@
     $('#city-faq').innerHTML = [
       ['Melyik napon jön a járat ide: ' + t.name + '?', runsText(t) + ' – a rendelést a kiszállítást megelőző napon délig kell leadni.'],
       ['Mekkora a minimum rendelés?', t.name + ': ' + minText(t) + '. Szállítási díj nincs.'],
-      ['Átvehetem személyesen?', '[Van-e személyes átvétel – megerősítendő. A mostani webshopban nincs ilyen opció.]']
+      ['Átvehetem személyesen?', 'Személyes átvétel nincs: minden rendelést saját hűtött autóval viszünk házhoz.']
     ].map(([q, a]) => '<details><summary>' + esc(q) + '</summary><p>' + esc(a) + '</p></details>').join('');
     $('#city-near').innerHTML = BG.towns.filter((x) => x.zone === t.zone && x !== t).map((x) => '<a class="chip" href="' + url('varos.html?v=' + encodeURIComponent(norm(x.name))) + '">' + esc(x.name) + '</a>').join('');
   };
