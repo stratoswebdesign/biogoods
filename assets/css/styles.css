@@ -280,6 +280,7 @@ fieldset { min-width: 0; }
 .radio-card:has(input:checked) { border: 2px solid var(--ink); }
 .radio-card .top { display: flex; align-items: center; gap: 10px; font-weight: 700; }
 .radio-card input { margin: 0; width: 20px; height: 20px; accent-color: var(--ink); }
+.radio-card.is-disabled { cursor: not-allowed; background: var(--paper); color: var(--muted, #5E574C); border-style: dashed; }
 .radio-card small { color: var(--muted); font-size: 13px; }
 .radio-list { display: flex; flex-direction: column; gap: 10px; }
 .radio-list .radio-card { flex-direction: row; align-items: center; gap: 12px; }
@@ -413,7 +414,7 @@ table.data td { padding: 12px 18px; border-top: 1px solid var(--line); }
 .admin nav.side a[aria-current="page"] { background: var(--gold); color: var(--ink); font-weight: 700; }
 .admin main { flex: 999 1 800px; min-width: 0; padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 18px; }
 .admin h1 { font-size: 32px; }
-.admin .box { background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.admin .box { background: #fff; border: 1px solid var(--line); border-radius: 12px; max-width: 100%; min-width: 0; position: relative; }
 .admin .filters { padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
 .admin .filters label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 13px; }
 .admin .filters select, .admin .filters input { height: 40px; padding: 0 10px; border-radius: 8px; border: 1px solid var(--line-2); background: #fff; }

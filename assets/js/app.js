@@ -25,6 +25,7 @@
   const DAYS = ['vasárnap', 'hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat'];
   const MONTHS = ['jan.', 'febr.', 'márc.', 'ápr.', 'máj.', 'jún.', 'júl.', 'aug.', 'szept.', 'okt.', 'nov.', 'dec.'];
   const fmtDate = (d) => DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate() + '.';
+  const parseYmd = (s) => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
   const fmtCut = (d) => DAYS[d.getDay()] + ' ' + String(d.getHours()).padStart(2, '0') + ':00';
   const ymd = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 
@@ -52,11 +53,26 @@
   const OCC = {};
   BG.occasions.forEach((o) => { OCC[o.id] = o; });
   const ZONE = {};
-  BG.zones.forEach((z) => { ZONE[z.id] = z; });
+  BG.areas.forEach((z) => { ZONE[z.id] = z; });
 
-  // Admin felületen átírt minimumok (demo)
-  const overrides = store.get('bg_min_overrides', {});
-  BG.towns.forEach((t) => { if (overrides[t.name]) t.min = overrides[t.name]; });
+  // Admin felületen átírt minimumok (demó, ebben a böngészőben): kulcs = település|járatindex
+  const overrides = store.get('bg_min_overrides2', {});
+  BG.towns.forEach((t) => {
+    t.runs.forEach((r, ix) => { const v = overrides[t.name + '|' + ix]; if (typeof v === 'number') r.min = v; });
+    t.min = Math.min.apply(null, t.runs.map((r) => r.min));
+  });
+  const DAYNAMES = ['vasárnap', 'hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat'];
+  // Egy járat címkéje: „kedd” vagy „november 5., csütörtök (egyszeri)”
+  const runLabel = (r) => r.date ? fmtDate(parseYmd(r.date)) + ' (egyszeri járat)' : DAYNAMES[r.day];
+  // Település járatai szövegesen; ha a minimumok eltérnek, járatonként kiírva
+  function runsText(t, withMin) {
+    const same = t.runs.every((r) => r.min === t.runs[0].min);
+    return t.runs.map((r) => runLabel(r) + (withMin && !same ? ' (min. ' + ft(r.min) + ')' : '')).join(', ');
+  }
+  function minText(t) {
+    const same = t.runs.every((r) => r.min === t.runs[0].min);
+    return same ? ft(t.min) : t.runs.map((r) => ft(r.min) + ' (' + runLabel(r) + ')').join(' · ');
+  }
 
   const grams = (p) => {
     const m = String(p.pack).replace(',', '.').match(/([\d.]+)\s*(kg|g)/);
@@ -118,25 +134,29 @@
     store.set('bg_town', name);
     document.dispatchEvent(new CustomEvent('bg:town'));
   }
-  function nextDeliveries(zoneId, count, from) {
-    const z = ZONE[zoneId];
+  // A település következő járatai (a mostani webshop szerint: rendelés a kiszállítást megelőző napon délig).
+  // Minden járatnak saját minimuma lehet (pl. Budapest: kedd 10 000 Ft, péntek 5 000 Ft).
+  function nextDeliveries(t, count, from) {
     const out = [];
-    if (!z) return out;
+    if (!t || !t.runs) return out;
     const now = from || new Date();
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     for (let i = 1; i <= 70 && out.length < (count || 1); i++) {
       const day = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
-      if (!z.days.includes(day.getDay())) continue;
-      const cutoff = new Date(day.getFullYear(), day.getMonth(), day.getDate() - 1, 12, 0, 0);
-      if (now < cutoff) out.push({ date: day, cutoff });
+      const run = t.runs.find((r) => (r.date ? r.date === ymd(day) : r.day === day.getDay()));
+      if (!run) continue;
+      const cutoff = new Date(day.getFullYear(), day.getMonth(), day.getDate() - 1, BG.cutoffHour || 12, 0, 0);
+      if (now < cutoff) out.push({ date: day, cutoff, min: run.min, once: !!run.date });
     }
     return out;
   }
-  function townInfo(t) {
+  function townInfo(t, total) {
     if (!t) return null;
     const z = ZONE[t.zone];
-    const next = nextDeliveries(t.zone, 1)[0];
-    return { town: t, zone: z, next, min: t.min };
+    const list = nextDeliveries(t, 4);
+    // az első járat, amelyhez a kosár már eléri a minimumot (ha nincs kosárösszeg: a legkorábbi)
+    const next = (typeof total === 'number' ? list.find((o) => total >= o.min) : null) || list[0];
+    return { town: t, zone: z, next, list, min: t.min };
   }
 
   /* ================= kosár ================= */
@@ -190,9 +210,9 @@
     if (info && info.next) {
       return '<span><strong>' + esc(info.town.name) + ':</strong> következő járat ' + esc(fmtDate(info.next.date)) + '</span>' +
         '<span>Rendelj ' + esc(fmtCut(info.next.cutoff)) + '-ig</span>' +
-        '<span>Ingyenes szállítás ' + ft(info.min) + ' felett</span>';
+        '<span>Minimum rendelés: ' + ft(info.next.min) + ' · szállítási díj nincs</span>';
     }
-    return '<span>Kiszállítás kedden, szerdán, csütörtökön és pénteken</span><span>Rendelés a járat előtti napon 12:00-ig</span><span>Ingyenes házhozszállítás a települési minimumtól</span>';
+    return '<span>Kiszállítás minden héten: kedd · szerda · csütörtök · péntek</span><span>Rendelés a kiszállítást megelőző napon délig</span><span>Szállítási díj nincs, településenként rendelési minimum</span>';
   }
   function renderChrome() {
     const nav = document.body.getAttribute('data-nav') || '';
@@ -277,7 +297,7 @@
   function minState() {
     const c = getCart();
     const total = cartTotal(c);
-    const info = townInfo(getTown());
+    const info = townInfo(getTown(), total);
     if (!info) return { total, info: null, missing: null, pct: 0 };
     const missing = Math.max(0, info.min - total);
     return { total, info, missing, pct: Math.min(100, Math.round(total / info.min * 100)) };
@@ -299,12 +319,12 @@
         '<div data-town-check="inline"></div></div>';
     }
     const t = s.info;
-    const head = '<div class="head"><span><strong>' + esc(t.town.name) + '</strong> · minimum ' + ft(t.min) + (t.next ? ' · járat: ' + esc(fmtDate(t.next.date)) : '') + '</span>' +
+    const head = '<div class="head"><span><strong>' + esc(t.town.name) + '</strong> · minimum ' + esc(minText(t.town)) + (t.next ? ' · járat: ' + esc(fmtDate(t.next.date)) : '') + '</span>' +
       '<button type="button" class="link" data-change-town>Másik település</button></div>';
     const bar = '<div class="progress" role="progressbar" aria-label="Rendelési minimum" aria-valuemin="0" aria-valuemax="' + t.min + '" aria-valuenow="' + Math.min(s.total, t.min) + '"><span style="width:' + s.pct + '%"></span></div>';
     const msg = s.missing > 0
-      ? '<p class="msg">Még <strong>' + ft(s.missing) + '</strong>, és rendelhetsz – a szállítás ingyenes.</p>'
-      : '<p class="msg"><strong>Megvan a minimum!</strong> A házhozszállítás ingyenes.</p>';
+      ? '<p class="msg">Még <strong>' + ft(s.missing) + '</strong>, és rendelhetsz – szállítási díj nincs.</p>'
+      : '<p class="msg"><strong>Megvan a minimum!</strong> ' + (t.next ? 'Első elérhető járat: ' + esc(fmtDate(t.next.date)) : 'Szállítási díj nincs.') + '</p>';
     return '<div class="minbar">' + (compact ? '' : head) + bar + msg + (compact ? head : '') + '</div>';
   }
 
@@ -385,10 +405,10 @@
   function townResultHTML(t) {
     const i = townInfo(t);
     if (!i) return '';
-    return '<span><strong>' + esc(t.name) + '</strong> – szállítunk</span>' +
-      '<span>Következő járat: <strong>' + (i.next ? esc(fmtDate(i.next.date)) : 'egyeztetés alatt') + '</strong>' + (i.zone.periodic ? ' (időszakos)' : '') + '</span>' +
+    return '<span><strong>' + esc(t.name) + '</strong> – szállítunk · ' + esc(runsText(t)) + '</span>' +
+      '<span>Következő járat: <strong>' + (i.next ? esc(fmtDate(i.next.date)) : 'jelenleg nincs meghirdetve') + '</strong></span>' +
       (i.next ? '<span>Határidő: ' + esc(fmtCut(i.next.cutoff)) + '</span>' : '') +
-      '<span>Minimum: <strong>' + ft(i.min) + '</strong></span>';
+      '<span>Minimum: <strong>' + esc(minText(t)) + '</strong></span>';
   }
   function bindTownChecks(root) {
     $$('[data-town-check]', root).forEach((el) => {
@@ -414,7 +434,7 @@
       const draw = () => {
         items = findTowns(input.value).slice(0, 8);
         if (!input.value.trim() || !items.length) { list.hidden = true; return; }
-        list.innerHTML = items.map((t, ix) => '<li><button type="button" role="option" data-ix="' + ix + '" class="' + (ix === active ? 'is-active' : '') + '"><span>' + esc(t.name) + '</span><small>' + esc(ZONE[t.zone].name) + ' · min. ' + ft(t.min) + '</small></button></li>').join('');
+        list.innerHTML = items.map((t, ix) => '<li><button type="button" role="option" data-ix="' + ix + '" class="' + (ix === active ? 'is-active' : '') + '"><span>' + esc(t.name) + '</span><small>' + esc(runsText(t)) + ' · min. ' + ft(t.min) + '</small></button></li>').join('');
         list.hidden = false;
       };
       input.addEventListener('input', () => { active = -1; draw(); });
@@ -530,14 +550,19 @@
   };
 
   function routeCards() {
-    return BG.zones.map((z) => {
+    return BG.areas.map((z) => {
       const towns = BG.towns.filter((t) => t.zone === z.id);
-      const min = Math.min.apply(null, towns.map((t) => t.min));
-      const days = z.days.map((d) => DAYS[d]).join(', ');
+      if (!towns.length) return '';
       return '<div class="card route-card"><p class="display" style="font-size:24px;font-weight:500">' + esc(z.name) + '</p>' +
-        '<p class="muted" style="font-size:15px">' + esc(towns.slice(0, 6).map((t) => t.name).join(', ')) + (towns.length > 6 ? '…' : '') + '</p>' +
-        '<div class="foot"><span>Járatnap: <strong>' + esc(days) + (z.periodic ? ' (időszakos)' : '') + '</strong></span><span>Minimum: <strong>' + ft(min) + '-tól</strong></span></div></div>';
+        '<p class="muted" style="font-size:15px">' + esc(towns.slice(0, 6).map((t) => t.name).join(', ')) + (towns.length > 6 ? ' és még ' + (towns.length - 6) : '') + '</p>' +
+        '<div class="foot"><span>Járatnap: <strong>' + esc(areaDays(z.id)) + '</strong></span><span>Minimum: <strong>' + ft(Math.min.apply(null, towns.map((t) => t.min))) + '-tól</strong></span></div></div>';
     }).join('');
+  }
+  function areaDays(zoneId) {
+    const runs = [].concat.apply([], BG.towns.filter((t) => t.zone === zoneId).map((t) => t.runs));
+    const once = Array.from(new Set(runs.filter((r) => r.date).map((r) => r.date))).sort().map((d) => fmtDate(parseYmd(d)) + ' (egyszeri)');
+    const days = Array.from(new Set(runs.filter((r) => !r.date).map((r) => r.day))).sort().map((d) => DAYNAMES[d]);
+    return days.concat(once).join(', ');
   }
   function reviewsHTML() {
     return BG.reviews.map((r) => '<figure class="review"><span class="stars" role="img" aria-label="5 csillagból 5">★★★★★</span><blockquote>' + esc(r.text) + '</blockquote><figcaption>' + esc(r.name) + ' · Google</figcaption></figure>').join('');
@@ -686,7 +711,7 @@
       const i = townInfo(getTown());
       $('#pdp-delivery').innerHTML = i
         ? '<div class="delivery-box"><div class="row" style="justify-content:space-between"><span class="t">Szállítás: ' + esc(i.town.name) + '</span><a href="#" data-change-town>Másik település</a></div>' +
-          '<div class="d"><span>Következő járat: <strong>' + (i.next ? esc(fmtDate(i.next.date)) : 'egyeztetés alatt') + '</strong></span>' + (i.next ? '<span>Rendelj eddig: <strong>' + esc(fmtCut(i.next.cutoff)) + '</strong></span>' : '') + '<span>Ingyenes <strong>' + ft(i.min) + '</strong> felett</span></div></div>'
+          '<div class="d"><span>Következő járat: <strong>' + (i.next ? esc(fmtDate(i.next.date)) : 'egyeztetés alatt') + '</strong></span>' + (i.next ? '<span>Rendelj eddig: <strong>' + esc(fmtCut(i.next.cutoff)) + '</strong></span>' : '') + '<span>Minimum: <strong>' + esc(minText(i.town)) + '</strong></span></div></div>'
         : '<div data-town-check="dark"></div>';
       bindTownChecks($('#pdp-delivery'));
     };
@@ -852,10 +877,15 @@
       fld.classList.add('is-ok');
       const missing = Math.max(0, t.min - total);
       msg.className = 'field-msg ' + (missing ? 'err' : 'ok');
-      msg.textContent = missing ? '✗ ' + t.name + ': a minimum ' + ft(t.min) + ' – még ' + ft(missing) + ' hiányzik.' : '✓ Szállítunk ide: ' + t.name + ' · minimum ' + ft(t.min) + ' · megvan';
-      const opts = nextDeliveries(t.zone, 3);
-      $('#days-intro').textContent = ZONE[t.zone].name + (ZONE[t.zone].periodic ? ' (időszakos járat)' : '') + ': ezeken a napokon visszük ki a rendelést.';
-      $('#days').innerHTML = opts.map((o, ix) => '<label class="radio-card"><span class="top"><input type="radio" name="day" value="' + ymd(o.date) + '"' + (ix === 0 ? ' checked' : '') + ' required>' + esc(fmtDate(o.date)) + '</span><small>Rendelés eddig: ' + esc(fmtCut(o.cutoff)) + '</small></label>').join('') || '<p class="muted">A következő járat időpontját e-mailben jelezzük.</p>';
+      msg.textContent = missing ? '✗ ' + t.name + ': a minimum ' + minText(t) + ' – még ' + ft(missing) + ' hiányzik.' : '✓ Szállítunk ide: ' + t.name + ' · minimum ' + minText(t) + ' · megvan';
+      const opts = nextDeliveries(t, 4);
+      const firstOk = opts.findIndex((o) => total >= o.min);
+      $('#days-intro').textContent = t.name + ': ' + runsText(t) + '. Válaszd ki a kiszállítás napját.';
+      $('#days').innerHTML = opts.map((o, ix) => {
+        const ok = total >= o.min;
+        return '<label class="radio-card' + (ok ? '' : ' is-disabled') + '"><span class="top"><input type="radio" name="day" value="' + ymd(o.date) + '" data-min="' + o.min + '"' + (ix === firstOk ? ' checked' : '') + (ok ? '' : ' disabled') + ' required>' + esc(fmtDate(o.date)) + (o.once ? ' (egyszeri)' : '') + '</span>' +
+          '<small>Rendelés eddig: ' + esc(fmtCut(o.cutoff)) + ' · min. ' + ft(o.min) + (ok ? '' : ' – még ' + ft(o.min - total)) + '</small></label>';
+      }).join('') || '<p class="muted">Erre a településre jelenleg nincs meghirdetett járat.</p>';
       drawSum(t);
     }
     function drawSum(t) {
@@ -892,6 +922,9 @@
       const cc = getCart();
       const total = cartTotal(cc);
       if (total < t.min) { err.textContent = 'A rendelés nem éri el a települési minimumot.'; return; }
+      const dayInp = form.querySelector('input[name=day]:checked');
+      if (!dayInp) { err.textContent = 'Válassz kiszállítási napot.'; return; }
+      if (total < +dayInp.getAttribute('data-min')) { err.textContent = 'Erre a járatra a minimum ' + ft(+dayInp.getAttribute('data-min')) + '. Válassz másik napot, vagy tegyél még a kosárba.'; return; }
       const fd = new FormData(form);
       const orders = store.get('bg_orders', []);
       const id = String(1050 + orders.filter((o) => !o.demo).length);
@@ -987,14 +1020,13 @@
 
   /* ---------- szállítás ---------- */
   pages.shipping = function () {
-    $('#zones').innerHTML = BG.zones.map((z) => {
+    $('#zones').innerHTML = BG.areas.map((z) => {
       const towns = BG.towns.filter((t) => t.zone === z.id);
-      const nx = nextDeliveries(z.id, 1)[0];
+      if (!towns.length) return '';
       return '<div class="card" style="padding:0;overflow:hidden"><div style="padding:20px 22px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px">' +
-        '<h2 style="font-size:28px">' + esc(z.name) + '</h2><span style="font-size:14px;font-weight:700;color:var(--gold-text)">Járatnap: ' + esc(z.days.map((d) => DAYS[d]).join(', ')) + (z.periodic ? ' (időszakos)' : '') + '</span></div>' +
-        '<table class="data"><thead><tr><th scope="col">Település</th><th scope="col" style="text-align:right">Minimum rendelés</th></tr></thead><tbody>' +
-        towns.map((t) => '<tr><td>' + esc(t.name) + '</td><td style="text-align:right;font-weight:700">' + ft(t.min) + '</td></tr>').join('') + '</tbody></table>' +
-        '<p class="muted" style="padding:12px 22px 18px;font-size:14px">' + (nx ? 'Következő járat: <strong style="color:var(--ink)">' + esc(fmtDate(nx.date)) + '</strong>, rendelés ' + esc(fmtCut(nx.cutoff)) + '-ig.' : '') + (z.periodic ? ' Új járat – iratkozz fel a járatértesítőre.' : '') + '</p></div>';
+        '<h2 style="font-size:28px">' + esc(z.name) + '</h2><span style="font-size:14px;font-weight:700;color:var(--gold-text)">' + towns.length + ' település</span></div>' +
+        '<table class="data"><thead><tr><th scope="col">Település</th><th scope="col">Járatnap</th><th scope="col" style="text-align:right">Minimum rendelés</th></tr></thead><tbody>' +
+        towns.map((t) => '<tr><td><a href="' + url('varos.html?v=' + encodeURIComponent(norm(t.name))) + '">' + esc(t.name) + '</a></td><td>' + esc(runsText(t)) + '</td><td style="text-align:right;font-weight:700">' + esc(minText(t)) + '</td></tr>').join('') + '</tbody></table></div>';
     }).join('');
   };
 
@@ -1004,13 +1036,13 @@
     const i = townInfo(t);
     document.title = 'Mangalica házhozszállítás – ' + t.name + ' | Bio-Goods';
     $('#city-h1').textContent = 'Mangalica házhozszállítás – ' + t.name;
-    $('#city-facts').innerHTML = [['Járatnap', i.zone.days.map((d) => DAYS[d]).join(', ')], ['Minimum', ft(i.min)], ['Következő járat', i.next ? fmtDate(i.next.date) : 'egyeztetés alatt']]
+    $('#city-facts').innerHTML = [['Járatnap', runsText(t)], ['Minimum', minText(t)], ['Következő járat', i.next ? fmtDate(i.next.date) : 'jelenleg nincs meghirdetve']]
       .map(([k, v]) => '<div style="background:var(--ink-2);border-radius:12px;padding:14px"><dt style="font-size:13px;color:var(--on-dark-muted)">' + esc(k) + '</dt><dd style="margin:2px 0 0;font-weight:700;color:var(--cream)">' + esc(v) + '</dd></div>').join('');
     $('#city-cta').addEventListener('click', () => setTown(t.name));
     $('#city-products').innerHTML = ['miskolci-kolbasz', 'csontos-tarja', 'hurka', 'zsir-1kg'].map((id) => productCard(P[id])).join('');
     $('#city-faq').innerHTML = [
-      ['Melyik napon jön a járat ide: ' + t.name + '?', i.zone.days.map((d) => DAYS[d]).join(', ') + ' – a rendelést az előtte lévő napon 12:00-ig kell leadni.'],
-      ['Mekkora a minimum rendelés?', t.name + ': ' + ft(t.min) + ', felette a házhozszállítás ingyenes.'],
+      ['Melyik napon jön a járat ide: ' + t.name + '?', runsText(t) + ' – a rendelést a kiszállítást megelőző napon délig kell leadni.'],
+      ['Mekkora a minimum rendelés?', t.name + ': ' + minText(t) + '. Szállítási díj nincs.'],
       ['Átvehetem személyesen?', '[Van-e személyes átvétel – megerősítendő. A mostani webshopban nincs ilyen opció.]']
     ].map(([q, a]) => '<details><summary>' + esc(q) + '</summary><p>' + esc(a) + '</p></details>').join('');
     $('#city-near').innerHTML = BG.towns.filter((x) => x.zone === t.zone && x !== t).map((x) => '<a class="chip" href="' + url('varos.html?v=' + encodeURIComponent(norm(x.name))) + '">' + esc(x.name) + '</a>').join('');
@@ -1062,8 +1094,8 @@
       ['Érd', [['tomahawk', 4], ['t-bone', 2], ['hamburgerhus', 1]], 'card'], ['Budapest', [['kalandor-csomag', 2], ['csibesz-csomag', 1]], 'cash']];
     plan.forEach(([townName, items, pay], ix) => {
       const t = townByName(townName);
-      const day = nextDeliveries(t.zone, 1)[0];
       const total = items.reduce((s, [id, q]) => s + P[id].price * q, 0);
+      const day = nextDeliveries(t, 4).find((o) => total >= o.min);
       orders.push({ id: String(1001 + ix), created: new Date(Date.now() - (ix + 1) * 3600e3).toISOString(), status: 'processing', demo: true,
         items: items.map(([id, q]) => ({ id, qty: q, price: P[id].price })), subtotal: total, discount: 0, total,
         town: townName, zone: t.zone, day: day ? ymd(day.date) : null, name: names[ix], email: '', phone: '+36 30 ··· ··' + String(11 + ix * 7).slice(-2),
@@ -1078,7 +1110,7 @@
     const orders = seedDemoOrders();
     const days = adminDays(orders);
     $('#f-day').innerHTML = days.map((d) => '<option value="' + d + '">' + esc(fmtDate(parseDay(d))) + '</option>').join('');
-    $('#f-zone').innerHTML = '<option value="">Minden zóna</option>' + BG.zones.map((z) => '<option value="' + z.id + '">' + esc(z.name) + '</option>').join('');
+    $('#f-zone').innerHTML = '<option value="">Minden terület</option>' + BG.areas.map((z) => '<option value="' + z.id + '">' + esc(z.name) + '</option>').join('');
     const draw = () => {
       const all = store.get('bg_orders', []);
       const day = $('#f-day').value;
@@ -1142,23 +1174,25 @@
   };
 
   pages.adminZones = function () {
-    let zone = BG.zones[0].id;
+    let zone = BG.areas[0].id;
     const draw = () => {
-      $('#ztabs').innerHTML = BG.zones.map((z) => '<button type="button" class="chip' + (z.id === zone ? ' is-active' : '') + '" data-z="' + z.id + '">' + esc(z.name) + ' · ' + BG.towns.filter((t) => t.zone === z.id).length + '</button>').join('');
-      const z = ZONE[zone];
-      $('#zinfo').innerHTML = 'Járatnap: <strong>' + esc(z.days.map((d) => DAYS[d]).join(', ')) + '</strong>' + (z.periodic ? ' (időszakos)' : '') + ' · határidő: előző nap 12:00 <span class="demo-badge">DEMO</span>';
-      $('#zrows').innerHTML = BG.towns.filter((t) => t.zone === zone).map((t) => '<tr><td><strong>' + esc(t.name) + '</strong></td><td class="muted">' + esc(t.zips.map((x) => x.length < 4 ? x + '…' : x).join(', ')) + '</td>' +
-        '<td><label style="display:flex;align-items:center;gap:6px"><span class="sr-only">Minimum: ' + esc(t.name) + '</span><input data-town="' + esc(t.name) + '" type="number" step="500" min="0" value="' + t.min + '" style="width:110px;height:36px;padding:0 8px;border-radius:6px;border:1px solid var(--line-2);text-align:right">Ft</label></td>' +
-        '<td><input type="checkbox" checked aria-label="Aktív: ' + esc(t.name) + '" style="width:20px;height:20px;accent-color:var(--ink)"></td></tr>').join('');
+      $('#ztabs').innerHTML = BG.areas.map((z) => '<button type="button" class="chip' + (z.id === zone ? ' is-active' : '') + '" data-z="' + z.id + '">' + esc(z.name) + ' · ' + BG.towns.filter((t) => t.zone === z.id).length + '</button>').join('');
+      $('#zinfo').innerHTML = 'Járatnap: <strong>' + esc(areaDays(zone)) + '</strong> · határidő: a kiszállítást megelőző nap 12:00 · szállítási díj: 0 Ft';
+      $('#zrows').innerHTML = [].concat.apply([], BG.towns.filter((t) => t.zone === zone).map((t) => t.runs.map((r, ix) => '<tr><td><strong>' + esc(t.name) + '</strong></td><td>' + esc(runLabel(r)) + '</td><td class="muted">' + esc(t.zips.length ? t.zips.map((x) => x.length < 4 ? x + '…' : x).join(', ') : '[irányítószám megerősítendő]') + '</td>' +
+        '<td><label style="display:flex;align-items:center;gap:6px"><span class="sr-only">Minimum: ' + esc(t.name) + ', ' + esc(runLabel(r)) + '</span><input data-run="' + esc(t.name) + '|' + ix + '" type="number" step="500" min="0" value="' + r.min + '" style="width:110px;height:36px;padding:0 8px;border-radius:6px;border:1px solid var(--line-2);text-align:right">Ft</label></td>' +
+        '<td><input type="checkbox" checked aria-label="Aktív: ' + esc(t.name) + ', ' + esc(runLabel(r)) + '" style="width:20px;height:20px;accent-color:var(--ink)"></td></tr>'))).join('');
     };
     $('#ztabs').addEventListener('click', (e) => { const b = e.target.closest('[data-z]'); if (b) { zone = b.getAttribute('data-z'); draw(); } });
     $('#save').addEventListener('click', () => {
-      const ov = store.get('bg_min_overrides', {});
-      $$('#zrows input[data-town]').forEach((i) => { const t = townByName(i.getAttribute('data-town')); const v = Math.max(0, parseInt(i.value, 10) || 0); ov[t.name] = v; t.min = v; });
-      store.set('bg_min_overrides', ov);
+      const ov = store.get('bg_min_overrides2', {});
+      $$('#zrows input[data-run]').forEach((i) => {
+        const [name, ix] = i.getAttribute('data-run').split('|'); const t = townByName(name); const v = Math.max(0, parseInt(i.value, 10) || 0);
+        ov[name + '|' + ix] = v; t.runs[+ix].min = v; t.min = Math.min.apply(null, t.runs.map((r) => r.min));
+      });
+      store.set('bg_min_overrides2', ov);
       toast('Mentve – a webshop minimumjai frissültek (ebben a böngészőben)');
     });
-    $('#reset').addEventListener('click', () => { store.del('bg_min_overrides'); toast('Alapértékek visszaállítva'); setTimeout(() => location.reload(), 500); });
+    $('#reset').addEventListener('click', () => { store.del('bg_min_overrides2'); toast('Alapértékek visszaállítva'); setTimeout(() => location.reload(), 500); });
     draw();
   };
 

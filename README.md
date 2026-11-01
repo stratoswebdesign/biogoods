@@ -45,8 +45,9 @@ assets/css/styles.css arculat (fekete #161615 · arany #CE8900 · krém #F5F0E6;
 
 ## Demóadatok – élesítés előtt az ügyféllel véglegesítendő
 
-- Járatnapok zónánként (`BG.zones` a `data.js`-ben). Ezek most mintaértékek.
-- A teljes, kb. 70 települést tartalmazó lista irányítószámokkal. A minimumok a OneMin-pénztárból valók.
+- A szállítás pontosan a mostani webshop szerint működik (`BG.towns` a `data.js`-ben, 2026-11-02): a OneMin 92 szállítási régiója 85 településre és 104 járatra bontva, járatonkénti minimummal (pl. Budapest: kedd 10 000 Ft, péntek 5 000 Ft), a november 5-i dunántúli egyszeri járattal; rendelés a kiszállítást megelőző napon délig; szállítási díj nincs.
+- Irányítószámok: hu-postal-codes (Magyar Posta-lista, MIT). Pallagnak és a Szentjakab Parknak nincs saját irányítószáma, ezek név alapján kereshetők. Megerősítendő: a /terulet oldal „Tiszalök”-öt említ, a régiók között viszont Tiszalúc szerepel.
+- Megerősítendő: „saját járat, futárcég nélkül” – a mostani oldal ezt nem állítja.
 - Tárolás, eltarthatóság, csomagolás. A kiszerelések, árak, összetevők és allergének a bgmangalica.hu OneMin-katalógusából valók (2026-11-02).
 - A kilóár öt terméknél nem egyezik az ár és a kiszerelés hányadosával. Ezeket az ügyféllel javítani kell: dobozos kenőmájas (kiírt 6100, valós 6400 Ft/kg), tömlős kenőmájas (6100 vs. 5826), tepertőkrém (6500 vs. 6600), chilis rilette (6700 vs. 7000), abált szalonna (5700 vs. 5667). A demó most a kiírt értéket mutatja.
 - A kocsonyacsomag összetevői a forrásban sem szerepelnek.

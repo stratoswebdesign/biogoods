@@ -3,8 +3,8 @@
  * ---------------------------------------------------------------
  * A termékek, árak, kiszerelések és a települési minimumok a
  * bgmangalica.hu mostani (OneMin) webshopjából származnak (2026. november).
- * DEMO-ADAT: a járatnapok, az irányítószám-tartományok és a hiányzó
- * mezők mintaértékek – élesítés előtt az ügyféllel véglegesítendők.
+ * A járatok, minimumok és termékadatok a bgmangalica.hu OneMin-adataiból valók (2026-11-02).
+ * A hiányzó mezők [megerősítendő] jelöléssel szerepelnek.
  */
 window.BG = window.BG || {};
 
@@ -166,43 +166,107 @@ BG.biggerPack = { 'zsir-1kg': 'zsir-5kg', 'zsirnakvalo': 'zsirnakvalo-akcio', 'k
 
 BG.featured = ['fustolt-csemege-kolbasz', 'kolozsvari-szalonna', 'csontos-tarja', 'grillkolbasz-magyaros', 'paprikas-szalami', 'tepertokrem', 'szuz', 'tomahawk'];
 
-/* Szállítás. days: 0 = vasárnap … 6 = szombat. DEMO: a járatnapok mintaértékek. */
-BG.zones = [
-  { id: 'budapest', name: 'Budapest és agglomeráció', days: [4] },
-  { id: 'borsod', name: 'Borsod és Heves', days: [2, 5] },
-  { id: 'hajdu', name: 'Hajdú-Bihar és Szabolcs', days: [3] },
-  { id: 'dunantul', name: 'Dunántúl', days: [5], periodic: true }
+/* Szállítás – pontosan a mostani bgmangalica.hu (OneMin) szerint: kiszállítás kedd–péntek,
+   rendelés a kiszállítást megelőző napon délig. Szállítási díj nincs, településenként és járatonként rendelési minimum van. */
+BG.cutoffHour = 12;
+
+BG.areas = [
+  { id: 'pest', name: 'Budapest és környéke' },
+  { id: 'borsod', name: 'Borsod-Abaúj-Zemplén' },
+  { id: 'heves', name: 'Heves' },
+  { id: 'hajdu', name: 'Hajdú-Bihar' },
+  { id: 'szabolcs', name: 'Szabolcs-Szatmár-Bereg' },
+  { id: 'dunantul', name: 'Dunántúl (november 5.)' }
 ];
 
-/* Települések: név, zóna, minimum (Ft), irányítószám(ok). A minimumok a OneMin-pénztárból valók. */
+/* Települések a OneMin 92 szállítási régiójából (2026-11-02): név, terület, járatok [{ day: 2 = kedd … 5 = péntek | date: egyszeri járat, min: rendelési minimum Ft }], irányítószámok (hu-postal-codes, Magyar Posta, MIT). */
 BG.towns = [
-  ['Budapest', 'budapest', 10000, ['1']],
-  ['Budaörs', 'budapest', 10000, ['2040']],
-  ['Érd', 'budapest', 10000, ['2030', '2035', '2036']],
-  ['Dunakeszi', 'budapest', 10000, ['2120']],
-  ['Diósd', 'budapest', 15000, ['2049']],
-  ['Solymár', 'budapest', 15000, ['2083']],
-  ['Fót', 'budapest', 20000, ['2151']],
-  ['Miskolc', 'borsod', 5000, ['35']],
-  ['Gesztely', 'borsod', 5000, ['3715']],
-  ['Nyékládháza', 'borsod', 5000, ['3433']],
-  ['Tiszaújváros', 'borsod', 5000, ['3580']],
-  ['Tokaj', 'borsod', 5000, ['3910']],
-  ['Eger', 'borsod', 10000, ['3300', '3304']],
-  ['Mezőkövesd', 'borsod', 15000, ['3400']],
-  ['Ostoros', 'borsod', 15000, ['3326']],
-  ['Sárospatak', 'borsod', 40000, ['3950']],
-  ['Debrecen', 'hajdu', 5000, ['40']],
-  ['Bocskaikert', 'hajdu', 5000, ['4241']],
-  ['Nyíregyháza', 'hajdu', 5000, ['44']],
-  ['Hajdúhadház', 'hajdu', 20000, ['4242']],
-  ['Téglás', 'hajdu', 20000, ['4243']],
-  ['Győr', 'dunantul', 10000, ['90']],
-  ['Székesfehérvár', 'dunantul', 10000, ['80']],
-  ['Veszprém', 'dunantul', 10000, ['82']],
-  ['Balatonfüred', 'dunantul', 10000, ['8230']],
-  ['Siófok', 'dunantul', 10000, ['86']]
-].map(([name, zone, min, zips]) => ({ name, zone, min, zips }));
+  ['Biatorbágy', 'pest', [{ day: 2, min: 10000 }], ['2051']],
+  ['Budakeszi', 'pest', [{ day: 2, min: 10000 }], ['2092']],
+  ['Budaörs', 'pest', [{ day: 2, min: 10000 }], ['2040']],
+  ['Budapest', 'pest', [{ day: 2, min: 10000 }, { day: 5, min: 5000 }], ['1']],
+  ['Csömör', 'pest', [{ day: 5, min: 10000 }], ['2141']],
+  ['Diósd', 'pest', [{ day: 2, min: 15000 }], ['2049']],
+  ['Dunakeszi', 'pest', [{ day: 2, min: 10000 }], ['2120']],
+  ['Érd', 'pest', [{ day: 2, min: 10000 }, { day: 5, min: 10000 }], ['2030']],
+  ['Etyek', 'pest', [{ day: 2, min: 10000 }], ['2091']],
+  ['Fót', 'pest', [{ day: 2, min: 20000 }], ['2151']],
+  ['Gödöllő', 'pest', [{ day: 5, min: 20000 }], ['2100']],
+  ['Gyál', 'pest', [{ day: 5, min: 10000 }], ['2360']],
+  ['Halásztelek', 'pest', [{ day: 5, min: 10000 }], ['2314']],
+  ['Kistarcsa', 'pest', [{ day: 5, min: 10000 }], ['2143']],
+  ['Mogyoród', 'pest', [{ day: 5, min: 20000 }], ['2146']],
+  ['Nagytarcsa', 'pest', [{ day: 5, min: 10000 }], ['2142']],
+  ['Solymár', 'pest', [{ day: 2, min: 15000 }], ['2083']],
+  ['Szentjakab Park', 'pest', [{ day: 5, min: 10000 }], []],
+  ['Szigetszentmiklós', 'pest', [{ day: 5, min: 20000 }], ['2310']],
+  ['Törökbálint', 'pest', [{ day: 2, min: 10000 }], ['2045']],
+  ['Üröm', 'pest', [{ day: 2, min: 10000 }], ['2096']],
+  ['Vecsés', 'pest', [{ day: 5, min: 20000 }], ['2220']],
+  ['Veresegyház', 'pest', [{ day: 5, min: 15000 }], ['2112']],
+  ['Alsózsolca', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3571']],
+  ['Arnót', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3713']],
+  ['Bekecs', 'borsod', [{ day: 4, min: 5000 }], ['3903']],
+  ['Bőcs', 'borsod', [{ day: 5, min: 5000 }], ['3574']],
+  ['Bodrogkeresztúr', 'borsod', [{ day: 4, min: 5000 }], ['3916']],
+  ['Emőd', 'borsod', [{ day: 3, min: 5000 }], ['3432']],
+  ['Encs', 'borsod', [{ day: 5, min: 10000 }], ['3860']],
+  ['Felsőzsolca', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3561']],
+  ['Gesztely', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3715', '3923']],
+  ['Hernádkak', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3563']],
+  ['Hernádnémeti', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3564']],
+  ['Kazincbarcika', 'borsod', [{ day: 3, min: 5000 }], ['3700']],
+  ['Kesznyéten', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3579']],
+  ['Kistokaj', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3553']],
+  ['Mád', 'borsod', [{ day: 4, min: 5000 }], ['3909']],
+  ['Mályi', 'borsod', [{ day: 3, min: 10000 }, { day: 5, min: 10000 }], ['3434']],
+  ['Mályinka', 'borsod', [{ day: 3, min: 10000 }], ['3645']],
+  ['Mezőkövesd', 'borsod', [{ day: 3, min: 15000 }], ['3400']],
+  ['Miskolc', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3500', '3501', '3508', '3515', '3516', '3517', '3518', '3519', '3521', '3524', '3525', '3526', '3527', '3528', '3529', '3530', '3531', '3532', '3533', '3534', '3535', '3558']],
+  ['Monok', 'borsod', [{ day: 4, min: 5000 }], ['3905']],
+  ['Nyékládháza', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3433']],
+  ['Onga', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3562']],
+  ['Sajóbábony', 'borsod', [{ day: 3, min: 5000 }], ['3792']],
+  ['Sajóörös', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3586']],
+  ['Sajószentpéter', 'borsod', [{ day: 3, min: 10000 }], ['3770']],
+  ['Sajószöged', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3599']],
+  ['Sárospatak', 'borsod', [{ day: 4, min: 40000 }], ['3950']],
+  ['Szerencs', 'borsod', [{ day: 4, min: 5000 }], ['3900', '3902']],
+  ['Tarcal', 'borsod', [{ day: 4, min: 5000 }], ['3915']],
+  ['Tardona', 'borsod', [{ day: 3, min: 10000 }], ['3644']],
+  ['Tiszalúc', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3565']],
+  ['Tiszaújváros', 'borsod', [{ day: 3, min: 5000 }, { day: 5, min: 5000 }], ['3580']],
+  ['Tokaj', 'borsod', [{ day: 4, min: 5000 }], ['3910']],
+  ['Újcsanálos', 'borsod', [{ day: 2, min: 5000 }, { day: 5, min: 5000 }], ['3716']],
+  ['Eger', 'heves', [{ day: 3, min: 10000 }], ['3300']],
+  ['Gyöngyös', 'heves', [{ day: 2, min: 10000 }], ['3200', '3221', '3232', '3233']],
+  ['Hatvan', 'heves', [{ day: 5, min: 20000 }], ['3000']],
+  ['Maklár', 'heves', [{ day: 3, min: 10000 }], ['3397']],
+  ['Ostoros', 'heves', [{ day: 3, min: 15000 }], ['3326']],
+  ['Szihalom', 'heves', [{ day: 3, min: 5000 }], ['3377']],
+  ['Szilvásvárad', 'heves', [{ day: 3, min: 10000 }], ['3348']],
+  ['Bocskaikert', 'hajdu', [{ day: 4, min: 5000 }], ['4241']],
+  ['Debrecen', 'hajdu', [{ day: 4, min: 5000 }], ['4000', '4002', '4024', '4025', '4026', '4027', '4028', '4029', '4030', '4031', '4032', '4033', '4034', '4042', '4063', '4078', '4079']],
+  ['Görbeháza', 'hajdu', [{ day: 4, min: 5000 }], ['4075']],
+  ['Hajdúböszörmény', 'hajdu', [{ day: 4, min: 5000 }], ['4074', '4086', '4220', '4224']],
+  ['Hajdúhadház', 'hajdu', [{ day: 4, min: 20000 }], ['4242']],
+  ['Pallag', 'hajdu', [{ day: 4, min: 5000 }], []],
+  ['Polgár', 'hajdu', [{ day: 4, min: 5000 }], ['4090']],
+  ['Téglás', 'hajdu', [{ day: 4, min: 20000 }], ['4243']],
+  ['Vámospércs', 'hajdu', [{ day: 4, min: 10000 }], ['4287']],
+  ['Nyíregyháza', 'szabolcs', [{ day: 4, min: 5000 }], ['4246', '4400', '4405', '4431', '4432', '4433', '4481', '4551']],
+  ['Nyírtelek', 'szabolcs', [{ day: 4, min: 5000 }], ['4461']],
+  ['Rakamaz', 'szabolcs', [{ day: 4, min: 5000 }], ['4465']],
+  ['Tiszavasvári', 'szabolcs', [{ day: 4, min: 10000 }], ['4440']],
+  ['Újfehértó', 'szabolcs', [{ day: 4, min: 5000 }], ['4244']],
+  ['Balatonalmádi', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['8220']],
+  ['Balatonfüred', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['8230']],
+  ['Balatonkenese', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['8174']],
+  ['Győr', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['9000', '9011', '9012', '9019', '9021', '9022', '9023', '9024', '9025', '9026', '9027', '9028', '9029', '9030']],
+  ['Székesfehérvár', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['8000', '8019']],
+  ['Velence', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['2481']],
+  ['Veszprém', 'dunantul', [{ date: '2026-11-05', min: 10000 }], ['8200', '8411', '8412']]
+].map(([name, zone, runs, zips]) => ({ name, zone, runs, zips, min: Math.min.apply(null, runs.map((r) => r.min)) }));
 
 BG.recipes = [
   { id: 'tarja-grillen', title: 'Mangalicatarja grillen, fokhagymás páccal', meta: 'Grill', img: 'csontos-tarja', serves: '4 főre', prep: '15 perc', wait: '2 óra pácolás', cook: '15–20 perc',
