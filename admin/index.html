@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="hu" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Napi járatlista – Bio-Goods admin (demo)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/site/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="admin-page" data-page="admin-route">
+<div class="admin">
+  <nav class="side" aria-label="Admin menü">
+    <a href="../index.html" aria-label="Vissza a webshopba" style="padding:0;background:none"><img src="../assets/img/site/logo.png" alt="Bio-Goods"></a>
+    <a href="index.html" aria-current="page">Járatlista</a>
+    <a href="komissio.html">Komissiózó lista</a>
+    <a href="zonak.html">Zónák és minimumok</a>
+    <a href="../index.html">← Webshop</a>
+  </nav>
+  <main id="main">
+    <div class="row" style="justify-content:space-between">
+      <div><h1>Napi járatlista</h1><p class="muted">A pénztárban mentett járatnap és zóna alapján, útvonal-sorrendben. <span class="demo-badge">DEMO</span></p></div>
+      <div class="row no-print"><button class="btn btn-outline btn-sm" type="button" id="csv">CSV export</button><button class="btn btn-dark btn-sm" type="button" id="print">Nyomtatás a sofőrnek</button></div>
+    </div>
+    <div class="box filters no-print">
+      <label>Járatnap<select id="f-day"></select></label>
+      <label>Zóna<select id="f-zone"></select></label>
+      <label>Állapot<select id="f-status"><option value="processing">Feldolgozás alatt</option><option value="all">Mind</option></select></label>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="box" style="overflow-x:auto">
+      <table class="data" style="min-width:1000px">
+        <thead><tr><th class="no-print" scope="col"><span class="sr-only">Kijelölés</span></th><th scope="col">#</th><th scope="col">Település</th><th scope="col">Vevő, cím</th><th scope="col">Telefon</th><th scope="col">Tétel</th><th scope="col">Fizetés</th><th scope="col" style="text-align:right">Beszedendő</th><th scope="col">Megjegyzés</th><th scope="col">Állapot</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="row no-print">
+      <span class="muted">Kijelöltek:</span>
+      <button class="btn btn-gold btn-sm" type="button" id="mark-done">Kiszállítva</button>
+      <button class="btn btn-outline btn-sm" type="button" id="reset-demo" style="margin-left:auto">Mintarendelések visszaállítása</button>
+    </div>
+    <p class="muted no-print" style="font-size:13px">A demóban 12 mintarendelés van; a webshopban leadott saját rendeléseid „ÚJ” címkével jelennek meg itt. Minden adat a böngésződben tárolódik.</p>
+  </main>
+</div>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

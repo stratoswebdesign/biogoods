@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="hu" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zónák és minimumok – Bio-Goods admin (demo)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/site/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="admin-page" data-page="admin-zones">
+<div class="admin">
+  <nav class="side" aria-label="Admin menü">
+    <a href="../index.html" aria-label="Vissza a webshopba" style="padding:0;background:none"><img src="../assets/img/site/logo.png" alt="Bio-Goods"></a>
+    <a href="index.html">Járatlista</a>
+    <a href="komissio.html">Komissiózó lista</a>
+    <a href="zonak.html" aria-current="page">Zónák és minimumok</a>
+    <a href="../index.html">← Webshop</a>
+  </nav>
+  <main id="main">
+    <div class="row" style="justify-content:space-between">
+      <div><h1>Zónák és minimumok</h1><p class="muted">Egy tábla vezérli a pénztárt, a kosársávot, a településkeresőt és a Szállítás oldalt.</p></div>
+      <div class="row"><button class="btn btn-outline btn-sm" type="button" id="reset">Alapértékek</button><button class="btn btn-gold btn-sm" type="button" id="save">Mentés</button></div>
+    </div>
+    <div class="row" id="ztabs" style="gap:8px"></div>
+    <p id="zinfo"></p>
+    <div class="box" style="overflow-x:auto">
+      <table class="data" style="min-width:640px">
+        <thead><tr><th scope="col">Település</th><th scope="col">Irányítószám(ok)</th><th scope="col">Minimum</th><th scope="col">Aktív</th></tr></thead>
+        <tbody id="zrows"></tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:13px">Próbáld ki: írd át egy település minimumát, ments, majd nézd meg a kosárban. A minimumok a mostani pénztárból valók; az irányítószámokat és a teljes, kb. 70 települést tartalmazó listát az ügyféllel véglegesítjük.</p>
+  </main>
+</div>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

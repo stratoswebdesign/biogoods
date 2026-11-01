@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termékek – Bio-Goods Mangalica</title>
+<meta name="description" content="Mangalica tőkehúsok, kolbászok, szalonnák, felvágottak, hagyományos termékek és ajándékcsomagok.">
+<link rel="icon" href="assets/img/site/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="list" data-nav="termekek">
+<main id="main">
+  <div id="list-head"></div>
+  <div class="wrap">
+    <nav class="row chips-scroll" id="list-chips" aria-label="Kategóriák és alkalmak" style="gap:10px;padding-top:24px"></nav>
+    <div class="shop">
+      <aside id="filters" aria-label="Szűrők"></aside>
+      <div class="results">
+        <div class="toolbar">
+          <p class="muted" id="count" aria-live="polite"></p>
+          <div class="row">
+            <button class="btn btn-outline btn-sm filter-toggle" type="button" id="filter-toggle" aria-expanded="false" aria-controls="filters">Szűrők</button>
+            <label class="row" style="gap:10px;font-size:15px">Rendezés
+              <select id="sort">
+                <option value="">Ajánlott sorrend</option>
+                <option value="price">Ár szerint növekvő</option>
+                <option value="price-desc">Ár szerint csökkenő</option>
+                <option value="unit">Ft/kg szerint növekvő</option>
+                <option value="name">Név szerint</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="grid products" id="grid" style="--min:250px"></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

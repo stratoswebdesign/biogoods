@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Céges ajándék – Bio-Goods Mangalica</title>
+<meta name="description" content="Mangalica-ajándékdobozok partnereknek és kollégáknak. Kérj ajánlatot!">
+<link rel="icon" href="assets/img/site/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="static" data-nav="ajandek">
+<main id="main">
+<section class="on-dark"><div class="wrap split" style="padding-top:72px;padding-bottom:72px">
+  <div class="stack" style="gap:18px">
+    <p class="kicker light" style="margin:0">Céges ajándék</p>
+    <h1>Olyan ajándék, amit tényleg megesznek</h1>
+    <p class="lead" style="font-size:19px">Mangalica-ajándékdobozok partnereknek és kollégáknak, kisebb és nagyobb tételben is. Kérj ajánlatot, és összeállítjuk.</p>
+    <a class="btn btn-gold" style="align-self:flex-start" href="#ajanlat">Ajánlatot kérek</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+    <img src="assets/img/termekek/ajandekdoboz-10.jpg" alt="Bio-Goods ajándékdoboz termékekkel" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px">
+    <img src="assets/img/termekek/ajandekkosar-12.jpg" alt="Bio-Goods ajándékkosár" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;margin-top:40px">
+  </div>
+</div></section>
+<section class="wrap section tight">
+  <h2 style="margin-bottom:24px">Csomagok</h2>
+  <div class="grid products" data-products="ajandekdoboz-10,ajandekkosar-12,ajandekdoboz-kicsi,ajandekdoboz-nagy" style="--min:260px"></div>
+  <p class="muted" style="margin-top:14px;font-size:14px">Nagyobb tételnél egyedi összeállítás és mennyiségi ár: [feltételek az ügyféltől].</p>
+</section>
+<section class="wrap" style="padding-bottom:40px">
+  <ol class="num-cards">
+    <li><span class="n">01</span><p><strong>Ajánlatkérés</strong></p><p class="muted">Darabszám, keret, határidő.</p></li>
+    <li><span class="n">02</span><p><strong>Összeállítás</strong></p><p class="muted">Javaslatot küldünk termékekkel és árral.</p></li>
+    <li><span class="n">03</span><p><strong>Személyre szabás</strong></p><p class="muted">[Kísérőkártya céglogóval – megerősítendő]</p></li>
+    <li><span class="n">04</span><p><strong>Kiszállítás</strong></p><p class="muted">Egy címre a saját járattal. [Több címre – megerősítendő]</p></li>
+  </ol>
+</section>
+<section class="wrap" id="ajanlat" style="padding-top:40px;padding-bottom:88px">
+  <form class="card stack" data-demo-form="Köszönjük! Hamarosan jelentkezünk az ajánlattal. (Demó: az űrlap nem küld e-mailt.)" aria-label="Céges ajánlatkérés" style="padding:36px;gap:18px">
+    <h2>Ajánlatkérés</h2>
+    <div class="form-grid" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))">
+      <label class="field">Cégnév<input name="company" required></label>
+      <label class="field">Kapcsolattartó neve<input name="name" required autocomplete="name"></label>
+      <label class="field">E-mail-cím<input name="email" type="email" required autocomplete="email"></label>
+      <label class="field">Telefonszám<input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="field">Darabszám<input name="qty" type="number" min="1" placeholder="pl. 40" required></label>
+      <label class="field">Határidő<input name="deadline" placeholder="pl. december 15."></label>
+      <label class="field">Csomag<select name="pack"><option>Ajándékdoboz (10 féle)</option><option>Ajándékkosár (12 féle)</option><option>Ajándékdoboz KICSI</option><option>Ajándékdoboz NAGY</option><option>Egyedi összeállítás</option><option>Ajándékkártya</option></select></label>
+    </div>
+    <label class="field">Megjegyzés<textarea name="note" rows="3" placeholder="Keret / fő, szállítási cím, egyéb kérés"></textarea></label>
+    <label class="check"><input type="checkbox" required><span>Elolvastam az <a href="aszf.html#adatkezeles">adatkezelési tájékoztatót</a>.</span></label>
+    <button class="btn btn-dark" style="align-self:flex-start" type="submit">Ajánlatot kérek</button>
+  </form>
+</section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

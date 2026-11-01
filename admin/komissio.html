@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="hu" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komissiózó lista – Bio-Goods admin (demo)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/site/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="admin-page" data-page="admin-pick">
+<div class="admin">
+  <nav class="side" aria-label="Admin menü">
+    <a href="../index.html" aria-label="Vissza a webshopba" style="padding:0;background:none"><img src="../assets/img/site/logo.png" alt="Bio-Goods"></a>
+    <a href="index.html">Járatlista</a>
+    <a href="komissio.html" aria-current="page">Komissiózó lista</a>
+    <a href="zonak.html">Zónák és minimumok</a>
+    <a href="../index.html">← Webshop</a>
+  </nav>
+  <main id="main">
+    <div class="row" style="justify-content:space-between">
+      <div><h1>Komissiózó lista</h1><p class="muted">Összesítés termékenként az adott járatnap összes rendeléséből – ennyit kell összekészíteni. <span class="demo-badge">DEMO</span></p></div>
+      <div class="row no-print"><label class="row" style="gap:8px;font-weight:600">Járatnap<select id="f-day" style="height:42px;padding:0 10px;border-radius:8px;border:1px solid var(--line-2)"></select></label><button class="btn btn-dark btn-sm" type="button" id="print">Nyomtatás</button></div>
+    </div>
+    <p class="muted" id="pick-sum"></p>
+    <div class="grid" id="pick" style="--min:420px;align-items:start"></div>
+  </main>
+</div>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
