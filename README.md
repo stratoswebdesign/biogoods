@@ -54,7 +54,7 @@ assets/css/styles.css arculat (fekete #161615 · arany #CE8900 · krém #F5F0E6;
 - SZÉP-kártya alszámla, számlázás, súlyeltérés elszámolása – a nyitott kérdések az ügyfél-adatbekérőben.
 - Díjak, cégadatok, jogi szövegek (ügyvéd véglegesíti).
 
-A termékfotók a mostani webshopból származnak, és csak bemutatási célt szolgálnak.
+A termékfotók a mostani webshopból származnak (az ügyfél jóváhagyásával). A termékmegjelenítések (kártya, termékoldal, kosár, ajánlók) fehér hátterű változatot használnak: `assets/img/termekek-feher/`, háttéreltávolítással (rembg: isnet-general-use, 3 képnél u2net). Az eredeti fotók maradnak a kategóriacsempéken és a fejlécekben. Fehér változat nincs: az ajándékutalványoknál és a Csibész/Kalandor grafikánál (grafikák), a füstölt virslinél (feliratos hirdetéskép) és a tepertőnél (közeli felvétel) – ezekhez új, egyszerű hátterű fotó kellene.
 
 ---
 Készítette: [Stratos Webdesign](https://stratosweb.hu)

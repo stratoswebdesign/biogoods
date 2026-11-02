@@ -478,3 +478,9 @@ table.data td { padding: 12px 18px; border-top: 1px solid var(--line); }
   .admin nav.side, .admin .no-print, .toast, .cookie { display: none !important; }
   .admin main { padding: 0; }
 }
+
+/* Fehér hátterű termékfotók: teljes termék látszik, nincs vágás */
+img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
+.pcard .media:has(img[src*="termekek-feher"]) { background: #fff; }
+.pdp .gallery .main[src*="termekek-feher"] { border: 1px solid var(--line); }
+.cart-item img[src*="termekek-feher"], .mini-item img[src*="termekek-feher"], .rec-row img[src*="termekek-feher"], .upsell-box img[src*="termekek-feher"], .fbt-item img[src*="termekek-feher"] { border: 1px solid var(--line); }

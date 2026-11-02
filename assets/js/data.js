@@ -164,6 +164,9 @@ BG.pairByProduct = {
 /* Ugyanaz a termék nagyobb kiszerelésben, jobb kilóárral – csak valódi párok */
 BG.biggerPack = { 'zsir-1kg': 'zsir-5kg', 'zsirnakvalo': 'zsirnakvalo-akcio', 'korom': 'korom-akcio' };
 
+/* Fehér hátterű termékfotók (assets/img/termekek-feher/, a mostani fotókból háttéreltávolítással). A többi termék az eredeti fotót használja. */
+BG.whiteImg = ['abalt-szalonna','ajandekdoboz-10','ajandekdoboz-kicsi','ajandekdoboz-nagy','ajandekkosar-12','angol-szalonna','bbq-oldalas','bosegtal','chilis-parizsi','chilis-rilette','comb','csaszarhus','csipos-paprikas-szalami','csipos-snack-kolbasz','csontos-karaj','csontos-tarja','csulok','csulok-csont-nelkul','csuloksajt','dagado','daralthus','debreceni-paros','dobozos-kenomajas','fokhagymas-rilette','formazott-nyers-szalonna','fredi-szelet','fustolt-csemege-kolbasz','fustolt-csemege-szalonna','fustolt-csipos-kolbasz','fustolt-oldalas','fustolt-parizsi','fustolt-sonka','gesztelyi-paros','grillkolbasz-bajor','grillkolbasz-magyaros','hamburgerhus','hurka','husos-csont','karaj-csont-nelkul','kocsonya-csomag','kolozsvari-szalonna','korom','lapocka','mangalica-maj','mangalica-turista','miskolci-kolbasz','nyelves-felvagott','oldalas','paprikas-szalami','parasztmajas','parizsi','rakott-fej','sos-szalonna','sutokolbasz','szuz','t-bone','tarja-csont-nelkul','teliszalami','tepertokrem','tepett-hus','tomahawk','tomlos-kenomajas','uzsonnasonka','virsli','zsir-1kg','zsir-5kg','zsirnakvalo'];
+
 BG.featured = ['fustolt-csemege-kolbasz', 'kolozsvari-szalonna', 'csontos-tarja', 'grillkolbasz-magyaros', 'paprikas-szalami', 'tepertokrem', 'szuz', 'tomahawk'];
 
 /* Szállítás – pontosan a mostani bgmangalica.hu (OneMin) szerint: kiszállítás kedd–péntek,

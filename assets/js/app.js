@@ -15,6 +15,9 @@
   const params = new URLSearchParams(location.search);
   const url = (p) => BASE + p;
   const img = (id) => BASE + 'assets/img/termekek/' + id + '.jpg';
+  // Termékmegjelenítéshez: fehér hátterű változat, ha van; különben az eredeti fotó
+  const WHITE = new Set(BG.whiteImg || []);
+  const pimg = (id) => (WHITE.has(id) ? BASE + 'assets/img/termekek-feher/' + id + '.jpg' : img(id));
 
   const store = {
     get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } },
@@ -106,13 +109,13 @@
     return out.slice(0, limit || 4);
   }
   function recRow(p) {
-    return '<div class="rec-row"><img src="' + img(p.img) + '" alt=""><div class="n"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><br><span class="muted">' + esc(p.pack) + ' · ' + ft(p.price) + '</span></div>' +
+    return '<div class="rec-row"><img src="' + pimg(p.img) + '" alt=""><div class="n"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><br><span class="muted">' + esc(p.pack) + ' · ' + ft(p.price) + '</span></div>' +
       '<button type="button" class="plus" data-add="' + p.id + '" aria-label="Kosárba: ' + esc(p.name) + '">+</button></div>';
   }
   function upsellBox(p) {
     const big = biggerPack(p);
     if (!big) return '';
-    return '<div class="upsell-box"><img src="' + img(big.img) + '" alt=""><div class="txt"><strong>Nagyobb kiszerelés, jobb kilóár</strong> <span class="save">−' + savePct(p, big) + '% / kg</span><br>' +
+    return '<div class="upsell-box"><img src="' + pimg(big.img) + '" alt=""><div class="txt"><strong>Nagyobb kiszerelés, jobb kilóár</strong> <span class="save">−' + savePct(p, big) + '% / kg</span><br>' +
       esc(big.name) + ' · ' + esc(big.pack) + ' · ' + ft(big.price) + ' (' + num(big.unit) + '\u00a0Ft/kg ' + num(p.unit) + '\u00a0Ft/kg helyett)</div>' +
       '<button type="button" class="btn btn-dark btn-sm" data-add="' + big.id + '" data-open-after>Ezt kérem</button></div>';
   }
@@ -183,7 +186,7 @@
     const tag = p.tag ? '<span class="tag' + (p.tag === 'Akció' ? ' gold' : '') + '">' + esc(p.tag) + '</span>' : '';
     const old = p.old ? '<span class="old">' + ft(p.old) + '</span>' : '';
     return '<article class="pcard">' +
-      '<a class="media" href="' + url('termek.html?id=' + p.id) + '"><img loading="lazy" src="' + img(p.img) + '" alt="' + esc(p.name) + '">' + tag + '</a>' +
+      '<a class="media" href="' + url('termek.html?id=' + p.id) + '"><img loading="lazy" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '">' + tag + '</a>' +
       '<div class="body"><span class="cat">' + esc(CAT[p.cat].name) + '</span>' +
       '<h3><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a></h3>' +
       '<p class="meta">' + esc(metaText(p)) + '</p>' +
@@ -342,7 +345,7 @@
     const recs = cartComplements(3);
     body.innerHTML = note + minbarHTML() + c.map((i) => {
       const p = P[i.id];
-      return '<div class="mini-item"><img src="' + img(p.img) + '" alt=""><div class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + '</span></div>' +
+      return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><div class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + '</span></div>' +
         '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span class="price" style="font-size:17px">' + ft(p.price * i.qty) + '</span>' +
         qtyHTML(i.id, i.qty, true) + '</div></div>';
     }).join('') + (recs.length ? '<div class="recs"><p class="h">Illik hozzá</p>' + recs.map(recRow).join('') + '</div>' : '');
@@ -541,7 +544,7 @@
     fill('#home-gifts', ['ajandekdoboz-10', 'ajandekkosar-12', 'bosegtal'].map((id) => {
       const p = P[id];
       return '<a class="card-dark" href="' + url('termek.html?id=' + id) + '" style="padding:0;overflow:hidden;text-decoration:none;color:var(--cream);border:1px solid var(--ink-3);background:var(--ink-2)">' +
-        '<img loading="lazy" src="' + img(p.img) + '" alt="' + esc(p.name) + '" style="width:100%;aspect-ratio:1/1;object-fit:cover">' +
+        '<img loading="lazy" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:#fff">' +
         '<div style="padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px"><strong>' + esc(p.name) + '</strong><span class="price" style="font-size:22px;color:var(--gold)">' + ft(p.price) + '</span></div></a>';
     }).join(''));
     fill('#home-routes', routeCards());
@@ -668,7 +671,7 @@
       '<button type="button" class="btn btn-gold" style="align-self:flex-start" data-add-many=\'' + JSON.stringify(items) + '\'>Mind a kosárba</button></div>' +
       '<ul class="grid" style="flex:2 1 520px;list-style:none;margin:0;padding:0;--min:240px">' + items.map(([id, q]) => {
         const p = P[id];
-        return '<li style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:14px;background:var(--cream)"><img src="' + img(p.img) + '" alt="" style="width:64px;height:64px;border-radius:10px;object-fit:cover">' +
+        return '<li style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:14px;background:var(--cream)"><img src="' + pimg(p.img) + '" alt="" style="width:64px;height:64px;border-radius:10px;object-fit:cover">' +
           '<div><strong>' + esc(p.name) + '</strong><br><span class="muted">' + q + ' × ' + esc(p.pack) + ' · ' + ft(p.price * q) + '</span></div></li>';
       }).join('') + '</ul></div></section>';
   }
@@ -694,7 +697,7 @@
       [p, v].sort((a, b) => a.name.localeCompare(b.name, 'hu')).map((x) => '<a class="variant' + (x.id === p.id ? ' is-active' : '') + '" href="' + url('termek.html?id=' + x.id) + '"' + (x.id === p.id ? ' aria-current="true"' : '') + '><strong>' + (/csont nélkül/i.test(x.name) ? 'Csont nélkül' : 'Csontos') + '</strong><span>' + esc(x.pack) + ' · ' + ft(x.price) + '</span></a>').join('') + '</div></fieldset>' : '';
     root.innerHTML =
       '<nav class="crumbs" aria-label="Morzsamenü" style="padding-top:24px"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span><a href="' + url('termekek.html?kategoria=' + c.id) + '">' + esc(c.name) + '</a><span aria-hidden="true">/</span><span aria-current="page">' + esc(p.name) + '</span></nav>' +
-      '<div class="pdp"><div class="gallery"><img class="main" src="' + img(p.img) + '" alt="' + esc(p.name) + '"></div>' +
+      '<div class="pdp"><div class="gallery"><img class="main" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '"></div>' +
       '<div class="info"><p class="kicker" style="margin:0">' + esc([c.name].concat(occNames).join(' · ')) + '</p>' +
       '<h1>' + esc(p.name) + '</h1>' +
       '<div class="pricebox"><span class="price">' + ft(p.price) + '</span>' + (p.old ? '<span class="muted" style="text-decoration:line-through">' + ft(p.old) + '</span>' : '') + '<span class="muted">' + esc(metaText(p)) + '</span></div>' +
@@ -745,7 +748,7 @@
     if (fbtEl) {
       fbtEl.innerHTML = '<h2 style="margin-bottom:20px">Gyakran együtt vásárolják</h2><div class="fbt"><div class="fbt-items">' +
         fbt.map((x, ix) => (ix ? '<span class="fbt-plus" aria-hidden="true">+</span>' : '') +
-          '<label class="fbt-item"><input type="checkbox" checked value="' + x.id + '" aria-label="' + esc(x.name) + '"><img src="' + img(x.img) + '" alt="">' +
+          '<label class="fbt-item"><input type="checkbox" checked value="' + x.id + '" aria-label="' + esc(x.name) + '"><img src="' + pimg(x.img) + '" alt="">' +
           '<span class="n">' + (ix === 0 ? 'Ez a termék: ' : '') + esc(x.name) + '</span><span class="m">' + esc(x.pack) + ' · <strong style="color:var(--ink)">' + ft(x.price) + '</strong></span></label>').join('') +
         '</div><div class="fbt-sum"><p class="muted">Együtt</p><p class="price" style="font-size:40px" id="fbt-total"></p><button type="button" class="btn btn-gold" id="fbt-add">A kijelöltek kosárba</button>' +
         '<p class="muted" style="font-size:13px">Egy rendelésben, ugyanazzal a járattal érkeznek.</p></div></div>';
@@ -787,7 +790,7 @@
       root.innerHTML = '<div class="cart-layout"><div class="main">' + minbarHTML() +
         '<div class="cart-list">' + c.map((i) => {
           const p = P[i.id];
-          return '<div class="cart-item"><img src="' + img(p.img) + '" alt=""><div class="name"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><p class="muted" style="font-size:14px;margin-top:2px">' + esc(metaText(p)) + '</p></div>' +
+          return '<div class="cart-item"><img src="' + pimg(p.img) + '" alt=""><div class="name"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><p class="muted" style="font-size:14px;margin-top:2px">' + esc(metaText(p)) + '</p></div>' +
             qtyHTML(p.id, i.qty) + '<span class="line-total">' + ft(p.price * i.qty) + '</span><button type="button" class="icon-btn" data-remove="' + p.id + '" aria-label="Törlés: ' + esc(p.name) + '" style="color:var(--muted)">' + ICON.trash + '</button>' +
             ((() => { const big = biggerPack(p); return big && !inCart.includes(big.id) ? '<div class="line-upsell"><span><strong>Tipp:</strong> ' + esc(big.name) + ' (' + esc(big.pack) + ', ' + ft(big.price) + ') – ' + num(big.unit) + '\u00a0Ft/kg <span class="save">−' + savePct(p, big) + '% / kg</span></span><button type="button" data-swap="' + p.id + '>' + big.id + '">Erre cserélem</button></div>' : ''; })()) + '</div>';
         }).join('') + '</div>' +
@@ -895,7 +898,7 @@
       const ok = t && total >= t.min;
       $('#co-sum').innerHTML = '<h2 style="font-size:24px">Rendelésed</h2><div class="mini-items">' + cc.map((i) => {
         const p = P[i.id];
-        return '<div class="mini-item"><img src="' + img(p.img) + '" alt=""><span class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + ' × ' + i.qty + '</span></span><strong>' + ft(p.price * i.qty) + '</strong></div>';
+        return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><span class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + ' × ' + i.qty + '</span></span><strong>' + ft(p.price * i.qty) + '</strong></div>';
       }).join('') + '</div>' +
         '<div style="border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px;font-size:15px"><div class="line"><span>Részösszeg</span><span>' + ft(total) + '</span></div>' +
         (disc ? '<div class="line" style="color:var(--ok)"><span>Kedvezmény (' + esc(coupon().code) + ')</span><span>−' + ft(disc) + '</span></div>' : '') +
@@ -1072,7 +1075,7 @@
       '<aside style="flex:1 1 300px;max-width:360px;display:flex;flex-direction:column;gap:18px"><div class="card"><h2 style="font-size:26px;margin-bottom:12px">Hozzávalók</h2><ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">' +
       r.ingredients.map((x, ix) => '<li><label class="check"><input type="checkbox" id="ing' + ix + '"><span>' + esc(x) + '</span></label></li>').join('') + '</ul></div>' +
       '<div class="card-dark" style="display:flex;flex-direction:column;gap:12px"><p class="display" style="font-size:20px;color:var(--cream)">A boltból ehhez</p>' +
-      r.shop.map(([id, q]) => '<div class="mini-item"><img src="' + img(P[id].img) + '" alt=""><span class="n"><strong>' + esc(P[id].name) + '</strong><br><span style="color:var(--on-dark-muted)">' + q + ' × ' + esc(P[id].pack) + '</span></span><span>' + ft(P[id].price * q) + '</span></div>').join('') +
+      r.shop.map(([id, q]) => '<div class="mini-item"><img src="' + pimg(P[id].img) + '" alt=""><span class="n"><strong>' + esc(P[id].name) + '</strong><br><span style="color:var(--on-dark-muted)">' + q + ' × ' + esc(P[id].pack) + '</span></span><span>' + ft(P[id].price * q) + '</span></div>').join('') +
       '<button type="button" class="btn btn-gold" data-add-many=\'' + JSON.stringify(r.shop) + '\'>Mind a kosárba · ' + ft(shopTotal) + '</button></div></aside>' +
       '<div style="flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:28px"><p class="lead" style="font-size:19px">' + esc(r.lead) + '</p><h2 style="font-size:32px">Elkészítés</h2>' +
       '<ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px">' + r.steps.map((s, ix) => '<li style="display:flex;gap:18px"><span style="flex:none;width:44px;height:44px;border-radius:22px;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:20px">' + (ix + 1) + '</span><p style="margin-top:8px">' + esc(s) + '</p></li>').join('') + '</ol>' +
