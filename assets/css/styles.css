@@ -1,5 +1,5 @@
 /* Bio-Goods Mangalica – demo webshop
-   Arculat: fekete #161615 · grafit #24221F · arany #CE8900 · arany szöveg #7A5200
+   Arculat: fekete #161615 · grafit #24221F · sárga #E3AF00 (arculati kézikönyv, Pantone 123 C) · arany szöveg #7A5200
             krém #F5F0E6 · papír #FBF8F2 · vonal #E3DACA
    Betűk: Oswald (címek, árak) · Manrope (szöveg)                     */
 
@@ -7,7 +7,7 @@
   --ink: #161615;
   --ink-2: #24221F;
   --ink-3: #3A362F;
-  --gold: #CE8900;
+  --gold: #E3AF00;
   --gold-text: #7A5200;
   --cream: #F5F0E6;
   --paper: #FBF8F2;
@@ -76,7 +76,7 @@ fieldset { min-width: 0; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 0; font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer; transition: transform .12s ease, background .15s ease; white-space: nowrap; }
 .btn:active { transform: translateY(1px); }
 .btn-gold { background: var(--gold); color: var(--ink); }
-.btn-gold:hover { background: #E09A0E; color: var(--ink); }
+.btn-gold:hover { background: #F2C21A; color: var(--ink); }
 .btn-dark { background: var(--ink); color: var(--cream); }
 .btn-dark:hover { background: #000; color: var(--cream); }
 .btn-outline { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
@@ -163,7 +163,7 @@ fieldset { min-width: 0; }
 .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .62; transition: transform .4s ease, opacity .3s ease; }
 .tile:hover, .tile:focus-visible { color: var(--cream); }
 .tile:hover img { transform: scale(1.04); opacity: .78; }
-.tile:hover .arrow { background: #E09A0E; }
+.tile:hover .arrow { background: #F2C21A; }
 .tile .tile-bar { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 24px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; background: rgba(22,22,21,.74); }
 .tile .tile-name { font-family: var(--display); font-weight: 500; font-size: 28px; line-height: 1.1; text-transform: uppercase; }
 .tile .tile-sub { font-size: 14px; color: var(--on-dark); }
@@ -484,3 +484,134 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .pcard .media:has(img[src*="termekek-feher"]) { background: #fff; }
 .pdp .gallery .main[src*="termekek-feher"] { border: 1px solid var(--line); }
 .cart-item img[src*="termekek-feher"], .mini-item img[src*="termekek-feher"], .rec-row img[src*="termekek-feher"], .upsell-box img[src*="termekek-feher"], .fbt-item img[src*="termekek-feher"] { border: 1px solid var(--line); }
+
+/* =====================================================================
+   Főoldal 2026-11 – osztott hero (A változat), lakossági / céges sávok
+   Lakossági = krém / papír · Céges = arculati sárga · Történet = fekete
+   ===================================================================== */
+:root { --brand: #E3AF00; --brand-soft: #FFF2BF; }
+
+/* ---------- osztott hero ---------- */
+.hero-split { position: relative; overflow: hidden; background: var(--ink); color: var(--cream); isolation: isolate; }
+.hs-media, .hs-veil-dark, .hs-veil-brand { position: absolute; inset: 0; }
+.hs-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hs-veil-dark { background: rgba(0, 0, 0, .58); }
+.hs-veil-brand { background: rgba(227, 175, 0, .86); clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
+.hs-grid { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; min-height: min(78vh, 720px); }
+.hs-side { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 96px 0; }
+.hs-home { padding-right: 9%; }
+.hs-biz { padding-left: 14%; color: #000; }
+.hs-tag { font-family: var(--display); font-size: 15px; letter-spacing: .28em; text-transform: uppercase; color: var(--brand); }
+.hs-biz .hs-tag, .cta-biz .hs-tag { color: #000; }
+.hero-split h1, .hero-split h2 { font-size: clamp(34px, 4.3vw, 60px); line-height: 1.04; text-wrap: balance; }
+.hs-lead { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; max-width: 26em; }
+.hs-home .hs-lead { color: var(--on-dark); font-style: italic; font-weight: 400; }
+.hs-biz .hs-lead { font-weight: 600; }
+.hs-link { font-weight: 700; text-decoration: none; color: inherit; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
+.hs-link:hover { color: inherit; opacity: .78; }
+.hs-biz .btn-dark { background: #000; color: #fff; }
+.hs-note { position: absolute; left: 32px; bottom: 14px; margin: 0; font-size: 12px; color: var(--on-dark-muted); }
+
+/* ---------- Miért mangalica? ---------- */
+.why { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 36px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.why li { border-top: 2px solid var(--ink); padding: 18px 0 30px; display: grid; grid-template-columns: 52px 1fr; gap: 4px 0; }
+.why .n { grid-row: span 2; font-family: var(--display); font-size: 30px; line-height: 1; color: var(--gold-text); }
+.why h3 { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; }
+.why p { color: var(--body); }
+
+/* ---------- lakossági / céges megkülönböztetés ---------- */
+.aud-tag { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 12px; font-family: var(--display); font-size: 14px; letter-spacing: .22em; text-transform: uppercase; }
+.aud-tag::before { content: ''; width: 28px; height: 4px; background: currentColor; }
+.aud-home { background: var(--paper); border-top: 1px solid var(--line); }
+.aud-home .aud-tag { color: var(--gold-text); }
+.aud-biz { background: var(--brand); color: #000; }
+.aud-biz .lead, .aud-biz p { color: #1A1500; }
+.aud-biz .sec-head a, .aud-biz a:not([class]) { color: #000; }
+.aud-biz .muted { color: #4A3D00; }
+.aud-biz-soft { background: var(--brand-soft); border-top: 6px solid var(--brand); }
+.aud-biz :focus-visible, .cta-biz :focus-visible, .hs-biz :focus-visible { outline-color: #000; }
+.biz-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.biz-points li { display: flex; flex-direction: column; gap: 4px; padding: 18px 0; border-top: 2px solid #000; }
+.biz-points li:last-child { border-bottom: 2px solid #000; }
+.biz-points strong { font-family: var(--display); font-weight: 500; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; }
+.refs { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); }
+.ref-ph { aspect-ratio: 16 / 9; border: 2px dashed #B38A00; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: #4A3D00; font-size: 14px; background: rgba(255, 255, 255, .5); }
+
+/* ---------- szezonális sáv ---------- */
+.season { background: var(--ink); color: var(--cream); }
+.season .wrap { padding-top: 64px; padding-bottom: 64px; }
+.season .lead, .season p { color: var(--on-dark); }
+
+/* ---------- A mangalica útja ---------- */
+.journey { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.journey li { display: flex; flex-direction: column; gap: 8px; }
+.journey .dark-ph { margin-bottom: 8px; font-size: 14px; }
+.journey .n { font-family: var(--display); font-size: 26px; line-height: 1; color: var(--gold); }
+.journey h3 { font-family: var(--display); font-weight: 500; font-size: 24px; text-transform: uppercase; }
+
+/* ---------- kiszállítás és átvétel ---------- */
+.ship { margin-top: 56px; display: grid; gap: 20px; grid-template-columns: 1.4fr 1fr; }
+.ship-card { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.ship-card > [data-town-check] { align-self: stretch; }
+.ship-dark { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.ship-card h3.display { font-size: clamp(26px, 2.6vw, 34px); font-weight: 500; }
+.ticks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; color: var(--on-dark); }
+.ticks li { padding-left: 28px; position: relative; }
+.ticks li::before { content: ''; position: absolute; left: 4px; top: .45em; width: 12px; height: 6px; border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(-45deg); }
+
+/* ---------- díjak ---------- */
+.awards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+.award { display: flex; align-items: center; gap: 16px; padding: 14px 18px 14px 14px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink); text-decoration: none; }
+.award:hover { border-color: var(--ink); color: var(--ink); }
+.award img { width: 72px; height: 72px; object-fit: cover; border-radius: 10px; flex: none; }
+.award span span { font-size: 14px; color: var(--muted); }
+
+/* ---------- záró kettős CTA + kapcsolat ---------- */
+.cta-split { display: grid; grid-template-columns: 1fr 1fr; }
+.cta-half { padding: 80px max(32px, calc((100vw - var(--wrap)) / 2 + 32px)); display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.cta-home { background: var(--ink); color: var(--cream); padding-right: 56px; }
+.cta-home p:not(.hs-tag) { color: var(--on-dark); }
+.cta-biz { background: var(--brand); color: #000; padding-left: 56px; }
+.cta-biz .btn-dark { background: #000; color: #fff; }
+.cta-half h2 { font-size: clamp(28px, 3vw, 42px); text-wrap: balance; }
+.cta-half p:not(.hs-tag) { font-size: 18px; max-width: 30em; }
+.contact-strip { background: var(--ink-2); color: var(--cream); border-top: 1px solid var(--ink-3); }
+.contact-strip .wrap { padding-top: 44px; padding-bottom: 44px; display: grid; gap: 24px 40px; grid-template-columns: 1.3fr repeat(3, 1fr); align-items: center; }
+.contact-strip a { display: flex; flex-direction: column; gap: 2px; color: var(--cream); text-decoration: none; }
+.contact-strip a span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-dark-muted); }
+.contact-strip a strong { font-size: 17px; }
+.contact-strip a:hover strong { color: var(--gold); }
+
+.mainnav { gap: 4px 22px; }
+
+@media (max-width: 1000px) {
+  .ship { grid-template-columns: 1fr; }
+  .contact-strip .wrap { grid-template-columns: 1fr 1fr; }
+  .contact-strip .wrap > div { grid-column: 1 / -1; }
+}
+@media (max-width: 860px) {
+  .hs-veil-brand { display: none; }
+  .hs-grid { grid-template-columns: 1fr; padding: 0; min-height: 0; }
+  .hs-side { padding: 44px 16px 56px; gap: 14px; }
+  .hs-home { padding-right: 16px; }
+  .hs-biz { padding: 64px 16px 52px; margin-top: -28px; background: rgba(227, 175, 0, .9); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
+  .hs-note { position: static; padding: 8px 16px; background: var(--ink); }
+  .cta-split { grid-template-columns: 1fr; }
+  .cta-half, .cta-home, .cta-biz { padding: 52px 16px; }
+  .ship-card { padding: 22px; }
+  .season .wrap { padding-top: 48px; padding-bottom: 48px; }
+}
+@media (max-width: 560px) {
+  .contact-strip .wrap { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hs-media video { display: none; }
+  .hs-media { background: url('../img/site/hero-tarja.jpg') center / cover; }
+}
+.mainnav a { white-space: nowrap; }
+@media (max-width: 1240px) {
+  .mainnav { display: none; }
+  .menu-btn { display: inline-flex; }
+  .mobile-nav.is-open { display: block; background: var(--ink); border-bottom: 1px solid #2E2B27; }
+  .mobile-nav a { display: block; padding: 14px 32px; color: var(--cream); text-decoration: none; font-family: var(--display); font-size: 18px; text-transform: uppercase; border-top: 1px solid #2E2B27; }
+}

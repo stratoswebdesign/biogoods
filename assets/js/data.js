@@ -312,6 +312,14 @@ BG.recipes = [
     steps: ['[Lépések a videó alapján.]'], tip: '' }
 ];
 
+/* Termékdíjak – forrás: céges bemutató PDF (2026). */
+BG.awards = [
+  { id: 'dobozos-kenomajas', name: 'Mangalica kenőmájas', award: 'Budapesti Mangalica Fesztivál, 2018' },
+  { id: 'virsli', name: 'Mangalica virsli', award: 'Év kiváló terméke, Szakmai Elit díj, 2022' },
+  { id: 'fokhagymas-rilette', name: 'Fokhagymás rilette', award: 'SVÉT Gasztronómiai Fesztivál, II. hely, 2023' },
+  { id: 'parizsi', name: 'Mangalica párizsi', award: 'Év kiváló terméke, 2024' }
+];
+
 BG.reviews = [
   { name: 'Gáborné Á.', text: 'A legfinomabb grillkolbászt készítik, évek óta tőlük vásárolunk. Mindig friss és nagyon finom.' },
   { name: 'Szilvi R.', text: 'Minden csillagos 5: termékek, kommunikáció, szállítás! Örülök, hogy megtaláltam ezt az oldalt.' },

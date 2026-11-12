@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bio-Goods Mangalica – mangalica a saját tenyészetből, házhozszállítással</title>
-<meta name="description" content="Mangalica tőkehús, kolbász, szalonna és felvágott a saját tenyészetünkből, gesztelyi kisüzemből – saját járattal házhoz szállítva.">
+<title>Bio-Goods Mangalica – prémium mangalica otthonra és cégeknek</title>
+<meta name="description" content="Mangalica tőkehús, kolbász, szalonna és felvágott saját tenyészetből, a gesztelyi feldolgozóból. Lakossági webshop saját hűtőautós kiszállítással, beszállítás éttermeknek és viszonteladóknak.">
 <link rel="icon" href="assets/img/site/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,111 +14,188 @@
 <body data-page="home">
 <main id="main">
 
-<section class="hero">
-  <div class="hero-copy"><div class="hero-copy-inner">
-    <p class="kicker light" style="margin:0">Gesztely · saját tenyészet · MOE eredetigazolás</p>
-    <h1>Mangalica a saját tenyészetünkből, saját járattal a kapudig</h1>
-    <p class="lead">GMO-mentes takarmányon nevelt, eredetigazolt mangalicát dolgozunk fel gesztelyi kisüzemünkben, a régi ízek szerint. Tőkehús, kolbász, szalonna, felvágott – a megszokott járatnapon.</p>
-    <div class="row">
-      <a class="btn btn-gold" href="termekek.html">Irány a bolt</a>
-      <a class="btn btn-ghost" href="termekek.html?kategoria=ajandek">Karácsonyi ajándékcsomagok</a>
+<!-- 1. Osztott hero: egy videó a háttérben, két kapu (A változat – osztott fátyol) -->
+<section class="hero-split" aria-label="Válassz: otthonra vagy cégeknek">
+  <div class="hs-media" aria-hidden="true">
+    <!-- A végleges hero-videó helye. Amíg nincs tömörített loop (H.264/WebM, 1080p), a poster kép látszik.
+         Élesítéskor: <source src="assets/video/hero.webm" type="video/webm"><source src="assets/video/hero.mp4" type="video/mp4"> -->
+    <video muted loop playsinline autoplay preload="metadata" poster="assets/img/site/hero-tarja.jpg"></video>
+  </div>
+  <div class="hs-veil-dark" aria-hidden="true"></div>
+  <div class="hs-veil-brand" aria-hidden="true"></div>
+  <div class="hs-grid">
+    <div class="hs-side hs-home">
+      <p class="hs-tag">Otthonra</p>
+      <h1>Prémium mangalica a család asztalára</h1>
+      <p class="hs-lead">Saját telepről, saját feldolgozóból, hűtve házhoz szállítva.</p>
+      <div class="row">
+        <a class="btn btn-gold" href="termekek.html">Irány a webshop</a>
+        <a class="hs-link" href="termekek.html?kategoria=ajandek">Karácsonyi ajándékcsomagok →</a>
+      </div>
     </div>
-    <div data-town-check="dark"></div>
-  </div></div>
-  <div class="hero-media"><img src="assets/img/site/hero-tarja.jpg" alt="Nyers mangalica tarja rozmaringgal fadeszkán"></div>
+    <div class="hs-side hs-biz">
+      <p class="hs-tag">Cégeknek</p>
+      <h2>Beszállító éttermeknek és viszonteladóknak</h2>
+      <p class="hs-lead">Saját alapanyag, kiszámítható szállítás saját hűtőautóval.</p>
+      <div class="row">
+        <a class="btn btn-dark" href="cegeknek.html#ajanlat">Ajánlatot kérek</a>
+        <a class="hs-link" href="cegeknek.html">Amit cégeknek kínálunk →</a>
+      </div>
+    </div>
+  </div>
+  <p class="hs-note">Demó: a végleges változatban egyetlen mangalica-videó fut a hero mögött.</p>
 </section>
 
-<section class="trust" aria-label="Amiért minket választanak">
+<!-- 2. Miért mangalica? -->
+<section class="section">
   <div class="wrap">
-    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><div><p class="t">Saját tenyészet</p><p>A mangalicát mi tenyésztjük, a tartástól a feldolgozásig mi felelünk érte.</p></div></div>
-    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/><path d="M9.5 9l1.8 1.8L14.8 7.5"/></svg><div><p class="t">MOE eredetigazolás</p><p>A származást a Mangalicatenyésztők Országos Egyesülete igazolja.</p></div></div>
-    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M12 17c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 15c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg><div><p class="t">GMO-mentes takarmány</p><p>Gabonaféléken és olajos magvakon alapuló takarmánykeverék.</p></div></div>
-    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17V8h11v9"/><path d="M14 11h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><div><p class="t">Saját járat</p><p>Saját hűtött autókkal és sofőrökkel, kedd–péntek, futárcég nélkül.</p></div></div>
+    <div class="sec-head"><div style="max-width:760px"><p class="kicker">Miért mangalica?</p><h2>Hét dolog, amitől más, mint a többi sertés</h2></div><a href="a-gazdasag.html">A mangalica útja →</a></div>
+    <ol class="why">
+      <li><span class="n">01</span><h3>Őshonos magyar fajta</h3><p>Az 1830-as évek óta tenyésztik. Egyszer majdnem eltűnt, ma nemzeti értékként tartjuk számon.</p></li>
+      <li><span class="n">02</span><h3>Egyedi megjelenés</h3><p>Göndör, sűrű szőre télen is védi, ezért egész évben a szabadban tartható.</p></li>
+      <li><span class="n">03</span><h3>Szabadtartás</h3><p>Újcsanálosi telepünkön szabad levegőn, kifutóban élnek az állatok.</p></li>
+      <li><span class="n">04</span><h3>Jellegzetes ízvilág</h3><p>A márványozott hús sütve, grillezve és lassan főzve is szaftos marad.</p></li>
+      <li><span class="n">05</span><h3>Lassú növekedés</h3><p>12–18 hónap alatt éri el a vágósúlyt. Az intenzív fajtáknak ehhez 5–6 hónap is elég.</p></li>
+      <li><span class="n">06</span><h3>Értékes alapanyag</h3><p>Egy koca 4–8 malacot fial. Kevesebb állat, több idő, több odafigyelés.</p></li>
+      <li><span class="n">07</span><h3>Hagyomány és fenntarthatóság</h3><p>Saját utánpótlás, fajtatiszta állomány, a tenyésztéstől a feldolgozásig egy kézben.</p></li>
+    </ol>
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">Kínálat</p><h2>Válassz kategóriát</h2></div><a href="termekek.html">Összes termék →</a></div>
+<!-- 3. Lakossági: kategóriák + szezonális sáv -->
+<section class="aud aud-home">
+  <div class="wrap section">
+    <div class="sec-head"><div><p class="aud-tag">Otthonra</p><h2>Válassz kategóriát</h2></div><a href="termekek.html">Összes termék →</a></div>
     <div class="grid" id="home-cats" style="--min:380px"></div>
     <div class="row" style="margin-top:28px"><span class="display" style="font-size:16px;font-weight:400;letter-spacing:.08em;color:var(--muted);margin-right:6px">Alkalomra:</span><div class="row" id="home-occ" style="gap:10px"></div></div>
   </div>
-</section>
-
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">A hűtőpultból</p><h2>Kiemelt termékek</h2></div><a href="termekek.html">Az összes termék →</a></div>
-    <div class="grid products" id="home-featured" style="--min:270px"></div>
-  </div>
-</section>
-
-<section class="on-paper">
-  <div class="wrap section split">
-    <div><img src="assets/img/termekek/bosegtal.jpg" alt="Bőségtál: kenőmájas, tepertőkrém, kolbászok, tepertő és füstölt sonka" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px"></div>
-    <div class="stack" style="gap:22px">
-      <p class="kicker" style="margin:0">A gazdaság</p>
-      <h2>A tenyészettől a tányérig, közvetítő nélkül</h2>
-      <p class="lead">Nem felvásárolt húsból dolgozunk. A mangalicát mi neveljük, mi dolgozzuk fel, és mi is visszük ki hozzád. Így pontosan tudjuk, mi kerül a csomagodba.</p>
-      <ol class="steps-list">
-        <li><span class="n">01</span><div><strong>Tenyészet</strong><p class="muted">Saját telepen, GMO-mentes takarmányon, MOE-eredetigazolással.</p></div></li>
-        <li><span class="n">02</span><div><strong>Gesztelyi kisüzem</strong><p class="muted">Füstölés bükkfán, hagyományos fűszerezés, kis tételekben.</p></div></li>
-        <li><span class="n">03</span><div><strong>Saját járat</strong><p class="muted">A településed járatnapján – kedden, szerdán, csütörtökön vagy pénteken.</p></div></li>
-      </ol>
-      <a class="btn btn-outline" style="align-self:flex-start" href="a-gazdasag.html">Ismerd meg a gazdaságot</a>
+  <div class="season">
+    <div class="wrap split">
+      <div class="stack" style="gap:18px;flex:1 1 400px">
+        <p class="kicker light" style="margin:0">Szezonális ajánlat</p>
+        <h2 style="font-size:clamp(32px,3.8vw,48px)">Idén mangalicát tegyél a fa alá</h2>
+        <p class="lead">Összeállított ajándékdobozok és -kosarak, vagy ajándékkártya, ha a választást is ajándékoznád.</p>
+        <a class="btn btn-gold" style="align-self:flex-start" href="termekek.html?kategoria=ajandek">Ajándékcsomagok megtekintése</a>
+      </div>
+      <div class="grid" id="home-gifts" style="--min:190px;flex:1 1 600px"></div>
     </div>
   </div>
 </section>
 
+<!-- 4. Céges: partneri érvek + ajánlatkérés -->
+<section class="aud aud-biz">
+  <div class="wrap section split" style="align-items:flex-start">
+    <div class="stack" style="gap:20px;flex:1 1 420px">
+      <p class="aud-tag">Cégeknek</p>
+      <h2>Egy beszállító a teleptől a konyhád ajtajáig</h2>
+      <p class="lead">Éttermeknek, szállodáknak, bisztróknak, hamburgerezőknek és viszonteladóknak szállítunk. Az alapanyag a saját tenyészetünkből jön, a saját üzemünkben dolgozzuk fel, és a saját autónk viszi ki.</p>
+      <div class="row">
+        <a class="btn btn-dark" href="cegeknek.html#ajanlat">Ajánlatot kérek</a>
+        <a class="hs-link" href="cegeknek.html">Részletek cégeknek →</a>
+      </div>
+    </div>
+    <ul class="biz-points" style="flex:1 1 520px">
+      <li><strong>Saját tenyészet, saját feldolgozó</strong><span>Nem felvásárolt húsból dolgozunk, ezért a minőség tételről tételre ugyanaz.</span></li>
+      <li><strong>Tőkehús a kért formában</strong><span>Szakszerű darabolás és formázás a gesztelyi üzemben.</span></li>
+      <li><strong>Saját hűtőautó, saját sofőr</strong><span>A hűtési lánc végig a mi kezünkben van, futárcég nélkül.</span></li>
+      <li><strong>Igazolt származás</strong><span>MOE által ellenőrzött, fajtatiszta állomány, GMO-mentes takarmány.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. A mangalica útja – videókkal -->
 <section class="on-dark">
-  <div class="wrap section split">
-    <div class="stack" style="gap:20px;flex:1 1 400px">
-      <p class="kicker light" style="margin:0">Szezonális ajánlat</p>
-      <h2 style="font-size:clamp(34px,4vw,52px)">Idén mangalicát tegyél a fa alá</h2>
-      <p class="lead">Összeállított ajándékdobozok és -kosarak 10–14 féle termékkel, vagy ajándékkártya, ha a választást is ajándékoznád.</p>
-      <p>Céges ajándékot vinnél nagyobb tételben? <a href="ceges-ajandek.html" style="color:var(--gold);font-weight:700">Kérj ajánlatot</a></p>
-      <a class="btn btn-gold" style="align-self:flex-start" href="termekek.html?kategoria=ajandek">Ajándékok megtekintése</a>
-    </div>
-    <div class="grid" id="home-gifts" style="--min:190px;flex:1 1 600px"></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head"><div style="max-width:720px"><p class="kicker">Szállítás</p><h2>Hová visszük?</h2><p class="lead" style="margin-top:12px">Minden településnek saját járatnapja és rendelési minimuma van, szállítási díj nincs. Rendelés a kiszállítást megelőző napon délig.</p></div><a href="szallitas.html">Teljes településlista →</a></div>
-    <div class="grid" id="home-routes" style="--min:280px"></div>
-    <div class="row muted" style="margin-top:20px;gap:12px 32px;font-size:15px"><span><strong style="color:var(--ink)">Fizetés:</strong> bankkártya, OTP, K&amp;H és MKB SZÉP-kártya, készpénz a sofőrnél</span></div>
-  </div>
-</section>
-
-<section class="on-paper">
   <div class="wrap section">
-    <div class="row" style="gap:12px 24px;margin-bottom:32px"><h2>Akik már tőlünk vesznek</h2><span class="rating-pill"><svg width="18" height="18" viewBox="0 0 24 24" fill="#CE8900" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"/></svg>4,8 · 19 Google-értékelés</span></div>
+    <div class="sec-head"><div style="max-width:760px"><p class="kicker light">A mangalica útja</p><h2>Az első lélegzettől a prémium termékig</h2><p class="lead" style="margin-top:12px">Nézz be a kulisszák mögé: így lesz a malacból az, ami a tányérodra kerül.</p></div><a href="a-gazdasag.html">A teljes történet →</a></div>
+    <ol class="journey">
+      <li><div class="dark-ph">[Videó: fialás – Újcsanálos]</div><span class="n">01</span><h3>Fialás</h3><p>A malacok a saját telepünkön születnek, saját kocáktól.</p></li>
+      <li><div class="dark-ph">[Videó: takarmányozás – Újcsanálos]</div><span class="n">02</span><h3>Felnevelés</h3><p>Szabad levegőn, GMO-mentes takarmányon, állatorvosi felügyelettel.</p></li>
+      <li><div class="dark-ph">[Videó: telephely-bemutató – Gesztely]</div><span class="n">03</span><h3>Feldolgozás</h3><p>A gesztelyi üzemben darabolunk, füstölünk, töltünk.</p></li>
+      <li><div class="dark-ph">[Videó: kiszállítás – Gesztely]</div><span class="n">04</span><h3>Kiszállítás</h3><p>Saját hűtőautóval visszük ki, a sofőr érkezés előtt telefonál.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Lakossági: kiemelt termékek + kiszállítás és átvétel -->
+<section class="aud aud-home">
+  <div class="wrap section">
+    <div class="sec-head"><div><p class="aud-tag">Otthonra</p><h2>Kiemelt termékek</h2></div><a href="termekek.html">Az összes termék →</a></div>
+    <div class="grid products" id="home-featured" style="--min:270px"></div>
+
+    <div class="ship">
+      <div class="ship-card ship-dark">
+        <p class="kicker light" style="margin:0">Kiszállítás</p>
+        <h3 class="display">Saját hűtőautóval a kapudig</h3>
+        <ul class="ticks">
+          <li>Rendelés a kiszállítást megelőző napon délig</li>
+          <li>Idősávot kérhetsz, a sofőr érkezés előtt telefonál</li>
+          <li>Minden településnek saját járatnapja van</li>
+        </ul>
+        <div data-town-check="dark"></div>
+        <a class="hs-link" style="color:var(--gold)" href="szallitas.html">Teljes településlista →</a>
+      </div>
+      <div class="ship-card">
+        <p class="kicker" style="margin:0">Személyes átvétel</p>
+        <h3 class="display">Gesztelyi mintabolt</h3>
+        <p class="lead" style="font-size:17px">3715 Gesztely, Aradi utca 22.<br>Ugyanitt van a feldolgozó üzemünk is.</p>
+        <p class="muted" style="font-size:14px">[Nyitvatartás és az átvétel menete: megerősítendő]</p>
+        <a class="btn btn-outline" style="align-self:flex-start;margin-top:auto" href="kapcsolat.html">Elérhetőségek</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Céges: referenciák -->
+<section class="aud aud-biz aud-biz-soft">
+  <div class="wrap section">
+    <div class="sec-head"><div style="max-width:760px"><p class="aud-tag">Cégeknek</p><h2>Akik már a mi mangalicánkkal főznek</h2><p class="lead" style="margin-top:12px">Éttermek, szállodák, bisztrók, hamburgerezők és delikátboltok dolgoznak a termékeinkkel, Győrtől Gyuláig.</p></div><a href="cegeknek.html#ajanlat">Legyél te is partnerünk →</a></div>
+    <div class="refs">
+      <div class="ref-ph">[Partnerlogó]</div><div class="ref-ph">[Partnerlogó]</div><div class="ref-ph">[Partnerlogó]</div>
+      <div class="ref-ph">[Partnerlogó]</div><div class="ref-ph">[Partnerlogó]</div><div class="ref-ph">[Partnerlogó]</div>
+    </div>
+    <p class="muted" style="margin-top:16px;font-size:14px">[A partnerek neve és logója a hozzájárulásuk után kerül ide. A céges bemutatóban szereplő partnerlistából válogatunk.]</p>
+  </div>
+</section>
+
+<!-- 8. Bizalmi sáv -->
+<section class="trust" aria-label="Amiért megbízhatsz bennünk">
+  <div class="wrap">
+    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/><path d="M9.5 9l1.8 1.8L14.8 7.5"/></svg><div><p class="t">MOE-igazolás</p><p>A származást a Mangalicatenyésztők Országos Egyesülete ellenőrzi.</p></div></div>
+    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M12 17c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 15c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg><div><p class="t">GMO-mentes takarmány</p><p>Az állatok kizárólag GMO-mentes takarmányt kapnak.</p></div></div>
+    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><div><p class="t">Saját tenyészet</p><p>A tartástól a feldolgozásig mi felelünk az állatokért.</p></div></div>
+    <div class="trust-item"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17V8h11v9"/><path d="M14 11h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><div><p class="t">Saját hűtőautó</p><p>Saját autókkal és sofőrökkel szállítunk, futárcég nélkül.</p></div></div>
+  </div>
+</section>
+<section class="on-paper">
+  <div class="wrap section tight">
+    <div class="sec-head"><div><p class="kicker">Elismerések</p><h2>Díjazott termékeink</h2></div><a href="dijaink.html">Minden díjunk →</a></div>
+    <div class="awards" id="home-awards"></div>
+    <div class="row" style="gap:12px 24px;margin:48px 0 24px"><h2 style="font-size:clamp(24px,2.6vw,34px)">Akik már tőlünk vesznek</h2><span class="rating-pill"><svg width="18" height="18" viewBox="0 0 24 24" fill="#E3AF00" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"/></svg>4,8 · 19 Google-értékelés</span></div>
     <div class="grid" id="home-reviews" style="--min:340px"></div>
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">Receptek</p><h2>Mit főzz belőle?</h2></div><a href="receptek.html">Összes recept →</a></div>
-    <div class="grid" id="home-recipes" style="--min:340px"></div>
+<!-- 9. Záró kettős CTA + kapcsolat -->
+<section class="cta-split" aria-label="Hogyan tovább?">
+  <div class="cta-half cta-home">
+    <p class="hs-tag">Otthonra</p>
+    <h2>Rendelj ma délig, holnap visszük</h2>
+    <p>Ha a településeden holnap járatnap van. A következő járatot a webshopban egy kattintással megnézheted.</p>
+    <a class="btn btn-gold" href="termekek.html">Irány a webshop</a>
+  </div>
+  <div class="cta-half cta-biz">
+    <p class="hs-tag">Cégeknek</p>
+    <h2>Kérj ajánlatot a konyhádra szabva</h2>
+    <p>Írd meg, mire van szükséged, és visszajelzünk termékekkel, kiszereléssel és szállítási renddel.</p>
+    <a class="btn btn-dark" href="cegeknek.html#ajanlat">Ajánlatot kérek</a>
   </div>
 </section>
-
-<section class="newsletter">
+<section class="contact-strip">
   <div class="wrap">
-    <div class="stack" style="gap:14px">
-      <h2 style="font-size:clamp(30px,3.4vw,42px)">Szólunk, amikor jön a járat</h2>
-      <p style="font-size:18px">Iratkozz fel: értesítünk a településed következő járatnapjáról és a szezonális ajánlatokról.</p>
-      <p style="font-weight:700">Eddig az appban rendeltél? Az új webshopban 5% átállási kedvezménnyel várunk – kód: APP5.</p>
-    </div>
-    <form class="stack" data-demo-form="Feliratkoztál! (Demó: e-mail nem megy ki.)" aria-label="Feliratkozás a járatértesítőre" style="gap:12px">
-      <div class="row">
-        <label class="sr-only" for="nl-email">E-mail-cím</label><input id="nl-email" type="email" placeholder="E-mail-cím" required>
-        <label class="sr-only" for="nl-town">Település</label><input id="nl-town" type="text" placeholder="Település" required>
-        <button class="btn btn-dark" type="submit">Feliratkozom</button>
-      </div>
-      <label class="check" style="font-size:14px"><input type="checkbox" required><span>Hozzájárulok, hogy a Bio-Goods Kft. hírlevelet küldjön. Az <a href="aszf.html#adatkezeles" style="color:var(--ink);font-weight:700">adatkezelési tájékoztatót</a> elolvastam.</span></label>
-    </form>
+    <div><p class="kicker light" style="margin:0 0 6px">Kapcsolat</p><p class="display" style="font-size:clamp(24px,2.6vw,34px)">Kérdésed van? Hívj vagy írj.</p></div>
+    <a href="tel:+36709470077"><span>Telefon</span><strong>06 70 947 0077</strong></a>
+    <a href="mailto:mangalica@bio-goods.hu"><span>E-mail</span><strong>mangalica@bio-goods.hu</strong></a>
+    <a href="kapcsolat.html"><span>Mintabolt és üzem</span><strong>3715 Gesztely, Aradi utca 22.</strong></a>
   </div>
 </section>
 

@@ -39,11 +39,11 @@
     menu: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
     close: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     trash: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
-    truck: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17V8h11v9"/><path d="M14 11h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>',
-    home: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>',
-    medal: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/><path d="M9.5 9l1.8 1.8L14.8 7.5"/></svg>',
-    leaf: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#CE8900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M12 17c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 15c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg>',
-    star: '<svg width="18" height="18" viewBox="0 0 24 24" fill="#CE8900" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"/></svg>',
+    truck: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17V8h11v9"/><path d="M14 11h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>',
+    home: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>',
+    medal: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/><path d="M9.5 9l1.8 1.8L14.8 7.5"/></svg>',
+    leaf: '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E3AF00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 11c3 0 5-2 5-5-3 0-5 2-5 5z"/><path d="M12 17c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 15c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg>',
+    star: '<svg width="18" height="18" viewBox="0 0 24 24" fill="#E3AF00" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"/></svg>',
     fb: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 009 6.5V9H6.5v3.5H9V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 011-1H15z"/></svg>',
     ig: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></svg>'
   };
@@ -219,7 +219,7 @@
   }
   function renderChrome() {
     const nav = document.body.getAttribute('data-nav') || '';
-    const navItems = [['termekek', 'Termékek', 'termekek.html'], ['ajandek', 'Ajándékok', 'termekek.html?kategoria=ajandek'], ['szallitas', 'Szállítás', 'szallitas.html'], ['gazdasag', 'A gazdaság', 'a-gazdasag.html'], ['receptek', 'Receptek', 'receptek.html']];
+    const navItems = [['termekek', 'Webshop', 'termekek.html'], ['cegeknek', 'Cégeknek', 'cegeknek.html'], ['ajandek', 'Ajándékcsomagok', 'termekek.html?kategoria=ajandek'], ['gazdasag', 'A mangalica útja', 'a-gazdasag.html'], ['receptek', 'Receptek', 'receptek.html'], ['kapcsolat', 'Kapcsolat', 'kapcsolat.html']];
     const navHTML = navItems.map((n) => '<a href="' + url(n[2]) + '"' + (nav === n[0] ? ' aria-current="page"' : '') + '>' + n[1] + '</a>').join('');
     const head = document.createElement('div');
     head.innerHTML =
@@ -235,7 +235,7 @@
       '<button class="cart-btn" type="button" id="cart-btn" aria-label="Kosár megnyitása">' + ICON.cart + '<span class="label">Kosár · </span><span id="cart-sum">' + ft(cartTotal()) + '</span><span class="count" id="cart-count">' + cartCount() + '</span></button>' +
       '</div></div>' +
       '<div class="searchbar" id="searchbar"><div class="wrap"><form action="' + url('termekek.html') + '" role="search"><label class="sr-only" for="hq">Keresés a termékek között</label><input id="hq" name="q" type="search" placeholder="Mit keresel? pl. tarja, kolbász, zsír"><button class="btn btn-gold btn-sm" type="submit">Keresés</button></form></div></div>' +
-      '<nav class="mobile-nav" id="mobile-nav" aria-label="Mobil menü">' + navHTML + '<a href="' + url('fiokom.html') + '">Fiókom</a><a href="' + url('kapcsolat.html') + '">Kapcsolat</a></nav>' +
+      '<nav class="mobile-nav" id="mobile-nav" aria-label="Mobil menü">' + navHTML + '<a href="' + url('szallitas.html') + '">Szállítás</a><a href="' + url('fiokom.html') + '">Fiókom</a></nav>' +
       '</header>';
     document.body.prepend(head);
 
@@ -244,12 +244,12 @@
     foot.innerHTML = '<div class="wrap cols">' +
       '<div class="about"><img src="' + url('assets/img/site/logo.png') + '" alt="Bio-Goods Mangalica" style="width:110px;height:auto"><p>Mangalica-tenyésztés és -feldolgozás Gesztelyről, saját hűtött autókkal házhoz.</p></div>' +
       '<nav aria-label="Termékek"><p class="h">Termékek</p>' + BG.categories.map((c) => '<a href="' + url('termekek.html?kategoria=' + c.id) + '">' + esc(c.name) + '</a>').join('') + '</nav>' +
-      '<nav aria-label="Vásárlás"><p class="h">Vásárlás</p><a href="' + url('szallitas.html') + '">Szállítási területek</a><a href="' + url('fizetes.html') + '">Fizetési módok</a><a href="' + url('gyik.html') + '">Gyakori kérdések</a><a href="' + url('ceges-ajandek.html') + '">Céges ajándék</a><a href="' + url('aszf.html') + '">ÁSZF</a><a href="' + url('aszf.html#adatkezeles') + '">Adatkezelés</a></nav>' +
+      '<nav aria-label="Vásárlás"><p class="h">Vásárlás</p><a href="' + url('szallitas.html') + '">Szállítási területek</a><a href="' + url('fizetes.html') + '">Fizetési módok</a><a href="' + url('gyik.html') + '">Gyakori kérdések</a><a href="' + url('cegeknek.html') + '">Cégeknek</a><a href="' + url('ceges-ajandek.html') + '">Céges ajándék</a><a href="' + url('aszf.html') + '">ÁSZF</a><a href="' + url('aszf.html#adatkezeles') + '">Adatkezelés</a></nav>' +
       '<nav aria-label="Bio-Goods"><p class="h">Bio-Goods</p><a href="' + url('a-gazdasag.html') + '">A gazdaság</a><a href="' + url('dijaink.html') + '">Díjaink</a><a href="' + url('receptek.html') + '">Receptek</a><a href="' + url('kapcsolat.html') + '">Kapcsolat</a></nav>' +
       '<div><p class="h">Kapcsolat</p><span>3715 Gesztely, Aradi u. 22.</span><a href="tel:+36709470077">06 70 947 0077</a><a href="mailto:mangalica@bio-goods.hu">mangalica@bio-goods.hu</a>' +
       '<div class="social"><a href="https://www.facebook.com/biogoodsmangalica/" aria-label="Facebook" rel="noopener" target="_blank">' + ICON.fb + '</a><a href="https://www.instagram.com/mangalicatermekek/" aria-label="Instagram" rel="noopener" target="_blank">' + ICON.ig + '</a></div></div>' +
       '</div><div class="wrap bottom"><span>Bankkártya · OTP SZÉP · K&amp;H SZÉP · MKB SZÉP · SimplePay · készpénz</span>' +
-      '<span><span class="demo-badge">DEMO</span> Egyes adatok mintaértékek · <a href="' + url('admin/index.html') + '">Admin (demó)</a> · © 2026 Bio-Goods Kft. · Készítette: Stratos Webdesign</span></div>';
+      '<span><span class="demo-badge">DEMO</span> Egyes adatok mintaértékek · <a href="' + url('admin/index.html') + '">Admin (demó)</a> · © 2026 Selyemgubó Szociális Szövetkezet · Készítette: Stratos Webdesign</span></div>';
     document.body.appendChild(foot);
 
     // mini-kosár fiók
@@ -547,9 +547,13 @@
         '<img loading="lazy" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:#fff">' +
         '<div style="padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px"><strong>' + esc(p.name) + '</strong><span class="price" style="font-size:22px;color:var(--gold)">' + ft(p.price) + '</span></div></a>';
     }).join(''));
-    fill('#home-routes', routeCards());
+    fill('#home-awards', (BG.awards || []).map((a) => {
+      const p = P[a.id];
+      if (!p) return '';
+      return '<a class="award" href="' + url('termek.html?id=' + a.id) + '"><img loading="lazy" src="' + pimg(p.img) + '" alt="">' +
+        '<span class="stack" style="gap:2px"><strong>' + esc(a.name) + '</strong><span>' + esc(a.award) + '</span></span></a>';
+    }).join(''));
     fill('#home-reviews', reviewsHTML());
-    fill('#home-recipes', BG.recipes.slice(0, 3).map(recipeCard).join(''));
   };
 
   function routeCards() {
