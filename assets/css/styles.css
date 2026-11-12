@@ -495,7 +495,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .hero-split { position: relative; overflow: hidden; background: var(--ink); color: var(--cream); isolation: isolate; }
 .hs-media, .hs-veil-dark, .hs-veil-brand { position: absolute; inset: 0; }
 .hs-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hs-veil-dark { background: rgba(0, 0, 0, .58); }
+.hs-veil-dark { background: linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .6) 60%); }
 .hs-veil-brand { background: rgba(227, 175, 0, .86); clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
 .hs-grid { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; min-height: min(78vh, 720px); }
 .hs-side { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 96px 0; }
@@ -606,7 +606,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hs-media video { display: none; }
-  .hs-media { background: url('../img/site/hero-tarja.jpg') center / cover; }
+  .hs-media { background: url('../img/site/hero-poster.jpg') center / cover; }
 }
 .mainnav a { white-space: nowrap; }
 @media (max-width: 1240px) {
@@ -615,3 +615,10 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .mobile-nav.is-open { display: block; background: var(--ink); border-bottom: 1px solid #2E2B27; }
   .mobile-nav a { display: block; padding: 14px 32px; color: var(--cream); text-decoration: none; font-family: var(--display); font-size: 18px; text-transform: uppercase; border-top: 1px solid #2E2B27; }
 }
+
+/* ---------- séf-referencia (céges) ---------- */
+.chef { display: grid; gap: 40px; grid-template-columns: 1.25fr 1fr; align-items: center; }
+.chef-photos { display: grid; gap: 12px; grid-template-columns: 0.8fr 1fr; grid-template-rows: 1fr 1fr; aspect-ratio: 3 / 2; }
+.chef-photos img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm); }
+.chef-photos .tall { grid-row: 1 / span 2; object-position: 50% 20%; }
+@media (max-width: 860px) { .chef { grid-template-columns: 1fr; gap: 24px; } }

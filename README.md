@@ -19,13 +19,14 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 
 ## Főoldal (2026-11-12)
 
-- **Osztott hero, A változat:** egy háttérvideó, bal oldalon sötét fátyol (Otthonra), jobb oldalon sárga fátyol (Cégeknek), ferde választóvonallal. A videó helyén egyelőre a `hero-tarja.jpg` poster áll; a forrást az `index.html` heró-kommentje szerint kell bekötni.
+- **Osztott hero, A változat:** egy háttérvideó, bal oldalon sötét fátyol (Otthonra), jobb oldalon sárga fátyol (Cégeknek), ferde választóvonallal. A videó (`assets/video/hero.mp4`, 8,7 mp, hang nélkül) a Lázár Chef-látogatás álló reeljének felirat- és szereplőmentes vágóképeiből készült (telep drónról, kifutó), 16:9-re vágva és lassítva. A reelbe égetett feliratok miatt csak kb. 5,5 mp nyersanyag volt használható; a végleges loophoz a felirat nélküli, fekvő nyersfelvétel kell.
+- **Séf-referencia:** a céges referenciaszekcióban három fotó a Lázár Chef-látogatásról. A felhasználási engedély megerősítendő.
 - **Szekciósorrend:** hero → Miért mangalica? → lakossági kategóriák + szezonális sáv → céges érvek + ajánlatkérés → A mangalica útja (videóhelyekkel) → lakossági kiemelt termékek + kiszállítás és átvétel → céges referenciák → bizalmi sáv, díjak, értékelések → záró kettős CTA, kapcsolat.
 - **Megkülönböztetés:** lakossági szekció = krém/papír háttér, céges szekció = arculati sárga.
 - **Főmenü:** Webshop, Cégeknek, Ajándékcsomagok, A mangalica útja, Receptek, Kapcsolat. A Szállítás a láblécben és a mobilmenüben maradt.
 - **Egyetlen ajánlatkérő útvonal:** minden céges CTA a `cegeknek.html#ajanlat` űrlapra visz (a céges ajándék oldalé is).
 - **Szín:** a fő sárga az arculati kézikönyv szerinti `#E3AF00` (korábban `#CE8900`), az egész demóban.
-- **Nyitott:** hero-videó, partnerlogók (hozzájárulás), B2B árak és feltételek, a mintabolt nyitvatartása, DIN Next LT Pro webes licenc (addig Oswald + Manrope). A hírlevél-sáv, a receptajánló és a járatkártyák lekerültek a főoldalról.
+- **Nyitott:** végleges hero-videó nyersanyagból, a Lázár Chef-anyag engedélye, partnerlogók (hozzájárulás), B2B árak és feltételek, a mintabolt nyitvatartása, DIN Next LT Pro webes licenc (addig Oswald + Manrope). A hírlevél-sáv, a receptajánló és a járatkártyák lekerültek a főoldalról.
 - **Még nincs átvezetve a demó többi részén:** a személyes átvétel (Gesztely) a pénztárban, és a Selyemgubó Szociális Szövetkezet mint cégadat a pénztárban és az ÁSZF-sablonban.
 
 ## Futtatás
