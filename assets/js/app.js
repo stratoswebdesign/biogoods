@@ -14,10 +14,16 @@
   const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
   const params = new URLSearchParams(location.search);
   const url = (p) => BASE + p;
-  const img = (id) => BASE + 'assets/img/termekek/' + id + '.jpg';
-  // Termékmegjelenítéshez: fehér hátterű változat, ha van; különben az eredeti fotó
+  // Saját termékfotó (2026-11-17), ha van; különben a régi webshop képe
+  const PHOTOS = BG.photos || {};
+  const photo = (id, n) => BASE + 'assets/img/foto/termek/' + id + (n > 1 ? '-' + n : '') + '.jpg';
+  const img = (id) => (PHOTOS[id] ? photo(id) : BASE + 'assets/img/termekek/' + id + '.jpg');
+  // Termékmegjelenítéshez: új fotó → fehér hátterű régi változat → eredeti régi fotó
   const WHITE = new Set(BG.whiteImg || []);
-  const pimg = (id) => (WHITE.has(id) ? BASE + 'assets/img/termekek-feher/' + id + '.jpg' : img(id));
+  const pimg = (id) => (PHOTOS[id] ? photo(id) : WHITE.has(id) ? BASE + 'assets/img/termekek-feher/' + id + '.jpg' : img(id));
+  const gallery = (id) => { const n = PHOTOS[id] || 1; const a = []; for (let i = 1; i <= n; i++) a.push(PHOTOS[id] ? photo(id, i) : pimg(id)); return a; };
+  // Kategóriaképek: fekvő hero (16:9), kicsi csempe, közeli részlet (1:1)
+  const catImg = (id, v) => BASE + 'assets/img/foto/kategoria/' + id + (v ? '-' + v : '') + '.jpg';
 
   const store = {
     get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } },
@@ -193,8 +199,8 @@
       '<div class="foot"><span><span class="price">' + ft(p.price) + '</span>' + old + '</span>' +
       '<button type="button" class="add-btn" data-add="' + p.id + '" aria-label="Kosárba: ' + esc(p.name) + '">Kosárba</button></div></div></article>';
   }
-  function tile(name, sub, imgId, href, small) {
-    return '<a class="tile' + (small ? ' sm' : '') + '" href="' + href + '"><img loading="lazy" src="' + img(imgId) + '" alt="">' +
+  function tile(name, sub, imgId, href, small, src) {
+    return '<a class="tile' + (small ? ' sm' : '') + '" href="' + href + '"><img loading="lazy" src="' + (src || img(imgId)) + '" alt="">' +
       '<div class="tile-bar"><div><p class="tile-name">' + esc(name) + '</p>' + (sub ? '<p class="tile-sub">' + esc(sub) + '</p>' : '') + '</div>' +
       (small ? '' : '<span class="arrow" aria-hidden="true">→</span>') + '</div></a>';
   }
@@ -538,10 +544,10 @@
 
   pages.home = function () {
     const fill = (sel, html) => { const el = $(sel); if (el) el.innerHTML = html; };
-    fill('#home-cats', BG.categories.map((c) => tile(c.name, c.sub, c.img, url('termekek.html?kategoria=' + c.id))).join(''));
+    fill('#home-cats', BG.categories.map((c) => tile(c.name, c.sub, c.img, url('termekek.html?kategoria=' + c.id), false, c.hero ? catImg(c.id, 'kicsi') : null)).join(''));
     fill('#home-occ', BG.occasions.map((o) => '<a class="chip" href="' + url('termekek.html?alkalom=' + o.id) + '">' + esc(o.name) + '</a>').join(''));
     fill('#home-featured', BG.featured.map((id) => productCard(P[id])).join(''));
-    fill('#home-gifts', ['ajandekdoboz-10', 'ajandekkosar-12', 'bosegtal'].map((id) => {
+    fill('#home-gifts', ['mangalica-izelito', 'hagyomany-izei', 'mangalica-orokseg'].map((id) => {
       const p = P[id];
       return '<a class="card-dark" href="' + url('termek.html?id=' + id) + '" style="padding:0;overflow:hidden;text-decoration:none;color:var(--cream);border:1px solid var(--ink-3);background:var(--ink-2)">' +
         '<img loading="lazy" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:#fff">' +
@@ -601,7 +607,21 @@
     }
     document.title = (q ? 'Keresés: ' + q : title) + ' – Bio-Goods Mangalica';
 
-    if (occ && OCC[occ]) {
+    const crumbsHTML = '<nav class="crumbs" aria-label="Morzsamenü"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span>' +
+      (cat ? '<a href="' + url('termekek.html') + '">Termékek</a><span aria-hidden="true">/</span>' : '') + '<span aria-current="page">' + esc(crumb) + '</span></nav>';
+    const heroId = !q && !occ ? (cat && CAT[cat] && CAT[cat].hero ? cat : (!cat ? 'osszes' : null)) : null;
+    if (heroId) {
+      const c = CAT[cat] || {};
+      const count = base.length;
+      // Fekvő kategóriakép: a bal harmad sötét és nyugodt a feliratnak (fotós brief, 2026-11-10)
+      head.innerHTML = '<section class="cat-hero"><div class="cat-hero-media"><img src="' + catImg(heroId) + '" alt="' + esc(c.heroAlt || 'Mangalica termékek válogatása') + '" fetchpriority="high"></div>' +
+        '<div class="wrap cat-hero-in"><div class="cat-hero-text">' + crumbsHTML +
+        '<h1>' + esc(title) + '</h1>' + (intro ? '<p class="lead">' + esc(intro) + '</p>' : '') +
+        '<p class="cat-hero-count">' + count + ' termék' + (c.sub ? ' · ' + esc(c.sub) : '') + '</p>' +
+        '<div data-town-check="dark" class="cat-hero-town"></div></div>' +
+        (c.hero ? '<figure class="cat-hero-detail"><img src="' + catImg(heroId, 'reszlet') + '" alt="' + esc(c.detailAlt || '') + '" loading="lazy"><figcaption>Közelről: ' + esc((c.detailAlt || '').toLowerCase()) + '</figcaption></figure>' : '') +
+        '</div></section>';
+    } else if (occ && OCC[occ]) {
       head.innerHTML = '<section class="dark-head"><img class="bg" src="' + img(OCC[occ].img) + '" alt=""><div class="wrap">' +
         '<nav class="crumbs" aria-label="Morzsamenü"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span><span>Alkalmak</span><span aria-hidden="true">/</span><span aria-current="page" style="color:var(--cream)">' + esc(crumb) + '</span></nav>' +
         '<h1>' + esc(title) + '</h1><p class="lead" style="color:#E8E0D2">' + esc(intro) + '</p></div></section>' + (occ === 'kerti-parti' ? bundleHTML() : '');
@@ -681,6 +701,18 @@
   }
 
   /* ---------- termékoldal ---------- */
+  function galleryThumbs(p) {
+    const g = gallery(p.img);
+    if (g.length < 2) return '';
+    return '<div class="thumbs" role="list">' + g.map((src, i) => '<button type="button" role="listitem" class="thumb' + (i ? '' : ' is-active') + '" data-gal="' + src + '" aria-label="' + (i + 1) + '. kép" aria-pressed="' + (i ? 'false' : 'true') + '"><img src="' + src + '" alt="" loading="lazy"></button>').join('') + '</div>';
+  }
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-gal]');
+    if (!b) return;
+    const m = $('#pdp-main'); if (m) m.src = b.getAttribute('data-gal');
+    $$('.thumb', b.parentNode).forEach((t) => { t.classList.toggle('is-active', t === b); t.setAttribute('aria-pressed', t === b ? 'true' : 'false'); });
+  });
+
   pages.product = function () {
     const p = P[params.get('id')];
     const root = $('#pdp');
@@ -701,7 +733,7 @@
       [p, v].sort((a, b) => a.name.localeCompare(b.name, 'hu')).map((x) => '<a class="variant' + (x.id === p.id ? ' is-active' : '') + '" href="' + url('termek.html?id=' + x.id) + '"' + (x.id === p.id ? ' aria-current="true"' : '') + '><strong>' + (/csont nélkül/i.test(x.name) ? 'Csont nélkül' : 'Csontos') + '</strong><span>' + esc(x.pack) + ' · ' + ft(x.price) + '</span></a>').join('') + '</div></fieldset>' : '';
     root.innerHTML =
       '<nav class="crumbs" aria-label="Morzsamenü" style="padding-top:24px"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span><a href="' + url('termekek.html?kategoria=' + c.id) + '">' + esc(c.name) + '</a><span aria-hidden="true">/</span><span aria-current="page">' + esc(p.name) + '</span></nav>' +
-      '<div class="pdp"><div class="gallery"><img class="main" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '"></div>' +
+      '<div class="pdp"><div class="gallery"><img class="main" id="pdp-main" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '">' + galleryThumbs(p) + '</div>' +
       '<div class="info"><p class="kicker" style="margin:0">' + esc([c.name].concat(occNames).join(' · ')) + '</p>' +
       '<h1>' + esc(p.name) + '</h1>' +
       '<div class="pricebox"><span class="price">' + ft(p.price) + '</span>' + (p.old ? '<span class="muted" style="text-decoration:line-through">' + ft(p.old) + '</span>' : '') + '<span class="muted">' + esc(metaText(p)) + '</span></div>' +

@@ -174,7 +174,7 @@ fieldset { min-width: 0; }
 
 /* ---------- termékkártya ---------- */
 .pcard { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
-.pcard .media { position: relative; display: block; aspect-ratio: 4 / 3; background: #E9E1D2; overflow: hidden; }
+.pcard .media { position: relative; display: block; aspect-ratio: 1 / 1; background: #F4F2EE; overflow: hidden; }
 .pcard .media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .pcard:hover .media img { transform: scale(1.04); }
 .pcard .media .tag { position: absolute; top: 10px; left: 10px; }
@@ -218,7 +218,12 @@ fieldset { min-width: 0; }
 /* ---------- termékoldal ---------- */
 .pdp { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; padding: 24px 0 72px; }
 .pdp .gallery { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
-.pdp .gallery .main { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px; background: #E9E1D2; }
+.pdp .gallery .main { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; background: #F4F2EE; }
+.pdp .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 104px)); gap: 10px; }
+.pdp .thumb { padding: 0; border: 2px solid transparent; border-radius: 12px; overflow: hidden; background: none; cursor: pointer; aspect-ratio: 1 / 1; }
+.pdp .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pdp .thumb.is-active { border-color: var(--ink); }
+.pdp .thumb:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .pdp .info { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
 .pdp h1 { font-size: clamp(36px, 4vw, 54px); line-height: 1; }
 .pdp .pricebox { display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; }
@@ -614,4 +619,30 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .menu-btn { display: inline-flex; }
   .mobile-nav.is-open { display: block; background: var(--ink); border-bottom: 1px solid #2E2B27; }
   .mobile-nav a { display: block; padding: 14px 32px; color: var(--cream); text-decoration: none; font-family: var(--display); font-size: 18px; text-transform: uppercase; border-top: 1px solid #2E2B27; }
+}
+
+/* ---------- kategóriafejléc: fekvő fotó, bal harmad sötét a feliratnak (2026-11-17) ---------- */
+.cat-hero { position: relative; background: var(--ink); color: var(--cream); overflow: hidden; isolation: isolate; }
+.cat-hero-media { position: absolute; top: 0; bottom: 0; right: 0; left: 30%; z-index: -2; }
+.cat-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block; }
+.cat-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 30%, rgba(22,22,21,.82) 40%, rgba(22,22,21,.25) 58%, rgba(22,22,21,0) 72%),
+              linear-gradient(0deg, rgba(22,22,21,.55) 0%, rgba(22,22,21,0) 32%); }
+.cat-hero-in { min-height: clamp(440px, 46vw, 600px); display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding-top: 56px; padding-bottom: 56px; }
+.cat-hero-text { max-width: 470px; display: flex; flex-direction: column; gap: 14px; }
+.cat-hero h1 { font-size: clamp(42px, 5.4vw, 72px); line-height: .98; margin: 6px 0 0; color: var(--cream); }
+.cat-hero .lead { color: #E8E0D2; margin: 0; }
+.cat-hero .crumbs, .cat-hero .crumbs a { color: var(--on-dark); }
+.cat-hero .crumbs span[aria-current] { color: var(--cream); }
+.cat-hero-count { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); }
+.cat-hero-town:empty { display: none; }
+.cat-hero-detail { margin: 0; flex: none; width: 220px; align-self: flex-end; }
+.cat-hero-detail img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; border: 3px solid rgba(245,240,230,.9); box-shadow: 0 18px 40px rgba(0,0,0,.45); display: block; }
+.cat-hero-detail figcaption { margin-top: 8px; font-size: 13px; color: var(--on-dark); text-align: right; }
+@media (max-width: 1000px) { .cat-hero-detail { width: 170px; } }
+@media (max-width: 760px) {
+  .cat-hero-media { position: relative; left: auto; top: auto; bottom: auto; height: 56vw; max-height: 360px; z-index: 0; }
+  .cat-hero::before { background: linear-gradient(180deg, rgba(22,22,21,0) 0, rgba(22,22,21,0) 30vw, var(--ink) 56vw, var(--ink) 100%); z-index: 1; }
+  .cat-hero-in { position: relative; z-index: 2; min-height: 0; margin-top: -64px; padding-top: 0; padding-bottom: 36px; }
+  .cat-hero-detail { display: none; }
 }
