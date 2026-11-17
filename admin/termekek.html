@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="hu" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termékek – Bio-Goods admin (demo)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/site/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="admin-page" data-page="admin-products">
+<div class="admin">
+  <nav class="side" aria-label="Admin menü">
+    <a href="../index.html" aria-label="Vissza a webshopba" style="padding:0;background:none"><img src="../assets/img/site/logo.png" alt="Bio-Goods"></a>
+    <a href="index.html">Járatlista</a>
+    <a href="komissio.html">Komissiózó lista</a>
+    <a href="zonak.html">Járatok és minimumok</a>
+    <a href="termekek.html" aria-current="page">Termékek</a>
+    <a href="../index.html">← Webshop</a>
+  </nav>
+  <main id="main">
+    <div class="row" style="justify-content:space-between">
+      <div><h1>Termékek</h1><p class="muted">Egy kapcsolóval ki- és bekapcsolható, hogy egy termék látszik-e a webshopban. <span id="pinfo"></span></p></div>
+      <button class="btn btn-outline btn-sm" type="button" id="all-on">Mind aktív</button>
+    </div>
+    <div class="box" style="overflow-x:auto">
+      <table class="data" style="min-width:560px">
+        <thead><tr><th scope="col">Termék</th><th scope="col">Kiszerelés</th><th scope="col">Ár</th><th scope="col">Állapot</th></tr></thead>
+        <tbody id="prows"></tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:13px">Demó: a beállítás ebben a böngészőben mentődik. Az éles webshopban ugyanez a kapcsoló a készletkezeléssel együtt működik majd.</p>
+  </main>
+</div>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

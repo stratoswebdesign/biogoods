@@ -28,6 +28,16 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 - **Nyitott:** hero-videó, partnerlogók (hozzájárulás), B2B árak és feltételek, a mintabolt nyitvatartása, DIN Next LT Pro webes licenc (addig Oswald + Manrope). A hírlevél-sáv, a receptajánló és a járatkártyák lekerültek a főoldalról.
 - **Még nincs átvezetve a demó többi részén:** a személyes átvétel (Gesztely) a pénztárban, és a Selyemgubó Szociális Szövetkezet mint cégadat a pénztárban és az ÁSZF-sablonban.
 
+## Terméklista (2026-11-17)
+
+Forrás: az ügyfél „Új weboldal termékek” Google-táblázata.
+
+- **82 termék, 8 kategória** a táblázat szerint: Tőkehúsok, Reggelire, Kerti parti, Szalonnák és füstöltek, Klasszikusok, Szalámik és kolbászok, Akció, Ajándék ötletek. A Bőségtál kikerült, mert a táblázatban nem szerepel.
+- **Termékoldal:** összetevők, allergének, „hőkezelést igényel” jelzés és „Tárolás és eltarthatóság” fül (csomagolás, tárolási hőmérséklet, szavatosság, felbontás után, fagyasztás) a táblázatból. Ami ott üres, az `[megerősítendő]`.
+- **Választható opciók** (egészben / szeletelve; köröm: darabolva / félbe vágva / egészben; zsírnak való: bőrös egyben / bőr nélkül egyben / bőr nélkül kockázva): a termékoldalon választható, a kosárban, a pénztárban és a rendelésben megjelenik. Demó-korlát: egy termékhez egy opció tartozik a kosárban.
+- **Árak:** a táblázatban nincs ár, ezért a OneMin-árak maradtak. Ahol a kiszerelés változott, a kilós árból számoltunk (fokhagymás rilette 250 g, kocsonya csomag 2,5 kg). Hét új terméknek nincs ára és fotója (`noPrice`, „Ár hamarosan”, nem tehető kosárba): aszalt szilvás kenőmájas, paprikás kolbászkrém, füstölt csemege snack kolbász, füstölt csülök, füstölt csülök csont nélkül, húsvéti kötözött mangalica, augusztusi grillcsomag.
+- **„Fontos kérések”:** kötelező irányítószám a pénztárban (megvolt); feltűnő 12 órás határidő-jelzés a kosárban és a pénztárban, dél után a másnapi járat nem választható (megvolt); „Számlát kérek” a pénztárban, a számlázási adatok a járatlistán látszanak; `admin/termekek.html` kapcsoló a termékek aktiválásához és inaktiválásához.
+
 ## Futtatás
 
 Nincs build lépés, sima HTML/CSS/JS.

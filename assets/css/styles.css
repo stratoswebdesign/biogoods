@@ -615,3 +615,26 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .mobile-nav.is-open { display: block; background: var(--ink); border-bottom: 1px solid #2E2B27; }
   .mobile-nav a { display: block; padding: 14px 32px; color: var(--cream); text-decoration: none; font-family: var(--display); font-size: 18px; text-transform: uppercase; border-top: 1px solid #2E2B27; }
 }
+
+/* ---------- terméklista 2026-11-17: opciók, ár nélküli termékek, határidő, admin kapcsoló ---------- */
+.opts { margin: 0; padding: 0; border: 0; }
+.opts legend { padding: 0; margin-bottom: 8px; font-weight: 700; font-size: 15px; }
+.opt { position: relative; cursor: pointer; }
+.opt input { position: absolute; opacity: 0; inset: 0; }
+.opt span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line-2); background: var(--paper); font-weight: 600; }
+.opt input:checked + span { border: 2px solid var(--ink); background: #fff; }
+.opt input:focus-visible + span { outline: 3px solid var(--gold); outline-offset: 2px; }
+.price.soon { font-size: 16px; color: var(--muted); }
+a.add-btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.soon-box { padding: 14px 18px; border-radius: var(--radius-sm); background: var(--paper); border: 1px dashed var(--line-2); }
+.notes { margin: 16px 0 0; padding-left: 20px; color: var(--body); display: flex; flex-direction: column; gap: 6px; }
+.cutoff-note { margin: 0 0 16px; padding: 14px 18px; border-radius: var(--radius-sm); border: 2px solid var(--error); background: #FDECEC; color: #5A1010; }
+.cutoff-note strong { color: var(--error); }
+.inv-badge { display: inline-block; padding: 1px 8px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; }
+table.data tr.grp th { text-align: left; background: var(--ink); color: var(--cream); font-family: var(--display); font-weight: 500; text-transform: uppercase; letter-spacing: .04em; padding: 8px 14px; }
+table.data tr.is-off td:not(:last-child) { opacity: .45; }
+.switch { width: 48px; height: 28px; border-radius: 999px; border: 0; background: #B9B2A6; position: relative; cursor: pointer; vertical-align: middle; padding: 0; }
+.switch span { position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; transition: transform .15s; }
+.switch[aria-checked="true"] { background: var(--ok); }
+.switch[aria-checked="true"] span { transform: translateX(20px); }
+.st { font-size: 14px; font-weight: 600; }
