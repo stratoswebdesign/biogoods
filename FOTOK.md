@@ -3,7 +3,7 @@
 Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A válogatás a 2026-11-10-i fotós briefünk („Re: Termékfotózás”) szerint készült.
 
 - **Termékképek:** `assets/img/foto/termek/<id>.jpg` (fő kép) és `<id>-2.jpg`, `<id>-3.jpg` (galéria). 1200 × 1200 px, 1:1, a termék a kép kb. 80–85%-át tölti ki.
-- **Késztermékek:** a krémszínű fotóháttér fehérre semlegesítve (színegyensúly + háttérkiemelés), a termék színei érintetlenek.
+- **Késztermékek:** az eredeti krémszínű fotóháttéren, színkorrekció nélkül (csak 1:1 vágás).
 - **Tőkehúsok:** sötét matt háttér, a világítás miatti szürke sarkok egyenletesre sötétítve.
 - **Kategóriaképek:** `assets/img/foto/kategoria/<kategória>.jpg` (16:9 fekvő, 2000 px), `-kicsi.jpg` (főoldali csempe), `-reszlet.jpg` (közeli részlet, 1:1).
 - A forrás a Drive webes mérete (2500 px). WooCommerce-élesítéshez a `!TELJES FELBONTÁSÚ FOTÓK` mappából érdemes újra exportálni (min. 2000 × 2000 px).
@@ -36,39 +36,39 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Tőkehúsok | Köröm (`korom`) | 9457, 9452 | sötét háttér |  |
 | Szalonnák, füstöltek | Sós szalonna (`sos-szalonna`) | 9516, 9520 | sötét háttér |  |
 | Szalonnák, füstöltek | Formázott nyers szalonna (`formazott-nyers-szalonna`) | 9441, 9446 | sötét háttér | **megerősítendő** |
-| Szalonnák, füstöltek | Kolozsvári szalonna (`kolozsvari-szalonna`) | 9704, 9685 | világos → fehér háttér |  |
-| Szalonnák, füstöltek | Füstölt csemege szalonna (`fustolt-csemege-szalonna`) | 9688, 9713 | világos → fehér háttér | **megerősítendő** |
-| Szalonnák, füstöltek | Abált szalonna (`abalt-szalonna`) | 9777, 9779 | világos → fehér háttér | **megerősítendő** |
-| Szalonnák, füstöltek | Füstölt sonka (`fustolt-sonka`) | 9726, 9729 | világos → fehér háttér |  |
-| Szalonnák, füstöltek | Füstölt oldalas / bordaporc (`fustolt-oldalas`) | 9707, 9711 | világos → fehér háttér |  |
-| Szalonnák, füstöltek | Angol szalonna, szeletelve (`angol-szalonna`) | 9698, 9700 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Füstölt csemege kolbász (`fustolt-csemege-kolbasz`) | 9692, 9693 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Füstölt csípős kolbász (`fustolt-csipos-kolbasz`) | 9694, 9695 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Füstölt miskolci kolbász (paprikamentes) (`miskolci-kolbasz`) | 9696, 9656 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Füstölt csípős snack kolbász (`csipos-snack-kolbasz`) | 9660, 9666, 9663 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | 9716, 9721 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Csípős paprikás szalámi (`csipos-paprikas-szalami`) | 9760, 9764 | világos → fehér háttér | **megerősítendő** |
-| Kolbászok, szalámik | Téliszalámi (`teliszalami`) | 9722, 9725 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9822, 9827 | világos → fehér háttér |  |
-| Kolbászok, szalámik | Grillkolbász (magyaros) (`grillkolbasz-magyaros`) | 9813, 9815 | világos → fehér háttér | **megerősítendő** |
-| Kolbászok, szalámik | Debreceni páros (`debreceni-paros`) | 9797 | világos → fehér háttér | **megerősítendő** |
-| Felvágottak, kenhetők | Párizsi (`parizsi`) | 9613 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Chilis párizsi (`chilis-parizsi`) | 9620, 9621 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Füstölt párizsi (`fustolt-parizsi`) | 9601, 9610, 9600 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Dobozos kenőmájas (`dobozos-kenomajas`) | 9740, 9769 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Tömlős kenőmájas (kenhető) (`tomlos-kenomajas`) | 9773, 9772 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Parasztmájas (darabos) (`parasztmajas`) | 9637, 9632 | világos → fehér háttér |  |
+| Szalonnák, füstöltek | Kolozsvári szalonna (`kolozsvari-szalonna`) | 9704, 9685 | krémszínű háttér |  |
+| Szalonnák, füstöltek | Füstölt csemege szalonna (`fustolt-csemege-szalonna`) | 9688, 9713 | krémszínű háttér | **megerősítendő** |
+| Szalonnák, füstöltek | Abált szalonna (`abalt-szalonna`) | 9777, 9779 | krémszínű háttér | **megerősítendő** |
+| Szalonnák, füstöltek | Füstölt sonka (`fustolt-sonka`) | 9726, 9729 | krémszínű háttér |  |
+| Szalonnák, füstöltek | Füstölt oldalas / bordaporc (`fustolt-oldalas`) | 9707, 9711 | krémszínű háttér |  |
+| Szalonnák, füstöltek | Angol szalonna, szeletelve (`angol-szalonna`) | 9698, 9700 | krémszínű háttér |  |
+| Kolbászok, szalámik | Füstölt csemege kolbász (`fustolt-csemege-kolbasz`) | 9692, 9693 | krémszínű háttér |  |
+| Kolbászok, szalámik | Füstölt csípős kolbász (`fustolt-csipos-kolbasz`) | 9694, 9695 | krémszínű háttér |  |
+| Kolbászok, szalámik | Füstölt miskolci kolbász (paprikamentes) (`miskolci-kolbasz`) | 9696, 9656 | krémszínű háttér |  |
+| Kolbászok, szalámik | Füstölt csípős snack kolbász (`csipos-snack-kolbasz`) | 9660, 9666, 9663 | krémszínű háttér |  |
+| Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | 9716, 9721 | krémszínű háttér |  |
+| Kolbászok, szalámik | Csípős paprikás szalámi (`csipos-paprikas-szalami`) | 9760, 9764 | krémszínű háttér | **megerősítendő** |
+| Kolbászok, szalámik | Téliszalámi (`teliszalami`) | 9722, 9725 | krémszínű háttér |  |
+| Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9822, 9827 | krémszínű háttér |  |
+| Kolbászok, szalámik | Grillkolbász (magyaros) (`grillkolbasz-magyaros`) | 9813, 9815 | krémszínű háttér | **megerősítendő** |
+| Kolbászok, szalámik | Debreceni páros (`debreceni-paros`) | 9797 | krémszínű háttér | **megerősítendő** |
+| Felvágottak, kenhetők | Párizsi (`parizsi`) | 9613 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Chilis párizsi (`chilis-parizsi`) | 9620, 9621 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Füstölt párizsi (`fustolt-parizsi`) | 9601, 9610, 9600 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Dobozos kenőmájas (`dobozos-kenomajas`) | 9740, 9769 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Tömlős kenőmájas (kenhető) (`tomlos-kenomajas`) | 9773, 9772 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Parasztmájas (darabos) (`parasztmajas`) | 9637, 9632 | krémszínű háttér |  |
 | Felvágottak, kenhetők | Virsli, 5 pár (ehető kollagénben) (`virsli`) | 9473, 9481 | sötét háttér |  |
 | Felvágottak, kenhetők | Füstölt virsli, 5 pár (`fustolt-virsli`) | 9488, 9485 | sötét háttér |  |
-| Felvágottak, kenhetők | Tepertőkrém (`tepertokrem`) | 9683 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Fokhagymás rilette (`fokhagymas-rilette`) | 9672, 9670 | világos → fehér háttér |  |
-| Felvágottak, kenhetők | Chilis rilette (`chilis-rilette`) | 9677, 9679 | világos → fehér háttér |  |
-| Hagyományos | Hurka (`hurka`) | 9805, 9808, 9810 | világos → fehér háttér |  |
-| Hagyományos | Sütőkolbász (`sutokolbasz`) | 9793, 9809 | világos → fehér háttér |  |
-| Hagyományos | Tepertő (`teperto`) | 9628 | világos → fehér háttér |  |
-| Hagyományos | Rakott fej (`rakott-fej`) | 9648, 9650 | világos → fehér háttér |  |
-| Hagyományos | Csülöksajt (`csuloksajt`) | 9643, 9646 | világos → fehér háttér | **megerősítendő** |
-| Hagyományos | Tépett hús (`tepett-hus`) | 9736, 9734 | világos → fehér háttér |  |
+| Felvágottak, kenhetők | Tepertőkrém (`tepertokrem`) | 9683 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Fokhagymás rilette (`fokhagymas-rilette`) | 9672, 9670 | krémszínű háttér |  |
+| Felvágottak, kenhetők | Chilis rilette (`chilis-rilette`) | 9677, 9679 | krémszínű háttér |  |
+| Hagyományos | Hurka (`hurka`) | 9805, 9808, 9810 | krémszínű háttér |  |
+| Hagyományos | Sütőkolbász (`sutokolbasz`) | 9793, 9809 | krémszínű háttér |  |
+| Hagyományos | Tepertő (`teperto`) | 9628 | krémszínű háttér |  |
+| Hagyományos | Rakott fej (`rakott-fej`) | 9648, 9650 | krémszínű háttér |  |
+| Hagyományos | Csülöksajt (`csuloksajt`) | 9643, 9646 | krémszínű háttér | **megerősítendő** |
+| Hagyományos | Tépett hús (`tepett-hus`) | 9736, 9734 | krémszínű háttér |  |
 | Ajándékok | Mangalica Ízelítő ajándékcsomag (`mangalica-izelito`) | 9416, 9403, 9409 | teljes kompozíció |  |
 | Ajándékok | Hagyomány Ízei ajándékcsomag (`hagyomany-izei`) | 9586, 9596, 9581 | teljes kompozíció |  |
 | Ajándékok | Mangalica Örökség ajándékcsomag (`mangalica-orokseg`) | 9430, 9427, 9437 | teljes kompozíció |  |
