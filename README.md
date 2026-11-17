@@ -30,7 +30,7 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 
 ## Termékfotók és kategóriaoldalak (2026-11-17)
 
-- **Saját fotók:** a 2026-11-17-i fotózás (Kálmán Attila) anyagából 59 termék kapott új fő képet, többségük 2–3 képes galériát is (`assets/img/foto/termek/`, `BG.photos` a `data.js`-ben). Hozzárendelés, bizonytalan azonosítások és kimaradt termékek: [FOTOK.md](FOTOK.md).
+- **Saját fotók:** a 2026-11-17-i fotózás (Kálmán Attila) anyagából 60 termék kapott új fő képet, többségük 2–3 képes galériát is (`assets/img/foto/termek/`, `BG.photos` a `data.js`-ben). Hozzárendelés, bizonytalan azonosítások és kimaradt termékek: [FOTOK.md](FOTOK.md).
 - **Képarány:** a termékkártya és a termékoldal 1:1 (a brief szerint), a termékoldalon bélyegképes galéria.
 - **Kategóriaoldalak:** fekvő kategóriakép, a bal harmad sötét és nyugodt a feliratnak, jobb alsó sarokban közeli részletkép (metszéslap, márványozottság, füstölt felület). Az „Összes termék” oldal is kapott fejlécképet. A főoldali kategóriacsempék ugyanezeket a képeket használják.
 - **Karácsonyi csomagok:** Mangalica Ízelítő, Hagyomány Ízei, Mangalica Örökség (Petra listája szerinti tartalom és ár), a főoldali ajándéksávban is.

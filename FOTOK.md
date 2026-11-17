@@ -49,9 +49,10 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | 9716, 9721 | krémszínű háttér |  |
 | Kolbászok, szalámik | Csípős paprikás szalámi (`csipos-paprikas-szalami`) | 9760, 9764 | krémszínű háttér | **megerősítendő** |
 | Kolbászok, szalámik | Téliszalámi (`teliszalami`) | 9722, 9725 | krémszínű háttér |  |
-| Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9822, 9827 | krémszínű háttér |  |
-| Kolbászok, szalámik | Grillkolbász (magyaros) (`grillkolbasz-magyaros`) | 9813, 9815 | krémszínű háttér | **megerősítendő** |
-| Kolbászok, szalámik | Debreceni páros (`debreceni-paros`) | 9797 | krémszínű háttér | **megerősítendő** |
+| Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9820, 9817 | krémszínű háttér |  |
+| Kolbászok, szalámik | Gesztelyi páros (`gesztelyi-paros`) | 9822, 9827 | krémszínű háttér |  |
+| Kolbászok, szalámik | Grillkolbász (magyaros) (`grillkolbasz-magyaros`) | 9813, 9817 | krémszínű háttér | **megerősítendő** |
+| Kolbászok, szalámik | Debreceni páros (`debreceni-paros`) | 9797, 9799 | krémszínű háttér | **megerősítendő** |
 | Felvágottak, kenhetők | Párizsi (`parizsi`) | 9613 | krémszínű háttér |  |
 | Felvágottak, kenhetők | Chilis párizsi (`chilis-parizsi`) | 9620, 9621 | krémszínű háttér |  |
 | Felvágottak, kenhetők | Füstölt párizsi (`fustolt-parizsi`) | 9601, 9610, 9600 | krémszínű háttér |  |
@@ -83,17 +84,27 @@ A fotókon nincs címke, a régi webshop képei és a vágás alapján azonosít
 - **Formázott nyers szalonna (9440–9448)** és **füstölt csemege szalonna (9688, 9713).**
 - **Abált szalonna (9777–9781):** paprikás bundájú darab.
 - **Csípős paprikás szalámi (9760–9768)** – a paprikás szalámi (9716–9721) mellett.
-- **Friss kolbászok:** grillkolbász magyaros = 9813, debreceni páros = 9797, sütőkolbász = 9793 (a hurkával fotózták együtt). A rózsaszín, nyers kolbász (9819–9821) és a halvány, címke nélküli páros (9690, 9691, 9738, 9739) nincs hozzárendelve – valószínűleg gesztelyi páros vagy grillkolbász.
+- **Friss kolbászok** (a régi webshop képeivel összevetve): grillkolbász bajor = a hosszú, halvány, borsos (9819–9821), gesztelyi páros = a vastag, fehér, zöldfűszeres (9822–9830), grillkolbász magyaros = a hosszú, piros (9813–9814), a kettő együtt: 9815–9817; debreceni páros = a rövid, narancssárga (9797–9799); sütőkolbász = a vastag, piros, ívelt (9793–9796), a hurkával együtt is fotózták.
 - **Csülöksajt (9643–9647):** fehér, darabos sajt narancs bélben; mellette a rakott fej (9648–9653) biztosnak látszik.
 
 ## Új fotó nélkül maradt (a régi kép él)
 
-Csontos tarja, Frédi szelet, Mangalica turista, Gesztelyi páros, Nyelves felvágott, Uzsonnasonka, Kalandor és Csibész uzsonnacsomag, Mangalicazsír (1 és 5 kg), a régi ajándékdobozok és -kosár, Bőségtál, ajándékkártyák.
+Az összes képet újra átnéztem (2026-11-17 este), ezekről nem találtam fotót:
+
+- **Csontos tarja:** a tarjáról egyetlen darab készült (9318–9339), csont nem látszik rajta – ez a „Tarja csont nélkül” képe.
+- **Frédi szelet:** a régi kép csontos combszelet, ilyen nincs az anyagban. A 9171–9192 sorozat egyetlen T-bone szelet két oldalról.
+- **Mangalica turista:** a 9760–9768 sorozat egyetlen szalámi (csípős paprikás), a csomagolt változat is ugyanaz.
+- **Nyelves felvágott, uzsonnasonka:** nincs rózsaszín, nyelvdarabos vagy sonkás felvágott a képeken.
+- **Mangalicazsír (1 és 5 kg):** önállóan nem fotózták, csak a fekete táskás ajándékcsomagban látszik egy „Sült mangalica zsír” doboz.
+- **Kalandor és Csibész uzsonnacsomag:** grafika, nem fotó.
+- **Régi ajándéktermékek** (Ajándékdoboz 10 féle, KICSI, NAGY, kosár), **Bőségtál, ajándékkártyák:** a fehér és a fa doboz fotói most az új karácsonyi csomagoknál vannak; bőségtál és kártya nincs az anyagban.
 
 ## Felhasználatlan, de jó anyag
 
 - Velő (9548–9556), háj (9557–9572), pofa (9521–9529), vékony hússzelet papíron (9530–9537): nincs ilyen termék a katalógusban.
-- Füstölt csülök (9782–9792), füstölt tarja szeletelve (9701–9703), szilvás májas (9746–9748): új termékként felvehetők.
+- Füstölt csülök (9782–9792), füstölt tarja szeletelve (9701–9703), szeletelt füstölt sonka csomagolva (9743–9745): új termékként vagy az ajándékcsomagok tartalmához felhasználhatók.
+- Aranyszínű bélben töltött rúd aszalt szilvával (9746–9748): nem tudtam azonosítani, nincs ilyen termék a katalógusban.
+- 9749–9752: kutyáról készült magánfotók, nem termékanyag.
 - Tepertőkrém-piramis karácsonyi dekorációval (9386–9401): ünnepi kampányképnek.
 
 ## Karácsonyi csomagok
