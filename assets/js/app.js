@@ -1078,7 +1078,7 @@
     $('#city-facts').innerHTML = [['Járatnap', runsText(t)], ['Minimum', minText(t)], ['Következő járat', i.next ? fmtDate(i.next.date) : 'jelenleg nincs meghirdetve']]
       .map(([k, v]) => '<div style="background:var(--ink-2);border-radius:12px;padding:14px"><dt style="font-size:13px;color:var(--on-dark-muted)">' + esc(k) + '</dt><dd style="margin:2px 0 0;font-weight:700;color:var(--cream)">' + esc(v) + '</dd></div>').join('');
     $('#city-cta').addEventListener('click', () => setTown(t.name));
-    $('#city-products').innerHTML = ['miskolci-kolbasz', 'csontos-tarja', 'hurka', 'zsir-1kg'].map((id) => productCard(P[id])).join('');
+    $('#city-products').innerHTML = ['miskolci-kolbasz', 'tarja-csont-nelkul', 'hurka', 'zsirnakvalo'].map((id) => P[id]).filter(Boolean).map(productCard).join('');
     $('#city-faq').innerHTML = [
       ['Melyik napon jön a járat ide: ' + t.name + '?', runsText(t) + ' – a rendelést a kiszállítást megelőző napon délig kell leadni.'],
       ['Mekkora a minimum rendelés?', t.name + ': ' + minText(t) + '. Szállítási díj nincs.'],
@@ -1125,13 +1125,14 @@
     let orders = store.get('bg_orders', []);
     if (orders.some((o) => o.demo)) return orders;
     const names = ['Kovács Anna', 'Tóth Éva', 'Szabó Péter', 'Nagy Gábor', 'Varga Zsuzsa', 'Kiss Márta', 'Fekete Ilona', 'Molnár Tamás', 'Horváth Dóra', 'Balogh István', 'Papp Réka', 'Takács Bence'];
-    const plan = [['Debrecen', [['csontos-tarja', 2], ['hurka', 1]], 'card'], ['Debrecen', [['kolozsvari-szalonna', 2], ['tepertokrem', 1], ['parizsi', 3]], 'otpszep'],
-      ['Nyíregyháza', [['grillkolbasz-magyaros', 2], ['zsir-1kg', 1]], 'cash'], ['Hajdúhadház', [['ajandekdoboz-10', 1], ['fustolt-csemege-kolbasz', 2]], 'cash'],
+    const plan = [['Debrecen', [['tarja-csont-nelkul', 2], ['hurka', 1]], 'card'], ['Debrecen', [['kolozsvari-szalonna', 2], ['tepertokrem', 1], ['parizsi', 3]], 'otpszep'],
+      ['Nyíregyháza', [['grillkolbasz-magyaros', 2], ['zsirnakvalo', 1]], 'cash'], ['Hajdúhadház', [['mangalica-izelito', 1], ['fustolt-csemege-kolbasz', 2]], 'cash'],
       ['Téglás', [['bbq-oldalas', 2], ['sutokolbasz', 1], ['hurka', 2]], 'khszep'], ['Miskolc', [['szuz', 1], ['fustolt-sonka', 2]], 'cash'],
-      ['Miskolc', [['teliszalami', 2], ['virsli', 1]], 'card'], ['Gesztely', [['zsir-5kg', 1], ['teperto', 3]], 'cash'],
-      ['Budapest', [['ajandekkosar-12', 2], ['bosegtal', 1]], 'card'], ['Budaörs', [['csontos-karaj', 2], ['paprikas-szalami', 2], ['kolozsvari-szalonna', 1]], 'cash'],
-      ['Érd', [['tomahawk', 4], ['t-bone', 2], ['hamburgerhus', 1]], 'card'], ['Budapest', [['kalandor-csomag', 2], ['csibesz-csomag', 1]], 'cash']];
+      ['Miskolc', [['teliszalami', 2], ['virsli', 1]], 'card'], ['Gesztely', [['zsirnakvalo-akcio', 1], ['teperto', 3]], 'cash'],
+      ['Budapest', [['hagyomany-izei', 2], ['mangalica-orokseg', 1]], 'card'], ['Budaörs', [['csontos-karaj', 2], ['paprikas-szalami', 2], ['kolozsvari-szalonna', 1]], 'cash'],
+      ['Érd', [['tomahawk', 4], ['t-bone', 2], ['hamburgerhus', 1]], 'card'], ['Budapest', [['parizsi', 2], ['csipos-snack-kolbasz', 1]], 'cash']];
     plan.forEach(([townName, items, pay], ix) => {
+      items = items.filter(([id]) => P[id]); if (!items.length) return;
       const t = townByName(townName);
       const total = items.reduce((s, [id, q]) => s + P[id].price * q, 0);
       const day = nextDeliveries(t, 4).find((o) => total >= o.min);

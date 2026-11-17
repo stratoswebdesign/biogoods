@@ -333,3 +333,35 @@ BG.reviews = [
   { name: 'Szilvi R.', text: 'Minden csillagos 5: termékek, kommunikáció, szállítás! Örülök, hogy megtaláltam ezt az oldalt.' },
   { name: 'Róbert T.', text: 'Amióta rájuk találtam, csak tőlük fogyasztok sertésterméket. Minden terméken érződik, hogy küldetésként élik meg, amit csinálnak.' }
 ];
+
+/* ---------- Ideiglenesen rejtett termékek (2026-11-17) ----------
+   Nincs róluk új fotó a 2026-11-17-i fotózásból, ezért egyelőre nem jelennek meg az oldalon
+   (lista, keresés, ajánlók, receptek bevásárlólistája, főoldal). Visszakapcsolás: töröld az azonosítót a listából. */
+BG.hidden = [
+  'csontos-tarja', 'fredi-szelet', 'mangalica-turista', 'nyelves-felvagott', 'uzsonnasonka',
+  'kalandor-csomag', 'csibesz-csomag', 'zsir-1kg', 'zsir-5kg',
+  'ajandekdoboz-10', 'ajandekkosar-12', 'ajandekdoboz-kicsi', 'ajandekdoboz-nagy', 'bosegtal',
+  'ajandekkartya-5000', 'ajandekkartya-10000', 'ajandekkartya-20000'
+];
+(function () {
+  const H = new Set(BG.hidden);
+  const ok = (id) => !H.has(id);
+  // képcsere, ahol egy rejtett termék fotója illusztrált valamit
+  const swapImg = { 'csontos-tarja': 'tarja-csont-nelkul', 'zsir-1kg': 'zsirnakvalo', 'kalandor-csomag': 'parizsi' };
+  BG.products = BG.products.filter((p) => ok(p.id));
+  BG.products.forEach((p) => { if (p.variant && H.has(p.variant)) delete p.variant; });
+  Object.keys(BG.pairByCat).forEach((k) => { BG.pairByCat[k] = BG.pairByCat[k].filter(ok); });
+  Object.keys(BG.pairByProduct).forEach((k) => { if (H.has(k)) delete BG.pairByProduct[k]; else BG.pairByProduct[k] = BG.pairByProduct[k].filter(ok); });
+  Object.keys(BG.biggerPack).forEach((k) => { if (H.has(k) || H.has(BG.biggerPack[k])) delete BG.biggerPack[k]; });
+  BG.featured = BG.featured.filter(ok);
+  // receptek bevásárlólistája: a csontos tarja helyett a csont nélküli, a többi rejtett tétel kimarad
+  const swapShop = { 'csontos-tarja': 'tarja-csont-nelkul' };
+  BG.recipes.forEach((r) => { if (r.shop) r.shop = r.shop.map((s) => (swapShop[s[0]] ? [swapShop[s[0]], s[1]] : s)).filter((s) => ok(s[0])); if (swapImg[r.img]) r.img = swapImg[r.img]; });
+  BG.categories.forEach((c) => { if (swapImg[c.img]) c.img = swapImg[c.img]; });
+  // amíg csak a három karácsonyi csomag látszik, az Ajándékok leírása ne ígérjen kosarat, bőségtálat, kártyát
+  const gift = BG.categories.find((c) => c.id === 'ajandek');
+  if (gift && H.has('ajandekkosar-12')) { gift.sub = 'Karácsonyi ajándékcsomagok'; gift.img = 'mangalica-orokseg'; gift.intro = 'Három karácsonyi csomag a kedvenceinkből, papír vagy fa díszdobozban – ajándéknak, céges köszönetnek.'; }
+  // az uzsonnacsomag-alkalom a két csomag nélkül üres lenne (csak a párizsi maradna) – addig rejtve
+  BG.occasions = BG.occasions.filter((o) => o.id !== 'uzsonnacsomag');
+  BG.products.forEach((p) => { p.occ = p.occ.filter((o) => o !== 'uzsonnacsomag'); });
+})();
