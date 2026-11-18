@@ -611,7 +611,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hs-media video { display: none; }
-  .hs-media { background: url('../img/site/hero-tarja.jpg') center / cover; }
+  .hs-media { background: url('../img/foto/oldal/fooldal-hero.jpg') center / cover; }
 }
 .mainnav a { white-space: nowrap; }
 @media (max-width: 1240px) {

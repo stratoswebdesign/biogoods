@@ -623,7 +623,7 @@
         '</div></section>';
       headerOver(head.querySelector('.cat-hero'));
     } else if (occ && OCC[occ]) {
-      head.innerHTML = '<section class="dark-head"><img class="bg" src="' + img(OCC[occ].img) + '" alt=""><div class="wrap">' +
+      head.innerHTML = '<section class="dark-head"><img class="bg" src="' + (OCC[occ].hero ? BASE + 'assets/img/foto/oldal/' + OCC[occ].hero + '.jpg' : img(OCC[occ].img)) + '" alt=""><div class="wrap">' +
         '<nav class="crumbs" aria-label="Morzsamenü"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span><span>Alkalmak</span><span aria-hidden="true">/</span><span aria-current="page" style="color:var(--cream)">' + esc(crumb) + '</span></nav>' +
         '<h1>' + esc(title) + '</h1><p class="lead" style="color:#E8E0D2">' + esc(intro) + '</p></div></section>' + (occ === 'kerti-parti' ? bundleHTML() : '');
     } else {

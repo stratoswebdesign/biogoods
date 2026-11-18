@@ -24,11 +24,11 @@ BG.categories = [
 ];
 
 BG.occasions = [
-  { id: 'reggelire', name: 'Reggelire', img: 'parizsi', intro: 'Felvágottak, májasok és krémek a reggeli asztalra.' },
-  { id: 'kerti-parti', name: 'Kerti parti', img: 'bbq-oldalas', intro: 'Grillkolbász, tomahawk, BBQ oldalas és hamburgerhús – minden, ami a rácsra kell, egy rendeléssel.' },
-  { id: 'disznotoros', name: 'Disznótoros', img: 'hurka', intro: 'Hurka, sütőkolbász, kocsonyának és zsírnak való – a téli szezon klasszikusai.' },
+  { id: 'reggelire', hero: 'alkalom-reggelire', name: 'Reggelire', img: 'parizsi', intro: 'Felvágottak, májasok és krémek a reggeli asztalra.' },
+  { id: 'kerti-parti', hero: 'alkalom-kerti-parti', name: 'Kerti parti', img: 'bbq-oldalas', intro: 'Grillkolbász, tomahawk, BBQ oldalas és hamburgerhús – minden, ami a rácsra kell, egy rendeléssel.' },
+  { id: 'disznotoros', hero: 'alkalom-disznotoros', name: 'Disznótoros', img: 'hurka', intro: 'Hurka, sütőkolbász, kocsonyának és zsírnak való – a téli szezon klasszikusai.' },
   { id: 'uzsonnacsomag', name: 'Uzsonnacsomag', img: 'kalandor-csomag', intro: 'Összekészített uzsonnacsomagok iskolába, munkába, kirándulásra.' },
-  { id: 'akciok', name: 'Akciók', img: 'zsirnakvalo', intro: 'Aktuális ajánlataink, amíg a készlet tart.' }
+  { id: 'akciok', hero: 'alkalom-akciok', name: 'Akciók', img: 'zsirnakvalo', intro: 'Aktuális ajánlataink, amíg a készlet tart.' }
 ];
 
 /* p(id, név, kategória, alkalmak, kiszerelés, ár, Ft/kg, extra) */

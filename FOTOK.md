@@ -110,3 +110,21 @@ Az összes képet újra átnéztem (2026-11-17 este), ezekről nem találtam fot
 ## Karácsonyi csomagok
 
 Három új termék Petra listája alapján (`Karácsonyi ajándékcsomagok_bgmangalica.docx`, 2026-11-10): Mangalica Ízelítő (papír díszdoboz, 8 990 Ft), Hagyomány Ízei (papír doboz, 14 990 Ft), Mangalica Örökség (fa díszdoboz, 24 990 Ft). A fotókat a csomagolás alapján rendeltem hozzájuk (fehér doboz zöld szalaggal, fekete táska, fa doboz piros szalaggal). A fotókon látható tartalom nem egyezik tételesen a listával – a végleges tartalmat és a csomagnevek–fotók párosítását Petrával egyeztetni kell. A régi ajándéktermékekkel (Ajándékdoboz 10 féle, KICSI, NAGY, kosár) való viszonyuk is nyitott.
+
+## Oldalképek – „02 Ügyféltől érkezett” mappa (2026-11-18)
+
+`assets/img/foto/oldal/` – a megosztott ügyfélmappa telep-, kisüzem- és Lázár chef-fotóiból, illetve a termékfotózásból:
+
+| Fájl | Hol | Forrás |
+|---|---|---|
+| fooldal-hero.jpg | Főoldal hero (videó posztere, mobil háttér) | Újcsanálos_telephely 1M1A2735 |
+| gazdasag-hero(-allo).jpg | A mangalica útja hero (desktop / mobil) | Újcsanálos_telephely 1M1A2730 |
+| gazdasag-tenyeszet.jpg | 01 A tenyészet | Újcsanálos_telephely 1M1A2753 |
+| gazdasag-kisuzem.jpg | 02 A gesztelyi kisüzem | Gesztely_feldolgozó 1M1A2953 |
+| gazdasag-jarat.jpg | 03 A saját járat | Gesztely_feldolgozó 1M1A3056 |
+| gazdasag-chef.jpg | Séfekkel dolgozunk | 260819_lazar_chef_latogatasa DSC05612 |
+| varos-hero.jpg | Városoldalak | Gesztely_feldolgozó 1M1A3056 |
+| receptek-hero.jpg | Receptek kiemelt kártya | termékfotózás 1M1A9326 |
+| alkalom-*.jpg | Reggelire, Kerti parti, Disznótoros, Akciók fejléc | termékfotózás 9611, 9196, 9811, 9507 |
+
+A mappában még: további telep- és feldolgozófotók (érlelő, füstölő, darálás, mintabolt, kiszállító autók), Lázár chef-látogatás, videók (Gesztely, Újcsanálos, Gajdos Dávid) – ezek a végleges hero-videóhoz és a receptoldalakhoz használhatók.
