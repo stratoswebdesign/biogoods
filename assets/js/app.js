@@ -614,7 +614,7 @@
       const c = CAT[cat] || {};
       const count = base.length;
       // Fekvő kategóriakép: a bal harmad sötét és nyugodt a feliratnak (fotós brief, 2026-11-10)
-      head.innerHTML = '<section class="cat-hero"><div class="cat-hero-media"><img src="' + catImg(heroId) + '" alt="' + esc(c.heroAlt || 'Mangalica termékek válogatása') + '" fetchpriority="high"></div>' +
+      head.innerHTML = '<section class="cat-hero"><div class="cat-hero-media"><picture><source media="(max-width: 760px)" srcset="' + catImg(heroId, 'allo') + '"><img src="' + catImg(heroId) + '" alt="' + esc(c.heroAlt || 'Mangalica termékek válogatása') + '" fetchpriority="high"></picture></div>' +
         '<div class="wrap cat-hero-in"><div class="cat-hero-text">' + crumbsHTML +
         '<h1>' + esc(title) + '</h1>' + (intro ? '<p class="lead">' + esc(intro) + '</p>' : '') +
         '<p class="cat-hero-count">' + count + ' termék' + (c.sub ? ' · ' + esc(c.sub) : '') + '</p>' +
