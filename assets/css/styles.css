@@ -661,3 +661,14 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .header-over .cat-hero::after { z-index: 1; }
   .header-over .cat-hero-in { padding-top: 0; }
 }
+
+/* desktop: magasabb, képernyőt kitöltő hero-k (2026-11-18) – a felső sáv és a fejléc alatti teljes magasság, 1000 px-ig */
+@media (min-width: 761px) {
+  :root { --hero-h: clamp(600px, calc(100svh - 124px), 1000px); }
+  .cat-hero-in { min-height: var(--hero-h); padding-bottom: 72px; }
+  .header-over .cat-hero-in { min-height: calc(var(--hero-h) + var(--hdr-h, 84px)); }
+  .hs-grid { min-height: var(--hero-h); }
+  .hero-media { min-height: var(--hero-h) !important; }
+  .dark-head .wrap { min-height: var(--hero-h); justify-content: flex-end; }
+  .cat-hero-detail { width: clamp(220px, 17vw, 280px); }
+}
