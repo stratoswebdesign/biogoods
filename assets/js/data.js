@@ -11,8 +11,8 @@ window.BG = window.BG || {};
 BG.categories = [
   { id: 'tokehusok', hero: true, heroAlt: 'Mangalica tőkehúsok válogatása sötét palán: karaj, tarja, comb, lapocka és szűzpecsenye', detailAlt: 'Márványozott mangalicatarja vágódeszkán', name: 'Tőkehúsok', sub: 'Tarja, karaj, szűz, oldalas, csülök', img: 'csontos-tarja',
     intro: 'Tarja, karaj, szűz, comb, oldalas, csülök – a saját tenyészetünkből. A mangalica húsát a márványozottság teszi szaftossá: sütéshez, grillhez és lassú főzéshez is.' },
-  { id: 'kolbaszok', hero: true, heroAlt: 'Mangalica turista egészben és szeletelve, színes borssal', detailAlt: 'Füstölt csípős szalámi metszéslapja', name: 'Kolbászok, szalámik', sub: 'Füstölt, csemege, csípős, szalámik', img: 'fustolt-csemege-kolbasz',
-    intro: 'Bükkfán füstölt kolbászok, paprikás szalámi, turista, grillkolbász – hagyományos fűszerezéssel, mangalicahúsból.' },
+  { id: 'kolbaszok', hero: true, heroAlt: 'Mangalica turista egészben és szeletelve, színes borssal', detailAlt: 'Füstölt csípős szalámi metszéslapja', name: 'Kolbászok, szalámik', sub: 'Füstölt, csemege, csípős, téli', img: 'fustolt-csemege-kolbasz',
+    intro: 'Bükkfán füstölt kolbászok, téli- és paprikás szalámi, turista, grillkolbász – hagyományos fűszerezéssel, mangalicahúsból.' },
   { id: 'szalonnak', hero: true, heroAlt: 'Füstölt mangalicasonka, a metszéslapon jól látszik a márványozottság', detailAlt: 'Kolozsvári szalonna füstölt felülete', name: 'Szalonnák, füstöltek', sub: 'Kolozsvári, abált, füstölt sonka', img: 'kolozsvari-szalonna',
     intro: 'Kolozsvári, abált, sós és füstölt szalonna, füstölt sonka és oldalas a gesztelyi füstölőből.' },
   { id: 'felvagottak', hero: true, heroAlt: 'Füstölt párizsi egészben és szeletelve', detailAlt: 'Füstölt párizsi metszéslapja fa vágódeszkán', name: 'Felvágottak, kenhetők', sub: 'Párizsi, májas, tepertőkrém, rilette', img: 'parizsi',
@@ -170,7 +170,7 @@ BG.whiteImg = ['abalt-szalonna','ajandekdoboz-10','ajandekdoboz-kicsi','ajandekd
 
 /* Saját termékfotók – Kálmán Attila, 2026-11-17 (assets/img/foto/termek/, 1200×1200).
    Érték = képek száma: <id>.jpg a fő kép, <id>-2.jpg, <id>-3.jpg a galéria. Ahol nincs új fotó, marad a régi kép. */
-BG.photos = { 'abalt-szalonna': 2, 'angol-szalonna': 2, 'bbq-oldalas': 2, 'chilis-rilette': 2, 'comb': 2, 'csaszarhus': 2, 'csipos-paprikas-szalami': 2, 'csipos-snack-kolbasz': 3, 'csontos-karaj': 2, 'csulok': 2, 'csulok-csont-nelkul': 2, 'csuloksajt': 2, 'dagado': 2, 'daralthus': 3, 'debreceni-paros': 2, 'dobozos-kenomajas': 2, 'fokhagymas-rilette': 2, 'formazott-nyers-szalonna': 2, 'fustolt-csemege-kolbasz': 2, 'fustolt-csemege-szalonna': 2, 'fustolt-csipos-kolbasz': 2, 'fustolt-oldalas': 2, 'fustolt-parizsi': 3, 'fustolt-sonka': 2, 'fustolt-virsli': 2, 'gesztelyi-paros': 2, 'grillkolbasz-bajor': 2, 'grillkolbasz-magyaros': 2, 'hagyomany-izei': 3, 'hamburgerhus': 2, 'hurka': 3, 'husos-csont': 2, 'karaj-csont-nelkul': 2, 'kocsonya-csomag': 3, 'kolozsvari-szalonna': 2, 'korom': 2, 'lapocka': 2, 'mangalica-izelito': 3, 'mangalica-maj': 2, 'miskolci-kolbasz': 2, 'oldalas': 2, 'paprikas-szalami': 2, 'parasztmajas': 2, 'parizsi': 1, 'rakott-fej': 2, 'sos-szalonna': 2, 'sutokolbasz': 2, 'szuz': 2, 't-bone': 2, 'tarja-csont-nelkul': 3, 'teperto': 1, 'tepertokrem': 1, 'tepett-hus': 2, 'tomahawk': 3, 'tomlos-kenomajas': 2, 'virsli': 2, 'zsirnakvalo': 3, 'csontos-tarja': 3, 'mangalica-turista': 3, 'uzsonnasonka': 3, 'ajandekdoboz-10': 3, 'ajandekdoboz-12': 3 };
+BG.photos = { 'teliszalami': 1, 'chilis-parizsi': 1, 'abalt-szalonna': 2, 'angol-szalonna': 2, 'bbq-oldalas': 2, 'chilis-rilette': 2, 'comb': 2, 'csaszarhus': 2, 'csipos-paprikas-szalami': 2, 'csipos-snack-kolbasz': 3, 'csontos-karaj': 2, 'csulok': 2, 'csulok-csont-nelkul': 2, 'csuloksajt': 2, 'dagado': 2, 'daralthus': 3, 'debreceni-paros': 2, 'dobozos-kenomajas': 2, 'fokhagymas-rilette': 2, 'formazott-nyers-szalonna': 2, 'fustolt-csemege-kolbasz': 2, 'fustolt-csemege-szalonna': 2, 'fustolt-csipos-kolbasz': 2, 'fustolt-oldalas': 2, 'fustolt-parizsi': 3, 'fustolt-sonka': 2, 'fustolt-virsli': 2, 'gesztelyi-paros': 2, 'grillkolbasz-bajor': 2, 'grillkolbasz-magyaros': 2, 'hagyomany-izei': 3, 'hamburgerhus': 2, 'hurka': 3, 'husos-csont': 2, 'karaj-csont-nelkul': 2, 'kocsonya-csomag': 3, 'kolozsvari-szalonna': 2, 'korom': 2, 'lapocka': 2, 'mangalica-izelito': 3, 'mangalica-maj': 2, 'miskolci-kolbasz': 2, 'oldalas': 2, 'paprikas-szalami': 2, 'parasztmajas': 2, 'parizsi': 1, 'rakott-fej': 2, 'sos-szalonna': 2, 'sutokolbasz': 2, 'szuz': 2, 't-bone': 2, 'tarja-csont-nelkul': 3, 'teperto': 1, 'tepertokrem': 1, 'tepett-hus': 2, 'tomahawk': 3, 'tomlos-kenomajas': 2, 'virsli': 2, 'zsirnakvalo': 3, 'csontos-tarja': 3, 'mangalica-turista': 3, 'uzsonnasonka': 3, 'ajandekdoboz-10': 3, 'ajandekdoboz-12': 3 };
 
 /* Videók (assets/video/, 720×1280, H.264) – az ügyfél „02 Ügyféltől érkezett” mappájából. [fájlnév, felirat] */
 BG.videos = {
@@ -361,9 +361,9 @@ BG.reviews = [
    Nincs róluk új fotó a 2026-11-17-i fotózásból, ezért egyelőre nem jelennek meg az oldalon
    (lista, keresés, ajánlók, receptek bevásárlólistája, főoldal). Visszakapcsolás: töröld az azonosítót a listából. */
 BG.hidden = [
-  // 2026-11-18: Petra szerint a fotón lévő szalámi a turista, a vörös burkú felvágott az uzsonnasonka, a fa doboz a 10 és 12 termékes ajándékdoboz –
-  // így a téliszalámi, a chilis párizsi és a Mangalica Örökség csomag egyelőre fotó nélkül maradt
-  'teliszalami', 'chilis-parizsi', 'mangalica-orokseg',
+  // 2026-11-18: Petra szerint a fa dobozos fotók a 10 és 12 termékes ajándékdobozt mutatják – a Mangalica Örökség csomagról nincs kép.
+  // (A téliszalámi és a chilis párizsi új fotó híján a régi webshopképpel látszik.)
+  'mangalica-orokseg',
   'fredi-szelet', 'nyelves-felvagott',
   'zsir-1kg', 'zsir-5kg',
   'ajandekdoboz-kicsi', 'ajandekdoboz-nagy', 'bosegtal',

@@ -95,9 +95,10 @@ A fotókon nincs címke, a régi webshop képei és a vágás alapján azonosít
 
 Petra 2026-11-18 esti levele („hiányzó termékek folyt.”) alapján a csontos tarja, a mangalica turista, az uzsonnasonka és a 10, ill. 12 termékes ajándékdoboz fotót kapott (lásd a táblázatot); az ajándékkosár megszűnt („retro, nem lesz”), helyette a 12 termékes ajándékdoboz van fent. A többit Petra holnap küldi.
 
+Átmenetileg a régi webshopképpel látszik (1:1-re vágva, `foto/termek/`): **téliszalámi, chilis párizsi**. A teljes anyagot (610 kép) újra átnéztem: téliszalámi és chilis párizsi nincs benne (a 9743–9745 csomagolt szeletelt termék füstölt tarja, nem szalámi; a narancs burkú felvágott sima párizsi, chilipehely nélkül). Az új fotó Petrától kérendő.
+
 Jelenleg rejtve:
 
-- **Téliszalámi, chilis párizsi:** a korábban nekik szánt képekről Petra kiderítette, hogy a turista és az uzsonnasonka – saját fotójuk még nincs.
 - **Mangalica Örökség (karácsonyi csomag, fa díszdoboz):** a fa dobozos fotók Petra szerint a 10 és 12 termékes ajándékdobozt mutatják.
 - **Frédi szelet, bőségtál, ajándékkártyák:** Petra holnap este küldi.
 - **Nyelves felvágott, mangalicazsír (1 és 5 kg), Ajándékdoboz KICSI és NAGY:** nincs róluk fotó az anyagban.
