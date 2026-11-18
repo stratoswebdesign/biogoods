@@ -144,6 +144,7 @@ A mappában még: további telep- és feldolgozófotók (érlelő, füstölő, d
 | grillkolbasz-keszites.mp4 | Grillkolbász bajor és magyaros termékoldal | Gesztely_videók / grill_biogoods.mp4 |
 | david-chef-kenomajas.mp4 | Kenőmájas (dobozos, tömlős) termékoldal | Gajdos Dávid videók / gajdos_biogoods_03_v2.mp4 |
 | david-chef-uzsonna.mp4 | Sonkás zsemle recept | Gajdos Dávid videók / VOLT_gajdos_biogoods_01_v4.mp4 |
+| lazar-chef-ragu.mp4 | Mangalicaragu recept | Facebook: Lázár Chef, 2026-10-23 (facebook.com/reel/1721418165588308), Bio-Goods társszerzővel |
 
 **Főoldal – A mangalica útja (2026-11-18):** négy kártya, mindegyiken felirat nélküli, néma 4:5-ös loop (`ut-*.mp4`, ~1 MB), kattintásra felugró lejátszóban a teljes videó hanggal:
 fialás (001_KÖZZÉTÉVE_0804_biogoods_fialas_v2 → fialas.mp4), felnevelés (004_biogoods_takarmanyozas_v2 → takarmanyozas.mp4), feldolgozás (telephely_beutato_v3 → telephely-bemutato.mp4, 1280×720), kiszállítás (kiszallitas.mp4).

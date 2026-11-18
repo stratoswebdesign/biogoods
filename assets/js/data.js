@@ -182,7 +182,8 @@ BG.videos = {
     'tomlos-kenomajas': ['david-chef-kenomajas', 'Dávid chef kenőmájas szendvicse']
   },
   recipes: {
-    'sonkas-zsemle': ['david-chef-uzsonna', 'Dávid chef: uzsonna mangalicából']
+    'sonkas-zsemle': ['david-chef-uzsonna', 'Dávid chef: uzsonna mangalicából'],
+    'mangalicaragu': ['lazar-chef-ragu', 'Lázár chef: mangalicaragu kamadóban, bográcsban']
   }
 };
 
@@ -324,11 +325,22 @@ BG.recipes = [
     ingredients: ['4 friss zsemle', '20 dkg mangalica füstölt sonka', 'tepertőkrém', '[további hozzávalók a videóból]'],
     shop: [['fustolt-sonka', 1], ['tepertokrem', 1]],
     steps: ['[Lépések a videó alapján.]'], tip: '' },
-  { id: 'mangalicaragu', title: 'Mangalicaragu kamadóban, bográcsban', meta: 'Lázár chef · videó', img: 'lapocka', video: true, serves: '6 főre', prep: '20 perc', wait: '–', cook: '2–3 óra',
-    lead: 'Lázár chef ünnepi fogása hickory füstölőfával – a videó a Bio-Goods Facebook-oldalán. [A recept szövege a videóból készül.]',
-    ingredients: ['1,5 kg mangalica lapocka', '[további hozzávalók a videóból]'],
-    shop: [['lapocka', 3]],
-    steps: ['[Lépések a videó alapján.]'], tip: '' }
+  { id: 'mangalicaragu', title: 'Mangalicaragu kamadóban, bográcsban', meta: 'Lázár chef · videó', img: 'lapocka', video: true, serves: '6 főre', prep: '20 perc', wait: '–', cook: 'kb. 2 óra',
+    lead: 'Lázár chef ünnepi fogása: kamadóba helyezett bográcsban, hickory füstölőfával ízesítve. A titok, hogy a kipirított szalonnára nem a hagyma, hanem a hús kerül – a hagyma csak a végén, így lesz krémes a szaft.',
+    ingredients: ['mangalica lapocka, felcsíkozva, majd felkockázva', 'füstölt mangalica szalonna (bőrével együtt)', 'vöröshagyma', 'paradicsom', 'piros és zöld paprika', 'fokhagyma', '1 darab zeller', 'fűszerpaprika', 'őrölt kömény', 'frissen őrölt bors', '1 üveg vörösbor', 'nagy szemű tengeri só', 'hickory füstölőfa-chips'],
+    shop: [['lapocka', 3], ['fustolt-csemege-szalonna', 1]],
+    steps: [
+      'Fűtsd fel a kamadót faszénnel, és helyezd bele a bográcsot.',
+      'A kockázott füstölt mangalica szalonnát pirítsd ki a bográcsban – a bőre se maradjon ki, az is ízt ad.',
+      'A kipirított szalonnára most ne a hagyma menjen, hanem a felkockázott lapocka: a pirított hús íze adja az étel alapját.',
+      'Amikor a hús körbepirult, szórd a parázsra a hickory füstölőfa-chipset, zárd le a kamadót, a felső szellőzőt hagyd nyitva, és hagyd dolgozni a füstöt.',
+      'Jöhet a fűszerpaprika, az őrölt kömény, a bors, majd a vörösbor.',
+      'Add hozzá a fokhagymát, a zellert, a piros és zöld paprikát és a paradicsomot.',
+      'A vöröshagyma a végére marad, pirítás nélkül – így krémesebb pörköltet kapsz. Sózd nagy szemű tengeri sóval.',
+      'Fedd le alufóliával, és főzd kb. másfél órát, amíg a hús majdnem puha. Ezután vedd le a fóliát, és még kb. fél órán át rotyogtasd.',
+      'Tálald, amikor a hús omlós és a szaft sűrű.'
+    ],
+    tip: 'Nem kell mindig lepirítani a hagymát: nyersen, a főzés végén hozzáadva szétfő, és krémesebb, selymesebb lesz tőle a szaft.' }
 ];
 
 /* Termékdíjak – forrás: céges bemutató PDF (2026). */
