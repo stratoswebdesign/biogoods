@@ -128,3 +128,19 @@ Három új termék Petra listája alapján (`Karácsonyi ajándékcsomagok_bgman
 | alkalom-*.jpg | Reggelire, Kerti parti, Disznótoros, Akciók fejléc | termékfotózás 9611, 9196, 9811, 9507 |
 
 A mappában még: további telep- és feldolgozófotók (érlelő, füstölő, darálás, mintabolt, kiszállító autók), Lázár chef-látogatás, videók (Gesztely, Újcsanálos, Gajdos Dávid) – ezek a végleges hero-videóhoz és a receptoldalakhoz használhatók.
+
+## Videók (2026-11-18)
+
+`assets/video/` – az ügyfélmappa videóiból, webre tömörítve (H.264, +faststart). A tartalmi videók kattintásra töltődnek (`preload="none"`), posztert kapnak.
+
+| Fájl | Hol | Forrás |
+|---|---|---|
+| hero.mp4 (1920×1080) / hero-mobil.mp4 (720×1280) | Főoldal hero, hang nélküli 16 mp-es loop | Újcsanálos_videók / biogoods_ujcsanalos_v2.mp4, felirat nélküli jelenetek (0–12,7 s és 21–24,6 s) |
+| kiszallitas.mp4 | A mangalica útja – 03 A saját járat | Gesztely_videók / biogoods_kiszallitas_01_v2.mp4 |
+| lazar-chef-latogatas.mp4 | A mangalica útja – Séfekkel dolgozunk | LÁZÁR CHEF / lazarschef_latogatas_boldog_mangalicak.mp4 |
+| tomahawk-szelet.mp4 | Tomahawk szelet termékoldal | Gesztely_videók / tomahawk_v2.mp4 |
+| grillkolbasz-keszites.mp4 | Grillkolbász bajor és magyaros termékoldal | Gesztely_videók / grill_biogoods.mp4 |
+| david-chef-kenomajas.mp4 | Kenőmájas (dobozos, tömlős) termékoldal | Gajdos Dávid videók / gajdos_biogoods_03_v2.mp4 |
+| david-chef-uzsonna.mp4 | Sonkás zsemle recept | Gajdos Dávid videók / VOLT_gajdos_biogoods_01_v4.mp4 |
+
+A felhasználatlan videók (telephely_beutato_v3, mangalica_vad, Újcsanálos sorozat 001–008, Gajdos 02/05/06) a mappában maradtak. A „Mangalicaragu” receptnél nincs ragus videó, ott továbbra is helykitöltő áll.

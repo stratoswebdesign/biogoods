@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=202611181216">
+<link rel="stylesheet" href="assets/css/styles.css?v=202611181241">
 </head>
 <body data-page="home">
 <main id="main">
@@ -17,9 +17,8 @@
 <!-- 1. Osztott hero: egy videó a háttérben, két kapu (A változat – osztott fátyol) -->
 <section class="hero-split" aria-label="Válassz: otthonra vagy cégeknek">
   <div class="hs-media" aria-hidden="true">
-    <!-- A végleges hero-videó helye. Amíg nincs tömörített loop (H.264/WebM, 1080p), a poster kép látszik.
-         Élesítéskor: <source src="assets/video/hero.webm" type="video/webm"><source src="assets/video/hero.mp4" type="video/mp4"> -->
-    <video muted loop playsinline autoplay preload="metadata" poster="assets/img/foto/oldal/fooldal-hero.jpg"></video>
+    <!-- Hero-loop: az Újcsanálos telepvideó felirat nélküli jeleneteiből (16 mp, hang nélkül). Telefonon álló változat (data-mobile). -->
+    <video id="hero-video" muted loop playsinline autoplay preload="metadata" poster="assets/video/hero-poster.jpg" data-src="assets/video/hero.mp4" data-mobile="assets/video/hero-mobil.mp4" data-mobile-poster="assets/video/hero-mobil-poster.jpg"></video>
   </div>
   <div class="hs-veil-dark" aria-hidden="true"></div>
   <div class="hs-veil-brand" aria-hidden="true"></div>
@@ -43,7 +42,6 @@
       </div>
     </div>
   </div>
-  <p class="hs-note">Demó: a végleges változatban egyetlen mangalica-videó fut a hero mögött.</p>
 </section>
 
 <!-- 2. Miért mangalica? -->
@@ -200,7 +198,7 @@
 </section>
 
 </main>
-<script src="assets/js/data.js?v=202611181216"></script>
-<script src="assets/js/app.js?v=202611181216"></script>
+<script src="assets/js/data.js?v=202611181241"></script>
+<script src="assets/js/app.js?v=202611181241"></script>
 </body>
 </html>

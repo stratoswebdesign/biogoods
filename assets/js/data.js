@@ -175,6 +175,20 @@ BG.whiteImg = ['abalt-szalonna','ajandekdoboz-10','ajandekdoboz-kicsi','ajandekd
    Érték = képek száma: <id>.jpg a fő kép, <id>-2.jpg, <id>-3.jpg a galéria. Ahol nincs új fotó, marad a régi kép. */
 BG.photos = { 'abalt-szalonna': 2, 'angol-szalonna': 2, 'bbq-oldalas': 2, 'chilis-parizsi': 2, 'chilis-rilette': 2, 'comb': 2, 'csaszarhus': 2, 'csipos-paprikas-szalami': 2, 'csipos-snack-kolbasz': 3, 'csontos-karaj': 2, 'csulok': 2, 'csulok-csont-nelkul': 2, 'csuloksajt': 2, 'dagado': 2, 'daralthus': 3, 'debreceni-paros': 2, 'dobozos-kenomajas': 2, 'fokhagymas-rilette': 2, 'formazott-nyers-szalonna': 2, 'fustolt-csemege-kolbasz': 2, 'fustolt-csemege-szalonna': 2, 'fustolt-csipos-kolbasz': 2, 'fustolt-oldalas': 2, 'fustolt-parizsi': 3, 'fustolt-sonka': 2, 'fustolt-virsli': 2, 'gesztelyi-paros': 2, 'grillkolbasz-bajor': 2, 'grillkolbasz-magyaros': 2, 'hagyomany-izei': 3, 'hamburgerhus': 2, 'hurka': 3, 'husos-csont': 2, 'karaj-csont-nelkul': 2, 'kocsonya-csomag': 3, 'kolozsvari-szalonna': 2, 'korom': 2, 'lapocka': 2, 'mangalica-izelito': 3, 'mangalica-maj': 2, 'mangalica-orokseg': 3, 'miskolci-kolbasz': 2, 'oldalas': 2, 'paprikas-szalami': 2, 'parasztmajas': 2, 'parizsi': 1, 'rakott-fej': 2, 'sos-szalonna': 2, 'sutokolbasz': 2, 'szuz': 2, 't-bone': 2, 'tarja-csont-nelkul': 3, 'teliszalami': 2, 'teperto': 1, 'tepertokrem': 1, 'tepett-hus': 2, 'tomahawk': 3, 'tomlos-kenomajas': 2, 'virsli': 2, 'zsirnakvalo': 3 };
 
+/* Videók (assets/video/, 720×1280, H.264) – az ügyfél „02 Ügyféltől érkezett” mappájából. [fájlnév, felirat] */
+BG.videos = {
+  products: {
+    'tomahawk': ['tomahawk-szelet', 'Így készül a tomahawk szelet'],
+    'grillkolbasz-bajor': ['grillkolbasz-keszites', 'Így készül a grillkolbász'],
+    'grillkolbasz-magyaros': ['grillkolbasz-keszites', 'Így készül a grillkolbász'],
+    'dobozos-kenomajas': ['david-chef-kenomajas', 'Dávid chef kenőmájas szendvicse'],
+    'tomlos-kenomajas': ['david-chef-kenomajas', 'Dávid chef kenőmájas szendvicse']
+  },
+  recipes: {
+    'sonkas-zsemle': ['david-chef-uzsonna', 'Dávid chef: uzsonna mangalicából']
+  }
+};
+
 BG.featured = ['fustolt-csemege-kolbasz', 'kolozsvari-szalonna', 'csontos-tarja', 'grillkolbasz-magyaros', 'paprikas-szalami', 'tepertokrem', 'szuz', 'tomahawk'];
 
 /* Szállítás – pontosan a mostani bgmangalica.hu (OneMin) szerint: kiszállítás kedd–péntek,
@@ -309,7 +323,7 @@ BG.recipes = [
     steps: ['Vágd a szalonnát 2 × 2 cm-es kockákra.', 'Széles, vastag aljú lábasba tedd a vízzel, és lassú tűzön, gyakran kevergetve olvaszd ki.', 'Amikor a kockák aranysárgák, öntsd hozzá a tejet, és süsd tovább, amíg a tepertő ropogós nem lesz.', 'Szűrd le a zsírt tiszta üvegekbe, a tepertőt sózd meg.'],
     tip: 'A tej szép barnára süti a tepertőt, de a zsír ettől nem lesz tejes.' },
   { id: 'sonkas-zsemle', title: 'Sonkás zsemle, ahogy nálunk készül', meta: 'Dávid chef · videó', img: 'fustolt-sonka', video: true, serves: '4 db', prep: '10 perc', wait: '–', cook: '–',
-    lead: 'Dávid chef recept-videója a Bio-Goods Facebook-oldalán. [A recept szövege a videóból készül.]',
+    lead: 'Dávid chef videója lent, a hozzávalók mellett. [A recept szövege a videóból készül.]',
     ingredients: ['4 friss zsemle', '20 dkg mangalica füstölt sonka', 'tepertőkrém', '[további hozzávalók a videóból]'],
     shop: [['fustolt-sonka', 1], ['tepertokrem', 1]],
     steps: ['[Lépések a videó alapján.]'], tip: '' },

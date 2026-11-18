@@ -684,3 +684,11 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .why li:nth-child(6) { grid-column: 4 / span 2; }
   .why li:nth-child(7) { grid-column: 6 / span 2; }
 }
+
+/* videókártya (2026-11-18) */
+.vcard { margin: 0; max-width: 380px; }
+.vcard video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 18px; background: #000; display: block; }
+.vcard figcaption { margin-top: 8px; font-size: 14px; color: var(--muted); }
+.vcard.on-dark figcaption { color: var(--on-dark-muted); }
+.pdp .gallery .vcard { max-width: 260px; margin-top: 8px; }
+.split > div:has(> .vcard) { display: flex; justify-content: center; }

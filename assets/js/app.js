@@ -715,6 +715,14 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  // Videókártya: kattintásra töltődik (preload="none"), álló 9:16
+  function vcard(v, dark) {
+    if (!v) return '';
+    const src = BASE + 'assets/video/' + v[0];
+    return '<figure class="vcard' + (dark ? ' on-dark' : '') + '"><video controls playsinline preload="none" poster="' + src + '.jpg"><source src="' + src + '.mp4" type="video/mp4"></video><figcaption>' + esc(v[1]) + '</figcaption></figure>';
+  }
+  const VID = BG.videos || { products: {}, recipes: {} };
+
   function galleryThumbs(p) {
     const g = gallery(p.img);
     if (g.length < 2) return '';
@@ -726,6 +734,16 @@
     const m = $('#pdp-main'); if (m) m.src = b.getAttribute('data-gal');
     $$('.thumb', b.parentNode).forEach((t) => { t.classList.toggle('is-active', t === b); t.setAttribute('aria-pressed', t === b ? 'true' : 'false'); });
   });
+
+  function heroVideo() {
+    const v = document.getElementById('hero-video');
+    if (!v || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const mobile = window.matchMedia('(max-width: 860px)').matches;
+    if (mobile && v.dataset.mobilePoster) v.poster = v.dataset.mobilePoster;
+    v.src = mobile ? v.dataset.mobile : v.dataset.src;
+    const p = v.play(); if (p && p.catch) p.catch(() => {});
+  }
+  document.addEventListener('DOMContentLoaded', heroVideo);
 
   pages.product = function () {
     const p = P[params.get('id')];
@@ -747,7 +765,7 @@
       [p, v].sort((a, b) => a.name.localeCompare(b.name, 'hu')).map((x) => '<a class="variant' + (x.id === p.id ? ' is-active' : '') + '" href="' + url('termek.html?id=' + x.id) + '"' + (x.id === p.id ? ' aria-current="true"' : '') + '><strong>' + (/csont nélkül/i.test(x.name) ? 'Csont nélkül' : 'Csontos') + '</strong><span>' + esc(x.pack) + ' · ' + ft(x.price) + '</span></a>').join('') + '</div></fieldset>' : '';
     root.innerHTML =
       '<nav class="crumbs" aria-label="Morzsamenü" style="padding-top:24px"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span><a href="' + url('termekek.html?kategoria=' + c.id) + '">' + esc(c.name) + '</a><span aria-hidden="true">/</span><span aria-current="page">' + esc(p.name) + '</span></nav>' +
-      '<div class="pdp"><div class="gallery"><img class="main" id="pdp-main" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '">' + galleryThumbs(p) + '</div>' +
+      '<div class="pdp"><div class="gallery"><img class="main" id="pdp-main" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '">' + galleryThumbs(p) + vcard(VID.products[p.id]) + '</div>' +
       '<div class="info"><p class="kicker" style="margin:0">' + esc([c.name].concat(occNames).join(' · ')) + '</p>' +
       '<h1>' + esc(p.name) + '</h1>' +
       '<div class="pricebox"><span class="price">' + ft(p.price) + '</span>' + (p.old ? '<span class="muted" style="text-decoration:line-through">' + ft(p.old) + '</span>' : '') + '<span class="muted">' + esc(metaText(p)) + '</span></div>' +
@@ -1130,7 +1148,7 @@
       '<div style="flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:28px"><p class="lead" style="font-size:19px">' + esc(r.lead) + '</p><h2 style="font-size:32px">Elkészítés</h2>' +
       '<ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px">' + r.steps.map((s, ix) => '<li style="display:flex;gap:18px"><span style="flex:none;width:44px;height:44px;border-radius:22px;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:20px">' + (ix + 1) + '</span><p style="margin-top:8px">' + esc(s) + '</p></li>').join('') + '</ol>' +
       (r.tip ? '<div class="card"><p><strong>Tipp</strong></p><p class="muted" style="margin-top:4px">' + esc(r.tip) + '</p></div>' : '') +
-      (r.video ? '<div class="dark-ph">[A chef-videó beágyazása a Bio-Goods Facebook-oldaláról – süti-hozzájárulás után töltődik]</div>' : '') + '</div></div>';
+      (VID.recipes[r.id] ? vcard(VID.recipes[r.id]) : r.video ? '<div class="dark-ph">[A chef-videó beágyazása a Bio-Goods Facebook-oldaláról – süti-hozzájárulás után töltődik]</div>' : '') + '</div></div>';
     $('#recipe-more').innerHTML = BG.recipes.filter((x) => x.id !== r.id).slice(0, 3).map(recipeCard).join('');
   };
 
