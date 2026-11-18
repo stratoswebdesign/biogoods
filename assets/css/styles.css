@@ -646,3 +646,16 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .cat-hero-in { position: relative; z-index: 2; min-height: 0; margin-top: -64px; padding-top: 0; padding-bottom: 36px; }
   .cat-hero-detail { display: none; }
 }
+
+/* átlátszó fejléc a kategória-hero fölött (2026-11-18) */
+.header-over .site-header { background: transparent; border-bottom-color: transparent; transition: background-color .25s ease, border-color .25s ease; }
+.header-over .site-header.is-solid,
+.header-over .site-header:has(.is-open) { background: var(--ink); border-bottom-color: #2E2B27; }
+.header-over .cat-hero { margin-top: calc(-1 * var(--hdr-h, 84px)); }
+.header-over .cat-hero-in { padding-top: calc(var(--hdr-h, 84px) + 56px); }
+.header-over .cat-hero::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: calc(var(--hdr-h, 84px) + 90px); z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(22,22,21,.72) 0%, rgba(22,22,21,.35) 55%, rgba(22,22,21,0) 100%); }
+@media (max-width: 760px) {
+  .header-over .cat-hero::after { z-index: 1; }
+  .header-over .cat-hero-in { padding-top: 0; }
+}

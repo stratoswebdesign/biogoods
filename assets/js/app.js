@@ -621,6 +621,7 @@
         '<div data-town-check="dark" class="cat-hero-town"></div></div>' +
         (c.hero ? '<figure class="cat-hero-detail"><img src="' + catImg(heroId, 'reszlet') + '" alt="' + esc(c.detailAlt || '') + '" loading="lazy"><figcaption>Közelről: ' + esc((c.detailAlt || '').toLowerCase()) + '</figcaption></figure>' : '') +
         '</div></section>';
+      headerOver(head.querySelector('.cat-hero'));
     } else if (occ && OCC[occ]) {
       head.innerHTML = '<section class="dark-head"><img class="bg" src="' + img(OCC[occ].img) + '" alt=""><div class="wrap">' +
         '<nav class="crumbs" aria-label="Morzsamenü"><a href="' + url('index.html') + '">Főoldal</a><span aria-hidden="true">/</span><span>Alkalmak</span><span aria-hidden="true">/</span><span aria-current="page" style="color:var(--cream)">' + esc(crumb) + '</span></nav>' +
@@ -701,6 +702,19 @@
   }
 
   /* ---------- termékoldal ---------- */
+  /* Átlátszó fejléc a kategória-hero fölött: amíg a hero a fejléc alatt van, nincs háttér;
+     ha a hero kigördült, visszakapja a sötét hátteret (különben a krémszínű tartalmon olvashatatlan lenne). */
+  function headerOver(hero) {
+    const hdr = $('.site-header');
+    if (!hdr || !hero) return;
+    document.body.classList.add('header-over');
+    const setH = () => document.documentElement.style.setProperty('--hdr-h', hdr.offsetHeight + 'px');
+    const onScroll = () => hdr.classList.toggle('is-solid', hero.getBoundingClientRect().bottom <= hdr.offsetHeight + 1);
+    setH(); onScroll();
+    window.addEventListener('resize', () => { setH(); onScroll(); }, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   function galleryThumbs(p) {
     const g = gallery(p.img);
     if (g.length < 2) return '';
