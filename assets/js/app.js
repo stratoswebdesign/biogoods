@@ -547,7 +547,7 @@
     fill('#home-cats', BG.categories.map((c) => tile(c.name, c.sub, c.img, url('termekek.html?kategoria=' + c.id), false, c.hero ? catImg(c.id, 'kicsi') : null)).join(''));
     fill('#home-occ', BG.occasions.map((o) => '<a class="chip" href="' + url('termekek.html?alkalom=' + o.id) + '">' + esc(o.name) + '</a>').join(''));
     fill('#home-featured', BG.featured.map((id) => productCard(P[id])).join(''));
-    fill('#home-gifts', ['mangalica-izelito', 'hagyomany-izei', 'mangalica-orokseg'].map((id) => {
+    fill('#home-gifts', ['mangalica-izelito', 'hagyomany-izei', 'mangalica-orokseg', 'ajandekdoboz-12', 'ajandekdoboz-10'].filter((id) => P[id]).slice(0, 3).map((id) => {
       const p = P[id];
       return '<a class="card-dark" href="' + url('termek.html?id=' + id) + '" style="padding:0;overflow:hidden;text-decoration:none;color:var(--cream);border:1px solid var(--ink-3);background:var(--ink-2)">' +
         '<img loading="lazy" src="' + pimg(p.img) + '" alt="' + esc(p.name) + '" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:#fff">' +
@@ -1189,8 +1189,8 @@
     const plan = [['Debrecen', [['tarja-csont-nelkul', 2], ['hurka', 1]], 'card'], ['Debrecen', [['kolozsvari-szalonna', 2], ['tepertokrem', 1], ['parizsi', 3]], 'otpszep'],
       ['Nyíregyháza', [['grillkolbasz-magyaros', 2], ['zsirnakvalo', 1]], 'cash'], ['Hajdúhadház', [['mangalica-izelito', 1], ['fustolt-csemege-kolbasz', 2]], 'cash'],
       ['Téglás', [['bbq-oldalas', 2], ['sutokolbasz', 1], ['hurka', 2]], 'khszep'], ['Miskolc', [['szuz', 1], ['fustolt-sonka', 2]], 'cash'],
-      ['Miskolc', [['teliszalami', 2], ['virsli', 1]], 'card'], ['Gesztely', [['zsirnakvalo-akcio', 1], ['teperto', 3]], 'cash'],
-      ['Budapest', [['hagyomany-izei', 2], ['mangalica-orokseg', 1]], 'card'], ['Budaörs', [['csontos-karaj', 2], ['paprikas-szalami', 2], ['kolozsvari-szalonna', 1]], 'cash'],
+      ['Miskolc', [['mangalica-turista', 2], ['virsli', 1]], 'card'], ['Gesztely', [['zsirnakvalo-akcio', 1], ['teperto', 3]], 'cash'],
+      ['Budapest', [['hagyomany-izei', 2], ['ajandekdoboz-12', 1]], 'card'], ['Budaörs', [['csontos-karaj', 2], ['paprikas-szalami', 2], ['kolozsvari-szalonna', 1]], 'cash'],
       ['Érd', [['tomahawk', 4], ['t-bone', 2], ['hamburgerhus', 1]], 'card'], ['Budapest', [['parizsi', 2], ['csipos-snack-kolbasz', 1]], 'cash']];
     plan.forEach(([townName, items, pay], ix) => {
       items = items.filter(([id]) => P[id]); if (!items.length) return;
