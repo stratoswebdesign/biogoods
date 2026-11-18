@@ -27,7 +27,6 @@ BG.occasions = [
   { id: 'reggelire', hero: 'alkalom-reggelire', name: 'Reggelire', img: 'parizsi', intro: 'Felvágottak, májasok és krémek a reggeli asztalra.' },
   { id: 'kerti-parti', hero: 'alkalom-kerti-parti', name: 'Kerti parti', img: 'bbq-oldalas', intro: 'Grillkolbász, tomahawk, BBQ oldalas és hamburgerhús – minden, ami a rácsra kell, egy rendeléssel.' },
   { id: 'disznotoros', hero: 'alkalom-disznotoros', name: 'Disznótoros', img: 'hurka', intro: 'Hurka, sütőkolbász, kocsonyának és zsírnak való – a téli szezon klasszikusai.' },
-  { id: 'uzsonnacsomag', name: 'Uzsonnacsomag', img: 'kalandor-csomag', intro: 'Összekészített uzsonnacsomagok iskolába, munkába, kirándulásra.' },
   { id: 'akciok', hero: 'alkalom-akciok', name: 'Akciók', img: 'zsirnakvalo', intro: 'Aktuális ajánlataink, amíg a készlet tart.' }
 ];
 
@@ -96,18 +95,16 @@ BG.occasions = [
   p('dobozos-kenomajas', 'Dobozos kenőmájas', 'felvagottak', ['reggelire'], '250 g', 1600, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, nitrites pácsó, őrölt bors, majoránna', allergen: 'nitrit' });
   p('tomlos-kenomajas', 'Tömlős kenőmájas (kenhető)', 'felvagottak', ['reggelire'], '230 g', 1340, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, nitrites pácsó, őrölt bors, majoránna', allergen: 'nitrit' });
   p('parasztmajas', 'Parasztmájas (darabos)', 'felvagottak', ['reggelire'], '100 g', 610, 6100, { ingr: 'Mangalica máj, vegyes belsőség, mangalica szalonna, vöröshagyma, étkezési só, őrölt bors, majoránna, fűszerpaprika' });
-  p('parizsi', 'Párizsi', 'felvagottak', ['reggelire', 'uzsonnacsomag'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, párizsi fűszerkeverék', allergen: 'nitrit' });
+  p('parizsi', 'Párizsi', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, párizsi fűszerkeverék', allergen: 'nitrit' });
   p('chilis-parizsi', 'Chilis párizsi', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, chilipehely, párizsi fűszerkeverék', allergen: 'nitrit', tag: 'Csípős' });
   p('fustolt-parizsi', 'Füstölt párizsi', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, párizsi fűszerkeverék; bükkfán füstölve', allergen: 'nitrit' });
   p('nyelves-felvagott', 'Nyelves felvágott', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica hús, mangalica nyelv, párizsi fűszerkeverék, nitrites pácsó, őrölt fehérbors', allergen: 'nitrit' });
-  p('uzsonnasonka', 'Uzsonnasonka', 'felvagottak', ['reggelire', 'uzsonnacsomag'], '100 g', 680, 6800, { ingr: 'Mangalica comb, nitrites pácsó, sonka-fűszerkeverék', allergen: 'nitrit' });
+  p('uzsonnasonka', 'Uzsonnasonka', 'felvagottak', ['reggelire'], '100 g', 680, 6800, { ingr: 'Mangalica comb, nitrites pácsó, sonka-fűszerkeverék', allergen: 'nitrit' });
   p('virsli', 'Virsli, 5 pár (ehető kollagénben)', 'felvagottak', ['reggelire'], '500 g', 3400, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, virsli-fűszerkeverék. Nem tartalmaz szóját!', allergen: 'nitrit' });
   p('fustolt-virsli', 'Füstölt virsli, 5 pár', 'felvagottak', ['reggelire'], '500 g', 3400, 6800, { ingr: 'Mangalica hús, mangalica szalonna, nitrites pácsó, virsli-fűszerkeverék; bükkfán füstölve. Nem tartalmaz szóját!', allergen: 'nitrit' });
   p('tepertokrem', 'Tepertőkrém', 'felvagottak', ['reggelire'], '250 g', 1650, 6500, { ingr: 'Mangalica tepertő, mustár, étkezési só, bors, vöröshagyma', allergen: 'mustár' });
   p('fokhagymas-rilette', 'Fokhagymás rilette', 'felvagottak', ['reggelire'], '500 g', 3350, 6700, { ingr: 'Mangalica zsír, mangalica lapocka, fokhagyma, étkezési só' });
   p('chilis-rilette', 'Chilis rilette', 'felvagottak', ['reggelire'], '250 g', 1750, 6700, { ingr: 'Mangalica zsír, mangalica lapocka, füstölt szalonna bőr nélkül, akácméz, étkezési só, fűszerpaprika, chiliaroma, őrölt kömény', tag: 'Csípős' });
-  p('kalandor-csomag', 'Kalandor uzsonnacsomag', 'felvagottak', ['uzsonnacsomag'], '1 csomag', 4490, null, { ingr: '80 g téliszalámi, 80 g uzsonnasonka, 80 g natúr párizsi, 130 g csemege snack kolbász, 110 g kenőmájas', allergen: 'nitrit' });
-  p('csibesz-csomag', 'Csibész uzsonnacsomag', 'felvagottak', ['uzsonnacsomag'], '1 csomag', 4490, null, { ingr: '80 g téliszalámi, 80 g uzsonnasonka, 80 g chilis párizsi, 130 g csípős snack kolbász, 110 g kenőmájas', allergen: 'nitrit', tag: 'Csípős' });
 
   /* Hagyományos */
   p('hurka', 'Hurka', 'hagyomanyos', ['disznotoros'], '1 kg', 3990, 3990, { ingr: 'Főtt máj, fej, belsőség, rizs, vöröshagyma, étkezési só, majoránna, őrölt bors, fűszerpaprika, kömény' });
@@ -353,7 +350,7 @@ BG.reviews = [
    (lista, keresés, ajánlók, receptek bevásárlólistája, főoldal). Visszakapcsolás: töröld az azonosítót a listából. */
 BG.hidden = [
   'csontos-tarja', 'fredi-szelet', 'mangalica-turista', 'nyelves-felvagott', 'uzsonnasonka',
-  'kalandor-csomag', 'csibesz-csomag', 'zsir-1kg', 'zsir-5kg',
+  'zsir-1kg', 'zsir-5kg',
   'ajandekdoboz-10', 'ajandekkosar-12', 'ajandekdoboz-kicsi', 'ajandekdoboz-nagy', 'bosegtal',
   'ajandekkartya-5000', 'ajandekkartya-10000', 'ajandekkartya-20000'
 ];
@@ -361,7 +358,7 @@ BG.hidden = [
   const H = new Set(BG.hidden);
   const ok = (id) => !H.has(id);
   // képcsere, ahol egy rejtett termék fotója illusztrált valamit
-  const swapImg = { 'csontos-tarja': 'tarja-csont-nelkul', 'zsir-1kg': 'zsirnakvalo', 'kalandor-csomag': 'parizsi' };
+  const swapImg = { 'csontos-tarja': 'tarja-csont-nelkul', 'zsir-1kg': 'zsirnakvalo' };
   BG.products = BG.products.filter((p) => ok(p.id));
   BG.products.forEach((p) => { if (p.variant && H.has(p.variant)) delete p.variant; });
   Object.keys(BG.pairByCat).forEach((k) => { BG.pairByCat[k] = BG.pairByCat[k].filter(ok); });
@@ -375,7 +372,4 @@ BG.hidden = [
   // amíg csak a három karácsonyi csomag látszik, az Ajándékok leírása ne ígérjen kosarat, bőségtálat, kártyát
   const gift = BG.categories.find((c) => c.id === 'ajandek');
   if (gift && H.has('ajandekkosar-12')) { gift.sub = 'Karácsonyi ajándékcsomagok'; gift.img = 'mangalica-orokseg'; gift.intro = 'Három karácsonyi csomag a kedvenceinkből, papír vagy fa díszdobozban – ajándéknak, céges köszönetnek.'; }
-  // az uzsonnacsomag-alkalom a két csomag nélkül üres lenne (csak a párizsi maradna) – addig rejtve
-  BG.occasions = BG.occasions.filter((o) => o.id !== 'uzsonnacsomag');
-  BG.products.forEach((p) => { p.occ = p.occ.filter((o) => o !== 'uzsonnacsomag'); });
 })();

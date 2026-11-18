@@ -34,7 +34,7 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 - **Képarány:** a termékkártya és a termékoldal 1:1 (a brief szerint), a termékoldalon bélyegképes galéria.
 - **Kategóriaoldalak:** fekvő kategóriakép, a bal harmad sötét és nyugodt a feliratnak, jobb alsó sarokban közeli részletkép (metszéslap, márványozottság, füstölt felület). Az „Összes termék” oldal is kapott fejlécképet. A főoldali kategóriacsempék ugyanezeket a képeket használják.
 - **Karácsonyi csomagok:** Mangalica Ízelítő, Hagyomány Ízei, Mangalica Örökség (Petra listája szerinti tartalom és ár), a főoldali ajándéksávban is.
-- **Rejtett termékek:** az a 17 termék, amelyről nincs új fotó, egyelőre nem látszik az oldalon (`BG.hidden` a `data.js` végén). A blokk a kapcsolódó ajánlókat, recepteket, a változatválasztót és az Uzsonnacsomag alkalmat is rendbe teszi. Visszakapcsolás: törölni az azonosítót a listából.
+- **Rejtett termékek:** az a 15 termék, amelyről nincs új fotó, egyelőre nem látszik az oldalon (`BG.hidden` a `data.js` végén). A blokk a kapcsolódó ajánlókat, recepteket, a változatválasztót és az Uzsonnacsomag alkalmat is rendbe teszi. Visszakapcsolás: törölni az azonosítót a listából.
 
 ## Futtatás
 

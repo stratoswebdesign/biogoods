@@ -87,7 +87,9 @@ A fotókon nincs címke, a régi webshop képei és a vágás alapján azonosít
 - **Friss kolbászok** (a régi webshop képeivel összevetve): grillkolbász bajor = a hosszú, halvány, borsos (9819–9821), gesztelyi páros = a vastag, fehér, zöldfűszeres (9822–9830), grillkolbász magyaros = a hosszú, piros (9813–9814), a kettő együtt: 9815–9817; debreceni páros = a rövid, narancssárga (9797–9799); sütőkolbász = a vastag, piros, ívelt (9793–9796), a hurkával együtt is fotózták.
 - **Csülöksajt (9643–9647):** fehér, darabos sajt narancs bélben; mellette a rakott fej (9648–9653) biztosnak látszik.
 
-## Új fotó nélkül maradt (a régi kép él)
+## Új fotó nélkül maradt (rejtve, `BG.hidden`)
+
+Ügyfél visszajelzése (2026-11-18): a bőségtál, a Frédi szelet és az ajándékkártyák fotója hiányzik, ezeket külön küldik; a többi hiányzó termék fotóját is pótolják.
 
 Az összes képet újra átnéztem (2026-11-17 este), ezekről nem találtam fotót:
 
@@ -96,7 +98,7 @@ Az összes képet újra átnéztem (2026-11-17 este), ezekről nem találtam fot
 - **Mangalica turista:** a 9760–9768 sorozat egyetlen szalámi (csípős paprikás), a csomagolt változat is ugyanaz.
 - **Nyelves felvágott, uzsonnasonka:** nincs rózsaszín, nyelvdarabos vagy sonkás felvágott a képeken.
 - **Mangalicazsír (1 és 5 kg):** önállóan nem fotózták, csak a fekete táskás ajándékcsomagban látszik egy „Sült mangalica zsír” doboz.
-- **Kalandor és Csibész uzsonnacsomag:** grafika, nem fotó.
+- **Kalandor és Csibész uzsonnacsomag:** kifutott termék (Petra, 2026-11-18) – a katalógusból és az Uzsonnacsomag alkalommal együtt törölve.
 - **Régi ajándéktermékek** (Ajándékdoboz 10 féle, KICSI, NAGY, kosár), **Bőségtál, ajándékkártyák:** a fehér és a fa doboz fotói most az új karácsonyi csomagoknál vannak; bőségtál és kártya nincs az anyagban.
 
 ## Felhasználatlan, de jó anyag
