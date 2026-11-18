@@ -692,3 +692,16 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .vcard.on-dark figcaption { color: var(--on-dark-muted); }
 .pdp .gallery .vcard { max-width: 260px; margin-top: 8px; }
 .split > div:has(> .vcard) { display: flex; justify-content: center; }
+
+/* A mangalica útja – videókártyák és felugró lejátszó (2026-11-18) */
+.jv { position: relative; display: block; width: 100%; padding: 0; margin: 0 0 8px; border: 0; border-radius: 16px; overflow: hidden; background: var(--ink-2); cursor: pointer; aspect-ratio: 4 / 5; }
+.jv video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.jv:hover video { transform: scale(1.03); }
+.jv-play { position: absolute; left: 12px; bottom: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(22,22,21,.72); color: var(--cream); font-size: 14px; font-weight: 700; backdrop-filter: blur(4px); }
+.jv:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.vmodal { padding: 0; border: 0; background: transparent; max-width: min(92vw, 1100px); max-height: 92vh; }
+.vmodal::backdrop { background: rgba(10,10,9,.85); }
+.vmodal-in { position: relative; }
+.vmodal video { display: block; max-width: min(92vw, 1100px); max-height: 82vh; border-radius: 14px; background: #000; margin: 0 auto; }
+.vmodal-t { margin: 10px 0 0; text-align: center; color: var(--cream); font-size: 15px; }
+.vmodal-x { position: absolute; top: 10px; right: 10px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--gold); color: var(--ink); font-size: 26px; line-height: 1; cursor: pointer; }

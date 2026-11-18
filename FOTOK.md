@@ -145,4 +145,7 @@ A mappában még: további telep- és feldolgozófotók (érlelő, füstölő, d
 | david-chef-kenomajas.mp4 | Kenőmájas (dobozos, tömlős) termékoldal | Gajdos Dávid videók / gajdos_biogoods_03_v2.mp4 |
 | david-chef-uzsonna.mp4 | Sonkás zsemle recept | Gajdos Dávid videók / VOLT_gajdos_biogoods_01_v4.mp4 |
 
-A felhasználatlan videók (telephely_beutato_v3, mangalica_vad, Újcsanálos sorozat 001–008, Gajdos 02/05/06) a mappában maradtak. A „Mangalicaragu” receptnél nincs ragus videó, ott továbbra is helykitöltő áll.
+**Főoldal – A mangalica útja (2026-11-18):** négy kártya, mindegyiken felirat nélküli, néma 4:5-ös loop (`ut-*.mp4`, ~1 MB), kattintásra felugró lejátszóban a teljes videó hanggal:
+fialás (001_KÖZZÉTÉVE_0804_biogoods_fialas_v2 → fialas.mp4), felnevelés (004_biogoods_takarmanyozas_v2 → takarmanyozas.mp4), feldolgozás (telephely_beutato_v3 → telephely-bemutato.mp4, 1280×720), kiszállítás (kiszallitas.mp4).
+
+A felhasználatlan videók (mangalica_vad, Újcsanálos 002, 003, 005–008, Gajdos 02/04/05/06) a mappában maradtak. A „Mangalicaragu” receptnél nincs ragus videó, ott továbbra is helykitöltő áll.

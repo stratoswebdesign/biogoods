@@ -745,6 +745,35 @@
   }
   document.addEventListener('DOMContentLoaded', heroVideo);
 
+  /* „A mangalica útja” kártyák: rövid néma loop, ha látszik; kattintásra a teljes videó hanggal, felugró lejátszóban */
+  function journeyVideos() {
+    const cards = $$('.jv');
+    if (!cards.length) return;
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver((ents) => ents.forEach((e) => {
+      const v = e.target.querySelector('video');
+      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
+    }), { threshold: 0.35 }) : null;
+    if (io && !still) cards.forEach((c) => io.observe(c));
+    let dlg = document.getElementById('vmodal');
+    if (!dlg) {
+      dlg = document.createElement('dialog'); dlg.id = 'vmodal'; dlg.className = 'vmodal';
+      dlg.innerHTML = '<div class="vmodal-in"><button type="button" class="vmodal-x" aria-label="Bezárás">×</button><video controls playsinline></video><p class="vmodal-t"></p></div>';
+      document.body.appendChild(dlg);
+      const vv = dlg.querySelector('video');
+      const close = () => { vv.pause(); vv.removeAttribute('src'); vv.load(); dlg.close(); };
+      dlg.querySelector('.vmodal-x').addEventListener('click', close);
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
+      dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
+    }
+    cards.forEach((c) => c.addEventListener('click', () => {
+      const vv = dlg.querySelector('video');
+      vv.src = c.dataset.full; dlg.querySelector('.vmodal-t').textContent = c.dataset.title || '';
+      dlg.showModal(); const p = vv.play(); if (p && p.catch) p.catch(() => {});
+    }));
+  }
+  document.addEventListener('DOMContentLoaded', journeyVideos);
+
   pages.product = function () {
     const p = P[params.get('id')];
     const root = $('#pdp');
