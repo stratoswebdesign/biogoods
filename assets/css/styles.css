@@ -516,11 +516,11 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .hs-veil-brand { clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
 /* hero céges oldala: átlátszó arculati sárga fátyol (átlátszik a videó), rajta fehér arculati minta */
 .hero-split .hs-veil-brand { background: rgba(227, 175, 0, .62); }
-/* A fehér minta külön rétegen van, és a szöveges blokk alatt átmenettel elhalványul (nem vágódik el).
+/* A fekete minta külön rétegen van, és a szöveges blokk alatt átmenettel elhalványul (nem vágódik el).
    A blokk helyét (--bx, --by, --bw, --bh, a réteghez képest) az app.js számolja ki (mintaKivagas). */
-.minta-kivag { --bx: -999px; --by: -999px; --bw: 0px; --bh: 0px; --f: 90px; }
+.minta-kivag { --bx: -999px; --by: -999px; --bw: 0px; --bh: 0px; --f: 200px; }
 .hero-split .hs-veil-brand::after, .hs-biz::before { content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: url(../img/site/minta-feher.svg) 0 0 / var(--minta-size) repeat;
+  background: url(../img/site/minta-fekete.svg) 0 0 / var(--minta-size) repeat;
   -webkit-mask-image: linear-gradient(#000, #000),
     linear-gradient(to right, transparent calc(var(--bx) - var(--f)), #000 var(--bx), #000 calc(var(--bx) + var(--bw)), transparent calc(var(--bx) + var(--bw) + var(--f))),
     linear-gradient(to bottom, transparent calc(var(--by) - var(--f)), #000 var(--by), #000 calc(var(--by) + var(--bh)), transparent calc(var(--by) + var(--bh) + var(--f)));
@@ -632,7 +632,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .hs-veil-brand { display: none; }
   .hs-biz::before { display: block; --minta-size: 400px; }
   .hs-biz-block { gap: 14px; }
-  .hs-biz { --f: 48px; }
+  .hs-biz { --f: 110px; }
   .hs-grid { grid-template-columns: 1fr; padding: 0; min-height: 0; }
   .hs-side { padding: 44px 16px 56px; gap: 14px; }
   .hs-home { padding-right: 16px; }
