@@ -515,7 +515,21 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 @media (min-width: 861px) { .hs-veil-dark { clip-path: polygon(0 0, 54.2% 0, 46.2% 100%, 0 100%); } }
 .hs-veil-brand { clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
 /* hero céges oldala: átlátszó arculati sárga fátyol (átlátszik a videó), rajta fehér arculati minta */
-.hero-split .hs-veil-brand { background: url(../img/site/minta-feher.svg) 0 0 / var(--minta-size) repeat, rgba(227, 175, 0, .62); }
+.hero-split .hs-veil-brand { background: rgba(227, 175, 0, .62); }
+/* A fehér minta külön rétegen van, és a szöveges blokk alatt átmenettel elhalványul (nem vágódik el).
+   A blokk helyét (--bx, --by, --bw, --bh, a réteghez képest) az app.js számolja ki (mintaKivagas). */
+.minta-kivag { --bx: -999px; --by: -999px; --bw: 0px; --bh: 0px; --f: 90px; }
+.hero-split .hs-veil-brand::after, .hs-biz::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: url(../img/site/minta-feher.svg) 0 0 / var(--minta-size) repeat;
+  -webkit-mask-image: linear-gradient(#000, #000),
+    linear-gradient(to right, transparent calc(var(--bx) - var(--f)), #000 var(--bx), #000 calc(var(--bx) + var(--bw)), transparent calc(var(--bx) + var(--bw) + var(--f))),
+    linear-gradient(to bottom, transparent calc(var(--by) - var(--f)), #000 var(--by), #000 calc(var(--by) + var(--bh)), transparent calc(var(--by) + var(--bh) + var(--f)));
+  mask-image: linear-gradient(#000, #000),
+    linear-gradient(to right, transparent calc(var(--bx) - var(--f)), #000 var(--bx), #000 calc(var(--bx) + var(--bw)), transparent calc(var(--bx) + var(--bw) + var(--f))),
+    linear-gradient(to bottom, transparent calc(var(--by) - var(--f)), #000 var(--by), #000 calc(var(--by) + var(--bh)), transparent calc(var(--by) + var(--bh) + var(--f)));
+  -webkit-mask-composite: xor, source-in; mask-composite: exclude, intersect; }
+.hs-biz::before { display: none; }
+.hs-biz-block { display: flex; flex-direction: column; gap: 20px; position: relative; }
 .hs-biz { color: #000; }
 .hs-biz .hs-tag { color: #000; }
 .hs-biz .hs-lead { color: #000; font-weight: 600; }
@@ -523,7 +537,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .hs-grid { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; min-height: min(78vh, 720px); }
 .hs-side { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 96px 0; }
 .hs-home { padding-right: 9%; }
-.hs-biz { padding-left: 14%; }
+.hs-biz { padding-left: 24%; }
 .hs-tag { font-family: var(--display); font-size: 15px; letter-spacing: .28em; text-transform: uppercase; color: var(--brand); }
 .cta-biz .hs-tag { color: #000; }
 .hero-split h1, .hero-split h2 { font-size: clamp(34px, 4.3vw, 60px); line-height: 1.04; text-wrap: balance; }
@@ -616,10 +630,13 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 }
 @media (max-width: 860px) {
   .hs-veil-brand { display: none; }
+  .hs-biz::before { display: block; --minta-size: 400px; }
+  .hs-biz-block { gap: 14px; }
+  .hs-biz { --f: 48px; }
   .hs-grid { grid-template-columns: 1fr; padding: 0; min-height: 0; }
   .hs-side { padding: 44px 16px 56px; gap: 14px; }
   .hs-home { padding-right: 16px; }
-  .hs-biz { padding: 64px 16px 52px; margin-top: -28px; background: url(../img/site/minta-feher.svg) 0 0 / 400px repeat, rgba(227, 175, 0, .7); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
+  .hs-biz { position: relative; padding: 64px 16px 52px; margin-top: -28px; background: rgba(227, 175, 0, .7); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
   .hs-note { position: static; padding: 8px 16px; background: var(--ink); }
   .cta-split { grid-template-columns: 1fr; }
   .cta-half, .cta-home, .cta-biz { padding: 52px 16px; }

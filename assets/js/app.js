@@ -745,6 +745,28 @@
   }
   document.addEventListener('DOMContentLoaded', heroVideo);
 
+  // Hero céges oldala: a fehér minta a szöveges blokk alatt elhalványul – a blokk helyét a mintaréteghez képest adjuk át CSS-változóként
+  function mintaKivagas() {
+    const block = document.querySelector('.hs-biz-block');
+    if (!block) return;
+    const veil = document.querySelector('.hero-split .hs-veil-brand');
+    const biz = block.closest('.hs-biz');
+    const mobile = !veil || getComputedStyle(veil).display === 'none';
+    const layer = mobile ? biz : veil;
+    const pad = mobile ? 12 : 40;
+    const L = layer.getBoundingClientRect(), B = block.getBoundingClientRect();
+    layer.classList.add('minta-kivag');
+    layer.style.setProperty('--bx', Math.round(B.left - L.left - pad) + 'px');
+    layer.style.setProperty('--by', Math.round(B.top - L.top - pad) + 'px');
+    layer.style.setProperty('--bw', Math.round(B.width + 2 * pad) + 'px');
+    layer.style.setProperty('--bh', Math.round(B.height + 2 * pad) + 'px');
+  }
+  let mkT;
+  document.addEventListener('DOMContentLoaded', mintaKivagas);
+  window.addEventListener('load', mintaKivagas);
+  window.addEventListener('resize', () => { clearTimeout(mkT); mkT = setTimeout(mintaKivagas, 80); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(mintaKivagas);
+
   /* „A mangalica útja” kártyák: rövid néma loop, ha látszik; kattintásra a teljes videó hanggal, felugró lejátszóban */
   function journeyVideos() {
     const cards = $$('.jv');
