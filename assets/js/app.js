@@ -745,26 +745,55 @@
   }
   document.addEventListener('DOMContentLoaded', heroVideo);
 
-  // Hero céges oldala: a fehér minta a szöveges blokk alatt elhalványul – a blokk helyét a mintaréteghez képest adjuk át CSS-változóként
+  // Mintás felületek: a szöveges blokkok mögött nincs minta, körülöttük átmenettel halványul el.
+  // A maszk egy SVG: mindenhol átlátszatlan, a blokkok helyén elmosott „lyuk”; CSS-változóként (--minta-maszk) kapja meg a mintaréteg.
   function mintaKivagas() {
-    const block = document.querySelector('.hs-biz-block');
-    if (!block) return;
-    const veil = document.querySelector('.hero-split .hs-veil-brand');
-    const biz = block.closest('.hs-biz');
-    const mobile = !veil || getComputedStyle(veil).display === 'none';
-    const layer = mobile ? biz : veil;
-    const pad = mobile ? 12 : 40;
-    const L = layer.getBoundingClientRect(), B = block.getBoundingClientRect();
-    layer.classList.add('minta-kivag');
-    layer.style.setProperty('--bx', Math.round(B.left - L.left - pad) + 'px');
-    layer.style.setProperty('--by', Math.round(B.top - L.top - pad) + 'px');
-    layer.style.setProperty('--bw', Math.round(B.width + 2 * pad) + 'px');
-    layer.style.setProperty('--bh', Math.round(B.height + 2 * pad) + 'px');
+    const mobile = window.matchMedia('(max-width: 860px)').matches;
+    const fade = mobile ? 80 : 145, pad = mobile ? 12 : 32;
+    const jobs = [];
+    const heroBlock = document.querySelector('.hs-biz-block');
+    if (heroBlock) {
+      const veil = document.querySelector('.hero-split .hs-veil-brand');
+      jobs.push({ layer: mobile || !veil ? heroBlock.closest('.hs-biz') : veil, rects: [heroBlock] });
+    }
+    document.querySelectorAll('.aud-biz:not(.aud-biz-soft), .minta-bg').forEach((sec) => {
+      const blocks = sec.querySelectorAll('.split > *');
+      jobs.push({ layer: sec, rects: blocks.length ? [...blocks] : [...sec.querySelectorAll('.wrap > *')] });
+    });
+    document.querySelectorAll('.cta-biz').forEach((sec) => jobs.push({ layer: sec, rects: [[...sec.children]] }));
+    jobs.forEach(({ layer, rects }) => {
+      if (!layer) return;
+      const L = layer.getBoundingClientRect();
+      const W = Math.round(L.width), H = Math.round(L.height);
+      if (!W || !H) return;
+      const e = pad + fade / 2;
+      const holes = rects.map((r) => {
+        const list = Array.isArray(r) ? r : [r];
+        const bs = list.map((el) => el.getBoundingClientRect()).filter((b) => b.width && b.height);
+        if (!bs.length) return '';
+        const x1 = Math.min(...bs.map((b) => b.left)) - L.left - e, y1 = Math.min(...bs.map((b) => b.top)) - L.top - e;
+        const x2 = Math.max(...bs.map((b) => b.right)) - L.left + e, y2 = Math.max(...bs.map((b) => b.bottom)) - L.top + e;
+        return '<rect x="' + Math.round(x1) + '" y="' + Math.round(y1) + '" width="' + Math.round(x2 - x1) + '" height="' + Math.round(y2 - y1) + '" rx="' + Math.round(fade / 2) + '"/>';
+      }).join('');
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' +
+        '<filter id="m" filterUnits="userSpaceOnUse" x="0" y="0" width="' + W + '" height="' + H + '">' +
+        '<feGaussianBlur in="SourceGraphic" stdDeviation="' + (fade / 4) + '" result="b"/><feFlood flood-color="#000" result="f"/>' +
+        '<feComposite in="f" in2="b" operator="out"/></filter>' +
+        '<g filter="url(#m)"><rect x="-9999" y="-9999" width="1" height="1" fill-opacity="0"/>' + holes + '</g></svg>';
+      layer.style.setProperty('--minta-maszk', 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")');
+    });
   }
   let mkT;
-  document.addEventListener('DOMContentLoaded', mintaKivagas);
+  const mkLater = () => { clearTimeout(mkT); mkT = setTimeout(mintaKivagas, 80); };
+  document.addEventListener('DOMContentLoaded', () => {
+    mintaKivagas();
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(mkLater);
+      document.querySelectorAll('.hero-split, .aud-biz, .cta-biz, .minta-bg').forEach((el) => ro.observe(el));
+    }
+  });
   window.addEventListener('load', mintaKivagas);
-  window.addEventListener('resize', () => { clearTimeout(mkT); mkT = setTimeout(mintaKivagas, 80); });
+  window.addEventListener('resize', mkLater);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(mintaKivagas);
 
   /* „A mangalica útja” kártyák: rövid néma loop, ha látszik; kattintásra a teljes videó hanggal, felugró lejátszóban */

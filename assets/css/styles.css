@@ -499,7 +499,11 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
    ===================================================================== */
 :root { --brand: #E3AF00; --brand-soft: #FFF2BF; --minta: url(../img/site/minta.svg); --minta-size: 520px; --minta-fatyol: linear-gradient(rgba(251, 248, 242, .5), rgba(251, 248, 242, .5)); }
 /* Arculati elem (kézikönyv 09): a céges felületek háttere nem teli sárga, hanem papírszínen sűrűn szedett, hézagmentesen ismétlődő háromszög-minta */
-.minta-bg, .hs-veil-brand, .aud-biz, .cta-biz { background-color: var(--paper); background-image: var(--minta-fatyol), var(--minta); background-size: auto, var(--minta-size); background-repeat: repeat; }
+.minta-bg, .aud-biz:not(.aud-biz-soft), .cta-biz { position: relative; isolation: isolate; background: var(--paper); }
+/* A minta külön rétegen van; a szöveges blokkok mögött nincs minta, körülöttük átmenettel halványul el.
+   A maszkot (--minta-maszk) az app.js rajzolja ki a blokkok tényleges helye alapján (mintaKivagas). */
+.minta-bg::before, .aud-biz:not(.aud-biz-soft)::before, .cta-biz::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: var(--minta-fatyol), var(--minta); background-size: auto, var(--minta-size); background-repeat: repeat; }
 /* a fátyol (50% papírszín) a szövegek olvashatóságáért tompítja a mintát */
 /* mintás háttéren minden gomb teli fekete (a körvonalas és a sárga peremes is) */
 .minta-bg .btn-dark, .hs-biz .btn-dark, .aud-biz:not(.aud-biz-soft) .btn-dark, .cta-biz .btn-dark { background-color: #000; color: #fff; }
@@ -517,18 +521,13 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 /* hero céges oldala: átlátszó arculati sárga fátyol (átlátszik a videó), rajta fehér arculati minta */
 .hero-split .hs-veil-brand { background: rgba(227, 175, 0, .74); }
 /* A fekete minta külön rétegen van, és a szöveges blokk alatt átmenettel elhalványul (nem vágódik el).
-   A blokk helyét (--bx, --by, --bw, --bh, a réteghez képest) az app.js számolja ki (mintaKivagas). */
-.minta-kivag { --bx: -999px; --by: -999px; --bw: 0px; --bh: 0px; --f: 145px; }
+   A maszkot az app.js rajzolja ki (mintaKivagas). */
 .hero-split .hs-veil-brand::after, .hs-biz::before { content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: url(../img/site/minta-fekete.svg?v=202611190134) 0 0 / var(--minta-size) repeat;
-  -webkit-mask-image: linear-gradient(#000, #000),
-    linear-gradient(to right, transparent calc(var(--bx) - var(--f)), #000 var(--bx), #000 calc(var(--bx) + var(--bw)), transparent calc(var(--bx) + var(--bw) + var(--f))),
-    linear-gradient(to bottom, transparent calc(var(--by) - var(--f)), #000 var(--by), #000 calc(var(--by) + var(--bh)), transparent calc(var(--by) + var(--bh) + var(--f)));
-  mask-image: linear-gradient(#000, #000),
-    linear-gradient(to right, transparent calc(var(--bx) - var(--f)), #000 var(--bx), #000 calc(var(--bx) + var(--bw)), transparent calc(var(--bx) + var(--bw) + var(--f))),
-    linear-gradient(to bottom, transparent calc(var(--by) - var(--f)), #000 var(--by), #000 calc(var(--by) + var(--bh)), transparent calc(var(--by) + var(--bh) + var(--f)));
-  -webkit-mask-composite: xor, source-in; mask-composite: exclude, intersect; }
+  background: url(../img/site/minta-fekete.svg?v=1) 0 0 / var(--minta-size) repeat; }
 .hs-biz::before { display: none; }
+.minta-bg::before, .aud-biz:not(.aud-biz-soft)::before, .cta-biz::before, .hero-split .hs-veil-brand::after, .hs-biz::before {
+  -webkit-mask-image: var(--minta-maszk, none); mask-image: var(--minta-maszk, none);
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
 .hs-biz-block { display: flex; flex-direction: column; gap: 20px; position: relative; }
 .hs-biz { color: #000; }
 .hs-biz .hs-tag { color: #000; }
@@ -632,7 +631,6 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .hs-veil-brand { display: none; }
   .hs-biz::before { display: block; --minta-size: 400px; }
   .hs-biz-block { gap: 14px; }
-  .hs-biz { --f: 80px; }
   .hs-grid { grid-template-columns: 1fr; padding: 0; min-height: 0; }
   .hs-side { padding: 44px 16px 56px; gap: 14px; }
   .hs-home { padding-right: 16px; }
