@@ -497,7 +497,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
    Főoldal 2026-11 – osztott hero (A változat), lakossági / céges sávok
    Lakossági = krém / papír · Céges = arculati sárga · Történet = fekete
    ===================================================================== */
-:root { --brand: #E3AF00; --brand-soft: #FFF2BF; --minta: url(../img/site/minta.svg); --minta-size: 520px; --minta-fatyol: linear-gradient(rgba(251, 248, 242, .5), rgba(251, 248, 242, .5)); --hero-minta-tompitas: linear-gradient(rgba(0, 0, 0, .58), rgba(0, 0, 0, .58)); }
+:root { --brand: #E3AF00; --brand-soft: #FFF2BF; --minta: url(../img/site/minta.svg); --minta-size: 520px; --minta-fatyol: linear-gradient(rgba(251, 248, 242, .5), rgba(251, 248, 242, .5)); }
 /* Arculati elem (kézikönyv 09): a céges felületek háttere nem teli sárga, hanem papírszínen sűrűn szedett, hézagmentesen ismétlődő háromszög-minta */
 .minta-bg, .hs-veil-brand, .aud-biz, .cta-biz { background-color: var(--paper); background-image: var(--minta-fatyol), var(--minta); background-size: auto, var(--minta-size); background-repeat: repeat; }
 /* a fátyol (50% papírszín) a szövegek olvashatóságáért tompítja a mintát */
@@ -512,16 +512,14 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .hs-media, .hs-veil-dark, .hs-veil-brand { position: absolute; inset: 0; }
 .hs-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hs-veil-dark { background: rgba(0, 0, 0, .58); }
+@media (min-width: 861px) { .hs-veil-dark { clip-path: polygon(0 0, 54.2% 0, 46.2% 100%, 0 100%); } }
 .hs-veil-brand { clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
-/* hero céges oldala: a minta mögött nem papírszín, hanem halványan átlátszó fekete fátyol (átlátszik a videó) */
-.hero-split .hs-veil-brand { background: var(--hero-minta-tompitas), var(--minta) 0 0 / var(--minta-size) repeat, rgba(0, 0, 0, .45); }
-.hs-biz { color: var(--cream); }
-.hs-biz .hs-tag { color: var(--cream); }
-.hs-biz .hs-lead { color: var(--cream); font-weight: 600; }
-.hs-biz .hs-tag, .hs-biz h2, .hs-biz .hs-lead, .hs-biz .hs-link { text-shadow: 0 0 3px rgba(0, 0, 0, .9), 0 1px 14px rgba(0, 0, 0, .8); }
-.hero-split .hs-biz .btn-dark { background: var(--cream); color: var(--ink); }
-.hero-split .hs-biz .btn-dark:hover { background: #fff; color: var(--ink); }
-.hero-split .hs-biz :focus-visible { outline-color: var(--gold); }
+/* hero céges oldala: átlátszó arculati sárga fátyol (átlátszik a videó), rajta fehér arculati minta */
+.hero-split .hs-veil-brand { background: url(../img/site/minta-feher.svg) 0 0 / var(--minta-size) repeat, rgba(227, 175, 0, .62); }
+.hs-biz { color: #000; }
+.hs-biz .hs-tag { color: #000; }
+.hs-biz .hs-lead { color: #000; font-weight: 600; }
+.hero-split .hs-biz :focus-visible { outline-color: #000; }
 .hs-grid { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; min-height: min(78vh, 720px); }
 .hs-side { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 96px 0; }
 .hs-home { padding-right: 9%; }
@@ -621,7 +619,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .hs-grid { grid-template-columns: 1fr; padding: 0; min-height: 0; }
   .hs-side { padding: 44px 16px 56px; gap: 14px; }
   .hs-home { padding-right: 16px; }
-  .hs-biz { padding: 64px 16px 52px; margin-top: -28px; background: var(--hero-minta-tompitas), var(--minta) 0 0 / 400px repeat, rgba(0, 0, 0, .55); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
+  .hs-biz { padding: 64px 16px 52px; margin-top: -28px; background: url(../img/site/minta-feher.svg) 0 0 / 400px repeat, rgba(227, 175, 0, .7); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
   .hs-note { position: static; padding: 8px 16px; background: var(--ink); }
   .cta-split { grid-template-columns: 1fr; }
   .cta-half, .cta-home, .cta-biz { padding: 52px 16px; }
