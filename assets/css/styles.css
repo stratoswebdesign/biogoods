@@ -494,14 +494,17 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
    Főoldal 2026-11 – osztott hero (A változat), lakossági / céges sávok
    Lakossági = krém / papír · Céges = arculati sárga · Történet = fekete
    ===================================================================== */
-:root { --brand: #E3AF00; --brand-soft: #FFF2BF; }
+:root { --brand: #E3AF00; --brand-soft: #FFF2BF; --minta: url(../img/site/minta.svg); --minta-size: 520px; --minta-fatyol: linear-gradient(rgba(251, 248, 242, .5), rgba(251, 248, 242, .5)); }
+/* Arculati elem (kézikönyv 09): a céges felületek háttere nem teli sárga, hanem papírszínen sűrűn szedett, hézagmentesen ismétlődő háromszög-minta */
+.minta-bg, .hs-veil-brand, .aud-biz, .cta-biz { background-color: var(--paper); background-image: var(--minta-fatyol), var(--minta); background-size: auto, var(--minta-size); background-repeat: repeat; }
+/* a fátyol (50% papírszín) a szövegek olvashatóságáért tompítja a mintát */
 
 /* ---------- osztott hero ---------- */
 .hero-split { position: relative; overflow: hidden; background: var(--ink); color: var(--cream); isolation: isolate; }
 .hs-media, .hs-veil-dark, .hs-veil-brand { position: absolute; inset: 0; }
 .hs-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hs-veil-dark { background: rgba(0, 0, 0, .58); }
-.hs-veil-brand { background: rgba(227, 175, 0, .86); clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
+.hs-veil-brand { clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%); }
 .hs-grid { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; min-height: min(78vh, 720px); }
 .hs-side { display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 96px 0; }
 .hs-home { padding-right: 9%; }
@@ -532,7 +535,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .aud-tag::before { content: ''; width: 28px; height: 4px; background: currentColor; }
 .aud-home { background: var(--paper); border-top: 1px solid var(--line); }
 .aud-home .aud-tag { color: var(--gold-text); }
-.aud-biz { background: var(--brand); color: #000; }
+.aud-biz { color: #000; }
 .aud-biz .lead, .aud-biz p { color: #1A1500; }
 .aud-biz .sec-head a, .aud-biz a:not([class]) { color: #000; }
 .aud-biz .muted { color: #4A3D00; }
@@ -579,7 +582,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .cta-half { padding: 80px max(32px, calc((100vw - var(--wrap)) / 2 + 32px)); display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
 .cta-home { background: var(--ink); color: var(--cream); padding-right: 56px; }
 .cta-home p:not(.hs-tag) { color: var(--on-dark); }
-.cta-biz { background: var(--brand); color: #000; padding-left: 56px; }
+.cta-biz { color: #000; padding-left: 56px; }
 .cta-biz .btn-dark { background: #000; color: #fff; }
 .cta-half h2 { font-size: clamp(28px, 3vw, 42px); text-wrap: balance; }
 .cta-half p:not(.hs-tag) { font-size: 18px; max-width: 30em; }
@@ -602,7 +605,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
   .hs-grid { grid-template-columns: 1fr; padding: 0; min-height: 0; }
   .hs-side { padding: 44px 16px 56px; gap: 14px; }
   .hs-home { padding-right: 16px; }
-  .hs-biz { padding: 64px 16px 52px; margin-top: -28px; background: rgba(227, 175, 0, .9); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
+  .hs-biz { padding: 64px 16px 52px; margin-top: -28px; background: var(--minta-fatyol), var(--minta) 0 0 / 400px repeat, var(--paper); clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%); }
   .hs-note { position: static; padding: 8px 16px; background: var(--ink); }
   .cta-split { grid-template-columns: 1fr; }
   .cta-half, .cta-home, .cta-biz { padding: 52px 16px; }

@@ -77,3 +77,7 @@ A termékfotók a mostani webshopból származnak (az ügyfél jóváhagyásáva
 
 ---
 Készítette: [Stratos Webdesign](https://stratosweb.hu)
+
+## Arculati minta (háttér)
+
+A céges felületek (főoldali hero jobb fele és mobilon a céges blokk, a „Cégeknek” sávok, a záró „Konyhádra szabva” blokk és a cegeknek.html hero) nem teli sárgák, hanem papírszínen sűrűn szedett háromszög-mintát kapnak. A minta az arculati kézikönyv 09. oldalán lévő arculati elem: a kézikönyv PDF-jéből vektorosan kiemelt 50 háromszögforma, hézagmentesen ismétlődő csempére újrarendezve (`assets/img/site/minta.svg`). A sűrűséget a `--minta-size`, a tompítást a `--minta-fatyol` változó állítja a `styles.css`-ben.
