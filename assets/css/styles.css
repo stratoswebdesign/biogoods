@@ -504,7 +504,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
    A maszkot (--minta-maszk) az app.js rajzolja ki a blokkok tényleges helye alapján (mintaKivagas). */
 .minta-bg::before, .aud-biz:not(.aud-biz-soft)::before, .cta-biz::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   /* a minta színe a szomszédos (fölötte / alatta lévő) szekciók háttérszíne – az app.js adja át (--minta-felso, --minta-also) */
-  background: linear-gradient(var(--minta-felso, var(--gold)) 45%, var(--minta-also, var(--gold)) 55%);
+  background: linear-gradient(var(--minta-felso, var(--gold)) 22%, var(--minta-also, var(--gold)) 78%);
   -webkit-mask-image: var(--minta-maszk, linear-gradient(#000, #000)), var(--minta); mask-image: var(--minta-maszk, linear-gradient(#000, #000)), var(--minta);
   -webkit-mask-size: 100% 100%, var(--minta-size); mask-size: 100% 100%, var(--minta-size);
   -webkit-mask-repeat: no-repeat, repeat; mask-repeat: no-repeat, repeat;
