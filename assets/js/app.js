@@ -783,6 +783,34 @@
       layer.style.setProperty('--minta-maszk', 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")');
     });
   }
+  // A mintás szekciók mintája a szomszédos szekciók színét veszi fel (mintha a szomszéd „átfolyna” bele)
+  const isClear = (c) => !c || c === 'transparent' || /rgba\(.*,\s*0\)$/.test(c);
+  function ownBg(el) { let e = el; while (e && e !== document.documentElement) { const c = getComputedStyle(e).backgroundColor; if (!isClear(c)) return c; e = e.parentElement; } return getComputedStyle(document.body).backgroundColor; }
+  function edgeColor(el, side) {
+    let color = ownBg(el), cur = el;
+    for (let d = 0; d < 8; d++) {
+      const R = cur.getBoundingClientRect();
+      const kid = [...cur.children].find((k) => { const r = k.getBoundingClientRect(); return r.width >= R.width * 0.8 && Math.abs((side === 'bottom' ? r.bottom - R.bottom : r.top - R.top)) < 2; });
+      if (!kid) break;
+      const c = getComputedStyle(kid).backgroundColor; if (!isClear(c)) color = c;
+      cur = kid;
+    }
+    return color;
+  }
+  function neighbour(el, dir) {
+    let e = el;
+    while (e && e !== document.body) { const n = dir < 0 ? e.previousElementSibling : e.nextElementSibling; if (n && n.getBoundingClientRect().height > 0) return n; e = e.parentElement; }
+    return null;
+  }
+  function mintaSzinek() {
+    document.querySelectorAll('.aud-biz:not(.aud-biz-soft), .cta-biz, .minta-bg').forEach((sec) => {
+      const box = sec.classList.contains('cta-biz') ? sec.closest('.cta-split') || sec : sec;
+      const up = neighbour(box, -1), down = neighbour(box, 1);
+      if (up) sec.style.setProperty('--minta-felso', edgeColor(up, 'bottom'));
+      if (down) sec.style.setProperty('--minta-also', edgeColor(down, 'top'));
+    });
+  }
+  document.addEventListener('DOMContentLoaded', mintaSzinek);
   let mkT;
   const mkLater = () => { clearTimeout(mkT); mkT = setTimeout(mintaKivagas, 80); };
   document.addEventListener('DOMContentLoaded', () => {
