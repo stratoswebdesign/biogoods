@@ -171,12 +171,15 @@
   /* ================= kosár ================= */
   const getCart = () => store.get('bg_cart', []).filter((i) => P[i.id] && i.qty > 0);
   function saveCart(c) { store.set('bg_cart', c); document.dispatchEvent(new CustomEvent('bg:cart')); }
-  function addToCart(id, qty) {
+  function addToCart(id, qty, opt) {
     const c = getCart();
     const it = c.find((i) => i.id === id);
-    if (it) it.qty = Math.min(99, it.qty + (qty || 1)); else c.push({ id, qty: qty || 1 });
+    if (it) { it.qty = Math.min(99, it.qty + (qty || 1)); if (opt) it.opt = opt; }
+    else { const o = { id, qty: qty || 1 }; const A = (BG.adatlap || {})[id]; const def = A && A.opciok ? A.opciok[0] : null; if (opt || def) o.opt = opt || def; c.push(o); }
     saveCart(c);
   }
+  // választott kivitel (pl. szeletelve) a kosársorban
+  const optText = (i) => (i && i.opt ? ' · ' + i.opt : '');
   function setQty(id, qty) {
     let c = getCart();
     if (qty <= 0) c = c.filter((i) => i.id !== id); else c.forEach((i) => { if (i.id === id) i.qty = Math.min(99, qty); });
@@ -351,7 +354,7 @@
     const recs = cartComplements(3);
     body.innerHTML = note + minbarHTML() + c.map((i) => {
       const p = P[i.id];
-      return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><div class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + '</span></div>' +
+      return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><div class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack + optText(i)) + '</span></div>' +
         '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span class="price" style="font-size:17px">' + ft(p.price * i.qty) + '</span>' +
         qtyHTML(i.id, i.qty, true) + '</div></div>';
     }).join('') + (recs.length ? '<div class="recs"><p class="h">Illik hozzá</p>' + recs.map(recRow).join('') + '</div>' : '');
@@ -475,7 +478,8 @@
       const id = add.getAttribute('data-add');
       const qInput = add.getAttribute('data-qty-from') ? $(add.getAttribute('data-qty-from')) : null;
       const q = qInput ? Math.max(1, parseInt(qInput.value, 10) || 1) : 1;
-      addToCart(id, q);
+      const optEl = add.getAttribute('data-opt-from') ? document.querySelector(add.getAttribute('data-opt-from') + ' input:checked') : null;
+      addToCart(id, q, optEl ? optEl.value : null);
       const old = add.innerHTML;
       add.classList.add('is-added');
       if (add.classList.contains('plus')) add.textContent = '✓';
@@ -853,6 +857,25 @@
   }
   document.addEventListener('DOMContentLoaded', journeyVideos);
 
+  // „Tárolás és elkészítés” fül a termékadatlapból (BG.adatlap)
+  function storageHTML(p, A) {
+    if (!A) return p.cat === 'ajandek'
+      ? '<dt>Tárolás</dt><dd>Hűtve, 0 és +5 °C között. Az egyes termékek eltarthatósága a saját termékoldalukon olvasható.</dd>'
+      : '<dt>Tárolás</dt><dd>[az ügyféltől]</dd>';
+    const temp = (t) => t.replace(/^(-?\d+)–\(\+(\d+)\) °C$/, '$1 és +$2 °C között');
+    const row = (k, v) => (v ? '<dt>' + k + '</dt><dd>' + esc(v) + '</dd>' : '');
+    const raw = p.cat === 'tokehusok';
+    const freeze = !A.fagyH ? '' : /nem ajánlott/i.test(A.fagyH) ? 'Nem ajánlott, mert romlik a minősége.' : A.fagyH + '-on' + (A.fagyI ? ', legfeljebb ' + A.fagyI + (A.csom === 'vákuumfólia' ? ' (vákuumcsomagolásban)' : '') : '') + '.' + (A.fagyMegj ? ' ' + A.fagyMegj : '');
+    return row('Tárolás', A.tar ? 'Hűtve, ' + temp(A.tar) + '.' : '') +
+      row('Eltarthatóság', A.szav ? A.szav + ' (bontatlanul, hűtve).' : '') +
+      row('Felbontás után', A.felb ? A.felb + ', hűtőben.' + (raw ? ' Szeletelt tőkehús: 1 nap.' : '') : '') +
+      row('Fagyasztás', freeze) +
+      row('Kiolvasztás', raw && A.fagyH ? 'Hűtőszekrényben, kíméletesen – soha ne szobahőmérsékleten.' : '') +
+      row('Elkészítés', A.hokezeles ? 'Fogyasztás előtt hőkezelést igényel.' : '') +
+      row('Csomagolás', A.csom ? A.csom.charAt(0).toUpperCase() + A.csom.slice(1) + '.' : '') +
+      (raw ? '<dt>Tömeg</dt><dd>A tőkehús tömege kismértékben eltérhet; a számla a tényleges súly szerint készül.</dd>' : '');
+  }
+
   pages.product = function () {
     const p = P[params.get('id')];
     const root = $('#pdp');
@@ -869,6 +892,9 @@
     const fbt = [p].concat(comps.slice(0, 2));
     const related = comps.slice(2).concat(BG.products.filter((x) => x.cat === p.cat && x.id !== p.id && x.id !== p.variant))
       .filter((x, i, a) => a.indexOf(x) === i && !fbt.includes(x)).slice(0, 4);
+    const A = (BG.adatlap || {})[p.id];
+    const optionsHTML = A && A.opciok ? '<fieldset id="pdp-opt" style="margin:0;padding:0;border:0"><legend style="padding:0;margin-bottom:8px;font-weight:700;font-size:15px">Hogyan kéred?</legend><div class="opt-chips">' +
+      A.opciok.map((o, ix) => '<label class="opt-chip"><input type="radio" name="pdp-opt" value="' + esc(o) + '"' + (ix === 0 ? ' checked' : '') + '><span>' + esc(o) + '</span></label>').join('') + '</div></fieldset>' : '';
     const variantHTML = v ? '<fieldset style="margin:0;padding:0;border:0"><legend style="padding:0;margin-bottom:8px;font-weight:700;font-size:15px">Kivitel</legend><div class="variants">' +
       [p, v].sort((a, b) => a.name.localeCompare(b.name, 'hu')).map((x) => '<a class="variant' + (x.id === p.id ? ' is-active' : '') + '" href="' + url('termek.html?id=' + x.id) + '"' + (x.id === p.id ? ' aria-current="true"' : '') + '><strong>' + (/csont nélkül/i.test(x.name) ? 'Csont nélkül' : 'Csontos') + '</strong><span>' + esc(x.pack) + ' · ' + ft(x.price) + '</span></a>').join('') + '</div></fieldset>' : '';
     root.innerHTML =
@@ -878,9 +904,9 @@
       '<h1>' + esc(p.name) + '</h1>' +
       '<div class="pricebox"><span class="price">' + ft(p.price) + '</span>' + (p.old ? '<span class="muted" style="text-decoration:line-through">' + ft(p.old) + '</span>' : '') + '<span class="muted">' + esc(metaText(p)) + '</span></div>' +
       (p.desc ? '<p class="lead" style="font-size:17px">' + esc(p.desc) + '</p>' : '') +
-      variantHTML +
+      variantHTML + optionsHTML +
       '<div class="row"><div class="qty" data-local-qty><button type="button" data-qty-dec="x" aria-label="Kevesebb">−</button><label class="sr-only" for="pq">Mennyiség</label><input id="pq" inputmode="numeric" value="1"><button type="button" data-qty-inc="x" aria-label="Több">+</button></div>' +
-      '<button type="button" class="btn btn-gold" style="flex:1 1 220px;min-height:56px" data-add="' + p.id + '" data-qty-from="#pq" data-open-after id="pdp-add">Kosárba · ' + ft(p.price) + '</button></div>' +
+      '<button type="button" class="btn btn-gold" style="flex:1 1 220px;min-height:56px" data-add="' + p.id + '" data-qty-from="#pq"' + (A && A.opciok ? ' data-opt-from="#pdp-opt"' : '') + ' data-open-after id="pdp-add">Kosárba · ' + ft(p.price) + '</button></div>' +
       upsellBox(p) +
       '<div id="pdp-delivery"></div>' +
       '<ul class="bullets"><li>Saját tenyészet</li><li>MOE eredetigazolás</li><li>GMO-mentes takarmány</li><li>SZÉP-kártyával is fizethető</li></ul></div></div>';
@@ -905,10 +931,10 @@
       '<div><div role="tabpanel" id="tp1" aria-labelledby="tb1"><dl class="spec">' +
       '<dt>Kiszerelés</dt><dd>' + esc(p.pack) + '</dd>' +
       (p.unit ? '<dt>Egységár</dt><dd>' + esc(unitText(p)) + '</dd>' : '') +
-      '<dt>Összetevők</dt><dd>' + esc(p.ingr || '[az ügyféltől]') + '</dd>' +
-      '<dt>Allergének</dt><dd>' + esc(p.allergen || '[megerősítendő]') + '</dd>' +
+      '<dt>' + (p.cat === 'ajandek' ? 'Tartalom' : 'Összetevők') + '</dt><dd>' + esc(A ? A.ossz + (A.megj ? '. ' + A.megj + '.' : '') : (p.ingr || '[az ügyféltől]')) + '</dd>' +
+      (p.cat === 'ajandek' ? '' : '<dt>Allergének</dt><dd>' + esc(A ? (A.allerg || 'Nincs megjelölt allergén') : (p.allergen || '[megerősítendő]')) + '</dd>') +
       '<dt>Származás</dt><dd>Saját tenyészet, gesztelyi feldolgozás, MOE eredetigazolás</dd></dl></div>' +
-      '<div role="tabpanel" id="tp2" aria-labelledby="tb2" hidden><dl class="spec"><dt>Tárolás</dt><dd>[hőmérséklet – az ügyféltől]</dd><dt>Eltarthatóság</dt><dd>[nap, hűtőben / fagyasztva – az ügyféltől]</dd><dt>Csomagolás</dt><dd>[pl. vákuumozva – az ügyféltől]</dd></dl></div>' +
+      '<div role="tabpanel" id="tp2" aria-labelledby="tb2" hidden><dl class="spec">' + storageHTML(p, A) + '</dl></div>' +
       '<div role="tabpanel" id="tp3" aria-labelledby="tb3" hidden><dl class="spec"><dt>Szállítás</dt><dd>Saját járattal, a településed járatnapján. Rendelés a járat előtti napon 12:00-ig. <a href="' + url('szallitas.html') + '">Szállítási területek</a></dd><dt>Fizetés</dt><dd>Bankkártya (SimplePay), OTP, K&amp;H és MKB SZÉP-kártya, készpénz a sofőrnél. <a href="' + url('fizetes.html') + '">Részletek</a></dd></dl></div></div>' +
       (recipe ? '<a class="card-dark" href="' + url('recept.html?id=' + recipe.id) + '" style="padding:0;overflow:hidden;text-decoration:none;color:var(--cream)"><img src="' + img(recipe.img) + '" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover"><div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px"><span class="kicker light" style="margin:0">Recept ehhez a termékhez</span><span class="display" style="font-size:26px;font-weight:500">' + esc(recipe.title) + '</span><span style="color:var(--on-dark)">Elolvasom →</span></div></a>' : '<div></div>') +
       '</div>';
@@ -966,7 +992,7 @@
       root.innerHTML = '<div class="cart-layout"><div class="main">' + minbarHTML() +
         '<div class="cart-list">' + c.map((i) => {
           const p = P[i.id];
-          return '<div class="cart-item"><img src="' + pimg(p.img) + '" alt=""><div class="name"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><p class="muted" style="font-size:14px;margin-top:2px">' + esc(metaText(p)) + '</p></div>' +
+          return '<div class="cart-item"><img src="' + pimg(p.img) + '" alt=""><div class="name"><a href="' + url('termek.html?id=' + p.id) + '">' + esc(p.name) + '</a><p class="muted" style="font-size:14px;margin-top:2px">' + esc(metaText(p) + optText(i)) + '</p></div>' +
             qtyHTML(p.id, i.qty) + '<span class="line-total">' + ft(p.price * i.qty) + '</span><button type="button" class="icon-btn" data-remove="' + p.id + '" aria-label="Törlés: ' + esc(p.name) + '" style="color:var(--muted)">' + ICON.trash + '</button>' +
             ((() => { const big = biggerPack(p); return big && !inCart.includes(big.id) ? '<div class="line-upsell"><span><strong>Tipp:</strong> ' + esc(big.name) + ' (' + esc(big.pack) + ', ' + ft(big.price) + ') – ' + num(big.unit) + '\u00a0Ft/kg <span class="save">−' + savePct(p, big) + '% / kg</span></span><button type="button" data-swap="' + p.id + '>' + big.id + '">Erre cserélem</button></div>' : ''; })()) + '</div>';
         }).join('') + '</div>' +
@@ -1074,7 +1100,7 @@
       const ok = t && total >= t.min;
       $('#co-sum').innerHTML = '<h2 style="font-size:24px">Rendelésed</h2><div class="mini-items">' + cc.map((i) => {
         const p = P[i.id];
-        return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><span class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack) + ' × ' + i.qty + '</span></span><strong>' + ft(p.price * i.qty) + '</strong></div>';
+        return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><span class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack + optText(i)) + ' × ' + i.qty + '</span></span><strong>' + ft(p.price * i.qty) + '</strong></div>';
       }).join('') + '</div>' +
         '<div style="border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px;font-size:15px"><div class="line"><span>Részösszeg</span><span>' + ft(total) + '</span></div>' +
         (disc ? '<div class="line" style="color:var(--ok)"><span>Kedvezmény (' + esc(coupon().code) + ')</span><span>−' + ft(disc) + '</span></div>' : '') +
@@ -1110,7 +1136,7 @@
       const disc = discountFor(total);
       const order = {
         id, created: new Date().toISOString(), status: 'processing', demo: false,
-        items: cc.map((i) => ({ id: i.id, qty: i.qty, price: P[i.id].price })), subtotal: total, discount: disc, total: total - disc,
+        items: cc.map((i) => ({ id: i.id, qty: i.qty, price: P[i.id].price, opt: i.opt || undefined })), subtotal: total, discount: disc, total: total - disc,
         town: t.name, zone: t.zone, day: fd.get('day') || null, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
         zip: fd.get('zip'), street: fd.get('street'), note: fd.get('note'), pay: fd.get('pay')
       };
@@ -1339,12 +1365,12 @@
       const day = $('#f-day').value;
       const list = store.get('bg_orders', []).filter((o) => o.day === day && o.status === 'processing');
       const agg = {};
-      list.forEach((o) => o.items.forEach((i) => { agg[i.id] = (agg[i.id] || 0) + i.qty; }));
+      list.forEach((o) => o.items.forEach((i) => { const k = i.id + (i.opt ? '|' + i.opt : ''); agg[k] = (agg[k] || 0) + i.qty; }));
       const byCat = {};
-      Object.keys(agg).forEach((id) => { const p = P[id]; if (!p) return; (byCat[p.cat] = byCat[p.cat] || []).push([p, agg[id]]); });
+      Object.keys(agg).forEach((k) => { const [id, opt] = k.split('|'); const p = P[id]; if (!p) return; (byCat[p.cat] = byCat[p.cat] || []).push([p, agg[k], opt]); });
       $('#pick').innerHTML = BG.categories.filter((c) => byCat[c.id]).map((c) => '<div class="box" style="overflow:hidden"><p class="display" style="font-size:18px;font-weight:500;padding:12px 16px;background:#F8F5EF;margin:0">' + esc(c.name) + '</p>' +
         '<table class="data"><thead><tr><th scope="col">Termék</th><th scope="col">Kiszerelés</th><th scope="col" style="text-align:right">Darab</th><th scope="col" style="text-align:right">Kész</th></tr></thead><tbody>' +
-        byCat[c.id].sort((a, b) => b[1] - a[1]).map(([p, q]) => '<tr><td><strong>' + esc(p.name) + '</strong></td><td class="muted">' + esc(p.pack) + '</td><td style="text-align:right" class="display"><span style="font-size:20px">' + q + '</span></td><td style="text-align:right"><input type="checkbox" aria-label="Összekészítve: ' + esc(p.name) + '" style="width:20px;height:20px"></td></tr>').join('') +
+        byCat[c.id].sort((a, b) => b[1] - a[1]).map(([p, q, opt]) => '<tr><td><strong>' + esc(p.name) + '</strong>' + (opt ? '<br><span class="muted">' + esc(opt) + '</span>' : '') + '</td><td class="muted">' + esc(p.pack) + '</td><td style="text-align:right" class="display"><span style="font-size:20px">' + q + '</span></td><td style="text-align:right"><input type="checkbox" aria-label="Összekészítve: ' + esc(p.name) + '" style="width:20px;height:20px"></td></tr>').join('') +
         '</tbody></table></div>').join('') || '<p class="muted">Erre a napra nincs összekészítendő rendelés.</p>';
       $('#pick-sum').textContent = list.length + ' rendelés · ' + Object.values(agg).reduce((s, q) => s + q, 0) + ' tétel';
     };
