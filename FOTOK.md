@@ -14,32 +14,32 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Kategória | Termék | Fájlnév (1M1A…) | Feldolgozás | Megjegyzés |
 |---|---|---|---|---|
 | Tőkehúsok | Szűzpecsenye (`szuz`) | 9360, 9364 | sötét háttér |  |
-| Tőkehúsok | Csontos karaj (`csontos-karaj`) | 9358, 9370 | sötét háttér | **megerősítendő** |
+| Tőkehúsok | Csontos karaj (`csontos-karaj`) | 9358, 9370 | sötét háttér | Petra, 2026-11-20 (9358, 9367–9372) |
 | Tőkehúsok | Karaj csont nélkül (`karaj-csont-nelkul`) | 9348, 9343 | sötét háttér |  |
 | Tőkehúsok | Tarja csont nélkül (`tarja-csont-nelkul`) | 9322, 9328, 9324 | sötét háttér |  |
 | Tőkehúsok | Csontos tarja (`csontos-tarja`) | 9332, 9335, 9338 | teljes kompozíció | Petra, 2026-11-18 (9332–9339) |
 | Tőkehúsok | Comb (`comb`) | 9315, 9312 | sötét háttér |  |
 | Tőkehúsok | Lapocka (`lapocka`) | 9302, 9306 | sötét háttér |  |
-| Tőkehúsok | Oldalas (`oldalas`) | 9286, 9289 | sötét háttér |  |
+| Tőkehúsok | Oldalas (`oldalas`) | 9298, 9295 | sötét háttér | **megerősítendő** – 2026-11-20-ig dagadóként szerepelt |
 | Tőkehúsok | BBQ oldalas (`bbq-oldalas`) | 9292, 9294 | sötét háttér |  |
-| Tőkehúsok | Dagadó (`dagado`) | 9298, 9295 | sötét háttér | **megerősítendő** |
-| Tőkehúsok | Császárhús (`csaszarhus`) | 9206, 9212 | sötét háttér | **megerősítendő** |
+| Tőkehúsok | Dagadó (`dagado`) | 9286, 9289 | sötét háttér | Petra, 2026-11-20 (9286, 9288, 9289, 9291) – korábban tévesen oldalasként |
+| Tőkehúsok | Császárhús (`csaszarhus`) | 9206, 9212 | sötét háttér | Petra, 2026-11-20 (9206–9215) |
 | Tőkehúsok | Csülök (`csulok`) | 9271, 9267 | sötét háttér |  |
-| Tőkehúsok | Csülök csont nélkül (`csulok-csont-nelkul`) | 9279, 9277 | sötét háttér | **megerősítendő** |
+| Tőkehúsok | Csülök csont nélkül (`csulok-csont-nelkul`) | 9279, 9277 | sötét háttér | Petra, 2026-11-20 (9277–9285) |
 | Tőkehúsok | Darálthús (70% hús) (`daralthus`) | 9245, 9252, 9216 | teljes kompozíció |  |
 | Tőkehúsok | Hamburgerhús (4 × 15 dkg) (`hamburgerhus`) | 9233, 9237 | sötét háttér |  |
 | Tőkehúsok | Tomahawk szelet (`tomahawk`) | 9201, 9196, 9205 | sötét háttér |  |
 | Tőkehúsok | T-bone szelet (`t-bone`) | 9174, 9184 | sötét háttér |  |
 | Tőkehúsok | Mangalica máj (`mangalica-maj`) | 9540, 9544 | sötét háttér |  |
 | Tőkehúsok | Húsos csont (`husos-csont`) | 9261, 9264 | sötét háttér |  |
-| Tőkehúsok | Zsírnakvaló (`zsirnakvalo`) | 9512, 9503, 9507 | sötét háttér |  |
+| Tőkehúsok | Zsírnakvaló (`zsirnakvalo`) | 9503, 9507 | sötét háttér | **megerősítendő** – Petra a 9502–9514 sort a formázott szalonnához adta; a kockák maradtak itt |
 | Tőkehúsok | Kocsonya csomag (`kocsonya-csomag`) | 9464, 9469, 9495 | sötét háttér |  |
 | Tőkehúsok | Köröm (`korom`) | 9457, 9452 | sötét háttér |  |
 | Szalonnák, füstöltek | Sós szalonna (`sos-szalonna`) | 9516, 9520 | sötét háttér |  |
-| Szalonnák, füstöltek | Formázott nyers szalonna (`formazott-nyers-szalonna`) | 9441, 9446 | sötét háttér | **megerősítendő** |
+| Szalonnák, füstöltek | Formázott nyers szalonna (`formazott-nyers-szalonna`) | 9512 | sötét háttér | Petra, 2026-11-20 (9502–9514); a 9441/9446 kikerült |
 | Szalonnák, füstöltek | Kolozsvári szalonna (`kolozsvari-szalonna`) | 9704, 9685 | krémszínű háttér |  |
-| Szalonnák, füstöltek | Füstölt csemege szalonna (`fustolt-csemege-szalonna`) | 9688, 9713 | krémszínű háttér | **megerősítendő** |
-| Szalonnák, füstöltek | Abált szalonna (`abalt-szalonna`) | 9777, 9779 | krémszínű háttér | **megerősítendő** |
+| Szalonnák, füstöltek | Füstölt csemege szalonna (`fustolt-csemege-szalonna`) | 9688, 9713 | krémszínű háttér | Petra, 2026-11-20 (9688, 9689, 9713, 9714) |
+| Szalonnák, füstöltek | Abált szalonna (`abalt-szalonna`) | 9777, 9779 | krémszínű háttér | Petra, 2026-11-20: ok |
 | Szalonnák, füstöltek | Füstölt sonka (`fustolt-sonka`) | 9726, 9729 | krémszínű háttér |  |
 | Szalonnák, füstöltek | Füstölt oldalas / bordaporc (`fustolt-oldalas`) | 9707, 9711 | krémszínű háttér |  |
 | Szalonnák, füstöltek | Angol szalonna, szeletelve (`angol-szalonna`) | 9698, 9700 | krémszínű háttér |  |
@@ -47,13 +47,14 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Kolbászok, szalámik | Füstölt csípős kolbász (`fustolt-csipos-kolbasz`) | 9694, 9695 | krémszínű háttér |  |
 | Kolbászok, szalámik | Füstölt miskolci kolbász (paprikamentes) (`miskolci-kolbasz`) | 9696, 9656 | krémszínű háttér |  |
 | Kolbászok, szalámik | Füstölt csípős snack kolbász (`csipos-snack-kolbasz`) | 9660, 9666, 9663 | krémszínű háttér |  |
-| Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | 9716, 9721 | krémszínű háttér |  |
-| Kolbászok, szalámik | Csípős paprikás szalámi (`csipos-paprikas-szalami`) | 9760, 9764 | krémszínű háttér | **megerősítendő** |
+| Kolbászok, szalámik | Téliszalámi (`teliszalami`) | 9716, 9721 | krémszínű háttér | Petra, 2026-11-20 (9716–9721) – korábban tévesen paprikás szalámiként |
+| Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | – | régi webshopkép | új fotó kérve |
+| Kolbászok, szalámik | Csípős paprikás szalámi (`csipos-paprikas-szalami`) | 9760, 9764 | krémszínű háttér | Petra, 2026-11-20: ok |
 | Kolbászok, szalámik | Mangalica turista (`mangalica-turista`) | 9722, 9725, 9723 | krémszínű háttér | Petra, 2026-11-18 (9722–9725) – korábban tévesen téliszalámiként |
-| Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9820, 9817 | krémszínű háttér |  |
+| Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9820 | krémszínű háttér | Petra, 2026-11-20 (9820, 9821); a vegyes 9817 kikerült |
 | Kolbászok, szalámik | Gesztelyi páros (`gesztelyi-paros`) | 9822, 9827 | krémszínű háttér |  |
-| Kolbászok, szalámik | Grillkolbász (magyaros) (`grillkolbasz-magyaros`) | 9813, 9817 | krémszínű háttér | **megerősítendő** |
-| Kolbászok, szalámik | Debreceni páros (`debreceni-paros`) | 9797, 9799 | krémszínű háttér | **megerősítendő** |
+| Kolbászok, szalámik | Grillkolbász (magyaros) (`grillkolbasz-magyaros`) | 9813 | krémszínű háttér | Petra, 2026-11-20 (9813, 9814); a vegyes 9817 kikerült |
+| Kolbászok, szalámik | Debreceni páros (`debreceni-paros`) | 9797, 9799 | krémszínű háttér | Petra, 2026-11-20 (9797, 9799, 9800) |
 | Felvágottak, kenhetők | Párizsi (`parizsi`) | 9613 | krémszínű háttér |  |
 | Felvágottak, kenhetők | Uzsonnasonka (`uzsonnasonka`) | 9620, 9619, 9622 | krémszínű háttér | Petra, 2026-11-18 (9616–9620); a vörös burkú, sonkadarabos felvágott – korábban tévesen chilis párizsiként |
 | Felvágottak, kenhetők | Füstölt párizsi (`fustolt-parizsi`) | 9601, 9610, 9600 | krémszínű háttér |  |
@@ -69,12 +70,13 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Hagyományos | Sütőkolbász (`sutokolbasz`) | 9793, 9809 | krémszínű háttér |  |
 | Hagyományos | Tepertő (`teperto`) | 9628 | krémszínű háttér |  |
 | Hagyományos | Rakott fej (`rakott-fej`) | 9648, 9650 | krémszínű háttér |  |
-| Hagyományos | Csülöksajt (`csuloksajt`) | 9643, 9646 | krémszínű háttér | **megerősítendő** |
+| Hagyományos | Csülöksajt (`csuloksajt`) | 9643, 9646 | krémszínű háttér | Petra, 2026-11-20: ok |
 | Hagyományos | Tépett hús (`tepett-hus`) | 9736, 9734 | krémszínű háttér |  |
-| Ajándékok | Mangalica Ízelítő ajándékcsomag (`mangalica-izelito`) | 9416, 9403, 9409 | teljes kompozíció |  |
+| Ajándékok | Mangalica ajándékdoboz, 10 féle (`ajandekdoboz-10`) | 9416, 9403, 9409 | teljes kompozíció | fehér papír doboz, zöld szalag (Attila kreatívja szerint); korábban „Mangalica Ízelítő” |
 | Ajándékok | Hagyomány Ízei ajándékcsomag (`hagyomany-izei`) | 9586, 9596, 9581 | teljes kompozíció |  |
-| Ajándékok | Ajándékdoboz, 10 féle termékkel (`ajandekdoboz-10`) | 9430, 9429, 9431 | teljes kompozíció | Petra, 2026-11-18 (9429–9431) |
-| Ajándékok | Ajándékdoboz, 12 féle termékkel (`ajandekdoboz-12`, korábban kosár) | 9435, 9432, 9433 | teljes kompozíció | Petra, 2026-11-18 (9432–9435) |
+| Ajándékok | Mangalica Örökség, fa díszdoboz (`mangalica-orokseg`) | 9430, 9429, 9431 | teljes kompozíció | ugyanez a beállítás Attila „Mangalica Örökség” kreatívján |
+| Ajándékok | Nagy ajándékdoboz, 14 féle (`ajandekdoboz-nagy`) | 9435, 9432, 9433 | teljes kompozíció | ugyanez a beállítás Attila „Nagy ajándékdoboz” kreatívján |
+| Ajándékok | Ajándékkártya 5 000 / 10 000 / 20 000 Ft (`ajandekkartya-*`) | – | grafika | Petra, 2026-11-20 (ajandek utalvany_WEB_*.jpg, 1200 px) |
 
 ## Megerősítendő azonosítások
 
@@ -153,3 +155,19 @@ A mappában még: további telep- és feldolgozófotók (érlelő, füstölő, d
 fialás (001_KÖZZÉTÉVE_0804_biogoods_fialas_v2 → fialas.mp4), felnevelés (004_biogoods_takarmanyozas_v2 → takarmanyozas.mp4), feldolgozás (telephely_beutato_v3 → telephely-bemutato.mp4, 1280×720), kiszállítás (kiszallitas.mp4).
 
 A felhasználatlan videók (mangalica_vad, Újcsanálos 002, 003, 005–008, Gajdos 02/04/05/06) a mappában maradtak. A „Mangalicaragu” receptnél nincs ragus videó, ott továbbra is helykitöltő áll.
+
+## 2026-11-20 – Petra visszajelzései és a karácsonyi kínálat véglegesítése
+
+Források: „Re: hiányzó termékek folyt.” (Petra, 11-20), „Fwd: Termékfotózás” (Petra válasza Kálmán Attila kreatívjaira, 11-20), „Ajándékutalványok” (11-20).
+
+- **Fotócserék:** dagadó ↔ oldalas, a 9716–9721 téliszalámi (nem paprikás szalámi), a formázott nyers szalonna fő képe a 9512, a grillkolbászoknál kikerült a vegyes 9817. A táblázat fent frissítve.
+- **Karácsonyi kínálat (Petra, 11-20):**
+  - Mangalica ajándékdoboz – 10 termék, 15 000 Ft, a mostani honlap szerinti tartalommal (fehér papír doboz).
+  - Hagyomány Ízei – 12 termék, 34 000 Ft (a korábbi „Mangalica Ízelítő” kreatív helyett); tartalom: 1 kg zsír, füstölt hátsó csülök, csemege, miskolci, csípős és aszalt szilvás–fahéjas kolbász (1-1 pár), kis rilette, dobozos tepertő, kb. 0,5 kg kolozsvári, 0,6 kg csemege szalonna, snack kolbász.
+  - Mangalica Örökség – 10 termék, 32 000 Ft, fa díszdoboz. A tartalmat a régi „Ajándékdoboz KICSI” (szintén 10 féle, 32 000 Ft) listájából vettem át – **megerősítendő**.
+  - Nagy ajándékdoboz – 14 termék, 49 000 Ft, fa díszdoboz (= régi „Ajándékdoboz NAGY”).
+  - Kikerült: Mangalica Ízelítő (8 990 Ft), a 10-i lista szerinti Hagyomány Ízei (14 990 Ft), Ajándékdoboz 12 féle (22 000 Ft), Ajándékdoboz KICSI.
+- **Zsír:** 0,5 kg 1 300 Ft, 1 kg 2 500 Ft – adatként bent van (`zsir-05kg`), de önálló termékfotó híján rejtve.
+- **Ajándékkártya:** a 3 címlet a Petra által küldött WEB-grafikával látszik, a kártya feltételeivel (készpénzre nem váltható, egyszer használható fel).
+- **Még rejtve:** Frédi szelet, bőségtál, nyelves felvágott, zsírok. Régi képpel: paprikás szalámi, chilis párizsi.
+- **Kampányanyag, nem webshopkép:** főtt-füstölt tarja „Új termék hamarosan” teaser (Szűcs Csaba, 11-20) – a termék még nincs a katalógusban; ajándékutalvány FB-poszt.

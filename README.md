@@ -36,6 +36,13 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 - **Karácsonyi csomagok:** Mangalica Ízelítő, Hagyomány Ízei, Mangalica Örökség (Petra listája szerinti tartalom és ár), a főoldali ajándéksávban is.
 - **Rejtett termékek:** a 11 termék, amelyről nincs fotó (2026-11-18 este), egyelőre nem látszik az oldalon (`BG.hidden` a `data.js` végén). A blokk a kapcsolódó ajánlókat, recepteket, a változatválasztót és az Uzsonnacsomag alkalmat is rendbe teszi. Visszakapcsolás: törölni az azonosítót a listából.
 
+## Ügyfél-visszajelzések átvezetése (2026-11-20)
+
+- Karácsonyi kínálat Petra 11-20-i levele szerint: Mangalica ajándékdoboz (10 termék, 15 000 Ft), Hagyomány Ízei (12 termék, 34 000 Ft), Mangalica Örökség (fa doboz, 10 termék, 32 000 Ft), Nagy ajándékdoboz (fa doboz, 14 termék, 49 000 Ft). A fotók Kálmán Attila kreatívjai alapján párosítva.
+- Ajándékkártyák láthatók (5 000 / 10 000 / 20 000 Ft), az ügyfél grafikájával.
+- Fotójavítások Petra azonosításai alapján (dagadó ↔ oldalas, téliszalámi, formázott szalonna, grillkolbászok) – részletek: [FOTOK.md](FOTOK.md).
+- Első partnerlogó a főoldali referenciafalon: The Club Avalon (hozzájárulás: Avalon Park Kft., 2026-11-18).
+
 ## Futtatás
 
 Nincs build lépés, sima HTML/CSS/JS.

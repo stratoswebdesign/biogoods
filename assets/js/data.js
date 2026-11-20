@@ -19,7 +19,7 @@ BG.categories = [
     intro: 'Párizsi, virsli, uzsonnasonka, kenőmájas, tepertőkrém és rilette – reggelire, uzsonnára, hidegtálra.' },
   { id: 'hagyomanyos', hero: true, heroAlt: 'Hurka és sütőkolbász a régi piaci mérleg előtt', detailAlt: 'Rakott fej metszéslapja', name: 'Hagyományos', sub: 'Hurka, sütőkolbász, zsír, tepertő', img: 'hurka',
     intro: 'Hurka, sütőkolbász, mangalicazsír, tepertő, rakott fej és csülöksajt – a disznótoros ízek egész évben.' },
-  { id: 'ajandek', hero: true, heroAlt: 'Bio-Goods ajándékdoboz fa dobozban, ünnepi tálalásban', detailAlt: 'Mangalica Ízelítő papír díszdobozban, zöld szalaggal', name: 'Ajándékok', sub: 'Dobozok, bőségtál, ajándékkártya', img: 'ajandekdoboz-10',
+  { id: 'ajandek', hero: true, heroAlt: 'Bio-Goods ajándékdoboz fa dobozban, ünnepi tálalásban', detailAlt: 'Mangalica ajándékdoboz papír díszdobozban, zöld szalaggal', name: 'Ajándékok', sub: 'Dobozok, bőségtál, ajándékkártya', img: 'ajandekdoboz-10',
     intro: 'Összeállított ajándékdobozok, karácsonyi csomagok, bőségtál és ajándékkártya – karácsonyra, céges ajándéknak.' }
 ];
 
@@ -110,6 +110,7 @@ BG.occasions = [
   p('hurka', 'Hurka', 'hagyomanyos', ['disznotoros'], '1 kg', 3990, 3990, { ingr: 'Főtt máj, fej, belsőség, rizs, vöröshagyma, étkezési só, majoránna, őrölt bors, fűszerpaprika, kömény' });
   p('sutokolbasz', 'Sütőkolbász', 'hagyomanyos', ['disznotoros'], '1 kg', 4800, 4800, { ingr: 'Mangalica hús, mangalica szalonna, fűszerpaprika, nitrites só, fokhagyma, bors, kömény', allergen: 'nitrit' });
   p('teperto', 'Tepertő', 'hagyomanyos', ['disznotoros'], '100 g', 870, 8700, { ingr: 'Mangalica szalonna, étkezési só' });
+  p('zsir-05kg', 'Mangalicazsír, 0,5 kg', 'hagyomanyos', ['disznotoros'], '500 g', 1300, 2600, { ingr: 'Mangalica zsírszalonna, étkezési só' });
   p('zsir-1kg', 'Mangalicazsír', 'hagyomanyos', ['disznotoros'], '1 kg', 2500, 2500, { ingr: 'Mangalica zsírszalonna, étkezési só' });
   p('zsir-5kg', 'Mangalicazsír, 5 kg', 'hagyomanyos', ['disznotoros'], '5 kg', 10000, 2000, { ingr: 'Mangalica zsírszalonna, étkezési só' });
   p('rakott-fej', 'Rakott fej', 'hagyomanyos', ['disznotoros'], '100 g', 520, 5200, { ingr: 'Mangalica fejhús, abált lé, fokhagyma, fűszerpaprika, étkezési só, őrölt bors, őrölt kömény' });
@@ -117,18 +118,17 @@ BG.occasions = [
   p('tepett-hus', 'Tépett hús', 'hagyomanyos', ['kerti-parti'], '500 g', 3350, 6700, { ingr: 'Mangalica hús, mangalica zsír, étkezési só, worcestershire-szósz, szójaszósz, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, koriander, római kömény, ketchup, oregánó, majoránna, vöröshagyma, cukor, mustár', allergen: 'mustár, szója' });
 
   /* Ajándékok */
-  /* Karácsonyi ajándékcsomagok 2026 – tartalom és fogyasztói ár: Petra listája (Karácsonyi ajándékcsomagok_bgmangalica.docx, 2026-11-10). Fotó: 2026-11-17. */
-  p('mangalica-izelito', 'Mangalica Ízelítő ajándékcsomag', 'ajandek', [], 'papír díszdobozban', 8990, null, { tag: 'Karácsony', ingr: 'Fokhagymás rilette (dobozos), tepertőkrém (dobozos), füstölt kolbász (20 dkg), kolozsvári szalonna (20 dkg), kenőmájas', desc: 'Öt kedvenc egy dobozban: rilette, tepertőkrém, füstölt kolbász, kolozsvári szalonna és kenőmájas, a fekete-arany Bio-Goods csomagolásban.' });
-  p('hagyomany-izei', 'Hagyomány Ízei ajándékcsomag', 'ajandek', [], 'papír dobozban', 14990, null, { tag: 'Karácsony', ingr: 'Fokhagymás rilette (dobozos), tepertőkrém (dobozos), füstölt kolbász (20 dkg), kolozsvári szalonna (20 dkg), kenőmájas, szeletelt téliszalámi, szeletelt füstölt sonka', desc: 'Az Ízelítő tartalma szeletelt téliszalámival és füstölt sonkával kiegészítve.' });
-  p('mangalica-orokseg', 'Mangalica Örökség ajándékcsomag', 'ajandek', [], 'fa díszdobozban', 24990, null, { tag: 'Karácsony', ingr: 'Fokhagymás rilette (dobozos), tepertőkrém (dobozos), füstölt kolbász (20 dkg), szalonnaválogatás (abált, füstölt és angol, 20-20-20 dkg), szeletelt füstölt tarja, szeletelt füstölt sonka, kenőmájas, szeletelt téliszalámi', desc: 'A legbővebb válogatás fa díszdobozban: szalonnatrió, szeletelt tarja, sonka és téliszalámi a krémek mellé.' });
-  p('ajandekdoboz-10', 'Ajándékdoboz (10 féle termékkel)', 'ajandek', [], '1 doboz', 15000, null, { ingr: '1 csomag csemege snack kolbász, 1 csomag csípős snack kolbász, 0,5 kg zsír, 25 dkg rilette, 25 dkg kenőmájas, 20 dkg kolozsvári szalonna, 20 dkg parasztmájas, 2 pár virsli, 10 dkg füstölt sonka, 1 doboz tepertőkrém' });
-  p('ajandekdoboz-12', 'Ajándékdoboz (12 féle termékkel)', 'ajandek', [], '1 doboz', 22000, null, { ingr: '0,5 kg zsír, 1 db tömlős májas, 20 dkg angol szalonna, 1 csomag csemege snack, 20 dkg füstölt sonka, 25 dkg kolozsvári, 25 dkg fokhagymás rilette, 25 dkg chilis rilette, 10 dkg tepertő, 30 dkg abált szalonna, 1 db tömlős szilvás májas, 20 dkg parasztmájas' });
-  p('ajandekdoboz-kicsi', 'Ajándékdoboz KICSI', 'ajandek', [], '10 féle termék', 32000, null, { ingr: '1 db tömlős májas, 1 doboz rilette (25 dkg), 1 doboz tepertőkrém (25 dkg), 30 dkg abált szalonna, 1 pár csípős kolbász, 1 pár csemege kolbász, 20 dkg kolozsvári szalonna, 10 dkg füstölt sonka szelet, 0,5 kg virsli, 25 dkg parasztmájas, 20 dkg paprikás szalámi szelet' });
-  p('ajandekdoboz-nagy', 'Ajándékdoboz NAGY', 'ajandek', [], '14 féle termék', 49000, null, { ingr: '1 db tömlős májas, 1 doboz rilette (25 dkg), 1 pár csípős kolbász, 1 pár csemege kolbász, 1 pár miskolci kolbász, 30 dkg kolozsvári szalonna, 30 dkg csemege szalonna, 30 dkg abált szalonna, 30 dkg füstölt sonka szelet, 20 dkg téliszalámi szelet, 20 dkg paprikás szalámi szelet, 2 × 0,5 kg virsli (sima és füstölt), 30 dkg párizsi szelet, 30 dkg uzsonnasonka szelet' });
+  /* Karácsonyi ajándékcsomagok 2026 – Petra 2026-11-20-i levele (Kálmán Attila kreatívjaihoz): név, ár, termékszám.
+     Fotó: 2026-11-17. A korábbi „Mangalica Ízelítő” neve Hagyomány Ízei lett; az Ajándékdoboz KICSI (32 000 Ft, 10 féle) = Mangalica Örökség,
+     az Ajándékdoboz NAGY (49 000 Ft, 14 féle) = Nagy ajándékdoboz. A 12 termékes ajándékdoboz (22 000 Ft) kikerült. */
+  p('ajandekdoboz-10', 'Mangalica ajándékdoboz (10 féle termékkel)', 'ajandek', [], 'papír díszdobozban', 15000, null, { tag: 'Karácsony', ingr: '1 csomag csemege snack kolbász, 1 csomag csípős snack kolbász, 0,5 kg zsír, 25 dkg rilette, 25 dkg kenőmájas, 20 dkg kolozsvári szalonna, 20 dkg parasztmájas, 2 pár virsli, 10 dkg füstölt sonka, 1 doboz tepertőkrém', desc: 'Tíz kedvencünk fehér papír díszdobozban, zöld szalaggal: krémek, kolbász, szalonna és virsli – kézbe adható ajándék.' });
+  p('hagyomany-izei', 'Hagyomány Ízei ajándékcsomag', 'ajandek', [], 'papír tasakban, 12 termék', 34000, null, { tag: 'Karácsony', ingr: '1 kg zsír, 1 db füstölt hátsó csülök, 1 pár csemege kolbász, 1 pár miskolci kolbász, 1 pár csípős kolbász, 1 pár aszalt szilvás–fahéjas kolbász, 1 kis doboz rilette, 1 doboz tepertő, kb. 0,5 kg kolozsvári szalonna, 0,6 kg csemege szalonna, 1 csomag snack kolbász', desc: 'A disznótoros asztal klasszikusai egy fekete Bio-Goods tasakban: füstölt csülök, négyféle kolbász, kétféle szalonna, zsír és tepertő.' });
+  p('mangalica-orokseg', 'Mangalica Örökség ajándékcsomag', 'ajandek', [], 'fa díszdobozban, 10 termék', 32000, null, { tag: 'Karácsony', ingr: '1 db tömlős májas, 1 doboz rilette (25 dkg), 1 doboz tepertőkrém (25 dkg), 30 dkg abált szalonna, 1 pár csípős kolbász, 1 pár csemege kolbász, 20 dkg kolozsvári szalonna, 10 dkg füstölt sonka szelet, 0,5 kg virsli, 25 dkg parasztmájas, 20 dkg paprikás szalámi szelet', desc: 'Gravírozott fa díszdobozban, piros szalaggal: krémek, szalonnák, kolbászok és szeletelt felvágottak – a doboz az ünnepek után is megmarad.' });
+  p('ajandekdoboz-nagy', 'Nagy ajándékdoboz', 'ajandek', [], 'fa díszdobozban, 14 termék', 49000, null, { tag: 'Karácsony', ingr: '1 db tömlős májas, 1 doboz rilette (25 dkg), 1 pár csípős kolbász, 1 pár csemege kolbász, 1 pár miskolci kolbász, 30 dkg kolozsvári szalonna, 30 dkg csemege szalonna, 30 dkg abált szalonna, 30 dkg füstölt sonka szelet, 20 dkg téliszalámi szelet, 20 dkg paprikás szalámi szelet, 2 × 0,5 kg virsli (sima és füstölt), 30 dkg párizsi szelet, 30 dkg uzsonnasonka szelet', desc: 'A legbővebb válogatásunk: 14 vákuumcsomagolt termék gravírozott fa díszdobozban – családi ünnepre, céges köszönetnek.' });
   p('bosegtal', 'Bőségtál', 'ajandek', [], '2,2 kg', 25990, null, { ingr: 'Kenőmájas, tepertőkrém, miskolci kolbász, füstölt csemege kolbász, tepertő, füstölt sonka' });
-  p('ajandekkartya-5000', 'Ajándékkártya 5 000 Ft', 'ajandek', [], '1 db', 5000, null, { ingr: '5 000 Ft értékben levásárolható', giftcard: true });
-  p('ajandekkartya-10000', 'Ajándékkártya 10 000 Ft', 'ajandek', [], '1 db', 10000, null, { ingr: '10 000 Ft értékben levásárolható', giftcard: true });
-  p('ajandekkartya-20000', 'Ajándékkártya 20 000 Ft', 'ajandek', [], '1 db', 20000, null, { ingr: '20 000 Ft értékben levásárolható', giftcard: true });
+  p('ajandekkartya-5000', 'Ajándékkártya 5 000 Ft', 'ajandek', [], '1 db', 5000, null, { ingr: '5 000 Ft értékben levásárolható', giftcard: true, desc: 'A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá.' });
+  p('ajandekkartya-10000', 'Ajándékkártya 10 000 Ft', 'ajandek', [], '1 db', 10000, null, { ingr: '10 000 Ft értékben levásárolható', giftcard: true, desc: 'A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá.' });
+  p('ajandekkartya-20000', 'Ajándékkártya 20 000 Ft', 'ajandek', [], '1 db', 20000, null, { ingr: '20 000 Ft értékben levásárolható', giftcard: true, desc: 'A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá.' });
 
   BG.products = L;
 })();
@@ -158,8 +158,9 @@ BG.pairByProduct = {
   'parizsi': ['uzsonnasonka', 'virsli', 'tepertokrem', 'parasztmajas'],
   'virsli': ['fustolt-virsli', 'parizsi', 'uzsonnasonka', 'debreceni-paros'],
   'tepertokrem': ['teperto', 'kolozsvari-szalonna', 'parasztmajas', 'fokhagymas-rilette'],
-  'ajandekdoboz-10': ['ajandekkartya-5000', 'bosegtal', 'ajandekdoboz-12', 'fustolt-csemege-kolbasz'],
-  'ajandekdoboz-12': ['ajandekkartya-10000', 'bosegtal', 'ajandekdoboz-10', 'teliszalami']
+  'ajandekdoboz-10': ['ajandekkartya-5000', 'hagyomany-izei', 'mangalica-orokseg', 'fustolt-csemege-kolbasz'],
+  'mangalica-orokseg': ['ajandekdoboz-nagy', 'ajandekkartya-10000', 'ajandekdoboz-10', 'teliszalami'],
+  'ajandekdoboz-nagy': ['mangalica-orokseg', 'ajandekkartya-20000', 'hagyomany-izei', 'teliszalami']
 };
 
 /* Ugyanaz a termék nagyobb kiszerelésben, jobb kilóárral – csak valódi párok */
@@ -170,7 +171,7 @@ BG.whiteImg = ['abalt-szalonna','ajandekdoboz-10','ajandekdoboz-kicsi','ajandekd
 
 /* Saját termékfotók – Kálmán Attila, 2026-11-17 (assets/img/foto/termek/, 1200×1200).
    Érték = képek száma: <id>.jpg a fő kép, <id>-2.jpg, <id>-3.jpg a galéria. Ahol nincs új fotó, marad a régi kép. */
-BG.photos = { 'teliszalami': 1, 'chilis-parizsi': 1, 'abalt-szalonna': 2, 'angol-szalonna': 2, 'bbq-oldalas': 2, 'chilis-rilette': 2, 'comb': 2, 'csaszarhus': 2, 'csipos-paprikas-szalami': 2, 'csipos-snack-kolbasz': 3, 'csontos-karaj': 2, 'csulok': 2, 'csulok-csont-nelkul': 2, 'csuloksajt': 2, 'dagado': 2, 'daralthus': 3, 'debreceni-paros': 2, 'dobozos-kenomajas': 2, 'fokhagymas-rilette': 2, 'formazott-nyers-szalonna': 2, 'fustolt-csemege-kolbasz': 2, 'fustolt-csemege-szalonna': 2, 'fustolt-csipos-kolbasz': 2, 'fustolt-oldalas': 2, 'fustolt-parizsi': 3, 'fustolt-sonka': 2, 'fustolt-virsli': 2, 'gesztelyi-paros': 2, 'grillkolbasz-bajor': 2, 'grillkolbasz-magyaros': 2, 'hagyomany-izei': 3, 'hamburgerhus': 2, 'hurka': 3, 'husos-csont': 2, 'karaj-csont-nelkul': 2, 'kocsonya-csomag': 3, 'kolozsvari-szalonna': 2, 'korom': 2, 'lapocka': 2, 'mangalica-izelito': 3, 'mangalica-maj': 2, 'miskolci-kolbasz': 2, 'oldalas': 2, 'paprikas-szalami': 2, 'parasztmajas': 2, 'parizsi': 1, 'rakott-fej': 2, 'sos-szalonna': 2, 'sutokolbasz': 2, 'szuz': 2, 't-bone': 2, 'tarja-csont-nelkul': 3, 'teperto': 1, 'tepertokrem': 1, 'tepett-hus': 2, 'tomahawk': 3, 'tomlos-kenomajas': 2, 'virsli': 2, 'zsirnakvalo': 3, 'csontos-tarja': 3, 'mangalica-turista': 3, 'uzsonnasonka': 3, 'ajandekdoboz-10': 3, 'ajandekdoboz-12': 3 };
+BG.photos = { 'teliszalami': 2, 'chilis-parizsi': 1, 'abalt-szalonna': 2, 'angol-szalonna': 2, 'bbq-oldalas': 2, 'chilis-rilette': 2, 'comb': 2, 'csaszarhus': 2, 'csipos-paprikas-szalami': 2, 'csipos-snack-kolbasz': 3, 'csontos-karaj': 2, 'csulok': 2, 'csulok-csont-nelkul': 2, 'csuloksajt': 2, 'dagado': 2, 'daralthus': 3, 'debreceni-paros': 2, 'dobozos-kenomajas': 2, 'fokhagymas-rilette': 2, 'formazott-nyers-szalonna': 1, 'fustolt-csemege-kolbasz': 2, 'fustolt-csemege-szalonna': 2, 'fustolt-csipos-kolbasz': 2, 'fustolt-oldalas': 2, 'fustolt-parizsi': 3, 'fustolt-sonka': 2, 'fustolt-virsli': 2, 'gesztelyi-paros': 2, 'grillkolbasz-bajor': 1, 'grillkolbasz-magyaros': 1, 'hagyomany-izei': 3, 'hamburgerhus': 2, 'hurka': 3, 'husos-csont': 2, 'karaj-csont-nelkul': 2, 'kocsonya-csomag': 3, 'kolozsvari-szalonna': 2, 'korom': 2, 'lapocka': 2, 'mangalica-maj': 2, 'miskolci-kolbasz': 2, 'oldalas': 2, 'parasztmajas': 2, 'parizsi': 1, 'rakott-fej': 2, 'sos-szalonna': 2, 'sutokolbasz': 2, 'szuz': 2, 't-bone': 2, 'tarja-csont-nelkul': 3, 'teperto': 1, 'tepertokrem': 1, 'tepett-hus': 2, 'tomahawk': 3, 'tomlos-kenomajas': 2, 'virsli': 2, 'zsirnakvalo': 2, 'csontos-tarja': 3, 'mangalica-turista': 3, 'uzsonnasonka': 3, 'ajandekdoboz-10': 3, 'mangalica-orokseg': 3, 'ajandekdoboz-nagy': 3, 'ajandekkartya-5000': 1, 'ajandekkartya-10000': 1, 'ajandekkartya-20000': 1 };
 
 /* Videók (assets/video/, 720×1280, H.264) – az ügyfél „02 Ügyféltől érkezett” mappájából. [fájlnév, felirat] */
 BG.videos = {
@@ -365,13 +366,11 @@ BG.adatlap = {"szuz": {"ossz": "Mangalica szűz","csom": "vákuumfólia","tar": 
    Nincs róluk új fotó a 2026-11-17-i fotózásból, ezért egyelőre nem jelennek meg az oldalon
    (lista, keresés, ajánlók, receptek bevásárlólistája, főoldal). Visszakapcsolás: töröld az azonosítót a listából. */
 BG.hidden = [
-  // 2026-11-18: Petra szerint a fa dobozos fotók a 10 és 12 termékes ajándékdobozt mutatják – a Mangalica Örökség csomagról nincs kép.
-  // (A téliszalámi és a chilis párizsi új fotó híján a régi webshopképpel látszik.)
-  'mangalica-orokseg',
-  'fredi-szelet', 'nyelves-felvagott',
-  'zsir-1kg', 'zsir-5kg',
-  'ajandekdoboz-kicsi', 'ajandekdoboz-nagy', 'bosegtal',
-  'ajandekkartya-5000', 'ajandekkartya-10000', 'ajandekkartya-20000'
+  // 2026-11-20: Petra azonosításai után. A paprikás szalámi új fotója hiányzik (a 9716–9721 téliszalámi), ezért a régi webshopképpel látszik.
+  // A téliszalámi és a chilis párizsi: a téliszalámi új fotót kapott, a chilis párizsi még régi képpel látszik (Petra küldi).
+  'fredi-szelet', 'nyelves-felvagott', 'bosegtal',
+  // zsír: árak frissítve (0,5 kg 1 300 Ft, 1 kg 2 500 Ft), de önálló termékfotó nincs
+  'zsir-05kg', 'zsir-1kg', 'zsir-5kg'
 ];
 (function () {
   const H = new Set(BG.hidden);
@@ -390,7 +389,7 @@ BG.hidden = [
   BG.categories.forEach((c) => { if (swapImg[c.img]) c.img = swapImg[c.img]; });
   // amíg a bőségtál és az ajándékkártya nincs fent, az Ajándékok leírása ne ígérje őket
   const gift = BG.categories.find((c) => c.id === 'ajandek');
-  if (gift && H.has('bosegtal')) { gift.sub = 'Ajándékdobozok, karácsonyi csomagok'; gift.intro = 'Karácsonyi csomagok és összeállított ajándékdobozok a kedvenceinkből – ajándéknak, céges köszönetnek.'; }
+  if (gift && H.has('bosegtal')) { gift.sub = 'Ajándékdobozok, karácsonyi csomagok, ajándékkártya'; gift.intro = 'Karácsonyi csomagok, ajándékdobozok a kedvenceinkből és ajándékkártya – ajándéknak, céges köszönetnek.'; }
 })();
 
 // a termékadatlap összetevői / allergénjei legyenek a termék keresőben és szűrőben használt mezői is
