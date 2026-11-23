@@ -20,7 +20,7 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Tőkehúsok | Csontos tarja (`csontos-tarja`) | 9332, 9335, 9338 | teljes kompozíció | Petra, 2026-11-18 (9332–9339) |
 | Tőkehúsok | Comb (`comb`) | 9315, 9312 | sötét háttér |  |
 | Tőkehúsok | Lapocka (`lapocka`) | 9302, 9306 | sötét háttér |  |
-| Tőkehúsok | Oldalas (`oldalas`) | 9298, 9295 | sötét háttér | **megerősítendő** – 2026-11-20-ig dagadóként szerepelt |
+| Tőkehúsok | Oldalas (`oldalas`) | 9298, 9295, 9299 | sötét háttér | Petra, 2026-11-23: ok, a 9299 és 9300 is oldalas (a 9300 a 9299 álló változata, nincs felhasználva) |
 | Tőkehúsok | BBQ oldalas (`bbq-oldalas`) | 9292, 9294 | sötét háttér |  |
 | Tőkehúsok | Dagadó (`dagado`) | 9286, 9289 | sötét háttér | Petra, 2026-11-20 (9286, 9288, 9289, 9291) – korábban tévesen oldalasként |
 | Tőkehúsok | Császárhús (`csaszarhus`) | 9206, 9212 | sötét háttér | Petra, 2026-11-20 (9206–9215) |
@@ -32,7 +32,7 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Tőkehúsok | T-bone szelet (`t-bone`) | 9174, 9184 | sötét háttér |  |
 | Tőkehúsok | Mangalica máj (`mangalica-maj`) | 9540, 9544 | sötét háttér |  |
 | Tőkehúsok | Húsos csont (`husos-csont`) | 9261, 9264 | sötét háttér |  |
-| Tőkehúsok | Zsírnakvaló (`zsirnakvalo`) | 9503, 9507 | sötét háttér | **megerősítendő** – Petra a 9502–9514 sort a formázott szalonnához adta; a kockák maradtak itt |
+| Tőkehúsok | Zsírnakvaló (`zsirnakvalo`) | 9503, 9507 | sötét háttér | Petra, 2026-11-23: a felkockázott képek a „bőr nélkül, kockázva” kivitelhez tartoznak |
 | Tőkehúsok | Kocsonya csomag (`kocsonya-csomag`) | 9464, 9469, 9495 | sötét háttér |  |
 | Tőkehúsok | Köröm (`korom`) | 9457, 9452 | sötét háttér |  |
 | Szalonnák, füstöltek | Sós szalonna (`sos-szalonna`) | 9516, 9520 | sötét háttér |  |
@@ -48,7 +48,7 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 | Kolbászok, szalámik | Füstölt miskolci kolbász (paprikamentes) (`miskolci-kolbasz`) | 9696, 9656 | krémszínű háttér |  |
 | Kolbászok, szalámik | Füstölt csípős snack kolbász (`csipos-snack-kolbasz`) | 9660, 9666, 9663 | krémszínű háttér |  |
 | Kolbászok, szalámik | Téliszalámi (`teliszalami`) | 9716, 9721 | krémszínű háttér | Petra, 2026-11-20 (9716–9721) – korábban tévesen paprikás szalámiként |
-| Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | – | régi webshopkép | új fotó kérve |
+| Kolbászok, szalámik | Paprikás szalámi (`paprikas-szalami`) | – | régi webshopkép | Petra, 2026-11-23: nem fotózták, marad a régi webshopkép |
 | Kolbászok, szalámik | Csípős paprikás szalámi (`csipos-paprikas-szalami`) | 9760, 9764 | krémszínű háttér | Petra, 2026-11-20: ok |
 | Kolbászok, szalámik | Mangalica turista (`mangalica-turista`) | 9722, 9725, 9723 | krémszínű háttér | Petra, 2026-11-18 (9722–9725) – korábban tévesen téliszalámiként |
 | Kolbászok, szalámik | Grillkolbász (bajor jellegű) (`grillkolbasz-bajor`) | 9820 | krémszínű háttér | Petra, 2026-11-20 (9820, 9821); a vegyes 9817 kikerült |
@@ -171,3 +171,16 @@ Források: „Re: hiányzó termékek folyt.” (Petra, 11-20), „Fwd: Termékf
 - **Ajándékkártya:** a 3 címlet a Petra által küldött WEB-grafikával látszik, a kártya feltételeivel (készpénzre nem váltható, egyszer használható fel).
 - **Még rejtve:** Frédi szelet, bőségtál, nyelves felvágott, zsírok. Régi képpel: paprikás szalámi, chilis párizsi.
 - **Kampányanyag, nem webshopkép:** főtt-füstölt tarja „Új termék hamarosan” teaser (Szűcs Csaba, 11-20) – a termék még nincs a katalógusban; ajándékutalvány FB-poszt.
+
+## 2026-11-23 – Petra megerősítései
+
+Forrás: „Re: hiányzó termékek folyt.” (Petra, 11-23).
+
+- **Paprikás szalámi:** nincs róla új fotó, a régi webshopkép marad.
+- **Oldalas:** a 9295/9298 megerősítve, galériába került a 9299 is (`oldalas-3.jpg`, sötét háttér).
+- **Zsírnakvaló:** a felkockázott képek (9503, 9507) a „bőr nélkül, kockázva” kivitelt mutatják – megerősítve.
+- **Mangalica Örökség:** 11 termék (a KICSI 11 tételes listája), a kreatív/poszt „10 termék” felirata hibás. Kiszerelés: „fa díszdobozban, 11 termék”.
+- **Hagyomány Ízei:** a 12. tétel a tömlős májkrém (aranyszínű tömlőben).
+- **Mangalicazsír 5 kg:** Petra kérésére AI-val készült kép (vödör „Sült mangalica zsír · Bio-Goods · 5 kg” címkével, bézs háttér, fokhagyma és bors) – `foto/termek/zsir-5kg.jpg`, Artúr adta 2026-11-23. Nem valódi termékfotó: a címke nem a tényleges csomagolás, Attila fotójával cserélendő. A 0,5 és 1 kg fotóját Attila készíti, addig rejtve.
+- **Főtt-füstölt tarja (`fott-fustolt-tarja`):** 9 800 Ft/kg, 100 g-tól a kért mennyiségben, szeletelve vagy egészben; összetevők: mangalica tarja, ivóvíz, étkezési só, fokhagyma. Felvéve, de **rejtve** – a „rendelhető” hirdetéssel együtt élesítjük. Fotó még nincs (a 9743–9745 csomagolt, szeletelt tarja lehet ez – Petrával egyeztetendő). Tárolási adat még nincs.
+- **Még rejtve:** Frédi szelet, bőségtál, nyelves felvágott, zsír 0,5 és 1 kg, főtt-füstölt tarja. Régi képpel: paprikás szalámi, chilis párizsi. A hiányzó fotókat Attila készíti.
