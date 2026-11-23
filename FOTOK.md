@@ -4,7 +4,7 @@ Forrás: a fotós 2026-11-17-i levele (Pixieset galéria + Google Drive). A vál
 
 - **Termékképek:** `assets/img/foto/termek/<id>.jpg` (fő kép) és `<id>-2.jpg`, `<id>-3.jpg` (galéria). 1200 × 1200 px, 1:1, a termék a kép kb. 80–85%-át tölti ki.
 - **Késztermékek:** az eredeti krémszínű fotóháttéren, színkorrekció nélkül (csak 1:1 vágás).
-- **Tőkehúsok és virslik:** az eredeti sötét fotóháttéren, utólagos sötétítés és keretezés nélkül – a fotó rövidebb oldalára vágott négyzet, a termékre középre igazítva (2026-11-23-tól; a korábbi sarok-sötétítés elmosódott fekete keretet hagyott).
+- **Tőkehúsok és virslik:** az eredeti sötét fotóháttéren, a teljes húsdarab a képen (2026-11-23-tól). Ahol a hús szélesebb a fotó magasságánál, a négyzet felül/alul a fotó saját háttérszínének folytatásával bővül (csak a háttérpixelekből, finom szemcsével, lágy átmenettel), nem egyszínű sötét kitöltéssel. A kellékekkel a kép széléig érő beállításoknál (karaj csont nélkül 2, comb 2, köröm 2, hamburgerhús) sima vágás maradt.
 - **Kategóriaképek:** `assets/img/foto/kategoria/<kategória>.jpg` (16:9 fekvő, 2000 px), `-kicsi.jpg` (főoldali csempe), `-reszlet.jpg` (közeli részlet, 1:1).
 - A forrás a Drive webes mérete (2500 px). WooCommerce-élesítéshez a `!TELJES FELBONTÁSÚ FOTÓK` mappából érdemes újra exportálni (min. 2000 × 2000 px).
 - A „Hajdu Donát” almappa magánfotókat tartalmaz, nem termékanyag – nincs felhasználva.
