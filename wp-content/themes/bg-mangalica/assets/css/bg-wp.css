@@ -1,0 +1,73 @@
+/* Bio-Goods – WordPress/WooCommerce kiegészítés a demó stílusaihoz (pénztár, fiók, értesítések). */
+
+/* a demó kuponmezője helyett a WooCommerce pénztár kuponmezője él */
+#coupon-form { display: none !important; }
+
+.bg-woo { padding-top: 40px; padding-bottom: 64px; }
+.bg-woo h1 { margin-bottom: 24px; }
+.bg-woo h3, .bg-woo h2 { font-family: var(--display); font-weight: 500; text-transform: none; }
+
+/* űrlapmezők a demó .input mezőihez igazítva */
+.bg-woo .woocommerce form .form-row { margin: 0 0 16px; padding: 0; }
+.bg-woo .woocommerce form .form-row label { font-weight: 600; font-size: 15px; margin-bottom: 6px; display: block; }
+.bg-woo .woocommerce form .form-row .required { color: var(--error); text-decoration: none; }
+.bg-woo .woocommerce form .form-row input.input-text,
+.bg-woo .woocommerce form .form-row textarea,
+.bg-woo .woocommerce form .form-row select,
+.bg-woo .woocommerce .coupon input.input-text {
+  width: 100%; min-height: 50px; padding: 12px 16px; border: 1.5px solid var(--line-2); border-radius: var(--radius-sm);
+  background: #fff; color: var(--ink); font: inherit; font-size: 16px;
+}
+.bg-woo .woocommerce form .form-row textarea { min-height: 110px; }
+.bg-woo .woocommerce form .form-row input:focus, .bg-woo .woocommerce form .form-row select:focus, .bg-woo .woocommerce form .form-row textarea:focus {
+  outline: 3px solid rgba(227, 175, 0, .45); outline-offset: 1px; border-color: var(--ink);
+}
+.bg-woo .woocommerce form .form-row .description { font-size: 14px; color: var(--muted); margin-top: 6px; }
+.bg-woo .woocommerce-invalid input, .bg-woo .woocommerce-invalid select { border-color: var(--error) !important; }
+
+/* gombok: a demó sötét gombja */
+.bg-woo .woocommerce button.button, .bg-woo .woocommerce a.button, .bg-woo .woocommerce input.button,
+.bg-woo .woocommerce #place_order, .bg-woo .woocommerce button.button.alt {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 0;
+  background: var(--ink); color: var(--cream); font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer;
+}
+.bg-woo .woocommerce #place_order { width: 100%; min-height: 58px; font-size: 17px; background: var(--gold); color: var(--ink); }
+.bg-woo .woocommerce #place_order:hover { background: #F0BE1A; }
+.bg-woo .woocommerce button.button:hover, .bg-woo .woocommerce a.button:hover { background: #000; color: var(--cream); }
+
+/* pénztár elrendezés: bal oldalt az adatok, jobb oldalt az összesítő */
+.bg-woo form.checkout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 32px 40px; align-items: start; }
+.bg-woo form.checkout > .col2-set, .bg-woo form.checkout > #customer_details { grid-column: 1; width: auto; float: none; }
+.bg-woo form.checkout > #order_review_heading { grid-column: 2; grid-row: 1; margin: 0; }
+.bg-woo form.checkout > #order_review { grid-column: 2; grid-row: 2 / span 3; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; position: sticky; top: 96px; }
+.bg-woo .col2-set .col-1, .bg-woo .col2-set .col-2 { float: none; width: 100%; }
+.bg-woo .shop_table { width: 100%; border-collapse: collapse; }
+.bg-woo .shop_table th, .bg-woo .shop_table td { padding: 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.bg-woo .shop_table .order-total .amount { font-family: var(--display); font-size: 26px; }
+.bg-woo #payment { background: transparent; border-radius: 0; }
+.bg-woo #payment ul.payment_methods { list-style: none; padding: 0; margin: 16px 0; border: 0; }
+.bg-woo #payment ul.payment_methods li { padding: 10px 0; }
+.bg-woo #payment div.payment_box { background: var(--cream); color: var(--body); border-radius: var(--radius-sm); padding: 12px 14px; margin-top: 8px; font-size: 15px; }
+.bg-woo #payment div.payment_box::before { display: none; }
+.bg-woo .woocommerce-terms-and-conditions-wrapper { font-size: 14px; margin: 12px 0 16px; }
+
+/* értesítések */
+.bg-woo .woocommerce-error, .bg-woo .woocommerce-message, .bg-woo .woocommerce-info,
+.bg-woo .woocommerce-NoticeGroup .woocommerce-error {
+  list-style: none; margin: 0 0 20px; padding: 14px 18px; border-radius: var(--radius-sm); border: 0; border-left: 4px solid var(--gold); background: var(--paper); color: var(--ink);
+}
+.bg-woo .woocommerce-error { border-left-color: var(--error); }
+.bg-woo .woocommerce-error::before, .bg-woo .woocommerce-message::before, .bg-woo .woocommerce-info::before { display: none; }
+.bg-woo .bg-delivery-line { font-size: 18px; margin: 8px 0 20px; }
+
+/* fiók */
+.bg-woo .woocommerce-MyAccount-navigation ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.bg-woo .woocommerce-MyAccount-navigation li a { display: inline-block; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--line-2); text-decoration: none; color: var(--ink); font-weight: 600; }
+.bg-woo .woocommerce-MyAccount-navigation li.is-active a { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.bg-woo .woocommerce-MyAccount-content { margin-top: 24px; }
+
+@media (max-width: 900px) {
+  .bg-woo form.checkout { grid-template-columns: 1fr; }
+  .bg-woo form.checkout > #order_review_heading, .bg-woo form.checkout > #order_review { grid-column: 1; grid-row: auto; position: static; }
+  .wrap.bg-woo { padding-left: 18px; padding-right: 18px; }
+}

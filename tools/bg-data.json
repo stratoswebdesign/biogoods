@@ -1,0 +1,3270 @@
+{
+ "categories": [
+  {
+   "id": "tokehusok",
+   "hero": true,
+   "heroAlt": "Mangalica tőkehúsok válogatása sötét palán: karaj, tarja, comb, lapocka és szűzpecsenye",
+   "detailAlt": "Márványozott mangalicatarja vágódeszkán",
+   "name": "Tőkehúsok",
+   "sub": "Tarja, karaj, szűz, oldalas, csülök",
+   "img": "csontos-tarja",
+   "intro": "Tarja, karaj, szűz, comb, oldalas, csülök – a saját tenyészetünkből. A mangalica húsát a márványozottság teszi szaftossá: sütéshez, grillhez és lassú főzéshez is."
+  },
+  {
+   "id": "kolbaszok",
+   "hero": true,
+   "heroAlt": "Mangalica turista egészben és szeletelve, színes borssal",
+   "detailAlt": "Füstölt csípős szalámi metszéslapja",
+   "name": "Kolbászok, szalámik",
+   "sub": "Füstölt, csemege, csípős, téli",
+   "img": "fustolt-csemege-kolbasz",
+   "intro": "Bükkfán füstölt kolbászok, téli- és paprikás szalámi, turista, grillkolbász – hagyományos fűszerezéssel, mangalicahúsból."
+  },
+  {
+   "id": "szalonnak",
+   "hero": true,
+   "heroAlt": "Füstölt mangalicasonka, a metszéslapon jól látszik a márványozottság",
+   "detailAlt": "Kolozsvári szalonna füstölt felülete",
+   "name": "Szalonnák, füstöltek",
+   "sub": "Kolozsvári, abált, füstölt sonka",
+   "img": "kolozsvari-szalonna",
+   "intro": "Kolozsvári, abált, sós és füstölt szalonna, füstölt sonka és oldalas a gesztelyi füstölőből."
+  },
+  {
+   "id": "felvagottak",
+   "hero": true,
+   "heroAlt": "Füstölt párizsi egészben és szeletelve",
+   "detailAlt": "Füstölt párizsi metszéslapja fa vágódeszkán",
+   "name": "Felvágottak, kenhetők",
+   "sub": "Párizsi, májas, tepertőkrém, rilette",
+   "img": "parizsi",
+   "intro": "Párizsi, virsli, uzsonnasonka, kenőmájas, tepertőkrém és rilette – reggelire, uzsonnára, hidegtálra."
+  },
+  {
+   "id": "hagyomanyos",
+   "hero": true,
+   "heroAlt": "Hurka és sütőkolbász a régi piaci mérleg előtt",
+   "detailAlt": "Rakott fej metszéslapja",
+   "name": "Hagyományos",
+   "sub": "Hurka, sütőkolbász, zsír, tepertő",
+   "img": "hurka",
+   "intro": "Hurka, sütőkolbász, mangalicazsír, tepertő, rakott fej és csülöksajt – a disznótoros ízek egész évben."
+  },
+  {
+   "id": "ajandek",
+   "hero": true,
+   "heroAlt": "Bio-Goods ajándékdoboz fa dobozban, ünnepi tálalásban",
+   "detailAlt": "Mangalica ajándékdoboz papír díszdobozban, zöld szalaggal",
+   "name": "Ajándékok",
+   "sub": "Ajándékdobozok, karácsonyi csomagok, ajándékkártya",
+   "img": "ajandekdoboz-10",
+   "intro": "Karácsonyi csomagok, ajándékdobozok a kedvenceinkből és ajándékkártya – ajándéknak, céges köszönetnek."
+  }
+ ],
+ "occasions": [
+  {
+   "id": "reggelire",
+   "hero": "alkalom-reggelire",
+   "name": "Reggelire",
+   "img": "parizsi",
+   "intro": "Felvágottak, májasok és krémek a reggeli asztalra."
+  },
+  {
+   "id": "kerti-parti",
+   "hero": "alkalom-kerti-parti",
+   "name": "Kerti parti",
+   "img": "bbq-oldalas",
+   "intro": "Grillkolbász, tomahawk, BBQ oldalas és hamburgerhús – minden, ami a rácsra kell, egy rendeléssel."
+  },
+  {
+   "id": "disznotoros",
+   "hero": "alkalom-disznotoros",
+   "name": "Disznótoros",
+   "img": "hurka",
+   "intro": "Hurka, sütőkolbász, kocsonyának és zsírnak való – a téli szezon klasszikusai."
+  },
+  {
+   "id": "akciok",
+   "hero": "alkalom-akciok",
+   "name": "Akciók",
+   "img": "zsirnakvalo",
+   "intro": "Aktuális ajánlataink, amíg a készlet tart."
+  }
+ ],
+ "products": [
+  {
+   "id": "szuz",
+   "name": "Szűzpecsenye",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "400 g",
+   "price": 3600,
+   "unit": 9000,
+   "img": "szuz",
+   "ingr": "Mangalica szűz"
+  },
+  {
+   "id": "csontos-karaj",
+   "name": "Csontos karaj",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 3550,
+   "unit": 7100,
+   "img": "csontos-karaj",
+   "ingr": "Mangalica karaj"
+  },
+  {
+   "id": "karaj-csont-nelkul",
+   "name": "Karaj csont nélkül",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 4100,
+   "unit": 8200,
+   "img": "karaj-csont-nelkul",
+   "ingr": "Mangalica karaj"
+  },
+  {
+   "id": "csontos-tarja",
+   "name": "Csontos tarja",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "500 g",
+   "price": 3550,
+   "unit": 7100,
+   "img": "csontos-tarja",
+   "ingr": "Mangalica tarja",
+   "variant": "tarja-csont-nelkul",
+   "desc": "A tarja a nyakrész, ahol a hús és a zsír rétegesen váltakozik. Csontosan sütve még szaftosabb: szeletelve grillre, egyben sütőbe."
+  },
+  {
+   "id": "tarja-csont-nelkul",
+   "name": "Tarja csont nélkül",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "500 g",
+   "price": 4100,
+   "unit": 8200,
+   "img": "tarja-csont-nelkul",
+   "ingr": "Mangalica tarja",
+   "variant": "csontos-tarja",
+   "desc": "A tarja a nyakrész, ahol a hús és a zsír rétegesen váltakozik. Csont nélkül szeletelhető rostélyosnak, pecsenyének, gyrosnak."
+  },
+  {
+   "id": "comb",
+   "name": "Comb",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2750,
+   "unit": 5500,
+   "img": "comb",
+   "ingr": "Mangalica comb"
+  },
+  {
+   "id": "lapocka",
+   "name": "Lapocka",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2750,
+   "unit": 5500,
+   "img": "lapocka",
+   "ingr": "Mangalica lapocka"
+  },
+  {
+   "id": "oldalas",
+   "name": "Oldalas",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2050,
+   "unit": 4100,
+   "img": "oldalas",
+   "ingr": "Mangalica oldalas"
+  },
+  {
+   "id": "bbq-oldalas",
+   "name": "BBQ oldalas",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "1 kg",
+   "price": 5500,
+   "unit": 5500,
+   "img": "bbq-oldalas",
+   "ingr": "Mangalica oldalas",
+   "tag": "Grillre"
+  },
+  {
+   "id": "dagado",
+   "name": "Dagadó",
+   "cat": "tokehusok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "kb. 1,3 kg",
+   "price": 5590,
+   "unit": 4300,
+   "img": "dagado",
+   "ingr": "Mangalica dagadó"
+  },
+  {
+   "id": "csulok",
+   "name": "Csülök",
+   "cat": "tokehusok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1,5 kg",
+   "price": 5550,
+   "unit": 3700,
+   "img": "csulok",
+   "ingr": "Mangalica csülök"
+  },
+  {
+   "id": "csulok-csont-nelkul",
+   "name": "Csülök csont nélkül",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2400,
+   "unit": 4800,
+   "img": "csulok-csont-nelkul",
+   "ingr": "Mangalica csülök"
+  },
+  {
+   "id": "daralthus",
+   "name": "Darálthús (70% hús)",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2400,
+   "unit": 4800,
+   "img": "daralthus",
+   "ingr": "Mangalica hús 80%, mangalica zsíradék 20%"
+  },
+  {
+   "id": "csaszarhus",
+   "name": "Császárhús",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2300,
+   "unit": 4600,
+   "img": "csaszarhus",
+   "ingr": "Mangalica császárhús"
+  },
+  {
+   "id": "tomahawk",
+   "name": "Tomahawk szelet",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "250 g",
+   "price": 2175,
+   "unit": 8700,
+   "img": "tomahawk",
+   "ingr": "Mangalica karaj bordacsonttal",
+   "tag": "Grillre"
+  },
+  {
+   "id": "t-bone",
+   "name": "T-bone szelet",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "250 g",
+   "price": 2175,
+   "unit": 8700,
+   "img": "t-bone",
+   "ingr": "Mangalica rövid karaj csonttal, szűzzel",
+   "tag": "Grillre"
+  },
+  {
+   "id": "hamburgerhus",
+   "name": "Hamburgerhús (4 × 15 dkg)",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "600 g (4 db)",
+   "price": 3480,
+   "unit": 5800,
+   "img": "hamburgerhus",
+   "ingr": "Mangalica hús 80%, mangalica füstölt szalonna 10%, mangalica szalonna 10%, étkezési só, őrölt feketebors"
+  },
+  {
+   "id": "fredi-szelet",
+   "name": "Frédi szelet",
+   "cat": "tokehusok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "1,6 kg",
+   "price": 11520,
+   "unit": 7200,
+   "img": "fredi-szelet",
+   "ingr": "Mangalica bőrös comb, sous vide fűszerkeverék, étkezési só, fokhagyma, őrölt bors, oregánó, római kömény, majoranna, koriander"
+  },
+  {
+   "id": "mangalica-maj",
+   "name": "Mangalica máj",
+   "cat": "tokehusok",
+   "occ": [],
+   "pack": "500 g",
+   "price": 1450,
+   "unit": 2900,
+   "img": "mangalica-maj",
+   "ingr": "Mangalica máj"
+  },
+  {
+   "id": "husos-csont",
+   "name": "Húsos csont",
+   "cat": "tokehusok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 1650,
+   "unit": 1650,
+   "img": "husos-csont",
+   "ingr": "Mangalica húsos csont"
+  },
+  {
+   "id": "zsirnakvalo",
+   "name": "Zsírnakvaló",
+   "cat": "tokehusok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 2800,
+   "unit": 2800,
+   "img": "zsirnakvalo",
+   "ingr": "Mangalica zsírszalonna"
+  },
+  {
+   "id": "kocsonya-csomag",
+   "name": "Kocsonya csomag",
+   "cat": "tokehusok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 2650,
+   "unit": 2650,
+   "img": "kocsonya-csomag",
+   "ingr": "Mangalica darabolt csülök, köröm, bőr"
+  },
+  {
+   "id": "korom",
+   "name": "Köröm",
+   "cat": "tokehusok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 1600,
+   "unit": 1600,
+   "img": "korom",
+   "ingr": "Mangalica köröm"
+  },
+  {
+   "id": "zsirnakvalo-akcio",
+   "name": "Zsírnakvaló AKCIÓ (5 kg)",
+   "cat": "tokehusok",
+   "occ": [
+    "akciok",
+    "disznotoros"
+   ],
+   "pack": "5 kg",
+   "price": 9000,
+   "unit": 1800,
+   "img": "zsirnakvalo",
+   "ingr": "Mangalica zsírszalonna",
+   "tag": "Akció"
+  },
+  {
+   "id": "korom-akcio",
+   "name": "Köröm csomag AKCIÓ (5 kg)",
+   "cat": "tokehusok",
+   "occ": [
+    "akciok",
+    "disznotoros"
+   ],
+   "pack": "5 kg",
+   "price": 3500,
+   "unit": 700,
+   "img": "korom",
+   "old": 6500,
+   "ingr": "Mangalica köröm",
+   "tag": "Akció"
+  },
+  {
+   "id": "fustolt-csemege-kolbasz",
+   "name": "Füstölt csemege kolbász",
+   "cat": "kolbaszok",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 pár (450 g)",
+   "price": 4410,
+   "unit": 9800,
+   "img": "fustolt-csemege-kolbasz",
+   "ingr": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, őrölt kömény, sertésbél. Bükkfán füstölve"
+  },
+  {
+   "id": "fustolt-csipos-kolbasz",
+   "name": "Füstölt csípős kolbász",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "1 pár (300 g)",
+   "price": 2940,
+   "unit": 9800,
+   "img": "fustolt-csipos-kolbasz",
+   "ingr": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, őrölt kömény, chiliszósz, sertésbél. Bükkfán füstölve",
+   "tag": "Csípős"
+  },
+  {
+   "id": "miskolci-kolbasz",
+   "name": "Füstölt miskolci kolbász (paprikamentes)",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "1 pár (450 g)",
+   "price": 4410,
+   "unit": 9800,
+   "img": "miskolci-kolbasz",
+   "ingr": "Mangalica sertéshús, ipari szalonna, étkezési só, fokhagyma, őrölt bors, őrölt kömény, sertésbél. Bükkfán füstölve"
+  },
+  {
+   "id": "csipos-snack-kolbasz",
+   "name": "Füstölt csípős snack kolbász",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "150 g",
+   "price": 1635,
+   "unit": 10900,
+   "img": "csipos-snack-kolbasz",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, téliszalámi fűszerkeverék, fűszerpaprika, chiliszósz. Bükkfán füstölve",
+   "allergen": "nitrit",
+   "tag": "Csípős"
+  },
+  {
+   "id": "paprikas-szalami",
+   "name": "Paprikás szalámi",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "200 g",
+   "price": 2380,
+   "unit": 11900,
+   "img": "paprikas-szalami",
+   "ingr": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, nitrites só, fokhagyma, fűszerkömény, őrölt bors. Bükkfán füstölve",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "csipos-paprikas-szalami",
+   "name": "Csípős paprikás szalámi",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "200 g",
+   "price": 2380,
+   "unit": 11900,
+   "img": "csipos-paprikas-szalami",
+   "ingr": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, nitrites só, fokhagyma, fűszerkömény, őrölt bors, chiliszósz. Bükkfán füstölve",
+   "allergen": "nitrit",
+   "tag": "Csípős"
+  },
+  {
+   "id": "teliszalami",
+   "name": "Téliszalámi",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "200 g",
+   "price": 2380,
+   "unit": 11900,
+   "img": "teliszalami",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, téliszalámi fűszerkeverék. Bükkfán füstölve",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "mangalica-turista",
+   "name": "Mangalica turista",
+   "cat": "kolbaszok",
+   "occ": [],
+   "pack": "100 g",
+   "price": 680,
+   "unit": 6800,
+   "img": "mangalica-turista",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, szoluprát, őrölt bors, fűszerpaprika, fokhagymagranulátum, szegfűbors. Bükkfán füstölve",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "grillkolbasz-magyaros",
+   "name": "Grillkolbász (magyaros)",
+   "cat": "kolbaszok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "500 g",
+   "price": 3050,
+   "unit": 6100,
+   "img": "grillkolbasz-magyaros",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, majoranna, juhbél",
+   "allergen": "nitrit",
+   "tag": "Grillre"
+  },
+  {
+   "id": "grillkolbasz-bajor",
+   "name": "Grillkolbász (bajor jellegű)",
+   "cat": "kolbaszok",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "500 g",
+   "price": 3050,
+   "unit": 6100,
+   "img": "grillkolbasz-bajor",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, fokhagyma, őrölt bors, őrölt kömény, majoranna, juhbél",
+   "allergen": "nitrit",
+   "tag": "Grillre"
+  },
+  {
+   "id": "debreceni-paros",
+   "name": "Debreceni páros",
+   "cat": "kolbaszok",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "500 g",
+   "price": 2900,
+   "unit": 5800,
+   "img": "debreceni-paros",
+   "ingr": "Mangalica sertéshús, ipari szalonna, debreceni fűszerkeverék, nitrites só, sertésbél",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "gesztelyi-paros",
+   "name": "Gesztelyi páros",
+   "cat": "kolbaszok",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "500 g",
+   "price": 2900,
+   "unit": 5800,
+   "img": "gesztelyi-paros",
+   "ingr": "Mangalica sertéshús, nitrites só, fokhagyma, őrölt bors, őrölt kömény, majoranna",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "kolozsvari-szalonna",
+   "name": "Kolozsvári szalonna",
+   "cat": "szalonnak",
+   "occ": [],
+   "pack": "200 g",
+   "price": 1220,
+   "unit": 6100,
+   "img": "kolozsvari-szalonna",
+   "ingr": "Mangalica császárhús, szalonna, étkezési só. Bükkfán füstölve"
+  },
+  {
+   "id": "fustolt-csemege-szalonna",
+   "name": "Füstölt csemege szalonna",
+   "cat": "szalonnak",
+   "occ": [],
+   "pack": "200 g",
+   "price": 1020,
+   "unit": 5100,
+   "img": "fustolt-csemege-szalonna",
+   "ingr": "Mangalica hátszalonna, étkezési só. Bükkfán füstölve"
+  },
+  {
+   "id": "abalt-szalonna",
+   "name": "Abált szalonna",
+   "cat": "szalonnak",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "300 g",
+   "price": 1700,
+   "unit": 5700,
+   "img": "abalt-szalonna",
+   "ingr": "Mangalica császárszalonna, étkezési só, őrölt bors, fokhagyma, fűszerpaprika"
+  },
+  {
+   "id": "formazott-nyers-szalonna",
+   "name": "Formázott nyers szalonna",
+   "cat": "szalonnak",
+   "occ": [],
+   "pack": "500 g",
+   "price": 1850,
+   "unit": 3700,
+   "img": "formazott-nyers-szalonna",
+   "ingr": "Mangalica szalonna"
+  },
+  {
+   "id": "sos-szalonna",
+   "name": "Sós szalonna",
+   "cat": "szalonnak",
+   "occ": [],
+   "pack": "500 g",
+   "price": 2300,
+   "unit": 4600,
+   "img": "sos-szalonna",
+   "ingr": "Mangalica szalonna, étkezési só"
+  },
+  {
+   "id": "fustolt-sonka",
+   "name": "Füstölt sonka",
+   "cat": "szalonnak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "200 g",
+   "price": 1940,
+   "unit": 9700,
+   "img": "fustolt-sonka",
+   "ingr": "Mangalica lapocka/comb, étkezési só. Bükkfán füstölve"
+  },
+  {
+   "id": "fott-fustolt-tarja",
+   "name": "Főtt-füstölt tarja",
+   "cat": "szalonnak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 980,
+   "unit": 9800,
+   "img": "fott-fustolt-tarja",
+   "tag": "Új",
+   "ingr": "Mangalica tarja, ivóvíz, étkezési só, fokhagyma",
+   "desc": "Új termékünk: főzött, majd füstölt mangalicatarja. 100 g-tól a kért mennyiségben csomagoljuk, szeletelve vagy egészben. Ára 9 800 Ft/kg."
+  },
+  {
+   "id": "fustolt-oldalas",
+   "name": "Füstölt oldalas / bordaporc",
+   "cat": "szalonnak",
+   "occ": [],
+   "pack": "500 g",
+   "price": 1900,
+   "unit": 3800,
+   "img": "fustolt-oldalas",
+   "ingr": "Mangalica oldalas, étkezési só. Bükkfán füstölve"
+  },
+  {
+   "id": "angol-szalonna",
+   "name": "Angol szalonna, szeletelve",
+   "cat": "szalonnak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 780,
+   "unit": 7800,
+   "img": "angol-szalonna",
+   "ingr": "Mangalica bőrös karaj, étkezési só. Bükkfán füstölve"
+  },
+  {
+   "id": "dobozos-kenomajas",
+   "name": "Dobozos kenőmájas",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "250 g",
+   "price": 1600,
+   "unit": 6100,
+   "img": "dobozos-kenomajas",
+   "ingr": "Mangalica máj, belsőség, abált lé, vöröshagyma, nitrites só, őrölt bors, majoranna",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "tomlos-kenomajas",
+   "name": "Tömlős kenőmájas (kenhető)",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "230 g",
+   "price": 1340,
+   "unit": 6100,
+   "img": "tomlos-kenomajas",
+   "ingr": "Mangalica máj, belsőség, abált lé, vöröshagyma, nitrites só, őrölt bors, majoranna",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "parasztmajas",
+   "name": "Parasztmájas (darabos)",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 610,
+   "unit": 6100,
+   "img": "parasztmajas",
+   "ingr": "Mangalica máj, belsőség, vöröshagyma, étkezési só, majoranna, őrölt bors, fűszerpaprika"
+  },
+  {
+   "id": "parizsi",
+   "name": "Párizsi",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 680,
+   "unit": 6800,
+   "img": "parizsi",
+   "ingr": "Mangalica sertéshús, ipari szalonna, párizsi fűszerkeverék, nitrites só",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "chilis-parizsi",
+   "name": "Chilis párizsi",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 680,
+   "unit": 6800,
+   "img": "chilis-parizsi",
+   "ingr": "Mangalica sertéshús, ipari szalonna, párizsi fűszerkeverék, nitrites só, chilipehely, fehér bors",
+   "allergen": "nitrit",
+   "tag": "Csípős"
+  },
+  {
+   "id": "fustolt-parizsi",
+   "name": "Füstölt párizsi",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 680,
+   "unit": 6800,
+   "img": "fustolt-parizsi",
+   "ingr": "Mangalica sertéshús, ipari szalonna, párizsi fűszerkeverék, nitrites só. Bükkfán füstölve",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "nyelves-felvagott",
+   "name": "Nyelves felvágott",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 680,
+   "unit": 6800,
+   "img": "nyelves-felvagott",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nyelv, párizsi fűszerkeverék, nitrites só",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "uzsonnasonka",
+   "name": "Uzsonnasonka",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "100 g",
+   "price": 680,
+   "unit": 6800,
+   "img": "uzsonnasonka",
+   "ingr": "Mangalica sertéshús, nitrites só, sonka fűszerkeverék",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "virsli",
+   "name": "Virsli, 5 pár (ehető kollagénben)",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "500 g",
+   "price": 3400,
+   "unit": 6800,
+   "img": "virsli",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, virsli fűszerkeverék, ehető kollagénbél",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "fustolt-virsli",
+   "name": "Füstölt virsli, 5 pár",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "500 g",
+   "price": 3400,
+   "unit": 6800,
+   "img": "fustolt-virsli",
+   "ingr": "Mangalica sertéshús, ipari szalonna, nitrites só, virsli fűszerkeverék, ehető kollagénbél. Bükkfán füstölve",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "tepertokrem",
+   "name": "Tepertőkrém",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "250 g",
+   "price": 1650,
+   "unit": 6500,
+   "img": "tepertokrem",
+   "ingr": "Mangalica tepertő, mustár, étkezési só, őrölt bors, vöröshagyma",
+   "allergen": "mustár"
+  },
+  {
+   "id": "fokhagymas-rilette",
+   "name": "Fokhagymás rilette",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "500 g",
+   "price": 3350,
+   "unit": 6700,
+   "img": "fokhagymas-rilette",
+   "ingr": "Mangalica sertéshús, fokhagyma, étkezési só"
+  },
+  {
+   "id": "chilis-rilette",
+   "name": "Chilis rilette",
+   "cat": "felvagottak",
+   "occ": [
+    "reggelire"
+   ],
+   "pack": "250 g",
+   "price": 1750,
+   "unit": 6700,
+   "img": "chilis-rilette",
+   "ingr": "Mangalica sertéshús, mangalica füstölt szalonna bőr nélkül, akácméz, étkezési só, fűszerpaprika, őrölt kömény, chiliszósz",
+   "tag": "Csípős"
+  },
+  {
+   "id": "hurka",
+   "name": "Hurka",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 3990,
+   "unit": 3990,
+   "img": "hurka",
+   "ingr": "Mangalica főtt fej, hús, belsőség, főtt máj, rizs, vöröshagyma, étkezési só, majoranna, őrölt bors, fűszerpaprika, őrölt kömény, sertésbél"
+  },
+  {
+   "id": "sutokolbasz",
+   "name": "Sütőkolbász",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 4800,
+   "unit": 4800,
+   "img": "sutokolbasz",
+   "ingr": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, nitrites só, fokhagyma, őrölt bors, őrölt kömény",
+   "allergen": "nitrit"
+  },
+  {
+   "id": "teperto",
+   "name": "Tepertő",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "100 g",
+   "price": 870,
+   "unit": 8700,
+   "img": "teperto",
+   "ingr": "Mangalica zsírszalonna, étkezési só"
+  },
+  {
+   "id": "zsir-05kg",
+   "name": "Mangalicazsír, 0,5 kg",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "500 g",
+   "price": 1300,
+   "unit": 2600,
+   "img": "zsir-05kg",
+   "ingr": "Mangalica zsírszalonna, étkezési só"
+  },
+  {
+   "id": "zsir-1kg",
+   "name": "Mangalicazsír",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "1 kg",
+   "price": 2500,
+   "unit": 2500,
+   "img": "zsir-1kg",
+   "ingr": "Mangalica zsírszalonna"
+  },
+  {
+   "id": "zsir-5kg",
+   "name": "Mangalicazsír, 5 kg",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "5 kg",
+   "price": 10000,
+   "unit": 2000,
+   "img": "zsir-5kg",
+   "ingr": "Mangalica zsírszalonna"
+  },
+  {
+   "id": "rakott-fej",
+   "name": "Rakott fej",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "100 g",
+   "price": 520,
+   "unit": 5200,
+   "img": "rakott-fej",
+   "ingr": "Mangalica főtt fej, abált lé, fokhagyma, étkezési só, fűszerpaprika, őrölt bors, őrölt kömény"
+  },
+  {
+   "id": "csuloksajt",
+   "name": "Csülöksajt",
+   "cat": "hagyomanyos",
+   "occ": [
+    "disznotoros"
+   ],
+   "pack": "100 g",
+   "price": 520,
+   "unit": 5200,
+   "img": "csuloksajt",
+   "ingr": "Mangalica főtt első csülök, abált lé, fokhagyma, étkezési só, őrölt bors, őrölt kömény"
+  },
+  {
+   "id": "tepett-hus",
+   "name": "Tépett hús",
+   "cat": "hagyomanyos",
+   "occ": [
+    "kerti-parti"
+   ],
+   "pack": "500 g",
+   "price": 3350,
+   "unit": 6700,
+   "img": "tepett-hus",
+   "ingr": "Mangalica sertéshús, ketchup, vöröshagyma, cukor, mustár, étkezési só, worcestershire szósz, szójaszósz, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, koriander, római kömény, oregánó, majoranna",
+   "allergen": "mustár, szója"
+  },
+  {
+   "id": "ajandekdoboz-10",
+   "name": "Mangalica ajándékdoboz (10 féle termékkel)",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "papír díszdobozban",
+   "price": 15000,
+   "unit": null,
+   "img": "ajandekdoboz-10",
+   "tag": "Karácsony",
+   "ingr": "1 csomag csemege snack kolbász, 1 csomag csípős snack kolbász, 0,5 kg zsír, 25 dkg rilette, 25 dkg kenőmájas, 20 dkg kolozsvári szalonna, 20 dkg parasztmájas, 2 pár virsli, 10 dkg füstölt sonka, 1 doboz tepertőkrém",
+   "desc": "Tíz kedvencünk fehér papír díszdobozban, zöld szalaggal: krémek, kolbász, szalonna és virsli – kézbe adható ajándék."
+  },
+  {
+   "id": "hagyomany-izei",
+   "name": "Hagyomány Ízei ajándékcsomag",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "papír tasakban, 12 termék",
+   "price": 34000,
+   "unit": null,
+   "img": "hagyomany-izei",
+   "tag": "Karácsony",
+   "ingr": "1 kg zsír, 1 db füstölt hátsó csülök, 1 pár csemege kolbász, 1 pár miskolci kolbász, 1 pár csípős kolbász, 1 pár aszalt szilvás–fahéjas kolbász, 1 kis doboz rilette, 1 doboz tepertő, kb. 0,5 kg kolozsvári szalonna, 0,6 kg csemege szalonna, 1 csomag snack kolbász, 1 tömlős májkrém (aranyszínű tömlőben)",
+   "desc": "A disznótoros asztal klasszikusai egy fekete Bio-Goods tasakban: füstölt csülök, négyféle kolbász, kétféle szalonna, májkrém, zsír és tepertő."
+  },
+  {
+   "id": "mangalica-orokseg",
+   "name": "Mangalica Örökség ajándékcsomag",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "fa díszdobozban, 11 termék",
+   "price": 32000,
+   "unit": null,
+   "img": "mangalica-orokseg",
+   "tag": "Karácsony",
+   "ingr": "1 db tömlős májas, 1 doboz rilette (25 dkg), 1 doboz tepertőkrém (25 dkg), 30 dkg abált szalonna, 1 pár csípős kolbász, 1 pár csemege kolbász, 20 dkg kolozsvári szalonna, 10 dkg füstölt sonka szelet, 0,5 kg virsli, 25 dkg parasztmájas, 20 dkg paprikás szalámi szelet",
+   "desc": "Gravírozott fa díszdobozban, piros szalaggal: krémek, szalonnák, kolbászok és szeletelt felvágottak – a doboz az ünnepek után is megmarad."
+  },
+  {
+   "id": "ajandekdoboz-nagy",
+   "name": "Nagy ajándékdoboz",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "fa díszdobozban, 14 termék",
+   "price": 49000,
+   "unit": null,
+   "img": "ajandekdoboz-nagy",
+   "tag": "Karácsony",
+   "ingr": "1 db tömlős májas, 1 doboz rilette (25 dkg), 1 pár csípős kolbász, 1 pár csemege kolbász, 1 pár miskolci kolbász, 30 dkg kolozsvári szalonna, 30 dkg csemege szalonna, 30 dkg abált szalonna, 30 dkg füstölt sonka szelet, 20 dkg téliszalámi szelet, 20 dkg paprikás szalámi szelet, 2 × 0,5 kg virsli (sima és füstölt), 30 dkg párizsi szelet, 30 dkg uzsonnasonka szelet",
+   "desc": "A legbővebb válogatásunk: 14 vákuumcsomagolt termék gravírozott fa díszdobozban – családi ünnepre, céges köszönetnek."
+  },
+  {
+   "id": "bosegtal",
+   "name": "Bőségtál",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "2,2 kg",
+   "price": 25990,
+   "unit": null,
+   "img": "bosegtal",
+   "ingr": "Kenőmájas, tepertőkrém, miskolci kolbász, füstölt csemege kolbász, tepertő, füstölt sonka"
+  },
+  {
+   "id": "ajandekkartya-5000",
+   "name": "Ajándékkártya 5 000 Ft",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "1 db",
+   "price": 5000,
+   "unit": null,
+   "img": "ajandekkartya-5000",
+   "ingr": "5 000 Ft értékben levásárolható",
+   "giftcard": true,
+   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá."
+  },
+  {
+   "id": "ajandekkartya-10000",
+   "name": "Ajándékkártya 10 000 Ft",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "1 db",
+   "price": 10000,
+   "unit": null,
+   "img": "ajandekkartya-10000",
+   "ingr": "10 000 Ft értékben levásárolható",
+   "giftcard": true,
+   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá."
+  },
+  {
+   "id": "ajandekkartya-20000",
+   "name": "Ajándékkártya 20 000 Ft",
+   "cat": "ajandek",
+   "occ": [],
+   "pack": "1 db",
+   "price": 20000,
+   "unit": null,
+   "img": "ajandekkartya-20000",
+   "ingr": "20 000 Ft értékben levásárolható",
+   "giftcard": true,
+   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá."
+  }
+ ],
+ "hidden": [
+  "fredi-szelet",
+  "nyelves-felvagott",
+  "bosegtal",
+  "zsir-05kg",
+  "zsir-1kg",
+  "fott-fustolt-tarja"
+ ],
+ "adatlap": {
+  "szuz": {
+   "ossz": "Mangalica szűz",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "12 hónap"
+  },
+  "csontos-karaj": {
+   "ossz": "Mangalica karaj",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "10–12 hónap"
+  },
+  "karaj-csont-nelkul": {
+   "ossz": "Mangalica karaj",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "12 hónap"
+  },
+  "csontos-tarja": {
+   "ossz": "Mangalica tarja",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "8–10 hónap"
+  },
+  "tarja-csont-nelkul": {
+   "ossz": "Mangalica tarja",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "9–12 hónap"
+  },
+  "comb": {
+   "ossz": "Mangalica comb",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "12 hónap"
+  },
+  "lapocka": {
+   "ossz": "Mangalica lapocka",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "8–12 hónap"
+  },
+  "oldalas": {
+   "ossz": "Mangalica oldalas",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–9 hónap"
+  },
+  "bbq-oldalas": {
+   "ossz": "Mangalica oldalas",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–9 hónap"
+  },
+  "dagado": {
+   "ossz": "Mangalica dagadó",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "csulok": {
+   "ossz": "Mangalica csülök",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "csulok-csont-nelkul": {
+   "ossz": "Mangalica csülök",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "8–10 hónap"
+  },
+  "husos-csont": {
+   "ossz": "Mangalica húsos csont",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "5 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "5–6 hónap"
+  },
+  "zsirnakvalo": {
+   "ossz": "Mangalica zsírszalonna",
+   "tar": "0–(+5) °C",
+   "szav": "4 nap",
+   "fagyH": "-18 °C",
+   "opciok": [
+    "Bőrös, egyben",
+    "Bőr nélkül, egyben",
+    "Bőr nélkül, kockázva"
+   ]
+  },
+  "daralthus": {
+   "ossz": "Mangalica hús 80%, mangalica zsíradék 20%",
+   "csom": "vákuumfólia",
+   "tar": "0–(+2) °C",
+   "szav": "4 nap",
+   "felb": "1 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "csaszarhus": {
+   "ossz": "Mangalica császárhús",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "kocsonya-csomag": {
+   "ossz": "Mangalica darabolt csülök, köröm, bőr",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "5–6 hónap"
+  },
+  "tomahawk": {
+   "ossz": "Mangalica karaj bordacsonttal",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "9–12 hónap"
+  },
+  "t-bone": {
+   "ossz": "Mangalica rövid karaj csonttal, szűzzel",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "9–12 hónap"
+  },
+  "mangalica-maj": {
+   "ossz": "Mangalica máj",
+   "csom": "vákuumfólia",
+   "tar": "0–(+4) °C",
+   "szav": "4–5 nap",
+   "felb": "1 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "korom": {
+   "ossz": "Mangalica köröm",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "2 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap",
+   "opciok": [
+    "Darabolva",
+    "Félbe vágva",
+    "Egészben"
+   ]
+  },
+  "dobozos-kenomajas": {
+   "ossz": "Mangalica máj, belsőség, abált lé, vöröshagyma, nitrites só, őrölt bors, majoranna",
+   "allerg": "nitrit",
+   "csom": "műanyag doboz",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "felb": "2–3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)"
+  },
+  "tomlos-kenomajas": {
+   "ossz": "Mangalica máj, belsőség, abált lé, vöröshagyma, nitrites só, őrölt bors, majoranna",
+   "allerg": "nitrit",
+   "csom": "tömlő",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "felb": "2–3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)"
+  },
+  "parasztmajas": {
+   "ossz": "Mangalica máj, belsőség, vöröshagyma, étkezési só, majoranna, őrölt bors, fűszerpaprika",
+   "csom": "műbél",
+   "tar": "0–(+5) °C",
+   "szav": "20 nap",
+   "felb": "2–3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)"
+  },
+  "tepertokrem": {
+   "ossz": "Mangalica tepertő, mustár, étkezési só, őrölt bors, vöröshagyma",
+   "allerg": "mustár",
+   "csom": "műanyag doboz",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyMegj": "Felengedés után keverd át.",
+   "fagyI": "2–3 hónap"
+  },
+  "fokhagymas-rilette": {
+   "ossz": "Mangalica sertéshús, fokhagyma, étkezési só",
+   "csom": "műanyag doboz",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "chilis-rilette": {
+   "ossz": "Mangalica sertéshús, mangalica füstölt szalonna bőr nélkül, akácméz, étkezési só, fűszerpaprika, őrölt kömény, chiliszósz",
+   "csom": "műanyag doboz",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "parizsi": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, párizsi fűszerkeverék, nitrites só",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "chilis-parizsi": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, párizsi fűszerkeverék, nitrites só, chilipehely, fehér bors",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "fustolt-parizsi": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, párizsi fűszerkeverék, nitrites só",
+   "megj": "Bükkfán füstölve",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "nyelves-felvagott": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nyelv, párizsi fűszerkeverék, nitrites só",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "uzsonnasonka": {
+   "ossz": "Mangalica sertéshús, nitrites só, sonka fűszerkeverék",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "8 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "virsli": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, virsli fűszerkeverék, ehető kollagénbél",
+   "allerg": "nitrit",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "16 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "fustolt-virsli": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, virsli fűszerkeverék, ehető kollagénbél",
+   "megj": "Bükkfán füstölve",
+   "allerg": "nitrit",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "16 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "debreceni-paros": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, debreceni fűszerkeverék, nitrites só, sertésbél",
+   "allerg": "nitrit",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "20 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–4 hónap"
+  },
+  "gesztelyi-paros": {
+   "ossz": "Mangalica sertéshús, nitrites só, fokhagyma, őrölt bors, őrölt kömény, majoranna",
+   "allerg": "nitrit",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "20 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–4 hónap"
+  },
+  "hamburgerhus": {
+   "ossz": "Mangalica hús 80%, mangalica füstölt szalonna 10%, mangalica szalonna 10%, étkezési só, őrölt feketebors",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "felb": "1 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "10–12 hónap"
+  },
+  "tepett-hus": {
+   "ossz": "Mangalica sertéshús, ketchup, vöröshagyma, cukor, mustár, étkezési só, worcestershire szósz, szójaszósz, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, koriander, római kömény, oregánó, majoranna",
+   "allerg": "mustár, szója",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "fredi-szelet": {
+   "ossz": "Mangalica bőrös comb, sous vide fűszerkeverék, étkezési só, fokhagyma, őrölt bors, oregánó, római kömény, majoranna, koriander",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "8–10 hónap"
+  },
+  "grillkolbasz-bajor": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, fokhagyma, őrölt bors, őrölt kömény, majoranna, juhbél",
+   "allerg": "nitrit",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "grillkolbasz-magyaros": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, fűszerpaprika, fokhagyma, őrölt bors, őrölt kömény, majoranna, juhbél",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "kolozsvari-szalonna": {
+   "ossz": "Mangalica császárhús, szalonna, étkezési só",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "60 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "fustolt-csemege-szalonna": {
+   "ossz": "Mangalica hátszalonna, étkezési só",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "60 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "angol-szalonna": {
+   "ossz": "Mangalica bőrös karaj, étkezési só",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "60 nap",
+   "felb": "4–5 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "3–4 hónap"
+  },
+  "abalt-szalonna": {
+   "ossz": "Mangalica császárszalonna, étkezési só, őrölt bors, fokhagyma, fűszerpaprika",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "21 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "formazott-nyers-szalonna": {
+   "ossz": "Mangalica szalonna",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "4 nap",
+   "felb": "4–5 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "sos-szalonna": {
+   "ossz": "Mangalica szalonna, étkezési só",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "30 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "fustolt-sonka": {
+   "ossz": "Mangalica lapocka/comb, étkezési só",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "60 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "fott-fustolt-tarja": {
+   "ossz": "Mangalica tarja, ivóvíz, étkezési só, fokhagyma",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "20 nap (szeletelve)",
+   "felb": "2–3 nap",
+   "opciok": [
+    "Szeletelve",
+    "Egészben"
+   ]
+  },
+  "fustolt-oldalas": {
+   "ossz": "Mangalica oldalas, étkezési só",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "60 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "6–8 hónap"
+  },
+  "hurka": {
+   "ossz": "Mangalica főtt fej, hús, belsőség, főtt máj, rizs, vöröshagyma, étkezési só, majoranna, őrölt bors, fűszerpaprika, őrölt kömény, sertésbél",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "14 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "sutokolbasz": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, nitrites só, fokhagyma, őrölt bors, őrölt kömény",
+   "allerg": "nitrit",
+   "hokezeles": true,
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "10 nap",
+   "felb": "3 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap"
+  },
+  "teperto": {
+   "ossz": "Mangalica zsírszalonna, étkezési só",
+   "csom": "műanyag doboz",
+   "tar": "0–(+5) °C",
+   "szav": "14 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "zsir-1kg": {
+   "ossz": "Mangalica zsírszalonna",
+   "csom": "műanyag vödör",
+   "tar": "0–(+5) °C",
+   "szav": "360 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "8–12 hónap"
+  },
+  "zsir-5kg": {
+   "ossz": "Mangalica zsírszalonna",
+   "csom": "műanyag vödör",
+   "tar": "0–(+5) °C",
+   "szav": "360 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "8–12 hónap"
+  },
+  "rakott-fej": {
+   "ossz": "Mangalica főtt fej, abált lé, fokhagyma, étkezési só, fűszerpaprika, őrölt bors, őrölt kömény",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "14 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)"
+  },
+  "csuloksajt": {
+   "ossz": "Mangalica főtt első csülök, abált lé, fokhagyma, étkezési só, őrölt bors, őrölt kömény",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "14 nap",
+   "felb": "3 nap",
+   "fagyH": "Nem ajánlott (minőségromlás)"
+  },
+  "paprikas-szalami": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, nitrites só, fokhagyma, fűszerkömény, őrölt bors",
+   "megj": "Bükkfán füstölve",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "felb": "4–5 nap (szeletelve)",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "csipos-paprikas-szalami": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, nitrites só, fokhagyma, fűszerkömény, őrölt bors, chiliszósz",
+   "megj": "Bükkfán füstölve",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "felb": "4–5 nap (szeletelve)",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "teliszalami": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, téliszalámi fűszerkeverék",
+   "megj": "Bükkfán füstölve",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "felb": "4–5 nap (szeletelve)",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "fustolt-csemege-kolbasz": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, őrölt kömény, sertésbél",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "fustolt-csipos-kolbasz": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, fűszerpaprika, étkezési só, fokhagyma, őrölt bors, őrölt kömény, chiliszósz, sertésbél",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "miskolci-kolbasz": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, étkezési só, fokhagyma, őrölt bors, őrölt kömény, sertésbél",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "csipos-snack-kolbasz": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, téliszalámi fűszerkeverék, fűszerpaprika, chiliszósz",
+   "megj": "Bükkfán füstölve",
+   "allerg": "nitrit",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "90 nap",
+   "fagyH": "-18 °C",
+   "fagyI": "4–6 hónap"
+  },
+  "mangalica-turista": {
+   "ossz": "Mangalica sertéshús, ipari szalonna, nitrites só, szoluprát, őrölt bors, fűszerpaprika, fokhagymagranulátum, szegfűbors",
+   "megj": "Bükkfán füstölve",
+   "csom": "vákuumfólia",
+   "tar": "0–(+5) °C",
+   "szav": "14 nap",
+   "felb": "2–3 nap (szeletelve)",
+   "fagyH": "-18 °C",
+   "fagyI": "2–3 hónap",
+   "opciok": [
+    "Egészben",
+    "Szeletelve"
+   ]
+  },
+  "zsirnakvalo-akcio": {
+   "ossz": "Mangalica zsírszalonna",
+   "tar": "0–(+5) °C",
+   "szav": "4 nap",
+   "opciok": [
+    "Bőrös, egyben",
+    "Bőr nélkül, egyben",
+    "Bőr nélkül, kockázva"
+   ]
+  },
+  "korom-akcio": {
+   "ossz": "Mangalica köröm",
+   "tar": "0–(+5) °C",
+   "szav": "4 nap",
+   "opciok": [
+    "Darabolva",
+    "Félbe vágva",
+    "Egészben"
+   ]
+  }
+ },
+ "photos": {
+  "teliszalami": 2,
+  "chilis-parizsi": 1,
+  "abalt-szalonna": 2,
+  "angol-szalonna": 2,
+  "bbq-oldalas": 2,
+  "chilis-rilette": 2,
+  "comb": 2,
+  "csaszarhus": 2,
+  "csipos-paprikas-szalami": 2,
+  "csipos-snack-kolbasz": 3,
+  "csontos-karaj": 2,
+  "csulok": 2,
+  "csulok-csont-nelkul": 2,
+  "csuloksajt": 2,
+  "dagado": 2,
+  "daralthus": 3,
+  "debreceni-paros": 2,
+  "dobozos-kenomajas": 2,
+  "fokhagymas-rilette": 2,
+  "formazott-nyers-szalonna": 1,
+  "fustolt-csemege-kolbasz": 2,
+  "fustolt-csemege-szalonna": 2,
+  "fustolt-csipos-kolbasz": 2,
+  "fustolt-oldalas": 2,
+  "fustolt-parizsi": 3,
+  "fustolt-sonka": 2,
+  "fustolt-virsli": 2,
+  "gesztelyi-paros": 2,
+  "grillkolbasz-bajor": 1,
+  "grillkolbasz-magyaros": 1,
+  "hagyomany-izei": 3,
+  "hamburgerhus": 2,
+  "hurka": 3,
+  "husos-csont": 2,
+  "karaj-csont-nelkul": 2,
+  "kocsonya-csomag": 3,
+  "kolozsvari-szalonna": 2,
+  "korom": 2,
+  "lapocka": 2,
+  "mangalica-maj": 2,
+  "miskolci-kolbasz": 2,
+  "oldalas": 3,
+  "parasztmajas": 2,
+  "parizsi": 1,
+  "rakott-fej": 2,
+  "sos-szalonna": 2,
+  "sutokolbasz": 2,
+  "szuz": 2,
+  "t-bone": 2,
+  "tarja-csont-nelkul": 3,
+  "teperto": 1,
+  "tepertokrem": 1,
+  "tepett-hus": 2,
+  "tomahawk": 3,
+  "tomlos-kenomajas": 2,
+  "virsli": 2,
+  "zsirnakvalo": 2,
+  "csontos-tarja": 3,
+  "mangalica-turista": 3,
+  "uzsonnasonka": 3,
+  "ajandekdoboz-10": 3,
+  "mangalica-orokseg": 3,
+  "ajandekdoboz-nagy": 3,
+  "ajandekkartya-5000": 1,
+  "ajandekkartya-10000": 1,
+  "ajandekkartya-20000": 1,
+  "zsir-5kg": 1
+ },
+ "whiteImg": [
+  "abalt-szalonna",
+  "ajandekdoboz-10",
+  "ajandekdoboz-kicsi",
+  "ajandekdoboz-nagy",
+  "ajandekdoboz-12",
+  "angol-szalonna",
+  "bbq-oldalas",
+  "bosegtal",
+  "chilis-parizsi",
+  "chilis-rilette",
+  "comb",
+  "csaszarhus",
+  "csipos-paprikas-szalami",
+  "csipos-snack-kolbasz",
+  "csontos-karaj",
+  "csontos-tarja",
+  "csulok",
+  "csulok-csont-nelkul",
+  "csuloksajt",
+  "dagado",
+  "daralthus",
+  "debreceni-paros",
+  "dobozos-kenomajas",
+  "fokhagymas-rilette",
+  "formazott-nyers-szalonna",
+  "fredi-szelet",
+  "fustolt-csemege-kolbasz",
+  "fustolt-csemege-szalonna",
+  "fustolt-csipos-kolbasz",
+  "fustolt-oldalas",
+  "fustolt-parizsi",
+  "fustolt-sonka",
+  "gesztelyi-paros",
+  "grillkolbasz-bajor",
+  "grillkolbasz-magyaros",
+  "hamburgerhus",
+  "hurka",
+  "husos-csont",
+  "karaj-csont-nelkul",
+  "kocsonya-csomag",
+  "kolozsvari-szalonna",
+  "korom",
+  "lapocka",
+  "mangalica-maj",
+  "mangalica-turista",
+  "miskolci-kolbasz",
+  "nyelves-felvagott",
+  "oldalas",
+  "paprikas-szalami",
+  "parasztmajas",
+  "parizsi",
+  "rakott-fej",
+  "sos-szalonna",
+  "sutokolbasz",
+  "szuz",
+  "t-bone",
+  "tarja-csont-nelkul",
+  "teliszalami",
+  "tepertokrem",
+  "tepett-hus",
+  "tomahawk",
+  "tomlos-kenomajas",
+  "uzsonnasonka",
+  "virsli",
+  "zsir-1kg",
+  "zsir-5kg",
+  "zsirnakvalo"
+ ],
+ "towns": [
+  {
+   "name": "Biatorbágy",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2051"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Budakeszi",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2092"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Budaörs",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2040"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Budapest",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "1"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Csömör",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2141"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Diósd",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "2049"
+   ],
+   "min": 15000
+  },
+  {
+   "name": "Dunakeszi",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2120"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Érd",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    },
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2030"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Etyek",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2091"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Fót",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2151"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Gödöllő",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2100"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Gyál",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2360"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Halásztelek",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2314"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Kistarcsa",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2143"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Mogyoród",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2146"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Nagytarcsa",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2142"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Solymár",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "2083"
+   ],
+   "min": 15000
+  },
+  {
+   "name": "Szentjakab Park",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [],
+   "min": 10000
+  },
+  {
+   "name": "Szigetszentmiklós",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2310"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Törökbálint",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2045"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Üröm",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2096"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Vecsés",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2220"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Veresegyház",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "2112"
+   ],
+   "min": 15000
+  },
+  {
+   "name": "Alsózsolca",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3571"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Arnót",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3713"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Bekecs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3903"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Bőcs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3574"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Bodrogkeresztúr",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3916"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Emőd",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3432"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Encs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3860"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Felsőzsolca",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3561"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Gesztely",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3715",
+    "3923"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Hernádkak",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3563"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Hernádnémeti",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3564"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Kazincbarcika",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3700"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Kesznyéten",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3579"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Kistokaj",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3553"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Mád",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3909"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Mályi",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    },
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3434"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Mályinka",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3645"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Mezőkövesd",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "3400"
+   ],
+   "min": 15000
+  },
+  {
+   "name": "Miskolc",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3500",
+    "3501",
+    "3508",
+    "3515",
+    "3516",
+    "3517",
+    "3518",
+    "3519",
+    "3521",
+    "3524",
+    "3525",
+    "3526",
+    "3527",
+    "3528",
+    "3529",
+    "3530",
+    "3531",
+    "3532",
+    "3533",
+    "3534",
+    "3535",
+    "3558"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Monok",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3905"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Nyékládháza",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3433"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Onga",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3562"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Sajóbábony",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3792"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Sajóörös",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3586"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Sajószentpéter",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3770"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Sajószöged",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3599"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Sárospatak",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 40000
+    }
+   ],
+   "zips": [
+    "3950"
+   ],
+   "min": 40000
+  },
+  {
+   "name": "Szerencs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3900",
+    "3902"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Tarcal",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3915"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Tardona",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3644"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Tiszalúc",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3565"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Tiszaújváros",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3580"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Tokaj",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3910"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Újcsanálos",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 2,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3716"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Eger",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3300"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Gyöngyös",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3200",
+    "3221",
+    "3232",
+    "3233"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Hatvan",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "3000"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Maklár",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3397"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Ostoros",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "3326"
+   ],
+   "min": 15000
+  },
+  {
+   "name": "Szihalom",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3377"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Szilvásvárad",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3348"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Bocskaikert",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4241"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Debrecen",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4000",
+    "4002",
+    "4024",
+    "4025",
+    "4026",
+    "4027",
+    "4028",
+    "4029",
+    "4030",
+    "4031",
+    "4032",
+    "4033",
+    "4034",
+    "4042",
+    "4063",
+    "4078",
+    "4079"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Görbeháza",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4075"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Hajdúböszörmény",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4074",
+    "4086",
+    "4220",
+    "4224"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Hajdúhadház",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "4242"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Pallag",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [],
+   "min": 5000
+  },
+  {
+   "name": "Polgár",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4090"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Téglás",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "4243"
+   ],
+   "min": 20000
+  },
+  {
+   "name": "Vámospércs",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "4287"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Nyíregyháza",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4246",
+    "4400",
+    "4405",
+    "4431",
+    "4432",
+    "4433",
+    "4481",
+    "4551"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Nyírtelek",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4461"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Rakamaz",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4465"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Tiszavasvári",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "4440"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Újfehértó",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4244"
+   ],
+   "min": 5000
+  },
+  {
+   "name": "Balatonalmádi",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8220"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Balatonfüred",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8230"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Balatonkenese",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8174"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Győr",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "9000",
+    "9011",
+    "9012",
+    "9019",
+    "9021",
+    "9022",
+    "9023",
+    "9024",
+    "9025",
+    "9026",
+    "9027",
+    "9028",
+    "9029",
+    "9030"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Székesfehérvár",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8000",
+    "8019"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Velence",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2481"
+   ],
+   "min": 10000
+  },
+  {
+   "name": "Veszprém",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8200",
+    "8411",
+    "8412"
+   ],
+   "min": 10000
+  }
+ ],
+ "areas": [
+  {
+   "id": "pest",
+   "name": "Budapest és környéke"
+  },
+  {
+   "id": "borsod",
+   "name": "Borsod-Abaúj-Zemplén"
+  },
+  {
+   "id": "heves",
+   "name": "Heves"
+  },
+  {
+   "id": "hajdu",
+   "name": "Hajdú-Bihar"
+  },
+  {
+   "id": "szabolcs",
+   "name": "Szabolcs-Szatmár-Bereg"
+  },
+  {
+   "id": "dunantul",
+   "name": "Dunántúl (november 5.)"
+  }
+ ],
+ "cutoffHour": 12,
+ "featured": [
+  "fustolt-csemege-kolbasz",
+  "kolozsvari-szalonna",
+  "csontos-tarja",
+  "grillkolbasz-magyaros",
+  "paprikas-szalami",
+  "tepertokrem",
+  "szuz",
+  "tomahawk"
+ ]
+}

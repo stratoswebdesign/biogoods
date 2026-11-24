@@ -1,0 +1,1276 @@
+{
+ "cutoffHour": 12,
+ "areas": [
+  {
+   "id": "pest",
+   "name": "Budapest és környéke"
+  },
+  {
+   "id": "borsod",
+   "name": "Borsod-Abaúj-Zemplén"
+  },
+  {
+   "id": "heves",
+   "name": "Heves"
+  },
+  {
+   "id": "hajdu",
+   "name": "Hajdú-Bihar"
+  },
+  {
+   "id": "szabolcs",
+   "name": "Szabolcs-Szatmár-Bereg"
+  },
+  {
+   "id": "dunantul",
+   "name": "Dunántúl (november 5.)"
+  }
+ ],
+ "towns": [
+  {
+   "name": "Biatorbágy",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2051"
+   ]
+  },
+  {
+   "name": "Budakeszi",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2092"
+   ]
+  },
+  {
+   "name": "Budaörs",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2040"
+   ]
+  },
+  {
+   "name": "Budapest",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "1"
+   ]
+  },
+  {
+   "name": "Csömör",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2141"
+   ]
+  },
+  {
+   "name": "Diósd",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "2049"
+   ]
+  },
+  {
+   "name": "Dunakeszi",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2120"
+   ]
+  },
+  {
+   "name": "Érd",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    },
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2030"
+   ]
+  },
+  {
+   "name": "Etyek",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2091"
+   ]
+  },
+  {
+   "name": "Fót",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2151"
+   ]
+  },
+  {
+   "name": "Gödöllő",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2100"
+   ]
+  },
+  {
+   "name": "Gyál",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2360"
+   ]
+  },
+  {
+   "name": "Halásztelek",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2314"
+   ]
+  },
+  {
+   "name": "Kistarcsa",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2143"
+   ]
+  },
+  {
+   "name": "Mogyoród",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2146"
+   ]
+  },
+  {
+   "name": "Nagytarcsa",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2142"
+   ]
+  },
+  {
+   "name": "Solymár",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "2083"
+   ]
+  },
+  {
+   "name": "Szentjakab Park",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": []
+  },
+  {
+   "name": "Szigetszentmiklós",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2310"
+   ]
+  },
+  {
+   "name": "Törökbálint",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2045"
+   ]
+  },
+  {
+   "name": "Üröm",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2096"
+   ]
+  },
+  {
+   "name": "Vecsés",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "2220"
+   ]
+  },
+  {
+   "name": "Veresegyház",
+   "zone": "pest",
+   "runs": [
+    {
+     "day": 5,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "2112"
+   ]
+  },
+  {
+   "name": "Alsózsolca",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3571"
+   ]
+  },
+  {
+   "name": "Arnót",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3713"
+   ]
+  },
+  {
+   "name": "Bekecs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3903"
+   ]
+  },
+  {
+   "name": "Bőcs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3574"
+   ]
+  },
+  {
+   "name": "Bodrogkeresztúr",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3916"
+   ]
+  },
+  {
+   "name": "Emőd",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3432"
+   ]
+  },
+  {
+   "name": "Encs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3860"
+   ]
+  },
+  {
+   "name": "Felsőzsolca",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3561"
+   ]
+  },
+  {
+   "name": "Gesztely",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3715",
+    "3923"
+   ]
+  },
+  {
+   "name": "Hernádkak",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3563"
+   ]
+  },
+  {
+   "name": "Hernádnémeti",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3564"
+   ]
+  },
+  {
+   "name": "Kazincbarcika",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3700"
+   ]
+  },
+  {
+   "name": "Kesznyéten",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3579"
+   ]
+  },
+  {
+   "name": "Kistokaj",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3553"
+   ]
+  },
+  {
+   "name": "Mád",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3909"
+   ]
+  },
+  {
+   "name": "Mályi",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    },
+    {
+     "day": 5,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3434"
+   ]
+  },
+  {
+   "name": "Mályinka",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3645"
+   ]
+  },
+  {
+   "name": "Mezőkövesd",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "3400"
+   ]
+  },
+  {
+   "name": "Miskolc",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3500",
+    "3501",
+    "3508",
+    "3515",
+    "3516",
+    "3517",
+    "3518",
+    "3519",
+    "3521",
+    "3524",
+    "3525",
+    "3526",
+    "3527",
+    "3528",
+    "3529",
+    "3530",
+    "3531",
+    "3532",
+    "3533",
+    "3534",
+    "3535",
+    "3558"
+   ]
+  },
+  {
+   "name": "Monok",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3905"
+   ]
+  },
+  {
+   "name": "Nyékládháza",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3433"
+   ]
+  },
+  {
+   "name": "Onga",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3562"
+   ]
+  },
+  {
+   "name": "Sajóbábony",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3792"
+   ]
+  },
+  {
+   "name": "Sajóörös",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3586"
+   ]
+  },
+  {
+   "name": "Sajószentpéter",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3770"
+   ]
+  },
+  {
+   "name": "Sajószöged",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3599"
+   ]
+  },
+  {
+   "name": "Sárospatak",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 40000
+    }
+   ],
+   "zips": [
+    "3950"
+   ]
+  },
+  {
+   "name": "Szerencs",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3900",
+    "3902"
+   ]
+  },
+  {
+   "name": "Tarcal",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3915"
+   ]
+  },
+  {
+   "name": "Tardona",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3644"
+   ]
+  },
+  {
+   "name": "Tiszalúc",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3565"
+   ]
+  },
+  {
+   "name": "Tiszaújváros",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3580"
+   ]
+  },
+  {
+   "name": "Tokaj",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3910"
+   ]
+  },
+  {
+   "name": "Újcsanálos",
+   "zone": "borsod",
+   "runs": [
+    {
+     "day": 2,
+     "min": 5000
+    },
+    {
+     "day": 5,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3716"
+   ]
+  },
+  {
+   "name": "Eger",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3300"
+   ]
+  },
+  {
+   "name": "Gyöngyös",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 2,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3200",
+    "3221",
+    "3232",
+    "3233"
+   ]
+  },
+  {
+   "name": "Hatvan",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 5,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "3000"
+   ]
+  },
+  {
+   "name": "Maklár",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3397"
+   ]
+  },
+  {
+   "name": "Ostoros",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 15000
+    }
+   ],
+   "zips": [
+    "3326"
+   ]
+  },
+  {
+   "name": "Szihalom",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "3377"
+   ]
+  },
+  {
+   "name": "Szilvásvárad",
+   "zone": "heves",
+   "runs": [
+    {
+     "day": 3,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "3348"
+   ]
+  },
+  {
+   "name": "Bocskaikert",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4241"
+   ]
+  },
+  {
+   "name": "Debrecen",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4000",
+    "4002",
+    "4024",
+    "4025",
+    "4026",
+    "4027",
+    "4028",
+    "4029",
+    "4030",
+    "4031",
+    "4032",
+    "4033",
+    "4034",
+    "4042",
+    "4063",
+    "4078",
+    "4079"
+   ]
+  },
+  {
+   "name": "Görbeháza",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4075"
+   ]
+  },
+  {
+   "name": "Hajdúböszörmény",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4074",
+    "4086",
+    "4220",
+    "4224"
+   ]
+  },
+  {
+   "name": "Hajdúhadház",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "4242"
+   ]
+  },
+  {
+   "name": "Pallag",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": []
+  },
+  {
+   "name": "Polgár",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4090"
+   ]
+  },
+  {
+   "name": "Téglás",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 20000
+    }
+   ],
+   "zips": [
+    "4243"
+   ]
+  },
+  {
+   "name": "Vámospércs",
+   "zone": "hajdu",
+   "runs": [
+    {
+     "day": 4,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "4287"
+   ]
+  },
+  {
+   "name": "Nyíregyháza",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4246",
+    "4400",
+    "4405",
+    "4431",
+    "4432",
+    "4433",
+    "4481",
+    "4551"
+   ]
+  },
+  {
+   "name": "Nyírtelek",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4461"
+   ]
+  },
+  {
+   "name": "Rakamaz",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4465"
+   ]
+  },
+  {
+   "name": "Tiszavasvári",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "4440"
+   ]
+  },
+  {
+   "name": "Újfehértó",
+   "zone": "szabolcs",
+   "runs": [
+    {
+     "day": 4,
+     "min": 5000
+    }
+   ],
+   "zips": [
+    "4244"
+   ]
+  },
+  {
+   "name": "Balatonalmádi",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8220"
+   ]
+  },
+  {
+   "name": "Balatonfüred",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8230"
+   ]
+  },
+  {
+   "name": "Balatonkenese",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8174"
+   ]
+  },
+  {
+   "name": "Győr",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "9000",
+    "9011",
+    "9012",
+    "9019",
+    "9021",
+    "9022",
+    "9023",
+    "9024",
+    "9025",
+    "9026",
+    "9027",
+    "9028",
+    "9029",
+    "9030"
+   ]
+  },
+  {
+   "name": "Székesfehérvár",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8000",
+    "8019"
+   ]
+  },
+  {
+   "name": "Velence",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "2481"
+   ]
+  },
+  {
+   "name": "Veszprém",
+   "zone": "dunantul",
+   "runs": [
+    {
+     "date": "2026-11-05",
+     "min": 10000
+    }
+   ],
+   "zips": [
+    "8200",
+    "8411",
+    "8412"
+   ]
+  }
+ ]
+}
