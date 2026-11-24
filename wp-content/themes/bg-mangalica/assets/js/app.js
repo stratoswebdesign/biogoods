@@ -178,6 +178,7 @@
     if (it) { it.qty = Math.min(99, it.qty + (qty || 1)); if (opt) it.opt = opt; }
     else { const o = { id, qty: qty || 1 }; const A = (BG.adatlap || {})[id]; const def = A && A.opciok ? A.opciok[0] : null; if (opt || def) o.opt = opt || def; c.push(o); }
     saveCart(c);
+    document.dispatchEvent(new CustomEvent('bg:add', { detail: { id: id, qty: qty || 1 } }));
   }
   // választott kivitel (pl. szeletelve) a kosársorban
   const optText = (i) => (i && i.opt ? ' · ' + i.opt : '');
@@ -313,6 +314,7 @@
       const b = e.target.closest('[data-c]');
       if (!b) return;
       store.set('bg_cookie', { choice: b.getAttribute('data-c'), at: Date.now() });
+      document.dispatchEvent(new CustomEvent('bg:consent', { detail: b.getAttribute('data-c') }));
       c.remove();
     });
   }

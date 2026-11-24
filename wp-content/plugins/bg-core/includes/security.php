@@ -88,3 +88,41 @@ add_action( 'user_profile_update_errors', function ( $errors, $update, $user ) {
 		$errors->add( 'bg_weak', 'Adminisztrátornak és boltkezelőnek legalább 14 karakteres, betűt és számot is tartalmazó jelszó kell.' );
 	}
 }, 10, 3 );
+
+/*
+ * Kétlépcsős belépés (Two Factor bővítmény): adminnak és boltkezelőnek kötelező.
+ * Ha valaki még nem állított be hitelesítő alkalmazást, legalább e-mailes kódot kap belépéskor.
+ */
+function bg_needs_2fa( $user_id ) {
+	$u = get_userdata( $user_id );
+	return $u && array_intersect( (array) $u->roles, array( 'administrator', 'shop_manager' ) );
+}
+add_filter( 'two_factor_enabled_providers_for_user', function ( $providers, $user_id ) {
+	if ( empty( $providers ) && bg_needs_2fa( $user_id ) && class_exists( 'Two_Factor_Email' ) ) {
+		$providers = array( 'Two_Factor_Email' );
+	}
+	return $providers;
+}, 10, 2 );
+add_filter( 'two_factor_primary_provider_for_user', function ( $provider, $user_id ) {
+	if ( ! $provider && bg_needs_2fa( $user_id ) && class_exists( 'Two_Factor_Email' ) ) {
+		return 'Two_Factor_Email';
+	}
+	return $provider;
+}, 10, 2 );
+add_action( 'admin_notices', function () {
+	if ( ! class_exists( 'Two_Factor_Core' ) || ! bg_needs_2fa( get_current_user_id() ) ) {
+		return;
+	}
+	$stored = get_user_meta( get_current_user_id(), '_two_factor_enabled_providers', true );
+	if ( empty( $stored ) || ( is_array( $stored ) && array( 'Two_Factor_Email' ) === array_values( $stored ) ) ) {
+		echo '<div class="notice notice-info"><p><strong>Kétlépcsős belépés:</strong> most e-mailben kapod a belépési kódot. Biztonságosabb és gyorsabb egy hitelesítő alkalmazás (pl. Google Authenticator): <a href="' . esc_url( admin_url( 'profile.php#two-factor-options' ) ) . '">beállítás a profilodban</a>.</p></div>';
+	}
+} );
+
+/* Fájlszerkesztés és bővítmény-/sablontelepítés tiltása az adminból is (a tárhelyen nincs wp-config-hozzáférés). */
+add_filter( 'map_meta_cap', function ( $caps, $cap ) {
+	if ( in_array( $cap, array( 'edit_themes', 'edit_plugins', 'edit_files' ), true ) ) {
+		return array( 'do_not_allow' );
+	}
+	return $caps;
+}, 10, 2 );

@@ -11,6 +11,7 @@
   var home = (C.home || '/').replace(/\/?$/, '/');
   var assets = (C.assets || '').replace(/\/?$/, '/');
   var purl = C.purl || {};
+  ((window.BG && window.BG.products) || []).forEach(function (p) { if (p.url) purl[p.id] = p.url; });
   var map = C.pages || {};
 
   function route(p) {
@@ -45,7 +46,11 @@
     if (!a || !a.href || !C.checkout || C.isCheckout) return false;
     var raw = a.getAttribute('href') || '';
     if (!raw || raw.charAt(0) === '#') return false;
-    return a.href.split('#')[0].replace(/\/?$/, '/') === C.checkout.replace(/\/?$/, '/');
+    // a Google-címkék (_gl) és más paraméterek nem számítanak: csak az útvonalat hasonlítjuk
+    try {
+      var u = new URL(a.href, location.href), c = new URL(C.checkout, location.href);
+      return u.origin === c.origin && u.pathname.replace(/\/?$/, '/') === c.pathname.replace(/\/?$/, '/');
+    } catch (e) { return false; }
   }
 
   var busy = false;

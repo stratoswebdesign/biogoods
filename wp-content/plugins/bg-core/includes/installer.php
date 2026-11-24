@@ -40,6 +40,15 @@ class BG_Installer {
 			'woocommerce_weight_unit'                    => 'kg',
 			'woocommerce_email_from_name'                => 'Bio-Goods Mangalica',
 			'woocommerce_email_from_address'             => 'mangalica@bio-goods.hu',
+			// e-mailek arculata (Bio-Goods: fekete, krém, sárga)
+			'woocommerce_email_header_image'             => get_template_directory_uri() . '/assets/img/site/logo.png',
+			'woocommerce_email_base_color'               => '#161615',
+			'woocommerce_email_background_color'         => '#F5F0E6',
+			'woocommerce_email_body_background_color'    => '#FFFFFF',
+			'woocommerce_email_text_color'               => '#161615',
+			'woocommerce_email_footer_text'              => 'Bio-Goods Mangalica · 3715 Gesztely, Aradi utca 22. · 06 70 947 0077 · mangalica@bio-goods.hu',
+			'woocommerce_email_footer_text_color'        => '#5E574C',
+			'woocommerce_email_header_alignment'         => 'center',
 			'woocommerce_feature_order_attribution_enabled' => 'no',
 			'woocommerce_analytics_enabled'              => 'yes',
 			'woocommerce_coming_soon'                    => 'no',
@@ -150,6 +159,18 @@ class BG_Installer {
 			update_option( "woocommerce_{$g}_settings", array( 'enabled' => 'no' ) );
 		}
 
+		// App-felhasználók átállási kedvezménye (adatbekérő: 5%). Nyitott: lejárat, és hogy vásárlónként egyszer-e (most: egyszer).
+		$app = new WC_Coupon( 'APP5' );
+		if ( ! $app->get_id() ) {
+			$app = new WC_Coupon();
+			$app->set_code( 'APP5' );
+			$app->set_discount_type( 'percent' );
+			$app->set_amount( 5 );
+			$app->set_description( 'Appos vásárlók átállási kedvezménye (5%). Vásárlónként egyszer.' );
+			$app_id = $app->save();
+			update_post_meta( $app_id, '_bg_campaign', 'app2026' );
+		}
+
 		flush_rewrite_rules();
 		// a WooCommerce a termék-permalinket csak a következő betöltéskor veszi át: akkor is ürítsük
 		update_option( 'woocommerce_queue_flush_rewrite_rules', 'yes' );
@@ -218,9 +239,8 @@ class BG_Installer {
 			$prod->set_description( $desc );
 			$prod->set_short_description( ( $p['pack'] ?? '' ) . ( ! empty( $p['unit'] ) ? ' · ' . number_format( $p['unit'], 0, ',', ' ' ) . ' Ft/kg' : '' ) );
 			$prod->set_tax_status( 'taxable' );
-			if ( ! empty( $p['giftcard'] ) ) {
-				$prod->set_virtual( true );
-			}
+			// az ajándékkártya fizikai kártya: a járattal megy, ezért nem „virtuális” termék
+			$prod->set_virtual( false );
 			$id = $prod->save();
 
 			$A = $data['adatlap'][ $p['id'] ] ?? null;

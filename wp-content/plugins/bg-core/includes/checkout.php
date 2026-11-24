@@ -195,8 +195,23 @@ add_action( 'woocommerce_email_order_meta', function ( $order, $sent_to_admin, $
 	if ( ! $line ) {
 		return;
 	}
-	echo $plain_text ? "\n" . esc_html( $line ) . "\n" : '<p><strong>' . esc_html( $line ) . '</strong></p>';
-}, 10, 3 );
+	$note = 'Saját hűtött autónkkal visszük ki. Ha nem vagy otthon, a csomagot a kapura akasztjuk, az ajtó elé tesszük vagy a szomszédnál hagyjuk.';
+	if ( $plain_text ) {
+		echo "\n" . esc_html( $line ) . "\n" . ( $sent_to_admin ? '' : esc_html( $note ) . "\n" );
+		return;
+	}
+	echo '<div style="margin:0 0 24px;padding:16px 18px;background:#F5F0E6;border-left:4px solid #E3AF00;border-radius:4px">';
+	echo '<p style="margin:0;font-size:17px"><strong>' . esc_html( $line ) . '</strong></p>';
+	if ( ! $sent_to_admin ) {
+		echo '<p style="margin:8px 0 0;font-size:14px">' . esc_html( $note ) . '</p>';
+	}
+	echo '</div>';
+}, 5, 3 );
+
+/* Az e-mail fejlécében a logó sötét sávon jelenjen meg (a logó sárga, átlátszó hátterű). */
+add_filter( 'woocommerce_email_styles', function ( $css ) {
+	return $css . '#template_header_image{background:#161615;padding:24px 0 8px;border-radius:8px 8px 0 0}#template_header_image img{max-height:90px;width:auto}#template_header{border-radius:0!important}h1{font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.02em}';
+} );
 
 /** Rendeléslista az adminban: oszlop a kiszállítási nappal (HPOS és régi tárolás). */
 foreach ( array( 'manage_woocommerce_page_wc-orders_columns', 'manage_edit-shop_order_columns' ) as $hook ) {

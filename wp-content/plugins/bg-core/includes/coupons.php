@@ -51,6 +51,10 @@ function bg_campaign_uses_by_email( $campaign, $email, $exclude_order_id = 0 ) {
 	return $n;
 }
 
+function bg_campaign_once_msg( $campaign ) {
+	return 'xmas2026' === $campaign ? 'A karácsonyi kártyából vásárlónként egy kód váltható be.' : 'Ezt a kedvezményt vásárlónként egyszer lehet beváltani.';
+}
+
 /** Pénztárkor: egy vásárló a kampányból csak egy kódot válthat be (e-mail-cím alapján). */
 add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors ) {
 	$email = sanitize_email( $data['billing_email'] ?? '' );
@@ -58,7 +62,7 @@ add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors )
 		$c        = new WC_Coupon( $code );
 		$campaign = $c->get_id() ? get_post_meta( $c->get_id(), '_bg_campaign', true ) : '';
 		if ( $campaign && bg_campaign_uses_by_email( $campaign, $email ) > 0 ) {
-			$errors->add( 'bg_coupon_once', 'A karácsonyi kártyából vásárlónként egy kód váltható be, és ehhez az e-mail-címhez már tartozik beváltás.' );
+			$errors->add( 'bg_coupon_once', bg_campaign_once_msg( $campaign ) . ' Ehhez az e-mail-címhez már tartozik beváltás.' );
 		}
 	}
 }, 20, 2 );
@@ -72,7 +76,7 @@ add_filter( 'woocommerce_coupon_is_valid', function ( $valid, $coupon ) {
 	if ( $campaign ) {
 		$user = wp_get_current_user();
 		if ( bg_campaign_uses_by_email( $campaign, $user->user_email ) > 0 ) {
-			throw new Exception( 'A karácsonyi kártyából vásárlónként egy kód váltható be.' ); // a WooCommerce ezt hibaüzenetként mutatja
+			throw new Exception( bg_campaign_once_msg( $campaign ) ); // a WooCommerce ezt hibaüzenetként mutatja
 		}
 	}
 	return $valid;
@@ -89,7 +93,7 @@ add_filter( 'woocommerce_coupon_code', function ( $code ) {
 
 /** A kódok nagybetűvel jelenjenek meg (a WooCommerce kisbetűsen tárolja). */
 $bg_upper = function ( $text ) {
-	return preg_replace_callback( '/bg10-[a-z0-9]{4}-[a-z0-9]{4}/', function ( $m ) {
+	return preg_replace_callback( '/(?:bg10|bgak)-[a-z0-9]{4}-[a-z0-9]{4}/', function ( $m ) {
 		return strtoupper( $m[0] );
 	}, (string) $text );
 };

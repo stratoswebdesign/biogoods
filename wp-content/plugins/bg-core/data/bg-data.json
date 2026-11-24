@@ -1048,7 +1048,7 @@
    "img": "ajandekkartya-5000",
    "ingr": "5 000 Ft értékben levásárolható",
    "giftcard": true,
-   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá."
+   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékkártya. A kiadástól számított 6 hónapig érvényes, részletekben is levásárolható: a maradék egyenleg a kártyán marad. Készpénzre nem váltható."
   },
   {
    "id": "ajandekkartya-10000",
@@ -1061,7 +1061,7 @@
    "img": "ajandekkartya-10000",
    "ingr": "10 000 Ft értékben levásárolható",
    "giftcard": true,
-   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá."
+   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékkártya. A kiadástól számított 6 hónapig érvényes, részletekben is levásárolható: a maradék egyenleg a kártyán marad. Készpénzre nem váltható."
   },
   {
    "id": "ajandekkartya-20000",
@@ -1074,7 +1074,7 @@
    "img": "ajandekkartya-20000",
    "ingr": "20 000 Ft értékben levásárolható",
    "giftcard": true,
-   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékutalvány. Készpénzre nem váltható; egyszer használható fel, a fennmaradó összeg nem írható jóvá."
+   "desc": "A Bio-Goods Mangalica teljes kínálatára beváltható ajándékkártya. A kiadástól számított 6 hónapig érvényes, részletekben is levásárolható: a maradék egyenleg a kártyán marad. Készpénzre nem váltható."
   }
  ],
  "hidden": [

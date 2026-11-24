@@ -158,6 +158,9 @@ add_action( 'wp_head', function () {
 		echo '<meta name="description" content="' . esc_attr( wp_html_excerpt( wp_strip_all_tags( $desc ), 300, '…' ) ) . '">' . "\n";
 	}
 	echo '<link rel="icon" href="' . esc_url( get_template_directory_uri() . '/assets/img/site/logo.png' ) . '">' . "\n";
+	foreach ( array( 'oswald-latin-wght-normal', 'manrope-latin-wght-normal' ) as $f ) {
+		echo '<link rel="preload" href="' . esc_url( get_template_directory_uri() . '/assets/fonts/' . $f . '.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+	}
 	if ( is_checkout() || is_account_page() || is_page( 'kosar' ) ) {
 		echo '<meta name="robots" content="noindex">' . "\n";
 	}
@@ -171,9 +174,9 @@ add_action( 'wp_enqueue_scripts', function () {
 		return BG_THEME_VER . '.' . ( @filemtime( $dir . $f ) ?: 0 );
 	};
 
-	// Betűtípusok: TODO élesítés előtt saját tárhelyre (GDPR: ne a Google szerveréről töltődjön)
-	wp_enqueue_style( 'bg-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap', array(), null );
-	wp_enqueue_style( 'bg-styles', $uri . '/css/styles.css', array(), $ver( '/css/styles.css' ) );
+	// Betűtípusok saját tárhelyről (GDPR: nincs Google Fonts-kérés)
+	wp_enqueue_style( 'bg-fonts', $uri . '/css/fonts.css', array(), $ver( '/css/fonts.css' ) );
+	wp_enqueue_style( 'bg-styles', $uri . '/css/styles.css', array( 'bg-fonts' ), $ver( '/css/styles.css' ) );
 	wp_enqueue_style( 'bg-wp', $uri . '/css/bg-wp.css', array( 'bg-styles' ), $ver( '/css/bg-wp.css' ) );
 
 	// A WordPress blokkstílusai nem kellenek; a WooCommerce stílusai csak a pénztárban és a fiókban.
@@ -194,29 +197,17 @@ add_action( 'wp_enqueue_scripts', function () {
 		'checkout'      => wc_get_checkout_url(),
 		'admin'         => admin_url( 'admin.php?page=wc-orders' ),
 		'pages'         => bg_page_map(),
-		'purl'          => array(),
 		'orderReceived' => is_wc_endpoint_url( 'order-received' ),
 		'isCheckout'    => is_checkout(),
 	);
-	$products = function_exists( 'bg_catalog_products' ) ? bg_catalog_products() : array();
-	foreach ( $products as $p ) {
-		$cfg['purl'][ $p['id'] ] = $p['url'];
-	}
 
 	wp_enqueue_script( 'bg-data', $uri . '/js/data.js', array(), $ver( '/js/data.js' ), true );
-	wp_add_inline_script(
-		'bg-data',
-		'window.BG_WP_CFG=' . wp_json_encode( $cfg ) . ';' .
-		// élő termékadatok a WooCommerce-ből (ár, akció, készlet, láthatóság)
-		'(function(B,P,A){if(!P||!P.length)return;B.products=P;B.adatlap=Object.assign({},B.adatlap||{},A||{});' .
-		'var ok={};P.forEach(function(p){ok[p.id]=1;});B.featured=(B.featured||[]).filter(function(i){return ok[i];});' .
-		'(B.recipes||[]).forEach(function(r){if(r.shop)r.shop=r.shop.filter(function(s){return ok[s[0]];});});})(window.BG,' .
-		wp_json_encode( $products ) . ',' . wp_json_encode( function_exists( 'bg_catalog_adatlap' ) ? (object) bg_catalog_adatlap() : new stdClass() ) . ');' .
-		// a települések, járatok és minimumok az adminban szerkeszthetők (Bio-Goods → Járatok és minimumok)
-		( class_exists( 'BG_Delivery' ) ? '(function(B,D){B.cutoffHour=D.cutoffHour;B.areas=D.areas;B.towns=D.towns.map(function(t){t.min=Math.min.apply(null,t.runs.map(function(r){return r.min;}));return t;});})(window.BG,' . wp_json_encode( BG_Delivery::data() ) . ');' : ''),
-		'after'
-	);
-	wp_enqueue_script( 'bg-wp', $uri . '/js/bg-wp.js', array( 'bg-data' ), $ver( '/js/bg-wp.js' ), true );
+	wp_add_inline_script( 'bg-data', 'window.BG_WP_CFG=' . wp_json_encode( $cfg ) . ';', 'after' );
+	// élő termékadatok, adatlapok, települések: külön, hosszan gyorsítótárazható fájlban (a verzió a tartalom hash-e)
+	if ( function_exists( 'bg_catalog_script_url' ) ) {
+		wp_enqueue_script( 'bg-catalog', bg_catalog_script_url(), array( 'bg-data' ), null, true );
+	}
+	wp_enqueue_script( 'bg-wp', $uri . '/js/bg-wp.js', array( 'bg-data', 'bg-catalog' ), $ver( '/js/bg-wp.js' ), true );
 	if ( bg_current_demo() || is_checkout() || is_account_page() ) {
 		wp_enqueue_script( 'bg-app', $uri . '/js/app.js', array( 'bg-wp' ), $ver( '/js/app.js' ), true );
 	}
