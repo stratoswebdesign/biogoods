@@ -36,10 +36,10 @@
 .bg-woo .woocommerce button.button:hover, .bg-woo .woocommerce a.button:hover { background: #000; color: var(--cream); }
 
 /* pénztár elrendezés: bal oldalt az adatok, jobb oldalt az összesítő */
-.bg-woo form.checkout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 32px 40px; align-items: start; }
-.bg-woo form.checkout > .col2-set, .bg-woo form.checkout > #customer_details { grid-column: 1; width: auto; float: none; }
-.bg-woo form.checkout > #order_review_heading { grid-column: 2; grid-row: 1; margin: 0; }
-.bg-woo form.checkout > #order_review { grid-column: 2; grid-row: 2 / span 3; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; position: sticky; top: 96px; }
+.bg-woo form.checkout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); grid-template-rows: auto 1fr; gap: 16px 40px; align-items: start; }
+.bg-woo form.checkout > .col2-set, .bg-woo form.checkout > #customer_details { grid-column: 1; grid-row: 1 / span 2; width: auto; float: none; }
+.bg-woo form.checkout > #order_review_heading { grid-column: 2; grid-row: 1; margin: 0; align-self: end; }
+.bg-woo form.checkout > #order_review { grid-column: 2; grid-row: 2; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; position: sticky; top: 96px; }
 .bg-woo .col2-set .col-1, .bg-woo .col2-set .col-2 { float: none; width: 100%; }
 .bg-woo .shop_table { width: 100%; border-collapse: collapse; }
 .bg-woo .shop_table th, .bg-woo .shop_table td { padding: 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
@@ -71,3 +71,4 @@
   .bg-woo form.checkout > #order_review_heading, .bg-woo form.checkout > #order_review { grid-column: 1; grid-row: auto; position: static; }
   .wrap.bg-woo { padding-left: 18px; padding-right: 18px; }
 }
+.bg-woo .bg-hidden { display: none !important; }

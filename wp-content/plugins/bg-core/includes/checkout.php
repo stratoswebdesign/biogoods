@@ -34,6 +34,9 @@ add_filter( 'woocommerce_checkout_fields', function ( $fields ) {
 		'priority' => 65,
 	);
 	$b['billing_address_1']['label']    = 'Utca, házszám';
+	$b['billing_phone']['required']     = true; // a sofőr kiszállítás előtt hívhat
+	$b['billing_phone']['label']        = 'Telefonszám';
+	$b['billing_country']['class']      = array( 'form-row-wide', 'bg-hidden' );
 	$b['billing_address_1']['priority'] = 70;
 	$b['billing_vat_number']            = array(
 		'type'     => 'text',
@@ -71,6 +74,19 @@ function bg_day_options( array $town ) {
 	}
 	return $out;
 }
+
+/** A magyar címformátum „Város” címkéje helyett „Település”, és a telefonszám kötelező. */
+add_filter( 'woocommerce_get_country_locale', function ( $locale ) {
+	$locale['HU']['city']  = array_merge( $locale['HU']['city'] ?? array(), array( 'label' => 'Település' ) );
+	$locale['HU']['state'] = array( 'required' => false, 'hidden' => true );
+	return $locale;
+} );
+add_filter( 'woocommerce_billing_fields', function ( $f ) {
+	if ( isset( $f['billing_phone'] ) ) {
+		$f['billing_phone']['required'] = true;
+	}
+	return $f;
+}, 20 );
 
 /** Csak Magyarországra szállítunk; a szállítási cím a számlázási címmel egyezik. */
 add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
