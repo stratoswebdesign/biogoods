@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Bio-Goods Mangalica – webshop mag
  * Description: Kiszállítási települések és járatnapok, rendelési határidő és minimum, kivitel (szeletelve/egészben), karácsonyi kuponszabályok, biztonsági beállítások.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Stratos Webdesign
  * Requires Plugins: woocommerce
  * Text Domain: bg-core
@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'BG_CORE_VERSION', '0.1.0' );
+define( 'BG_CORE_VERSION', '0.2.0' );
 define( 'BG_CORE_DIR', __DIR__ );
 define( 'BG_CORE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -24,6 +24,7 @@ require_once BG_CORE_DIR . '/includes/installer.php';
 
 if ( is_admin() ) {
 	require_once BG_CORE_DIR . '/includes/admin.php';
+	require_once BG_CORE_DIR . '/includes/admin-views.php';
 }
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {

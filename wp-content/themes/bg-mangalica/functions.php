@@ -211,7 +211,9 @@ add_action( 'wp_enqueue_scripts', function () {
 		'(function(B,P,A){if(!P||!P.length)return;B.products=P;B.adatlap=Object.assign({},B.adatlap||{},A||{});' .
 		'var ok={};P.forEach(function(p){ok[p.id]=1;});B.featured=(B.featured||[]).filter(function(i){return ok[i];});' .
 		'(B.recipes||[]).forEach(function(r){if(r.shop)r.shop=r.shop.filter(function(s){return ok[s[0]];});});})(window.BG,' .
-		wp_json_encode( $products ) . ',' . wp_json_encode( function_exists( 'bg_catalog_adatlap' ) ? (object) bg_catalog_adatlap() : new stdClass() ) . ');',
+		wp_json_encode( $products ) . ',' . wp_json_encode( function_exists( 'bg_catalog_adatlap' ) ? (object) bg_catalog_adatlap() : new stdClass() ) . ');' .
+		// a települések, járatok és minimumok az adminban szerkeszthetők (Bio-Goods → Járatok és minimumok)
+		( class_exists( 'BG_Delivery' ) ? '(function(B,D){B.cutoffHour=D.cutoffHour;B.areas=D.areas;B.towns=D.towns.map(function(t){t.min=Math.min.apply(null,t.runs.map(function(r){return r.min;}));return t;});})(window.BG,' . wp_json_encode( BG_Delivery::data() ) . ');' : ''),
 		'after'
 	);
 	wp_enqueue_script( 'bg-wp', $uri . '/js/bg-wp.js', array( 'bg-data' ), $ver( '/js/bg-wp.js' ), true );
