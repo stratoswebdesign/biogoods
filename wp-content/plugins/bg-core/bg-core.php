@@ -20,6 +20,11 @@ require_once BG_CORE_DIR . '/includes/checkout.php';
 require_once BG_CORE_DIR . '/includes/coupons.php';
 require_once BG_CORE_DIR . '/includes/security.php';
 require_once BG_CORE_DIR . '/includes/catalog-data.php';
+require_once BG_CORE_DIR . '/includes/installer.php';
+
+if ( is_admin() ) {
+	require_once BG_CORE_DIR . '/includes/admin.php';
+}
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once BG_CORE_DIR . '/includes/cli.php';
