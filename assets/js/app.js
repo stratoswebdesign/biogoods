@@ -188,7 +188,17 @@
   const cartTotal = (c) => (c || getCart()).reduce((s, i) => s + P[i.id].price * i.qty, 0);
   const cartCount = (c) => (c || getCart()).reduce((s, i) => s + i.qty, 0);
   function coupon() { return store.get('bg_coupon', null); }
-  function discountFor(total) { const c = coupon(); return c && c.pct ? Math.round(total * c.pct / 100) : 0; }
+  // Karácsonyi ajándékdobozos kártya: BG10-XXXX-XXXX, −10%, min. 15 000 Ft (kedvezmény előtt), 2027.06.30-ig,
+  // akciós termékekre is, más kuponnal nem vonható össze, kódonként és vásárlónként egyszer.
+  // A demóban csak a formátumot ellenőrizzük; az éles webshopban a 200 kiadott kód érvényes.
+  const BG10 = { pct: 10, min: 15000, until: '2027-06-30' };
+  const isBG10 = (code) => /^BG10-[2-9A-HJKMNP-Z]{4}-[2-9A-HJKMNP-Z]{4}$/.test(code);
+  const usedCoupons = () => store.get('bg_orders', []).filter((o) => o.coupon && o.status !== 'cancelled' && o.status !== 'failed' && o.status !== 'refunded').map((o) => o.coupon);
+  function discountFor(total) {
+    const c = coupon(); if (!c || !c.pct) return 0;
+    if (c.min && total < c.min) return 0;
+    return Math.round(total * c.pct / 100);
+  }
 
   /* ================= közös UI-darabok ================= */
   function productCard(p) {
@@ -1001,9 +1011,10 @@
         '</div><aside class="summary" aria-label="Összesítés"><h2 style="font-size:26px">Összesítés</h2>' +
         '<div class="line"><span>Részösszeg (' + cartCount(c) + ' db)</span><span>' + ft(s.total) + '</span></div>' +
         (disc ? '<div class="line" style="color:var(--ok)"><span>Kedvezmény (' + esc(cp.code) + ')</span><span>−' + ft(disc) + '</span></div>' : '') +
+        (cp && !disc && cp.min ? '<div class="line muted" style="font-size:14px"><span>' + esc(cp.code) + ': ' + ft(cp.min) + '-tól érvényes, még ' + ft(cp.min - s.total) + '</span></div>' : '') +
         '<div class="line"><span>Házhozszállítás</span><strong>' + (ok ? 'Ingyenes' : s.info ? 'a minimumtól ingyenes' : '–') + '</strong></div>' +
         (s.info && s.info.next ? '<div class="line muted" style="font-size:15px"><span>Járatnap</span><span>' + esc(fmtDate(s.info.next.date)) + ' · ' + esc(s.info.town.name) + '</span></div>' : '') +
-        '<form class="field" id="coupon-form">Kupon vagy ajándékkártya<span class="row" style="flex-wrap:nowrap"><input name="code" class="input" style="flex:1;min-width:0;height:46px" placeholder="pl. APP5"' + (cp ? ' value="' + esc(cp.code) + '"' : '') + '><button class="btn btn-outline btn-sm" type="submit">' + (cp ? 'Törlés' : 'Beváltom') + '</button></span></form>' +
+        '<form class="field" id="coupon-form">Kupon vagy ajándékkártya<span class="row" style="flex-wrap:nowrap"><input name="code" class="input" style="flex:1;min-width:0;height:46px" placeholder="pl. APP5 vagy BG10-…"' + (cp ? ' value="' + esc(cp.code) + '"' : '') + '><button class="btn btn-outline btn-sm" type="submit">' + (cp ? 'Törlés' : 'Beváltom') + '</button></span></form>' +
         '<div class="line total"><strong>Fizetendő</strong><span class="price">' + ft(pay) + '</span></div>' +
         (ok ? '<a class="btn btn-gold btn-block" href="' + url('penztar.html') + '">Tovább a pénztárhoz</a>'
           : '<button class="btn btn-block" disabled>' + (s.info ? 'Még ' + ft(s.missing) + ' a minimumig' : 'Előbb válassz települést') + '</button>') +
@@ -1013,7 +1024,16 @@
         e.preventDefault();
         if (coupon()) { store.del('bg_coupon'); toast('A kupont eltávolítottuk'); draw(); return; }
         const code = norm(e.target.code.value).toUpperCase();
-        if (code === 'APP5') { store.set('bg_coupon', { code: 'APP5', pct: 5 }); toast('Átállási kedvezmény: −5%'); draw(); } else toast('Ez a kód nem érvényes (demóban: APP5)');
+        if (code === 'APP5') { store.set('bg_coupon', { code: 'APP5', pct: 5 }); toast('Átállási kedvezmény: −5%'); draw(); return; }
+        if (isBG10(code)) {
+          if (new Date().toISOString().slice(0, 10) > BG10.until) { toast('Ez a kártya 2027. június 30-ig volt beváltható'); return; }
+          const used = usedCoupons();
+          if (used.includes(code)) { toast('Ezt a kódot már beváltották'); return; }
+          if (used.some((u) => /^BG10-/.test(u))) { toast('A karácsonyi kártyából vásárlónként egy váltható be'); return; }
+          if (s.total < BG10.min) { toast('A karácsonyi kártya 15 000 Ft-tól váltható be (még ' + ft(BG10.min - s.total) + ')'); return; }
+          store.set('bg_coupon', { code, pct: BG10.pct, min: BG10.min }); toast('Karácsonyi kártya: −10%'); draw(); return;
+        }
+        toast('Ez a kód nem érvényes (demóban: APP5 vagy BG10-XXXX-XXXX)');
       });
     };
     pageRerender = draw;
@@ -1136,7 +1156,7 @@
       const disc = discountFor(total);
       const order = {
         id, created: new Date().toISOString(), status: 'processing', demo: false,
-        items: cc.map((i) => ({ id: i.id, qty: i.qty, price: P[i.id].price, opt: i.opt || undefined })), subtotal: total, discount: disc, total: total - disc,
+        items: cc.map((i) => ({ id: i.id, qty: i.qty, price: P[i.id].price, opt: i.opt || undefined })), subtotal: total, discount: disc, coupon: disc && coupon() ? coupon().code : undefined, total: total - disc,
         town: t.name, zone: t.zone, day: fd.get('day') || null, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
         zip: fd.get('zip'), street: fd.get('street'), note: fd.get('note'), pay: fd.get('pay')
       };
