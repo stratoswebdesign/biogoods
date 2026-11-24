@@ -151,6 +151,8 @@ class BG_Installer {
 		}
 
 		flush_rewrite_rules();
+		// a WooCommerce a termék-permalinket csak a következő betöltéskor veszi át: akkor is ürítsük
+		update_option( 'woocommerce_queue_flush_rewrite_rules', 'yes' );
 		return 'Beállítások, oldalak (' . count( $ids ) . '), szállítás és fizetés kész.';
 	}
 
