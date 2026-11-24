@@ -580,6 +580,7 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .refs { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); }
 .ref-logo { aspect-ratio: 16 / 9; border-radius: var(--radius-sm); background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 8% 10%; box-sizing: border-box; }
 .ref-logo img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.ref-logo--tight { padding: 3% 5%; }
 .ref-ph { aspect-ratio: 16 / 9; border: 2px dashed #B38A00; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: #4A3D00; font-size: 14px; background: rgba(255, 255, 255, .5); }
 
 /* ---------- szezonális sáv ---------- */
