@@ -1,0 +1,61 @@
+/* Bio-Goods Admin – arculat: fekete #161615, sárga #E3AF00, krém #F5F0E6 */
+.bg-wrap { --bg-ink: #161615; --bg-gold: #E3AF00; --bg-cream: #F5F0E6; --bg-line: #e2ded4; max-width: 1400px; }
+.bg-h1 { font-size: 26px !important; font-weight: 700 !important; margin-bottom: 16px !important; }
+.bg-muted { color: #6b6862; font-weight: 400; }
+.bg-strong { font-weight: 700; }
+.bg-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 16px 0; }
+.bg-kpis--sm .bg-kpi__value { font-size: 24px; }
+.bg-kpi { display: flex; flex-direction: column; gap: 2px; background: #fff; border: 1px solid var(--bg-line); border-radius: 12px; padding: 16px 18px; text-decoration: none; color: var(--bg-ink); }
+a.bg-kpi:hover, a.bg-kpi:focus { border-color: var(--bg-gold); box-shadow: 0 0 0 2px rgba(227,175,0,.25); color: var(--bg-ink); }
+.bg-kpi--dark { background: var(--bg-ink); border-color: var(--bg-ink); color: #fff; }
+a.bg-kpi--dark:hover, a.bg-kpi--dark:focus { color: #fff; }
+.bg-kpi__label { font-size: 13px; opacity: .75; }
+.bg-kpi__value { font-size: 32px; font-weight: 700; line-height: 1.15; }
+.bg-kpi--dark .bg-kpi__value { color: var(--bg-gold); }
+.bg-kpi__sub { font-size: 13px; opacity: .75; }
+.bg-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 20px; }
+.bg-cols { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; }
+@media (max-width: 1100px) { .bg-cols { grid-template-columns: 1fr; } }
+.bg-card { background: #fff; border: 1px solid var(--bg-line); border-radius: 12px; padding: 16px 18px; margin: 0 0 16px; }
+.bg-card h2 { margin: 0 0 12px; font-size: 17px; }
+.bg-card h3 { margin: 18px 0 8px; font-size: 14px; }
+.bg-list { margin: 0; padding-left: 18px; list-style: disc; }
+.bg-list li { margin: 4px 0; }
+.bg-warn { background: #fff8e1; border-left: 4px solid var(--bg-gold); padding: 10px 12px; margin: 0 0 10px; }
+.bg-table th, .bg-table td { vertical-align: top; }
+.bg-table .num { text-align: right; white-space: nowrap; }
+.bg-table .bg-empty { padding: 24px !important; }
+.bg-route td, .bg-route th { font-size: 14px; }
+.bg-zone-row th { background: var(--bg-cream) !important; font-weight: 700 !important; text-transform: uppercase; letter-spacing: .04em; font-size: 12px !important; }
+.bg-filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; background: #fff; border: 1px solid var(--bg-line); border-radius: 12px; padding: 12px 14px; }
+.bg-filters label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #50575e; }
+.bg-filters label.bg-check { flex-direction: row; align-items: center; font-size: 13px; color: var(--bg-ink); }
+.bg-filters__spacer { flex: 1; }
+.bg-status { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; background: #eee; white-space: nowrap; }
+.bg-status--processing { background: #c6e1c6; color: #2c4700; }
+.bg-status--on-hold { background: #f8dda7; color: #573b00; }
+.bg-status--completed { background: #c8d7e1; color: #003d66; }
+.bg-status--failed, .bg-status--cancelled { background: #eba3a3; color: #570000; }
+.bg-pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 16px; }
+.bg-qty { font-size: 18px; font-weight: 700; }
+.bg-box { display: inline-block; width: 16px; height: 16px; border: 2px solid #8c8f94; border-radius: 3px; }
+.bg-pickup { margin-top: 24px; }
+.bg-print-only { display: none; }
+.bg-sign { min-width: 90px; }
+
+@media print {
+	#adminmenumain, #wpadminbar, #wpfooter, .bg-noprint, .notice, #screen-meta, #screen-meta-links, .woocommerce-layout__header, .update-nag { display: none !important; }
+	#wpcontent, #wpbody-content { margin: 0 !important; padding: 0 !important; }
+	html.wp-toolbar { padding-top: 0 !important; }
+	.bg-wrap { margin: 0 !important; max-width: none; }
+	.bg-print-only { display: inline; }
+	td.bg-print-only, th.bg-print-only { display: table-cell; border-bottom: 1px solid #999; }
+	.bg-card, .bg-kpi, .bg-filters { border-color: #999; box-shadow: none; break-inside: avoid; }
+	.bg-kpi--dark { background: #fff; color: #000; }
+	.bg-kpi--dark .bg-kpi__value { color: #000; }
+	.bg-table { font-size: 11px; }
+	.bg-table tr { break-inside: avoid; }
+	.bg-pick { display: block; }
+	a { color: #000 !important; text-decoration: none !important; }
+	@page { size: A4 landscape; margin: 10mm; }
+}
