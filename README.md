@@ -12,6 +12,7 @@ Ez a `wordpress` ág az éles webshop kódja. A `main` ág a jóváhagyott demó
   - `coupons.php` – karácsonyi BG10 kártya: vásárlónként egyszer a kampányból, teljes visszatérítésnél felszabadul
   - `security.php` – XML-RPC ki, felhasználónév-felderítés ellen, belépéskorlát, biztonsági fejlécek, erős jelszó adminnak
   - `catalog-data.php` – élő termékadatok a sablonnak (ár, akció, készlet a WooCommerce-ből)
+  - `staff.php` – munkatársi admin: „Bio-Goods kezelő” szerepkör (boltkezelő mínusz WooCommerce-beállítások, téma, bővítmények, felhasználók, blog – szerződés 4.4.), szűkített menü (Mai nap, Rendelések, Járatlista, Komissiózó lista, Kuponok, Riport, Termékek, Profil), belépés után Mai nap áttekintő
   - `cli.php` – `wp bg setup`, `wp bg import-products`, `wp bg import-coupons`
 - `tools/` – a demó adatainak exportja (`export.js` → `bg-data.json`) és a böngészős tesztek (`smoke.py`, `e2e.py`)
 
