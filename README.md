@@ -54,9 +54,9 @@ Petra 11-26-i levele alapján:
 - **Szövegek frissítve:** főoldal (mintabolt-kártya), Szállítás, Kapcsolat, Fizetési módok (új kártya), városi oldalak GYIK-ja.
 - **Nyitott:** mikortól vehető át a rendelés, kell-e előre jelezni, van-e minimum személyes átvételnél (a demó most minimum nélkül engedi), hogyan értesítjük a vásárlót, és kell-e az adminban külön „átvételre vár” lista.
 
-## WordPress-admin bővítmény (2026-11-26)
+## Éles webshop
 
-Az éles WooCommerce-webshop napi kezelőfelülete a [`wordpress/bg-admin/`](wordpress/bg-admin/) mappában: „Bio-Goods kezelő” szerepkör szűkített menüvel, Mai nap, Napi járatlista (szerződés 05. tétel), Komissiózó lista. Részletek: [wordpress/bg-admin/README.md](wordpress/bg-admin/README.md). A demó `/admin/` oldalai ennek a látványtervei.
+Az éles WordPress + WooCommerce kód a `wordpress` ágon van (sablon és a `bg-core` bővítmény, benne a munkatársi admin: Bio-Goods kezelő szerepkör, Mai nap, járatlista, komissió). A demó `/admin/` oldalai ennek a látványtervei.
 
 ## Futtatás
 
