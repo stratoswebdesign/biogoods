@@ -26,7 +26,7 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 - **Egyetlen ajánlatkérő útvonal:** minden céges CTA a `cegeknek.html#ajanlat` űrlapra visz (a céges ajándék oldalé is).
 - **Szín:** a fő sárga az arculati kézikönyv szerinti `#E3AF00` (korábban `#CE8900`), az egész demóban.
 - **Nyitott:** hero-videó, partnerlogók (hozzájárulás), B2B árak és feltételek, a mintabolt nyitvatartása, DIN Next LT Pro webes licenc (addig Oswald + Manrope). A hírlevél-sáv, a receptajánló és a járatkártyák lekerültek a főoldalról.
-- **Még nincs átvezetve a demó többi részén:** a személyes átvétel (Gesztely) a pénztárban, és a Selyemgubó Szociális Szövetkezet mint cégadat a pénztárban és az ÁSZF-sablonban.
+- **Még nincs átvezetve a demó többi részén:** a Selyemgubó Szociális Szövetkezet mint cégadat a pénztárban és az ÁSZF-sablonban. (A személyes átvétel 2026-11-26 óta a pénztárban is megvan, lásd lent.)
 
 ## Termékfotók és kategóriaoldalak (2026-11-17)
 
@@ -42,6 +42,17 @@ Kattintható bemutató webshop a bgmangalica.hu WooCommerce-átállásához, a S
 - Ajándékkártyák láthatók (5 000 / 10 000 / 20 000 Ft), az ügyfél grafikájával.
 - Fotójavítások Petra azonosításai alapján (dagadó ↔ oldalas, téliszalámi, formázott szalonna, grillkolbászok) – részletek: [FOTOK.md](FOTOK.md).
 - Első partnerlogó a főoldali referenciafalon: The Club Avalon (hozzájárulás: Avalon Park Kft., 2026-11-18).
+
+## Személyes átvétel Gesztelyen (2026-11-26)
+
+Petra 11-26-i levele alapján:
+
+- **Hely és idő:** 3715 Gesztely, Aradi u. 22.; hétfőtől csütörtökig 7:00–15:00, pénteken 7:00–13:00 (`BG.pickup` a `data.js`-ben).
+- **Helyszíni fizetés:** készpénz, bármilyen bankkártya, ajándékkártya.
+- **Pénztár:** új „2 · Átvétel” lépés (Házhozszállítás / Személyes átvétel Gesztelyen). Átvételnél eltűnik a szállítási cím és a járatnap, megjelenik a számlázási cím (a számlán kötelező), a fizetésnél a „Készpénz a sofőrnél” helyett „Fizetés átvételkor Gesztelyen” áll. A kosárból is indítható (`penztar.html?atvetel=gesztely`), település és minimum nélkül.
+- **Köszönőoldal:** átvételi kártya és átvételi lépések. A rendelés `mode: 'pickup'`, `zone: 'pickup'`, nap nélkül, ezért nem kerül a sofőr járatlistájára és a járatnaphoz kötött komissiózó listára.
+- **Szövegek frissítve:** főoldal (mintabolt-kártya), Szállítás, Kapcsolat, Fizetési módok (új kártya), városi oldalak GYIK-ja.
+- **Nyitott:** mikortól vehető át a rendelés, kell-e előre jelezni, van-e minimum személyes átvételnél (a demó most minimum nélkül engedi), hogyan értesítjük a vásárlót, és kell-e az adminban külön „átvételre vár” lista.
 
 ## Futtatás
 
@@ -73,7 +84,7 @@ assets/css/styles.css arculat (fekete #161615 · arany #CE8900 · krém #F5F0E6;
 
 - A szállítás pontosan a mostani webshop szerint működik (`BG.towns` a `data.js`-ben, 2026-11-02): a OneMin 92 szállítási régiója 85 településre és 104 járatra bontva, járatonkénti minimummal (pl. Budapest: kedd 10 000 Ft, péntek 5 000 Ft), a november 5-i dunántúli egyszeri járattal; rendelés a kiszállítást megelőző napon délig; szállítási díj nincs.
 - Irányítószámok: hu-postal-codes (Magyar Posta-lista, MIT). Pallagnak és a Szentjakab Parknak nincs saját irányítószáma, ezek név alapján kereshetők. Megerősítendő: a /terulet oldal „Tiszalök”-öt említ, a régiók között viszont Tiszalúc szerepel.
-- Megerősítve (2026-11-02): saját hűtött autók és sofőrök; csak a listán szereplő településekre; személyes átvétel nincs; cégadatok a cégjegyzékből (BIO-GOODS Kft., 05-09-023530 – a cégnév megerősítendő); elérhetőség H–Cs 7–15, P 7–13 (Google-cégprofil).
+- Megerősítve (2026-11-02): saját hűtött autók és sofőrök; csak a listán szereplő településekre; személyes átvétel ~~nincs~~ – 2026-11-08 óta van, Gesztelyen (lásd: Személyes átvétel); cégadatok a cégjegyzékből (BIO-GOODS Kft., 05-09-023530 – a cégnév megerősítendő); elérhetőség H–Cs 7–15, P 7–13 (Google-cégprofil).
 - Tárolás, eltarthatóság, csomagolás. A kiszerelések, árak, összetevők és allergének a bgmangalica.hu OneMin-katalógusából valók (2026-11-02).
 - A kilóár öt terméknél nem egyezik az ár és a kiszerelés hányadosával. Ezeket az ügyféllel javítani kell: dobozos kenőmájas (kiírt 6100, valós 6400 Ft/kg), tömlős kenőmájas (6100 vs. 5826), tepertőkrém (6500 vs. 6600), chilis rilette (6700 vs. 7000), abált szalonna (5700 vs. 5667). A demó most a kiírt értéket mutatja.
 - A kocsonyacsomag összetevői a forrásban sem szerepelnek.

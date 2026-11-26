@@ -195,6 +195,9 @@ BG.featured = ['fustolt-csemege-kolbasz', 'kolozsvari-szalonna', 'csontos-tarja'
    rendelés a kiszállítást megelőző napon délig. Szállítási díj nincs, településenként és járatonként rendelési minimum van. */
 BG.cutoffHour = 12;
 
+/* Személyes átvétel – Petra, 2026-11-26. Nyitott: mikortól vehető át a rendelés, kell-e előre jelezni, van-e minimum. */
+BG.pickup = { name: 'Személyes átvétel Gesztelyen', addr: '3715 Gesztely, Aradi u. 22.', hours: 'hétfőtől csütörtökig 7:00–15:00, pénteken 7:00–13:00', pay: 'készpénz, bankkártya (bármely kártyatípus) vagy ajándékkártya' };
+
 BG.areas = [
   { id: 'pest', name: 'Budapest és környéke' },
   { id: 'borsod', name: 'Borsod-Abaúj-Zemplén' },

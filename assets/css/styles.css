@@ -753,3 +753,6 @@ img[src*="termekek-feher"] { object-fit: contain !important; background: #fff; }
 .opt-chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 22px; border: 1.5px solid var(--line-2); background: var(--paper); font-weight: 600; font-size: 15px; cursor: pointer; }
 .opt-chip input:checked + span { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); font-weight: 700; }
 .opt-chip input:focus-visible + span { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* A hidden attribútum mindig rejtsen (a .stack / .radio-card display-szabályai felülírnák) */
+[hidden] { display: none !important; }

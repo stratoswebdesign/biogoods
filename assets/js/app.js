@@ -1017,8 +1017,9 @@
         '<form class="field" id="coupon-form">Kupon vagy ajándékkártya<span class="row" style="flex-wrap:nowrap"><input name="code" class="input" style="flex:1;min-width:0;height:46px" placeholder="pl. APP5 vagy BG10-…"' + (cp ? ' value="' + esc(cp.code) + '"' : '') + '><button class="btn btn-outline btn-sm" type="submit">' + (cp ? 'Törlés' : 'Beváltom') + '</button></span></form>' +
         '<div class="line total"><strong>Fizetendő</strong><span class="price">' + ft(pay) + '</span></div>' +
         (ok ? '<a class="btn btn-gold btn-block" href="' + url('penztar.html') + '">Tovább a pénztárhoz</a>'
-          : '<button class="btn btn-block" disabled>' + (s.info ? 'Még ' + ft(s.missing) + ' a minimumig' : 'Előbb válassz települést') + '</button>') +
-        '<p class="muted" style="font-size:13px">Fizetés: bankkártya, OTP, K&amp;H és MKB SZÉP-kártya, készpénz a sofőrnél.</p></aside></div>';
+          : '<button class="btn btn-block" disabled>' + (s.info ? 'Még ' + ft(s.missing) + ' a minimumig' : 'Előbb válassz települést') + '</button>' +
+            '<a class="btn btn-outline btn-block" href="' + url('penztar.html?atvetel=gesztely') + '">Személyes átvétellel Gesztelyen</a>') +
+        '<p class="muted" style="font-size:13px">Fizetés: bankkártya, OTP, K&amp;H és MKB SZÉP-kártya, készpénz a sofőrnél; személyes átvételnél helyben is.</p></aside></div>';
       bindTownChecks(root);
       $('#coupon-form').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -1050,26 +1051,35 @@
     }
     const town = getTown();
     const saved = store.get('bg_customer', {});
+    const PU = BG.pickup;
+    let mode = params.get('atvetel') === 'gesztely' ? 'pickup' : store.get('bg_mode', 'ship');
     root.innerHTML = '<div class="checkout"><form id="co" novalidate>' +
       '<h1 style="font-size:48px">Pénztár</h1>' +
       '<fieldset class="panel"><legend>1 · Elérhetőség</legend><p class="muted" style="font-size:14px">Vendégként is rendelhetsz. A demóban nincs valódi fiók.</p>' +
       '<div class="form-grid"><label class="field">E-mail-cím<input name="email" type="email" required autocomplete="email" value="' + esc(saved.email || '') + '"></label>' +
-      '<label class="field">Telefonszám (a sofőrnek)<input name="phone" type="tel" required autocomplete="tel" value="' + esc(saved.phone || '') + '" placeholder="+36 30 123 4567"></label></div></fieldset>' +
-      '<fieldset class="panel"><legend>2 · Szállítási cím</legend>' +
+      '<label class="field"><span id="phone-lbl">Telefonszám (a sofőrnek)</span><input name="phone" type="tel" required autocomplete="tel" value="' + esc(saved.phone || '') + '" placeholder="+36 30 123 4567"></label></div></fieldset>' +
+      '<fieldset class="panel"><legend>2 · Átvétel</legend>' +
+      '<div class="radio-list" id="mode"><label class="radio-card"><input type="radio" name="mode" value="ship"' + (mode === 'ship' ? ' checked' : '') + '><span><strong>Házhozszállítás</strong><small style="display:block">Saját hűtött autóval, a település járatnapján</small></span></label>' +
+      '<label class="radio-card"><input type="radio" name="mode" value="pickup"' + (mode === 'pickup' ? ' checked' : '') + '><span><strong>' + esc(PU.name) + '</strong><small style="display:block">' + esc(PU.addr) + '</small></span></label></div>' +
       '<label class="field">Név<input name="name" required autocomplete="name" value="' + esc(saved.name || '') + '"></label>' +
-      '<div class="form-grid"><label class="field" style="max-width:180px">Irányítószám<input name="zip" inputmode="numeric" required autocomplete="postal-code" value="' + esc(saved.zip || '') + '"></label>' +
+      '<div id="pickup-box" class="card" hidden style="padding:18px"><p><strong>' + esc(PU.addr) + '</strong></p><p class="muted" style="font-size:15px">Átvehető ' + esc(PU.hours) + '. Helyben fizethetsz: ' + esc(PU.pay) + '.</p>' +
+      '<p class="muted" style="font-size:14px">[Mikortól vehető át a rendelés, és kell-e előre jelezni: megerősítendő]</p></div>' +
+      '<div id="bill-fields" class="stack" style="gap:inherit" hidden><p><strong>Számlázási cím</strong></p><div class="form-grid"><label class="field" style="max-width:180px">Irányítószám<input name="billZip" inputmode="numeric" autocomplete="billing postal-code" value="' + esc(saved.billZip || saved.zip || '') + '"></label>' +
+      '<label class="field">Település<input name="billCity" autocomplete="billing address-level2" value="' + esc(saved.billCity || saved.town || '') + '"></label></div>' +
+      '<label class="field">Utca, házszám<input name="billStreet" autocomplete="billing street-address" value="' + esc(saved.billStreet || saved.street || '') + '"></label></div>' +
+      '<div id="ship-fields" class="stack" style="gap:inherit"><div class="form-grid"><label class="field" style="max-width:180px">Irányítószám<input name="zip" inputmode="numeric" required autocomplete="postal-code" value="' + esc(saved.zip || '') + '"></label>' +
       '<label class="field" id="town-field">Település<input name="town" required autocomplete="address-level2" value="' + esc(town ? town.name : (saved.town || '')) + '" list="town-list"></label></div>' +
       '<datalist id="town-list">' + BG.towns.map((t) => '<option value="' + esc(t.name) + '">').join('') + '</datalist>' +
       '<p class="field-msg" id="town-msg" aria-live="polite"></p>' +
       '<label class="field">Utca, házszám<input name="street" required autocomplete="street-address" value="' + esc(saved.street || '') + '"></label>' +
-      '<label class="field">Megjegyzés a sofőrnek (nem kötelező)<textarea name="note" rows="2" placeholder="Kapukód, emelet, mikor vagy otthon…"></textarea></label></fieldset>' +
-      '<fieldset class="panel"><legend>3 · Járatnap</legend><p class="muted" style="font-size:14px" id="days-intro"></p><div class="radio-cards" id="days"></div></fieldset>' +
-      '<fieldset class="panel"><legend>4 · Fizetés</legend><div class="radio-list">' +
-      [['card', 'Bankkártya online', 'SimplePay – Visa, Mastercard, Maestro'], ['otpszep', 'OTP SZÉP-kártya', 'Az OTP SZÉP-kártya felületén'], ['khszep', 'K&H SZÉP-kártya', 'A K&H SZÉP-kártya felületén'], ['mkbszep', 'MKB SZÉP-kártya', 'Az MKB SZÉP-kártya felületén'], ['cash', 'Készpénz a sofőrnél', 'Pontos összeggel, átvételkor']]
-        .map(([v, n, d], ix) => '<label class="radio-card"><input type="radio" name="pay" value="' + v + '"' + (ix === 0 ? ' checked' : '') + '><span><strong>' + esc(n) + '</strong><small style="display:block">' + esc(d) + '</small></span></label>').join('') +
+      '<label class="field">Megjegyzés a sofőrnek (nem kötelező)<textarea name="note" rows="2" placeholder="Kapukód, emelet, mikor vagy otthon…"></textarea></label></div></fieldset>' +
+      '<fieldset class="panel" id="days-fs"><legend>3 · Járatnap</legend><p class="muted" style="font-size:14px" id="days-intro"></p><div class="radio-cards" id="days"></div></fieldset>' +
+      '<fieldset class="panel"><legend id="pay-lgd">4 · Fizetés</legend><div class="radio-list">' +
+      [['card', 'Bankkártya online', 'SimplePay – Visa, Mastercard, Maestro'], ['otpszep', 'OTP SZÉP-kártya', 'Az OTP SZÉP-kártya felületén'], ['khszep', 'K&H SZÉP-kártya', 'A K&H SZÉP-kártya felületén'], ['mkbszep', 'MKB SZÉP-kártya', 'Az MKB SZÉP-kártya felületén'], ['cash', 'Készpénz a sofőrnél', 'Pontos összeggel, átvételkor'], ['onsite', 'Fizetés átvételkor Gesztelyen', 'Készpénz, bankkártya vagy ajándékkártya']]
+        .map(([v, n, d], ix) => '<label class="radio-card" data-paymode="' + (v === 'cash' ? 'ship' : v === 'onsite' ? 'pickup' : '') + '"><input type="radio" name="pay" value="' + v + '"' + (ix === 0 ? ' checked' : '') + '><span><strong>' + esc(n) + '</strong><small style="display:block">' + esc(d) + '</small></span></label>').join('') +
       '</div></fieldset>' +
-      '<fieldset class="panel"><legend>5 · Számlázás és jóváhagyás</legend>' +
-      '<label class="check"><input type="checkbox" name="sameBilling" checked>A számlázási cím megegyezik a szállítási címmel</label>' +
+      '<fieldset class="panel"><legend id="bill-lgd">5 · Számlázás és jóváhagyás</legend>' +
+      '<label class="check" id="same-billing"><input type="checkbox" name="sameBilling" checked>A számlázási cím megegyezik a szállítási címmel</label>' +
       '<label class="check"><input type="checkbox" name="company" id="company-cb">Céges számlát kérek</label>' +
       '<div class="form-grid" id="company-fields" hidden><label class="field">Cégnév<input name="companyName"></label><label class="field">Adószám<input name="taxNo"></label></div>' +
       '<hr style="border:0;border-top:1px solid var(--line);margin:4px 0">' +
@@ -1083,7 +1093,31 @@
     $('#company-cb').addEventListener('change', (e) => { $('#company-fields').hidden = !e.target.checked; });
 
     function currentTown() { return townByName(tInput.value.trim()) || findTowns(tInput.value)[0] || null; }
+    function applyMode() {
+      const pick = mode === 'pickup';
+      $('#pickup-box').hidden = !pick;
+      $('#ship-fields').hidden = pick;
+      $('#days-fs').hidden = pick;
+      $('#days-fs').disabled = pick;
+      $('#bill-fields').hidden = !pick;
+      ['billZip', 'billCity', 'billStreet'].forEach((n) => { form[n].required = pick; form[n].disabled = !pick; });
+      $('#same-billing').hidden = pick;
+      form.sameBilling.disabled = pick;
+      $('#pay-lgd').textContent = (pick ? 3 : 4) + ' · Fizetés';
+      $('#bill-lgd').textContent = (pick ? 4 : 5) + ' · Számlázás és jóváhagyás';
+      $('#phone-lbl').textContent = pick ? 'Telefonszám' : 'Telefonszám (a sofőrnek)';
+      ['zip', 'town', 'street'].forEach((n) => { form[n].required = !pick; form[n].disabled = pick; });
+      $$('[data-paymode]', form).forEach((l) => {
+        const m = l.getAttribute('data-paymode');
+        const inp = l.querySelector('input');
+        const off = m && m !== mode;
+        l.hidden = off; inp.disabled = off;
+        if (off && inp.checked) { inp.checked = false; form.querySelector('input[name=pay][value=card]').checked = true; }
+      });
+    }
+    $$('input[name=mode]', form).forEach((r) => r.addEventListener('change', () => { mode = r.value; store.set('bg_mode', mode); applyMode(); drawDays(); }));
     function drawDays() {
+      if (mode === 'pickup') { drawSum('pickup'); return; }
       const t = currentTown();
       const fld = $('#town-field');
       const msg = $('#town-msg');
@@ -1117,18 +1151,20 @@
       const cc = getCart();
       const total = cartTotal(cc);
       const disc = discountFor(total);
-      const ok = t && total >= t.min;
+      const pick = t === 'pickup';
+      const ok = pick || (t && total >= t.min);
       $('#co-sum').innerHTML = '<h2 style="font-size:24px">Rendelésed</h2><div class="mini-items">' + cc.map((i) => {
         const p = P[i.id];
         return '<div class="mini-item"><img src="' + pimg(p.img) + '" alt=""><span class="n"><strong>' + esc(p.name) + '</strong><br><span class="muted">' + esc(p.pack + optText(i)) + ' × ' + i.qty + '</span></span><strong>' + ft(p.price * i.qty) + '</strong></div>';
       }).join('') + '</div>' +
         '<div style="border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px;font-size:15px"><div class="line"><span>Részösszeg</span><span>' + ft(total) + '</span></div>' +
         (disc ? '<div class="line" style="color:var(--ok)"><span>Kedvezmény (' + esc(coupon().code) + ')</span><span>−' + ft(disc) + '</span></div>' : '') +
-        '<div class="line"><span>Szállítás' + (t ? ' · ' + esc(t.name) : '') + '</span><strong>' + (ok ? 'Ingyenes' : '–') + '</strong></div></div>' +
+        '<div class="line"><span>' + (pick ? 'Személyes átvétel · Gesztely' : 'Szállítás' + (t ? ' · ' + esc(t.name) : '')) + '</span><strong>' + (ok ? 'Ingyenes' : '–') + '</strong></div></div>' +
         '<div class="line total"><strong>Fizetendő</strong><span class="price">' + ft(total - disc) + '</span></div>' +
         '<button type="submit" form="co" class="btn btn-gold btn-block"' + (ok ? '' : ' disabled') + '>Megrendelés fizetési kötelezettséggel</button>' +
         (ok ? '<p class="muted" style="font-size:13px;text-align:center">Demó: fizetés nem történik, a rendelés a böngésződben mentődik.</p>' : '<p class="muted" style="font-size:13px;text-align:center">' + (t ? 'A minimum még nincs meg. <a href="' + url('kosar.html') + '">Vissza a kosárhoz</a>' : 'Add meg a települést.') + '</p>');
     }
+    applyMode();
     tInput.addEventListener('input', drawDays);
     tInput.addEventListener('change', drawDays);
     form.zip.addEventListener('change', () => {
@@ -1141,8 +1177,10 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const err = $('#co-err');
-      const t = currentTown();
+      const pick = mode === 'pickup';
+      const t = pick ? townByName('Gesztely') : currentTown();
       if (!form.checkValidity()) { err.textContent = 'Kérjük, töltsd ki a csillaggal és pirossal jelölt mezőket, és fogadd el az ÁSZF-et.'; form.reportValidity(); return; }
+      if (pick) { placeOrder(true, null); return; }
       if (!t) { err.textContent = 'Erre a településre jelenleg nem szállítunk.'; return; }
       const cc = getCart();
       const total = cartTotal(cc);
@@ -1150,6 +1188,11 @@
       const dayInp = form.querySelector('input[name=day]:checked');
       if (!dayInp) { err.textContent = 'Válassz kiszállítási napot.'; return; }
       if (total < +dayInp.getAttribute('data-min')) { err.textContent = 'Erre a járatra a minimum ' + ft(+dayInp.getAttribute('data-min')) + '. Válassz másik napot, vagy tegyél még a kosárba.'; return; }
+      placeOrder(false, t);
+    });
+    function placeOrder(pick, t) {
+      const cc = getCart();
+      const total = cartTotal(cc);
       const fd = new FormData(form);
       const orders = store.get('bg_orders', []);
       const id = String(1050 + orders.filter((o) => !o.demo).length);
@@ -1157,20 +1200,21 @@
       const order = {
         id, created: new Date().toISOString(), status: 'processing', demo: false,
         items: cc.map((i) => ({ id: i.id, qty: i.qty, price: P[i.id].price, opt: i.opt || undefined })), subtotal: total, discount: disc, coupon: disc && coupon() ? coupon().code : undefined, total: total - disc,
-        town: t.name, zone: t.zone, day: fd.get('day') || null, name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
-        zip: fd.get('zip'), street: fd.get('street'), note: fd.get('note'), pay: fd.get('pay')
+        mode: pick ? 'pickup' : 'ship', name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'), pay: fd.get('pay')
       };
+      if (pick) Object.assign(order, { town: 'Gesztely', zone: 'pickup', day: null, zip: '3715', street: 'Aradi u. 22. – személyes átvétel', note: '', billing: { zip: fd.get('billZip'), city: fd.get('billCity'), street: fd.get('billStreet') } });
+      else Object.assign(order, { town: t.name, zone: t.zone, day: fd.get('day') || null, zip: fd.get('zip'), street: fd.get('street'), note: fd.get('note') });
       orders.push(order);
       store.set('bg_orders', orders);
-      store.set('bg_customer', { name: order.name, email: order.email, phone: order.phone, zip: order.zip, town: t.name, street: order.street });
-      store.set('bg_town', t.name);
+      if (pick) store.set('bg_customer', Object.assign({}, saved, { name: order.name, email: order.email, phone: order.phone, billZip: order.billing.zip, billCity: order.billing.city, billStreet: order.billing.street }));
+      else { store.set('bg_customer', { name: order.name, email: order.email, phone: order.phone, zip: order.zip, town: t.name, street: order.street }); store.set('bg_town', t.name); }
       store.del('bg_coupon');
       saveCart([]);
       location.href = url('koszonjuk.html?id=' + id);
-    });
+    }
   };
 
-  const PAYNAME = { card: 'Bankkártya (SimplePay)', otpszep: 'OTP SZÉP-kártya', khszep: 'K&H SZÉP-kártya', mkbszep: 'MKB SZÉP-kártya', cash: 'Készpénz a sofőrnél' };
+  const PAYNAME = { card: 'Bankkártya (SimplePay)', otpszep: 'OTP SZÉP-kártya', khszep: 'K&H SZÉP-kártya', mkbszep: 'MKB SZÉP-kártya', cash: 'Készpénz a sofőrnél', onsite: 'Fizetés átvételkor (Gesztely)' };
   const parseDay = (s) => { if (!s) return null; const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
 
   pages.thanks = function () {
@@ -1179,18 +1223,27 @@
     if (!o) { root.innerHTML = '<div class="empty" style="margin:48px 0"><p class="display" style="font-size:28px">Nem találjuk ezt a rendelést</p><a class="btn btn-dark" style="margin-top:16px" href="' + url('index.html') + '">Főoldal</a></div>'; return; }
     const day = parseDay(o.day);
     const first = (o.name || '').trim().split(/\s+/).pop();
+    const pick = o.mode === 'pickup';
+    const payLater = o.pay === 'cash' || o.pay === 'onsite';
     root.innerHTML = '<section style="max-width:960px;margin:0 auto;padding:64px 0 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">' +
       '<span aria-hidden="true" style="width:76px;height:76px;border-radius:38px;background:var(--gold);display:flex;align-items:center;justify-content:center"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#161615" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' +
       '<h1>Köszönjük' + (first ? ', ' + esc(first) : '') + '!</h1><p class="lead">Megkaptuk a rendelésed (<strong>#' + esc(o.id) + '</strong>). A visszaigazolást elküldjük a(z) ' + esc(o.email) + ' címre. <span class="demo-badge">DEMO</span></p></section>' +
       '<section style="max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;padding-bottom:32px">' +
-      '<div class="card-dark" style="flex:1 1 400px;display:flex;flex-direction:column;gap:12px"><p class="kicker light" style="margin:0">Kiszállítás</p><p class="display" style="font-size:36px;color:var(--cream)">' + (day ? esc(fmtDate(day)) : 'Egyeztetés alatt') + '</p>' +
-      '<p>' + esc(o.zip + ' ' + o.town + ', ' + o.street) + '<br>A sofőr a ' + esc(o.phone) + ' számon keres, ha kell.</p></div>' +
+      (pick
+        ? '<div class="card-dark" style="flex:1 1 400px;display:flex;flex-direction:column;gap:12px"><p class="kicker light" style="margin:0">Személyes átvétel</p><p class="display" style="font-size:36px;color:var(--cream)">Gesztely</p>' +
+          '<p>' + esc(BG.pickup.addr) + '<br>Átvehető ' + esc(BG.pickup.hours) + '.<br>[Mikortól vehető át, kell-e előre jelezni: megerősítendő]</p></div>'
+        : '<div class="card-dark" style="flex:1 1 400px;display:flex;flex-direction:column;gap:12px"><p class="kicker light" style="margin:0">Kiszállítás</p><p class="display" style="font-size:36px;color:var(--cream)">' + (day ? esc(fmtDate(day)) : 'Egyeztetés alatt') + '</p>' +
+          '<p>' + esc(o.zip + ' ' + o.town + ', ' + o.street) + '<br>A sofőr a ' + esc(o.phone) + ' számon keres, ha kell.</p></div>') +
       '<div class="card" style="flex:1 1 300px;display:flex;flex-direction:column;gap:10px"><p class="kicker" style="margin:0">Fizetés</p><p class="price" style="font-size:36px">' + ft(o.total) + '</p>' +
-      '<p class="muted">' + esc(PAYNAME[o.pay] || '') + (o.pay === 'cash' ? ' – átvételkor fizetendő: <strong>' + ft(o.total) + '</strong>' : ' – a demóban nem történt terhelés') + '</p></div></section>' +
+      '<p class="muted">' + esc(PAYNAME[o.pay] || '') + (payLater ? ' – átvételkor fizetendő: <strong>' + ft(o.total) + '</strong>' : ' – a demóban nem történt terhelés') + '</p></div></section>' +
       '<section style="max-width:960px;margin:0 auto;padding-bottom:48px"><h2 style="font-size:30px;margin-bottom:16px">Mi történik most?</h2><ol class="num-cards">' +
-      '<li><span class="n">01</span><p><strong>Összekészítjük</strong></p><p class="muted">Gesztelyen, a járat előtti napon.</p></li>' +
-      '<li><span class="n">02</span><p><strong>Szólunk előtte</strong></p><p class="muted">[E-mail/SMS a járat előtti napon – megerősítendő]</p></li>' +
-      '<li><span class="n">03</span><p><strong>Kiszállítjuk</strong></p><p class="muted">Saját járattal, a választott napon.</p></li></ol></section>' +
+      (pick
+        ? '<li><span class="n">01</span><p><strong>Összekészítjük</strong></p><p class="muted">A gesztelyi üzemben.</p></li>' +
+          '<li><span class="n">02</span><p><strong>Szólunk, ha kész</strong></p><p class="muted">[Értesítés módja – megerősítendő]</p></li>' +
+          '<li><span class="n">03</span><p><strong>Átveszed</strong></p><p class="muted">' + esc(BG.pickup.addr) + ', nyitvatartási időben.</p></li></ol></section>'
+        : '<li><span class="n">01</span><p><strong>Összekészítjük</strong></p><p class="muted">Gesztelyen, a járat előtti napon.</p></li>' +
+          '<li><span class="n">02</span><p><strong>Szólunk előtte</strong></p><p class="muted">[E-mail/SMS a járat előtti napon – megerősítendő]</p></li>' +
+          '<li><span class="n">03</span><p><strong>Kiszállítjuk</strong></p><p class="muted">Saját járattal, a választott napon.</p></li></ol></section>') +
       '<section style="max-width:960px;margin:0 auto;padding-bottom:80px"><div style="background:var(--gold);border-radius:20px;padding:28px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">' +
       '<div style="flex:1 1 360px"><h2 style="font-size:30px">Legközelebb egy kattintás</h2><p style="margin-top:6px">A Fiókomban a rendelést egy gombbal újrarendelheted.</p></div><a class="btn btn-dark" href="' + url('fiokom.html') + '">Fiókom</a></div></section>';
   };
@@ -1268,7 +1321,7 @@
     $('#city-faq').innerHTML = [
       ['Melyik napon jön a járat ide: ' + t.name + '?', runsText(t) + ' – a rendelést a kiszállítást megelőző napon délig kell leadni.'],
       ['Mekkora a minimum rendelés?', t.name + ': ' + minText(t) + '. Szállítási díj nincs.'],
-      ['Átvehetem személyesen?', 'Személyes átvétel nincs: minden rendelést saját hűtött autóval viszünk házhoz.']
+      ['Átvehetem személyesen?', 'Igen, Gesztelyen (' + BG.pickup.addr + '), ' + BG.pickup.hours + '. A pénztárban válaszd a „Személyes átvétel Gesztelyen” lehetőséget; helyben ' + BG.pickup.pay + ' is fizethetsz.']
     ].map(([q, a]) => '<details><summary>' + esc(q) + '</summary><p>' + esc(a) + '</p></details>').join('');
     $('#city-near').innerHTML = BG.towns.filter((x) => x.zone === t.zone && x !== t).map((x) => '<a class="chip" href="' + url('varos.html?v=' + encodeURIComponent(norm(x.name))) + '">' + esc(x.name) + '</a>').join('');
   };
